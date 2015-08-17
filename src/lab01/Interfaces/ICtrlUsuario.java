@@ -13,7 +13,7 @@ import java.util.Date;
  * @author admin123
  */
 public interface ICtrlUsuario {
-    public abstract void ingresarDatos(String nombre, String email, String nick, String direccion);
+    public abstract void ingresarDatos(String nickname, String email, String nombre, String apellido, String direccion);
     public abstract void datosAdicionales(String apellido);
     public abstract String verClientes();
 }
