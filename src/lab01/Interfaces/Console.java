@@ -29,6 +29,9 @@ public class Console extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
         EscritorioMenu = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         smnuSalir = new javax.swing.JMenu();
@@ -37,7 +40,14 @@ public class Console extends javax.swing.JFrame {
         mnuRegCliente = new javax.swing.JMenuItem();
         mnuRegRestaurante = new javax.swing.JMenuItem();
         mnuRegPedido = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
+        ver = new javax.swing.JMenu();
+        Ver = new javax.swing.JMenuItem();
+
+        jMenuItem1.setText("jMenuItem1");
+
+        jMenuItem2.setText("jMenuItem2");
+
+        jMenuItem3.setText("jMenuItem3");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -64,6 +74,11 @@ public class Console extends javax.swing.JFrame {
         jMenu2.add(mnuRegCliente);
 
         mnuRegRestaurante.setText("Registrar Restaurante");
+        mnuRegRestaurante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuRegRestauranteActionPerformed(evt);
+            }
+        });
         jMenu2.add(mnuRegRestaurante);
 
         mnuRegPedido.setText("Registrar Pedido");
@@ -71,8 +86,17 @@ public class Console extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu2);
 
-        jMenu3.setText("Informacion");
-        jMenuBar1.add(jMenu3);
+        ver.setText("Informacion");
+
+        Ver.setText("Ver Clientes");
+        Ver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VerActionPerformed(evt);
+            }
+        });
+        ver.add(Ver);
+
+        jMenuBar1.add(ver);
 
         setJMenuBar(jMenuBar1);
 
@@ -99,6 +123,17 @@ public class Console extends javax.swing.JFrame {
         EscritorioMenu.add(regCli);
         regCli.show();
     }//GEN-LAST:event_mnuRegClienteActionPerformed
+
+    private void VerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VerActionPerformed
+        // TODO add your handling code here:
+        VerCliente vercli = new VerCliente();
+        EscritorioMenu.add(vercli);
+        vercli.show();
+    }//GEN-LAST:event_VerActionPerformed
+
+    private void mnuRegRestauranteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuRegRestauranteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mnuRegRestauranteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -137,13 +172,17 @@ public class Console extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane EscritorioMenu;
+    private javax.swing.JMenuItem Ver;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem mnuRegCliente;
     private javax.swing.JMenuItem mnuRegPedido;
     private javax.swing.JMenuItem mnuRegRestaurante;
     private javax.swing.JMenuItem mnuSalir;
     private javax.swing.JMenu smnuSalir;
+    private javax.swing.JMenu ver;
     // End of variables declaration//GEN-END:variables
 }

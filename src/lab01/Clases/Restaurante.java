@@ -16,7 +16,7 @@ public class Restaurante extends Usuario{
 
     public Restaurante() {
         super();
-        this.lstImagen = new ArrayList<String>(); //Esto puede ser cualquera
+        //this.lstImagen = new ArrayList<String>(); //Esto puede ser cualquera
     }
     
     

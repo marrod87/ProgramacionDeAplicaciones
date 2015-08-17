@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package lab01.Clases;
+import java.util.Date;
 
 /**
  *
@@ -11,7 +12,9 @@ package lab01.Clases;
  */
 public class Cliente extends Usuario{
     private String apellido;
+    private Date fNac;
    
+    public Cliente(){}
     public Cliente(String apellido) {
         super();
        //setNickname(); poner los valores de los tb
@@ -25,5 +28,7 @@ public class Cliente extends Usuario{
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }
-    
+    public void setFecha(Date fecha) {
+        this.fNac = fecha;
+    }
 }

@@ -15,6 +15,7 @@ public abstract class Usuario {
     private String mail;
     private String direccion;
     private String imagen; //esto es duda
+    
 
     public Usuario() {
     }

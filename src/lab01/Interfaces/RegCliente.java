@@ -7,18 +7,22 @@ package lab01.Interfaces;
 
 import java.io.File;
 import javax.swing.JFileChooser;
+import lab01.Interfaces.ICtrlUsuario;
+import lab01.Handlers.Fabrica;
 
 /**
  *
  * @author gera
  */
 public class RegCliente extends javax.swing.JInternalFrame {
-
+private ICtrlUsuario ICU;
     /**
      * Creates new form RegCliente
      */
     public RegCliente() {
         initComponents();
+        Fabrica fabrica = Fabrica.getInstance();
+        ICU = fabrica.getICtrlUsuario();
     }
 
     /**
@@ -59,6 +63,12 @@ public class RegCliente extends javax.swing.JInternalFrame {
         lblTitulo.setText("Ingrese los siguientes datos:");
 
         lblNickname.setText("Nickname:");
+
+        tbNickname.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tbNicknameActionPerformed(evt);
+            }
+        });
 
         tbNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -196,6 +206,17 @@ public class RegCliente extends javax.swing.JInternalFrame {
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         // TODO add your handling code here:
+        String nombre = this.tbNombre.getText();
+        String mail = this.tbMail.getText();
+        String nickname = this.tbNickname.getText();
+        String direccion = this.tbDireccion.getText();
+        ICU.ingresarDatos(nombre,mail,nickname,direccion);
+        String apellido = this.tbApellido.getText();
+        this.tbApellido.setText("lolo");
+        String l = ICU.verClientes();
+        this.tbApellido.setText(l);
+        
+        ICU.datosAdicionales(apellido);
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void btnSelImagenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelImagenActionPerformed
@@ -205,6 +226,10 @@ public class RegCliente extends javax.swing.JInternalFrame {
         String filename = archivo.getAbsolutePath();
         tbSelImagen.setText(filename);
     }//GEN-LAST:event_btnSelImagenActionPerformed
+
+    private void tbNicknameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbNicknameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbNicknameActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
