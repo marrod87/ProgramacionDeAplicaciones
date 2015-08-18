@@ -7,6 +7,7 @@
 package lab01.Interfaces;
 
 import java.util.Date;
+import lab01.Clases.Cliente;
 
 /**
  *
@@ -16,4 +17,5 @@ public interface ICtrlUsuario {
     public abstract void ingresarDatos(String nickname, String email, String nombre, String apellido, String direccion);
     public abstract void datosAdicionales(String apellido);
     public abstract String verClientes();
+    public abstract Cliente getUsuarioByNickname(String nickname);
 }

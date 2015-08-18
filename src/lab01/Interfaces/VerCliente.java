@@ -6,6 +6,7 @@
 
 package lab01.Interfaces;
 
+import lab01.Clases.Cliente;
 import lab01.Handlers.Fabrica;
 
 /**
@@ -21,7 +22,20 @@ public class VerCliente extends javax.swing.JInternalFrame {
         initComponents();
         Fabrica fabrica = Fabrica.getInstance();
         ICU = fabrica.getICtrlUsuario();
-       
+       this.tbNickNameCliente.setVisible(false);
+       this.tbapellidoClente.setVisible(false);
+       this.tbdireccionCliente.setVisible(false);
+       this.tbfechaDeNacCliente.setVisible(false);
+       this.tbmailCliente.setVisible(false);
+       this.tbnombreCliente.setVisible(false);
+       this.tbtipoDeUsuario.setVisible(false);
+       this.lblNicknameCliente.setVisible(false);
+       this.lblapellidoCliente.setVisible(false);
+       this.lbldireccionCliente.setVisible(false);
+       this.lblfechaNacCliente.setVisible(false);
+       this.lblmailCliente.setVisible(false);
+       this.lblnombreCliente.setVisible(false);
+       this.lbltipoDeUsuarioCliente.setVisible(false);
     }
 
     /**
@@ -42,13 +56,13 @@ public class VerCliente extends javax.swing.JInternalFrame {
         tbdireccionCliente = new javax.swing.JTextField();
         tbfechaDeNacCliente = new javax.swing.JTextField();
         tbtipoDeUsuario = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        lblNicknameCliente = new javax.swing.JLabel();
+        lblmailCliente = new javax.swing.JLabel();
+        lblnombreCliente = new javax.swing.JLabel();
+        lblapellidoCliente = new javax.swing.JLabel();
+        lbldireccionCliente = new javax.swing.JLabel();
+        lblfechaNacCliente = new javax.swing.JLabel();
+        lbltipoDeUsuarioCliente = new javax.swing.JLabel();
 
         ver.setText("Ver cliente");
         ver.addActionListener(new java.awt.event.ActionListener() {
@@ -71,19 +85,19 @@ public class VerCliente extends javax.swing.JInternalFrame {
 
         tbtipoDeUsuario.setEditable(false);
 
-        jLabel1.setText("NickName:");
+        lblNicknameCliente.setText("NickName:");
 
-        jLabel2.setText("Correo electronico:");
+        lblmailCliente.setText("Correo electronico:");
 
-        jLabel3.setText("Nombre:");
+        lblnombreCliente.setText("Nombre:");
 
-        jLabel4.setText("Apellido:");
+        lblapellidoCliente.setText("Apellido:");
 
-        jLabel5.setText("Direccion:");
+        lbldireccionCliente.setText("Direccion:");
 
-        jLabel6.setText("Fecha de nacimiento:");
+        lblfechaNacCliente.setText("Fecha de nacimiento:");
 
-        jLabel7.setText("Tipo de usuario:");
+        lbltipoDeUsuarioCliente.setText("Tipo de usuario:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -98,13 +112,13 @@ public class VerCliente extends javax.swing.JInternalFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(40, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(lblNicknameCliente, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblmailCliente, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblnombreCliente, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblapellidoCliente, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lbldireccionCliente, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblfechaNacCliente, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lbltipoDeUsuarioCliente, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(tbtipoDeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -127,31 +141,31 @@ public class VerCliente extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tbNickNameCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
+                    .addComponent(lblNicknameCliente))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tbmailCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                    .addComponent(lblmailCliente))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tbnombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
+                    .addComponent(lblnombreCliente))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tbapellidoClente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
+                    .addComponent(lblapellidoCliente))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tbdireccionCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
+                    .addComponent(lbldireccionCliente))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tbfechaDeNacCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
+                    .addComponent(lblfechaNacCliente))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tbtipoDeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7))
+                    .addComponent(lbltipoDeUsuarioCliente))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
@@ -161,19 +175,44 @@ public class VerCliente extends javax.swing.JInternalFrame {
     private void verActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verActionPerformed
         //String cli = ICU.verClientes();
     //String str = toString();
-    this.Cliente.setText("lala");
+        Fabrica fabrica = Fabrica.getInstance();
+        ICU = fabrica.getICtrlUsuario();
+       String cli = this.Cliente.getText();
+       Cliente c = ICU.getUsuarioByNickname(cli);
+       
+       this.tbNickNameCliente.setVisible(true);
+       this.tbNickNameCliente.setText(c.getNickname());
+       this.tbapellidoClente.setVisible(true);
+       this.tbapellidoClente.setText(c.getApellido());
+       this.tbdireccionCliente.setVisible(true);
+       this.tbdireccionCliente.setText(c.getDireccion());
+       this.tbfechaDeNacCliente.setVisible(true);
+       
+       this.tbmailCliente.setVisible(true);
+       this.tbmailCliente.setText(c.getMail());
+       this.tbnombreCliente.setVisible(true);
+       this.tbnombreCliente.setText(c.getNombre());
+       this.tbtipoDeUsuario.setVisible(true);
+       this.lblNicknameCliente.setVisible(true);
+       this.lblapellidoCliente.setVisible(true);
+       this.lbldireccionCliente.setVisible(true);
+       this.lblfechaNacCliente.setVisible(true);
+       this.lblmailCliente.setVisible(true);
+       this.lblnombreCliente.setVisible(true);
+       this.lbltipoDeUsuarioCliente.setVisible(true);
+    //this.Cliente.setText("lala");
     }//GEN-LAST:event_verActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Cliente;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel lblNicknameCliente;
+    private javax.swing.JLabel lblapellidoCliente;
+    private javax.swing.JLabel lbldireccionCliente;
+    private javax.swing.JLabel lblfechaNacCliente;
+    private javax.swing.JLabel lblmailCliente;
+    private javax.swing.JLabel lblnombreCliente;
+    private javax.swing.JLabel lbltipoDeUsuarioCliente;
     private javax.swing.JTextField tbNickNameCliente;
     private javax.swing.JTextField tbapellidoClente;
     private javax.swing.JTextField tbdireccionCliente;

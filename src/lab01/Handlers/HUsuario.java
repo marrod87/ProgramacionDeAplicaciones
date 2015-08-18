@@ -47,5 +47,7 @@ public class HUsuario {
     String str= (String)w.getValue();
     return str;
 }
+    
+
 }
     

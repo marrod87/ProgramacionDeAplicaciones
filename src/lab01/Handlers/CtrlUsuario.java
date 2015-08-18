@@ -65,5 +65,8 @@ return c;
 
 }
 
-
+    public Cliente getUsuarioByNickname(String nickname){
+        HUsuario mu = HUsuario.getinstance();
+        return (mu.obtenerUsuario(nickname));
+    }
 }

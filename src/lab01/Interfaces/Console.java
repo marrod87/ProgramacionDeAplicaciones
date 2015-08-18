@@ -128,6 +128,7 @@ public class Console extends javax.swing.JFrame {
         // TODO add your handling code here:
         VerCliente vercli = new VerCliente();
         EscritorioMenu.add(vercli);
+        
         vercli.show();
     }//GEN-LAST:event_VerActionPerformed
 
