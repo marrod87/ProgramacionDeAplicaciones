@@ -28,9 +28,10 @@ private ICtrlUsuario ICU;
         ICU = fabrica.getICtrlUsuario();
     }
     //ButtonGroup buttonGroup1 = new ButtonGroup();
-    //rbCliente= new JRadioButton();   
+    //JRadioButton rbCliente= new JRadioButton();   
     //JRadioButton rbRestaurante= new JRadioButton();
-    //buttonGroup1.add((JRadioButton)rbCliente);
+    //buttonGroup1.add(rbCliente);
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -62,6 +63,8 @@ private ICtrlUsuario ICU;
         tbSelImagen = new javax.swing.JTextField();
         rbCliente = new javax.swing.JRadioButton();
         rbRestaurante = new javax.swing.JRadioButton();
+
+        buttonGroup.add(rbCliente);
 
         setClosable(true);
         setIconifiable(true);

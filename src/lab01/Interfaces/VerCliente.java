@@ -64,6 +64,8 @@ public class VerCliente extends javax.swing.JInternalFrame {
         lblfechaNacCliente = new javax.swing.JLabel();
         lbltipoDeUsuarioCliente = new javax.swing.JLabel();
 
+        setPreferredSize(new java.awt.Dimension(500, 500));
+
         ver.setText("Ver cliente");
         ver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
