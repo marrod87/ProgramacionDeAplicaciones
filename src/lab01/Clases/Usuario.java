@@ -10,14 +10,21 @@ package lab01.Clases;
  * @author gera
  */
 public abstract class Usuario {
-    private String nickname;
-    private String nombre;
-    private String mail;
-    private String direccion;
-    private String imagen; //esto es duda
+    protected String nickname;
+    protected String nombre;
+    protected String mail;
+    protected String direccion;
+    protected String imagen; //esto es duda
     
 
     public Usuario() {
+    }
+    
+    public Usuario(String nickname, String nombre, String email, String direccion) {
+        this.nickname=nickname;
+        this.nombre=nombre;
+        this.mail=email;
+        this.direccion=direccion;
     }
 
     public String getNickname() {

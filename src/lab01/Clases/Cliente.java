@@ -14,9 +14,9 @@ public class Cliente extends Usuario{
     private String apellido;
     private Date fNac;
    
-    public Cliente(){}
-    public Cliente(String apellido) {
-        super();
+    //public Cliente(){}
+    public Cliente(String nickname, String nombre, String email, String direccion,String apellido) {
+        super(nickname,nombre,email,direccion);
        //setNickname(); poner los valores de los tb
         this.apellido = apellido;
     }
@@ -30,5 +30,11 @@ public class Cliente extends Usuario{
     }
     public void setFecha(Date fecha) {
         this.fNac = fecha;
+    }
+    public String getMail(){
+        return mail;
+    }
+    public String getNickname() {
+        return nickname;
     }
 }

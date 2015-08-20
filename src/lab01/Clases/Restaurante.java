@@ -14,8 +14,8 @@ import java.util.ArrayList;
 public class Restaurante extends Usuario{
     private ArrayList<String> lstImagen; 
 
-    public Restaurante() {
-        super();
+    public Restaurante(String nickname, String nombre, String email, String direccion) {
+        super(nickname,nombre,email,direccion);
         //this.lstImagen = new ArrayList<String>(); //Esto puede ser cualquera
     }
     

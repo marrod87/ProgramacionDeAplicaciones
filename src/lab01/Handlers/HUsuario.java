@@ -11,6 +11,7 @@ import java.util.Map.Entry;
 import lab01.Clases.Usuario;
 import lab01.Clases.Cliente;
 import java.util.Iterator;
+import javax.swing.JOptionPane;
 import lab01.Clases.DataUsuario;
 /**
  *
@@ -31,9 +32,10 @@ public class HUsuario {
         return instancia;
     }
     
-    public void addUsuario(Cliente usu){
+    public void addUsuario(Usuario usu){
         String nickname = usu.getNickname();
         Colusuarios.put(nickname,usu);
+        //JOptionPane.showMessageDialog(null, usu.getNickname());
     }
     
     public Cliente obtenerUsuario(String nickname){
@@ -46,8 +48,25 @@ public class HUsuario {
 
     String str= (String)w.getValue();
     return str;
+    }
+    public boolean find(String nickname, String email){
+        if(Colusuarios.isEmpty())
+            return false;
+        else
+            if(Colusuarios.containsKey(nickname))
+                return true;
+            else{
+                Iterator it = Colusuarios.entrySet().iterator();
+                
+                while(it.hasNext()){
+                    Map.Entry map = (Map.Entry) it.next();
+                    Usuario usu= (Usuario)map.getValue();
+                    if(email.equals(usu.getMail()))
+                        return true;   
+                }
+            }
+        return false;
+    }
 }
     
-
-}
     

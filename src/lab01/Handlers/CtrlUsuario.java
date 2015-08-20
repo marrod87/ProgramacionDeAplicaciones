@@ -6,7 +6,7 @@
 package lab01.Handlers;
 import lab01.Clases.Cliente;
 import lab01.Clases.Restaurante;
-import static lab01.Handlers.tipoU.cliente;
+//import static lab01.Handlers.tipoU.cliente;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -15,27 +15,35 @@ import lab01.Interfaces.ICtrlUsuario;
  *
  * @author gera
  */
-enum tipoU{cliente,restaurante}
+//enum tipoU{cliente,restaurante}
 
 public class CtrlUsuario implements ICtrlUsuario {
-private String nick;
+
+    private String nickname;
+    private String nombre;
+    private String email;
+    private String direccion;
+
 public CtrlUsuario(){}
 
-public void ingresarDatos(String nickname, String email, String nombre, String apellido, String direccion)
+    public boolean ingresarDatos(String nickname, String nombre, String email, String direccion)
 {
-    //this.nick=nick;
-    HUsuario mu = HUsuario.getinstance();
-    tipoU cli =(tipoU) cliente;
+    this.nickname=nickname;
+    this.direccion=direccion;
+    this.nombre=nombre;
+    this.email=email;
+    HUsuario HU = HUsuario.getinstance();
+    //tipoU cli =(tipoU) cliente;
     //tipoU res =(tipoU) restaurante;
     //if (tipo.equals(cli)){
-        Cliente u =  new Cliente();
-        u.setNickname(nickname);
-        u.setMail(email);
-        u.setNombre(nombre);
-        u.setApellido(apellido);
-        u.setDireccion(direccion);
-        mu.addUsuario(u);
-        JOptionPane.showMessageDialog(null, "El cliente se ha registrado con exito.","Confirmación",JOptionPane.INFORMATION_MESSAGE);
+        //Cliente u =  new Cliente();
+        //u.setNickname(nickname);
+        //u.setMail(email);
+        //u.setNombre(nombre);
+        //u.setApellido(apellido);
+        //u.setDireccion(direccion);
+       // mu.addUsuario(u);
+        //JOptionPane.showMessageDialog(null, "El cliente se ha registrado con exito.","Confirmación",JOptionPane.INFORMATION_MESSAGE);
        // }
    /* else{
         if (tipo.equals(res)){
@@ -45,14 +53,28 @@ public void ingresarDatos(String nickname, String email, String nombre, String a
         r.setNickname(nick);
         r.setMail(email);   
         }
-    }*/
+    }*/ //if(nickname.isEmpty() || email.isEmpty() ||   )
+    
+        return !(HU.find(nickname, email));
+}
+
+    public void registrarCliente(String apellido){
+    Cliente c = new Cliente(this.nickname, this.nombre, this.email, this.direccion, apellido);
+    HUsuario HU = HUsuario.getinstance();
+    HU.addUsuario(c);
+}
+
+public void registrarRestaurante(){
+    Restaurante r = new Restaurante(this.nickname, this.nombre, this.email, this.direccion);
+    HUsuario HU = HUsuario.getinstance();
+    HU.addUsuario(r);
 }
 @Override
 public void datosAdicionales(String apellido){
 
 HUsuario mu = HUsuario.getinstance();
 
-Cliente c = mu.obtenerUsuario(this.nick);
+Cliente c = mu.obtenerUsuario(this.nickname);
 c.setApellido(apellido);
 
 }

@@ -14,7 +14,9 @@ import lab01.Clases.Cliente;
  * @author admin123
  */
 public interface ICtrlUsuario {
-    public abstract void ingresarDatos(String nickname, String email, String nombre, String apellido, String direccion);
+    public abstract boolean ingresarDatos(String nickname, String email, String nombre, String direccion);
+    public abstract void registrarCliente(String apellido);
+    public abstract void registrarRestaurante();
     public abstract void datosAdicionales(String apellido);
     public abstract String verClientes();
     public abstract Cliente getUsuarioByNickname(String nickname);

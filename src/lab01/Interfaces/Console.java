@@ -5,7 +5,7 @@
  */
 package lab01.Interfaces;
 
-import lab01.Interfaces.RegCliente;
+//import lab01.Interfaces.RegUsuario;
 
 /**
  *
@@ -37,7 +37,7 @@ public class Console extends javax.swing.JFrame {
         smnuSalir = new javax.swing.JMenu();
         mnuSalir = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        mnuRegCliente = new javax.swing.JMenuItem();
+        mnuRegUsuario = new javax.swing.JMenuItem();
         mnuRegRestaurante = new javax.swing.JMenuItem();
         mnuRegPedido = new javax.swing.JMenuItem();
         ver = new javax.swing.JMenu();
@@ -65,13 +65,13 @@ public class Console extends javax.swing.JFrame {
 
         jMenu2.setText("Registros");
 
-        mnuRegCliente.setText("Registrar Cliente");
-        mnuRegCliente.addActionListener(new java.awt.event.ActionListener() {
+        mnuRegUsuario.setText("Registrar Usuario");
+        mnuRegUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnuRegClienteActionPerformed(evt);
+                mnuRegUsuarioActionPerformed(evt);
             }
         });
-        jMenu2.add(mnuRegCliente);
+        jMenu2.add(mnuRegUsuario);
 
         mnuRegRestaurante.setText("Registrar Restaurante");
         mnuRegRestaurante.addActionListener(new java.awt.event.ActionListener() {
@@ -104,7 +104,7 @@ public class Console extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(EscritorioMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 409, Short.MAX_VALUE)
+            .addComponent(EscritorioMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -118,11 +118,11 @@ public class Console extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_mnuSalirActionPerformed
 
-    private void mnuRegClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuRegClienteActionPerformed
-        RegCliente regCli = new RegCliente();
+    private void mnuRegUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuRegUsuarioActionPerformed
+        RegUsuario regCli = new RegUsuario();
         EscritorioMenu.add(regCli);
         regCli.show();
-    }//GEN-LAST:event_mnuRegClienteActionPerformed
+    }//GEN-LAST:event_mnuRegUsuarioActionPerformed
 
     private void VerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VerActionPerformed
         // TODO add your handling code here:
@@ -179,9 +179,9 @@ public class Console extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem mnuRegCliente;
     private javax.swing.JMenuItem mnuRegPedido;
     private javax.swing.JMenuItem mnuRegRestaurante;
+    private javax.swing.JMenuItem mnuRegUsuario;
     private javax.swing.JMenuItem mnuSalir;
     private javax.swing.JMenu smnuSalir;
     private javax.swing.JMenu ver;

@@ -39,12 +39,12 @@
             <Property name="text" type="java.lang.String" value="Registros"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="mnuRegCliente">
+            <MenuItem class="javax.swing.JMenuItem" name="mnuRegUsuario">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Registrar Cliente"/>
+                <Property name="text" type="java.lang.String" value="Registrar Usuario"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnuRegClienteActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnuRegUsuarioActionPerformed"/>
               </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mnuRegRestaurante">
@@ -103,7 +103,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="EscritorioMenu" alignment="0" pref="409" max="32767" attributes="0"/>
+          <Component id="EscritorioMenu" alignment="0" min="-2" pref="500" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
