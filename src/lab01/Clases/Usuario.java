@@ -15,7 +15,7 @@ public abstract class Usuario {
     protected String mail;
     protected String direccion;
     protected String imagen; //esto es duda
-    
+    protected String tipoUsuario;
 
     public Usuario() {
     }
@@ -25,6 +25,7 @@ public abstract class Usuario {
         this.nombre=nombre;
         this.mail=email;
         this.direccion=direccion;
+        this.tipoUsuario= "";
     }
 
     public String getNickname() {
@@ -43,6 +44,10 @@ public abstract class Usuario {
         return direccion;
     }
 
+    public void getTipoUsuario(String tu)
+    {
+        tipoUsuario = tu;
+    }
     public void setNickname(String nickname) {
         this.nickname = nickname;
     }

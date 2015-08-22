@@ -41,7 +41,7 @@ private ICtrlUsuario ICU;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
+        btngUsuarios = new javax.swing.ButtonGroup();
         lblTitulo = new javax.swing.JLabel();
         lblNickname = new javax.swing.JLabel();
         tbNickname = new javax.swing.JTextField();
@@ -64,8 +64,6 @@ private ICtrlUsuario ICU;
         rbCliente = new javax.swing.JRadioButton();
         rbRestaurante = new javax.swing.JRadioButton();
 
-        buttonGroup.add(rbCliente);
-
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
@@ -79,6 +77,12 @@ private ICtrlUsuario ICU;
         tbNickname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tbNicknameActionPerformed(evt);
+            }
+        });
+
+        tbMail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tbMailActionPerformed(evt);
             }
         });
 
@@ -114,9 +118,21 @@ private ICtrlUsuario ICU;
             }
         });
 
+        btngUsuarios.add(rbCliente);
         rbCliente.setText("Cliente");
+        rbCliente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                rbClienteMouseClicked(evt);
+            }
+        });
 
+        btngUsuarios.add(rbRestaurante);
         rbRestaurante.setText("Restaurante");
+        rbRestaurante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbRestauranteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -125,13 +141,20 @@ private ICtrlUsuario ICU;
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblFechaNacimiento)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(118, 118, 118)
+                        .addComponent(lblTitulo)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(btnCancelar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnRegistrar))
-                            .addGroup(layout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(btnSelImagen)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -148,26 +171,17 @@ private ICtrlUsuario ICU;
                                     .addComponent(tbDireccion, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(tbApellido)
                                     .addComponent(tbSelImagen)
-                                    .addComponent(tbNombre, javax.swing.GroupLayout.Alignment.TRAILING))))
-                        .addGap(25, 25, 25))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblFechaNacimiento)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(118, 118, 118)
-                                .addComponent(lblTitulo))
+                                    .addComponent(tbNombre, javax.swing.GroupLayout.Alignment.TRAILING)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(lblNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(lblMail, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
                                     .addComponent(lblNickname, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(tbMail, javax.swing.GroupLayout.DEFAULT_SIZE, 282, Short.MAX_VALUE)
+                                .addGap(12, 12, 12)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(tbMail)
                                     .addComponent(tbNickname))))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(25, 25, 25))))
             .addGroup(layout.createSequentialGroup()
                 .addGap(72, 72, 72)
                 .addComponent(rbCliente)
@@ -184,7 +198,7 @@ private ICtrlUsuario ICU;
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rbCliente)
                     .addComponent(rbRestaurante))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tbNickname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblNickname))
@@ -220,8 +234,6 @@ private ICtrlUsuario ICU;
                     .addComponent(btnRegistrar))
                 .addGap(24, 24, 24))
         );
-
-        getAccessibleContext().setAccessibleName("Registrar Usuario");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -280,12 +292,24 @@ private ICtrlUsuario ICU;
         // TODO add your handling code here:
     }//GEN-LAST:event_tbNicknameActionPerformed
 
+    private void rbRestauranteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbRestauranteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rbRestauranteActionPerformed
+
+    private void tbMailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbMailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbMailActionPerformed
+
+    private void rbClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rbClienteMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rbClienteMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JButton btnSelImagen;
-    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup btngUsuarios;
     private javax.swing.JLabel lblApellido;
     private javax.swing.JLabel lblDireccion;
     private javax.swing.JLabel lblFechaNacimiento;

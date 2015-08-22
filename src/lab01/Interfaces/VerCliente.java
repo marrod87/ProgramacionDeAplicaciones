@@ -64,6 +64,10 @@ public class VerCliente extends javax.swing.JInternalFrame {
         lblfechaNacCliente = new javax.swing.JLabel();
         lbltipoDeUsuarioCliente = new javax.swing.JLabel();
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
         setPreferredSize(new java.awt.Dimension(500, 500));
 
         ver.setText("Ver cliente");
@@ -195,6 +199,7 @@ public class VerCliente extends javax.swing.JInternalFrame {
        this.tbnombreCliente.setVisible(true);
        this.tbnombreCliente.setText(c.getNombre());
        this.tbtipoDeUsuario.setVisible(true);
+
        this.lblNicknameCliente.setVisible(true);
        this.lblapellidoCliente.setVisible(true);
        this.lbldireccionCliente.setVisible(true);
