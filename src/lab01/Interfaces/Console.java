@@ -40,6 +40,7 @@ public class Console extends javax.swing.JFrame {
         mnuRegUsuario = new javax.swing.JMenuItem();
         mnuRegRestaurante = new javax.swing.JMenuItem();
         mnuRegPedido = new javax.swing.JMenuItem();
+        smnuRegCat = new javax.swing.JMenuItem();
         ver = new javax.swing.JMenu();
         Ver = new javax.swing.JMenuItem();
 
@@ -84,6 +85,14 @@ public class Console extends javax.swing.JFrame {
         mnuRegPedido.setText("Registrar Pedido");
         jMenu2.add(mnuRegPedido);
 
+        smnuRegCat.setText("Registrar Categoria");
+        smnuRegCat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                smnuRegCatActionPerformed(evt);
+            }
+        });
+        jMenu2.add(smnuRegCat);
+
         jMenuBar1.add(jMenu2);
 
         ver.setText("Informacion");
@@ -104,11 +113,17 @@ public class Console extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(EscritorioMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(EscritorioMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(EscritorioMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 472, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(EscritorioMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 448, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -135,6 +150,13 @@ public class Console extends javax.swing.JFrame {
     private void mnuRegRestauranteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuRegRestauranteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_mnuRegRestauranteActionPerformed
+
+    private void smnuRegCatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_smnuRegCatActionPerformed
+        RegCategoria regCat = new RegCategoria();
+        EscritorioMenu.add(regCat);
+        
+        regCat.show();
+    }//GEN-LAST:event_smnuRegCatActionPerformed
 
     /**
      * @param args the command line arguments
@@ -183,6 +205,7 @@ public class Console extends javax.swing.JFrame {
     private javax.swing.JMenuItem mnuRegRestaurante;
     private javax.swing.JMenuItem mnuRegUsuario;
     private javax.swing.JMenuItem mnuSalir;
+    private javax.swing.JMenuItem smnuRegCat;
     private javax.swing.JMenu smnuSalir;
     private javax.swing.JMenu ver;
     // End of variables declaration//GEN-END:variables
