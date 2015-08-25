@@ -6,18 +6,23 @@
 package lab01.Handlers;
 
 import java.util.HashMap;
-
+import java.util.Map;
 /**
  *
  * @author gera
  */
-public class HCategorias {
-    private static HCategorias instancia=null;
+public class HCategoria {
+    private static HCategoria instancia=null;
+    private Map ColCategoria;
+    
+    private HCategoria(){
+       ColCategoria =new HashMap();
+    }
     
     
-    public static HCategorias getinstance(){
+    public static HCategoria getinstance(){
         if (instancia==null)
-            instancia = new HCategorias();
+            instancia = new HCategoria();
         return instancia;
     }
 }    

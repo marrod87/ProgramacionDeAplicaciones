@@ -10,6 +10,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import lab01.Clases.Usuario;
 import lab01.Clases.Cliente;
+import lab01.Clases.Restaurante;
 import java.util.Iterator;
 import javax.swing.JOptionPane;
 import lab01.Clases.DataUsuario;
@@ -40,6 +41,9 @@ public class HUsuario {
     
     public Cliente obtenerUsuario(String nickname){
         return ((Cliente) Colusuarios.get(nickname));
+    }
+    public Restaurante obtenerRestaurante(String nickname){
+        return ((Restaurante) Colusuarios.get(nickname));
     }
     public String listarUsuarios(){
     Iterator it = Colusuarios.entrySet().iterator();

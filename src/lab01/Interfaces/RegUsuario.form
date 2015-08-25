@@ -51,17 +51,23 @@
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="btnSelImagen" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                                       <Component id="lblApellido" alignment="0" max="32767" attributes="0"/>
                                       <Component id="lblDireccion" alignment="0" pref="146" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="jbSelCategoria" max="32767" attributes="0"/>
+                                          <Component id="btnSelImagen" max="32767" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
                               <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="tbDia" min="-2" pref="39" max="-2" attributes="0"/>
-                                      <EmptySpace pref="50" max="32767" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
                                       <Component id="tbMes" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                                       <Component id="tbAnio" min="-2" pref="63" max="-2" attributes="0"/>
@@ -108,7 +114,7 @@
                   <Component id="rbCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="rbRestaurante" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="16" max="32767" attributes="0"/>
+              <EmptySpace pref="46" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="tbNickname" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblNickname" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -145,7 +151,9 @@
                   <Component id="btnSelImagen" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="tbSelImagen" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jbSelCategoria" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnCancelar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnRegistrar" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -260,6 +268,14 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rbRestauranteActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jbSelCategoria">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Seleccionar Categoria"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jbSelCategoria.setVisible(false);"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

@@ -87,8 +87,13 @@ return c;
 
 }
 
-    public Cliente getUsuarioByNickname(String nickname){
-        HUsuario mu = HUsuario.getinstance();
-        return (mu.obtenerUsuario(nickname));
+public Cliente getUsuarioByNickname(String nickname){
+    HUsuario mu = HUsuario.getinstance();
+    return (mu.obtenerUsuario(nickname));
+    }
+
+public Restaurante getRestauranteByNickname(String nickname){
+    HUsuario mu = HUsuario.getinstance();
+    return (mu.obtenerRestaurante(nickname));
     }
 }

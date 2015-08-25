@@ -42,7 +42,8 @@ public class Console extends javax.swing.JFrame {
         mnuRegPedido = new javax.swing.JMenuItem();
         smnuRegCat = new javax.swing.JMenuItem();
         ver = new javax.swing.JMenu();
-        Ver = new javax.swing.JMenuItem();
+        VerClientes = new javax.swing.JMenuItem();
+        VerRestaurantes = new javax.swing.JMenuItem();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -97,13 +98,21 @@ public class Console extends javax.swing.JFrame {
 
         ver.setText("Informacion");
 
-        Ver.setText("Ver Clientes");
-        Ver.addActionListener(new java.awt.event.ActionListener() {
+        VerClientes.setText("Ver Clientes");
+        VerClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                VerActionPerformed(evt);
+                VerClientesActionPerformed(evt);
             }
         });
-        ver.add(Ver);
+        ver.add(VerClientes);
+
+        VerRestaurantes.setText("Ver Restaurantes");
+        VerRestaurantes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VerRestaurantesActionPerformed(evt);
+            }
+        });
+        ver.add(VerRestaurantes);
 
         jMenuBar1.add(ver);
 
@@ -114,16 +123,16 @@ public class Console extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(EscritorioMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(EscritorioMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 642, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(EscritorioMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 448, Short.MAX_VALUE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(EscritorioMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 515, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -139,14 +148,16 @@ public class Console extends javax.swing.JFrame {
         regCli.show();
     }//GEN-LAST:event_mnuRegUsuarioActionPerformed
 
-    private void VerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VerActionPerformed
+    private void VerClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VerClientesActionPerformed
         // TODO add your handling code here:
         VerCliente vercli = new VerCliente();
         EscritorioMenu.add(vercli);
         
         vercli.show();
-    }//GEN-LAST:event_VerActionPerformed
+    }//GEN-LAST:event_VerClientesActionPerformed
 
+    
+    
     private void mnuRegRestauranteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuRegRestauranteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_mnuRegRestauranteActionPerformed
@@ -157,6 +168,13 @@ public class Console extends javax.swing.JFrame {
         
         regCat.show();
     }//GEN-LAST:event_smnuRegCatActionPerformed
+
+    private void VerRestaurantesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VerRestaurantesActionPerformed
+        VerRestaurante verRes = new VerRestaurante();
+        EscritorioMenu.add(verRes);
+        
+        verRes.show();// TODO add your handling code here:
+    }//GEN-LAST:event_VerRestaurantesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -195,7 +213,8 @@ public class Console extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane EscritorioMenu;
-    private javax.swing.JMenuItem Ver;
+    private javax.swing.JMenuItem VerClientes;
+    private javax.swing.JMenuItem VerRestaurantes;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;

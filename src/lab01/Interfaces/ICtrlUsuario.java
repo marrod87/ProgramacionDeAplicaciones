@@ -8,6 +8,7 @@ package lab01.Interfaces;
 
 import java.util.Date;
 import lab01.Clases.Cliente;
+import lab01.Clases.Restaurante;
 
 /**
  *
@@ -20,4 +21,5 @@ public interface ICtrlUsuario {
     public abstract void datosAdicionales(String apellido);
     public abstract String verClientes();
     public abstract Cliente getUsuarioByNickname(String nickname);
+    public abstract Restaurante getRestauranteByNickname(String nickname);
 }

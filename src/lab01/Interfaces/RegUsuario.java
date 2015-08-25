@@ -27,6 +27,7 @@ private ICtrlUsuario ICU;
         Fabrica fabrica = Fabrica.getInstance();
         ICU = fabrica.getICtrlUsuario();
     }
+    
     //ButtonGroup buttonGroup1 = new ButtonGroup();
     //JRadioButton rbCliente= new JRadioButton();   
     //JRadioButton rbRestaurante= new JRadioButton();
@@ -63,6 +64,7 @@ private ICtrlUsuario ICU;
         tbSelImagen = new javax.swing.JTextField();
         rbCliente = new javax.swing.JRadioButton();
         rbRestaurante = new javax.swing.JRadioButton();
+        jbSelCategoria = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -134,6 +136,9 @@ private ICtrlUsuario ICU;
             }
         });
 
+        jbSelCategoria.setText("Seleccionar Categoria");
+        jbSelCategoria.setVisible(false);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -156,15 +161,19 @@ private ICtrlUsuario ICU;
                                 .addComponent(btnRegistrar))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnSelImagen)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addComponent(lblApellido, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(lblDireccion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)))
+                                        .addComponent(lblDireccion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(78, 78, 78)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jbSelCategoria, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(btnSelImagen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                                 .addGap(11, 11, 11)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(tbDia, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(tbMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(30, 30, 30)
                                         .addComponent(tbAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -198,7 +207,7 @@ private ICtrlUsuario ICU;
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rbCliente)
                     .addComponent(rbRestaurante))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tbNickname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblNickname))
@@ -228,7 +237,9 @@ private ICtrlUsuario ICU;
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSelImagen)
                     .addComponent(tbSelImagen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jbSelCategoria)
+                .addGap(9, 9, 9)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCancelar)
                     .addComponent(btnRegistrar))
@@ -260,7 +271,7 @@ private ICtrlUsuario ICU;
                 else
                     if(rbRestaurante.isSelected()){
                         ICU.registrarRestaurante();
-                        JOptionPane.showMessageDialog(null, "El restaurante ha sido registrado","Exito",JOptionPane.INFORMATION_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "El restaurante ha sido registrado, seleccione las categorias","Exito",JOptionPane.INFORMATION_MESSAGE);
                     }
                     else
                         JOptionPane.showMessageDialog(null, "Seleccione Cliente o Restaurante","ERROR",JOptionPane.ERROR_MESSAGE);
@@ -273,11 +284,7 @@ private ICtrlUsuario ICU;
         this.tbNombre.setText("");
         this.tbApellido.setText("");
         this.tbDireccion.setText("");
-        /*this.tbApellido.setText("lolo");
-        String l = ICU.verClientes();
-        this.tbApellido.setText(l);
         
-        ICU.datosAdicionales(apellido);*/
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void btnSelImagenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelImagenActionPerformed
@@ -293,9 +300,14 @@ private ICtrlUsuario ICU;
     }//GEN-LAST:event_tbNicknameActionPerformed
 
     private void rbRestauranteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbRestauranteActionPerformed
-        // TODO add your handling code here:
+       this.jbSelCategoria.setVisible(true);
+    //TODO add your handling code here:
     }//GEN-LAST:event_rbRestauranteActionPerformed
 
+    private void rbClienteActionPerformed(java.awt.event.ActionEvent evt) {                                              
+    // TODO add your handling code here:
+    }                                             
+    
     private void tbMailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbMailActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tbMailActionPerformed
@@ -310,6 +322,7 @@ private ICtrlUsuario ICU;
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JButton btnSelImagen;
     private javax.swing.ButtonGroup btngUsuarios;
+    private javax.swing.JButton jbSelCategoria;
     private javax.swing.JLabel lblApellido;
     private javax.swing.JLabel lblDireccion;
     private javax.swing.JLabel lblFechaNacimiento;

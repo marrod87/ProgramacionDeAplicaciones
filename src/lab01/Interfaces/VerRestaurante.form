@@ -36,27 +36,19 @@
               <EmptySpace max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="40" max="32767" attributes="0"/>
+              <EmptySpace pref="146" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="lblNicknameCliente" alignment="1" min="-2" max="-2" attributes="0"/>
                   <Component id="lblmailCliente" alignment="1" min="-2" max="-2" attributes="0"/>
                   <Component id="lblnombreCliente" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblapellidoCliente" alignment="1" min="-2" max="-2" attributes="0"/>
                   <Component id="lbldireccionCliente" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblfechaNacCliente" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="lbltipoDeUsuarioCliente" alignment="1" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="tbtipoDeUsuario" min="-2" pref="151" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="tbfechaDeNacCliente" alignment="1" pref="151" max="32767" attributes="0"/>
-                      <Component id="tbmailCliente" alignment="1" max="32767" attributes="0"/>
-                      <Component id="tbNickNameCliente" alignment="1" max="32767" attributes="0"/>
-                      <Component id="tbnombreCliente" alignment="1" max="32767" attributes="0"/>
-                      <Component id="tbapellidoClente" alignment="1" max="32767" attributes="0"/>
-                      <Component id="tbdireccionCliente" alignment="1" max="32767" attributes="0"/>
-                  </Group>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="tbmailCliente" alignment="1" pref="151" max="32767" attributes="0"/>
+                  <Component id="tbNickNameCliente" alignment="1" max="32767" attributes="0"/>
+                  <Component id="tbnombreCliente" alignment="1" max="32767" attributes="0"/>
+                  <Component id="tbdireccionCliente" alignment="1" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
           </Group>
@@ -85,27 +77,12 @@
                   <Component id="tbnombreCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblnombreCliente" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="tbapellidoClente" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblapellidoCliente" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="tbdireccionCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lbldireccionCliente" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="tbfechaDeNacCliente" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblfechaNacCliente" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="tbtipoDeUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lbltipoDeUsuarioCliente" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace pref="18" max="32767" attributes="0"/>
+              <EmptySpace pref="272" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -115,7 +92,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="ver">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Ver cliente"/>
+        <Property name="text" type="java.lang.String" value="Ver Restaurante"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="verActionPerformed"/>
@@ -136,22 +113,7 @@
         <Property name="editable" type="boolean" value="false"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="tbapellidoClente">
-      <Properties>
-        <Property name="editable" type="boolean" value="false"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JTextField" name="tbdireccionCliente">
-      <Properties>
-        <Property name="editable" type="boolean" value="false"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="tbfechaDeNacCliente">
-      <Properties>
-        <Property name="editable" type="boolean" value="false"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="tbtipoDeUsuario">
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
       </Properties>
@@ -171,24 +133,9 @@
         <Property name="text" type="java.lang.String" value="Nombre:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lblapellidoCliente">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Apellido:"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="lbldireccionCliente">
       <Properties>
         <Property name="text" type="java.lang.String" value="Direccion:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblfechaNacCliente">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Fecha de nacimiento:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lbltipoDeUsuarioCliente">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Tipo de usuario:"/>
       </Properties>
     </Component>
   </SubComponents>

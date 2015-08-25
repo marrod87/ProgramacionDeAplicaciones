@@ -75,12 +75,20 @@
             <Property name="text" type="java.lang.String" value="Informacion"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="Ver">
+            <MenuItem class="javax.swing.JMenuItem" name="VerClientes">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Ver Clientes"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="VerActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="VerClientesActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="VerRestaurantes">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Ver Restaurantes"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="VerRestaurantesActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
@@ -112,8 +120,8 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="EscritorioMenu" min="-2" pref="500" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="EscritorioMenu" pref="642" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -122,8 +130,8 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="EscritorioMenu" pref="448" max="32767" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <Component id="EscritorioMenu" pref="515" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
