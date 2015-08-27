@@ -4,7 +4,7 @@
  */
 package lab01.Handlers;
 
-
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -37,6 +37,11 @@ public class HUsuario {
         String nickname = usu.getNickname();
         Colusuarios.put(nickname,usu);
         //JOptionPane.showMessageDialog(null, usu.getNickname());
+    }
+    
+    public Map obtenerColeccion(){
+        Map col = (Map)Colusuarios.values();
+        return col;
     }
     
     public Cliente obtenerUsuario(String nickname){

@@ -13,15 +13,23 @@ package lab01.Clases;
 public class DataUsuario {
 
     private String nombre;
+    private String mail;
 
-    public DataUsuario(String nombre){
+    public DataUsuario(String nombre, String mail){
     this.nombre=nombre;
+    this.mail=mail;
     }
     public String getNombre(){
-    return nombre;}
+        return this.nombre;}
     
     public void setNombre(String nombre){
-    this.nombre=nombre;}
+        this.nombre=nombre;}
+    
+    public String getMail(){
+        return this.mail;}
+    
+    public void setMail(String mail){
+        this.mail=mail;}
 }
 
 

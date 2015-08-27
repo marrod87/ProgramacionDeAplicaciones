@@ -6,6 +6,7 @@
 
 package lab01.Interfaces;
 
+import javax.swing.JOptionPane;
 import lab01.Clases.Cliente;
 import lab01.Handlers.Fabrica;
 

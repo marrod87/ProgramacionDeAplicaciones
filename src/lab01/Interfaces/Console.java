@@ -44,6 +44,8 @@ public class Console extends javax.swing.JFrame {
         ver = new javax.swing.JMenu();
         VerClientes = new javax.swing.JMenuItem();
         VerRestaurantes = new javax.swing.JMenuItem();
+        menuGenerarPedido = new javax.swing.JMenu();
+        genPedido = new javax.swing.JMenuItem();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -116,6 +118,18 @@ public class Console extends javax.swing.JFrame {
 
         jMenuBar1.add(ver);
 
+        menuGenerarPedido.setText("Pedidos");
+        menuGenerarPedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuGenerarPedidoActionPerformed(evt);
+            }
+        });
+
+        genPedido.setText("Generar Pedido");
+        menuGenerarPedido.add(genPedido);
+
+        jMenuBar1.add(menuGenerarPedido);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -176,6 +190,15 @@ public class Console extends javax.swing.JFrame {
         verRes.show();// TODO add your handling code here:
     }//GEN-LAST:event_VerRestaurantesActionPerformed
 
+    private void menuGenerarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuGenerarPedidoActionPerformed
+        ListarUsuariosGP listar = new ListarUsuariosGP();
+        EscritorioMenu.add(listar);
+        listar.show();
+        
+
+    // TODO add your handling code here:
+    }//GEN-LAST:event_menuGenerarPedidoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -215,11 +238,13 @@ public class Console extends javax.swing.JFrame {
     private javax.swing.JDesktopPane EscritorioMenu;
     private javax.swing.JMenuItem VerClientes;
     private javax.swing.JMenuItem VerRestaurantes;
+    private javax.swing.JMenuItem genPedido;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenu menuGenerarPedido;
     private javax.swing.JMenuItem mnuRegPedido;
     private javax.swing.JMenuItem mnuRegRestaurante;
     private javax.swing.JMenuItem mnuRegUsuario;

@@ -11,6 +11,13 @@ import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import lab01.Interfaces.ICtrlUsuario;
+import lab01.Clases.DataUsuario;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.HashMap;
+import lab01.Clases.Categoria;
+
 /**
  *
  * @author gera
@@ -96,4 +103,36 @@ public Restaurante getRestauranteByNickname(String nickname){
     HUsuario mu = HUsuario.getinstance();
     return (mu.obtenerRestaurante(nickname));
     }
+
+
+public Map armoListaU(){
+    HUsuario mu = HUsuario.getinstance();
+    Map ret = new HashMap();
+    Map col = mu.obtenerColeccion();
+    Iterator it = col.entrySet().iterator();
+    Map.Entry w = (Map.Entry) it.next(); 
+    while(it.hasNext()){
+        Map.Entry map = (Map.Entry) it.next();
+        if(map.getValue().getClass().getSimpleName().equals("Cliente")){
+            Cliente cli = (Cliente)map.getValue();
+            DataUsuario dt = new DataUsuario(cli.getNickname(), cli.getMail());
+            ret.put(cli.getNickname(), dt);
+        }
+    }
+return ret;
+
+}
+
+public void registrarCat(String nombre){
+
+    HCategoria hu = HCategoria.getinstance();
+    if(hu.member(nombre))
+        JOptionPane.showMessageDialog(null, "La categoria ya existe","ERROR",JOptionPane.ERROR_MESSAGE);
+    else{
+        Categoria c = new Categoria(nombre);
+        hu.addCategoria(c);
+        JOptionPane.showMessageDialog(null, "Se ha creado la nueva categoria","EXITO",JOptionPane.INFORMATION_MESSAGE);
+    }
+}
+
 }

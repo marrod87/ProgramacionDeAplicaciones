@@ -5,17 +5,22 @@
  */
 package lab01.Interfaces;
 
+import javax.swing.JOptionPane;
+import lab01.Handlers.Fabrica;
+
 /**
  *
  * @author gera
  */
 public class RegCategoria extends javax.swing.JInternalFrame {
-
+    private ICtrlUsuario ICU;
     /**
      * Creates new form RegCategoria
      */
     public RegCategoria() {
         initComponents();
+        Fabrica fabrica = Fabrica.getInstance();
+        ICU = fabrica.getICtrlUsuario();
     }
 
     /**
@@ -94,6 +99,10 @@ public class RegCategoria extends javax.swing.JInternalFrame {
 
     private void btnRegistrarCatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarCatActionPerformed
         // TODO add your handling code here:
+        if (tbNuevaCat.getText().equals(""))
+            JOptionPane.showMessageDialog(null, "Ingrese el nombre de la categoria","ERROR",JOptionPane.ERROR_MESSAGE);
+        else
+            ICU.registrarCat(tbNuevaCat.getText()); 
     }//GEN-LAST:event_btnRegistrarCatActionPerformed
 
 

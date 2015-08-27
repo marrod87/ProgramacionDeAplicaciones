@@ -7,6 +7,7 @@ package lab01.Handlers;
 
 import java.util.HashMap;
 import java.util.Map;
+import lab01.Clases.Categoria;
 /**
  *
  * @author gera
@@ -24,5 +25,12 @@ public class HCategoria {
         if (instancia==null)
             instancia = new HCategoria();
         return instancia;
+    }
+    
+    public void addCategoria(Categoria c){
+        ColCategoria.put(c.getNombre(), c);
+    }
+    public boolean member(String nombre){
+        return ColCategoria.containsKey(nombre);
     }
 }    
