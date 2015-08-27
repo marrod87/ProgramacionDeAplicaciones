@@ -135,4 +135,12 @@ public void registrarCat(String nombre){
     }
 }
 
+public Map retColCat(){
+            JOptionPane.showMessageDialog(null, "Se ha creado la nueva categoria","EXITO",JOptionPane.INFORMATION_MESSAGE);
+    Map ret  = new HashMap();        
+    HCategoria hc = HCategoria.getinstance();
+    ret=hc.obtenerColeccion();
+    return (Map)ret;
+}
+
 }

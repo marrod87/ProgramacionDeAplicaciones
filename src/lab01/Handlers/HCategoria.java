@@ -6,6 +6,7 @@
 package lab01.Handlers;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 import lab01.Clases.Categoria;
 /**
@@ -32,5 +33,18 @@ public class HCategoria {
     }
     public boolean member(String nombre){
         return ColCategoria.containsKey(nombre);
+    }
+    public Map obtenerColeccion(){
+        Map ret = new HashMap();
+        Iterator it = ColCategoria.entrySet().iterator();
+        //Iterator itret = ret.entrySet().iterator();
+        while(it.hasNext()){
+            Map.Entry map = (Map.Entry) it.next();
+            ret.put(map.getKey(), map.getKey());        
+        }
+        return ret;
+        
+        
+        //return col;
     }
 }    

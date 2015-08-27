@@ -10,6 +10,7 @@ import java.util.Date;
 import lab01.Clases.Cliente;
 import lab01.Clases.Restaurante;
 import java.util.Map;
+import java.util.HashMap;
 
 /**
  *
@@ -24,5 +25,6 @@ public interface ICtrlUsuario {
     public abstract Cliente getUsuarioByNickname(String nickname);
     public abstract Restaurante getRestauranteByNickname(String nickname);
     public abstract Map armoListaU();
-    public void registrarCat(String nombre);
+    public abstract void registrarCat(String nombre);
+    public abstract Map retColCat();
 }

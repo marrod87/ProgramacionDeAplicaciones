@@ -138,6 +138,11 @@ private ICtrlUsuario ICU;
 
         jbSelCategoria.setText("Seleccionar Categoria");
         jbSelCategoria.setVisible(false);
+        jbSelCategoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbSelCategoriaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -315,6 +320,15 @@ private ICtrlUsuario ICU;
     private void rbClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rbClienteMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_rbClienteMouseClicked
+
+    private void jbSelCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSelCategoriaActionPerformed
+    SeleccionarCat selCat = new SeleccionarCat();
+    Console.EscritorioMenu.add(selCat);
+    selCat.toFront();
+    selCat.show();
+        
+// TODO add your handling code here:
+    }//GEN-LAST:event_jbSelCategoriaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

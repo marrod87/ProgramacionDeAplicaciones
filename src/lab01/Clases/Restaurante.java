@@ -6,19 +6,28 @@
 package lab01.Clases;
 
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.HashMap;
 
 /**
  *
  * @author gera
  */
 public class Restaurante extends Usuario{
-    private ArrayList<String> lstImagen; 
+    private ArrayList<String> lstImagen;
+    private Map ColCategoria;
 
     public Restaurante(String nickname, String nombre, String email, String direccion) {
         super(nickname,nombre,email,direccion);
+        ColCategoria =new HashMap();
         //this.lstImagen = new ArrayList<String>(); //Esto puede ser cualquera
     }
     
-    
-    
+    public void addCategoria(Categoria c){
+        ColCategoria.put(c.getNombre(), c);
+    }
+    public boolean member(String nombre){
+        return ColCategoria.containsKey(nombre);
+    }
+
 }

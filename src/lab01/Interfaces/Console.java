@@ -166,7 +166,7 @@ public class Console extends javax.swing.JFrame {
         // TODO add your handling code here:
         VerCliente vercli = new VerCliente();
         EscritorioMenu.add(vercli);
-        
+        vercli.toFront();
         vercli.show();
     }//GEN-LAST:event_VerClientesActionPerformed
 
@@ -235,7 +235,7 @@ public class Console extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDesktopPane EscritorioMenu;
+    public static javax.swing.JDesktopPane EscritorioMenu;
     private javax.swing.JMenuItem VerClientes;
     private javax.swing.JMenuItem VerRestaurantes;
     private javax.swing.JMenuItem genPedido;

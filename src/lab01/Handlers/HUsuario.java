@@ -40,7 +40,9 @@ public class HUsuario {
     }
     
     public Map obtenerColeccion(){
-        Map col = (Map)Colusuarios.values();
+        Map col = new HashMap();
+        //col=(Map)Colusuarios.
+        
         return col;
     }
     
@@ -59,6 +61,7 @@ public class HUsuario {
     return str;
     }
     public boolean find(String nickname, String email){
+       
         if(Colusuarios.isEmpty())
             return false;
         else
