@@ -12,7 +12,7 @@ import lab01.Handlers.Fabrica;
 
 /**
  *
- * @author admin123
+ * @author gonzalo
  */
 public class VerCliente extends javax.swing.JInternalFrame {
     private ICtrlUsuario ICU; 
