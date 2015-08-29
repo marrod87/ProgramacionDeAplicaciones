@@ -28,7 +28,7 @@ public class DataUser {
         return this.direccion;
     }
     public String getMail(){
-        retirn this.mail;
+        return this.mail;
     }
     public String getImagen(){
         return this.imagen;
