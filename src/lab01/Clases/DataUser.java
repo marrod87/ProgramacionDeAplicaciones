@@ -16,7 +16,20 @@ public class DataUser {
     private String mail;
     private String imagen;
     
+    public DataUser(){
+       //Constructor por defecto
+    }
+    public DataUser(String nickname, String nombre, String direccion, String mail, String imagen){
+        //Constructor por parámetros
+        this.nickname = nickname;
+        this.nombre = nombre;
+        this.direccion = direccion;
+        this.mail = mail;
+        this.imagen = imagen;
+        
+    }
     
+    } 
     public String getNickname(){
         return this.nickname;
     }
