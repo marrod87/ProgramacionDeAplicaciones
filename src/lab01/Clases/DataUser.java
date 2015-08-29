@@ -13,6 +13,7 @@ public class DataUser {
     private String nickname;
     private String nombre;
     private String direccion;
+    private String mail;
     private String imagen;
     
     
@@ -26,6 +27,9 @@ public class DataUser {
     public String getDireccion(){
         return this.direccion;
     }
+    public String getMail(){
+        retirn this.mail;
+    }
     public String getImagen(){
         return this.imagen;
     }
@@ -37,6 +41,9 @@ public class DataUser {
     }
     public void setDireccion(String direccion){
         this.direccion = direccion;
+    }
+    public void setMail(String mail){
+        this.mail = mail;
     }
     public void setImagen(String imagen){
         this.imagen = imagen;
