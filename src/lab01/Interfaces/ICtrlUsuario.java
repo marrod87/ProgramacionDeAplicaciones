@@ -18,7 +18,7 @@ import java.util.HashMap;
  */
 public interface ICtrlUsuario {
     public abstract boolean ingresarDatos(String nickname, String email, String nombre, String direccion);
-    public abstract void registrarCliente(String apellido);
+    public abstract void registrarCliente(String apellido, String imagen);
     public abstract void registrarRestaurante();
     public abstract void datosAdicionales(String apellido);
     public abstract String verClientes();

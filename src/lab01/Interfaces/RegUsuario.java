@@ -265,12 +265,13 @@ private ICtrlUsuario ICU;
         String nombre = this.tbNombre.getText();
         String apellido = this.tbApellido.getText();
         String direccion = this.tbDireccion.getText();
+        String img = this.tbSelImagen.getText();
         if(nickname.isEmpty()||mail.isEmpty()||nombre.isEmpty()||apellido.isEmpty()||direccion.isEmpty())
             JOptionPane.showMessageDialog(null, "No debe haber campos vacios","ERROR",JOptionPane.ERROR_MESSAGE);
         else
             if(ICU.ingresarDatos(nickname,nombre,mail,direccion)){
                 if(rbCliente.isSelected()){
-                    ICU.registrarCliente(apellido);
+                    ICU.registrarCliente(apellido, img);
                     JOptionPane.showMessageDialog(null, "El cliente ha sido registrado","Exito",JOptionPane.INFORMATION_MESSAGE);
                 }
                 else
@@ -289,7 +290,7 @@ private ICtrlUsuario ICU;
         this.tbNombre.setText("");
         this.tbApellido.setText("");
         this.tbDireccion.setText("");
-        
+        this.tbSelImagen.setText("");
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void btnSelImagenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelImagenActionPerformed

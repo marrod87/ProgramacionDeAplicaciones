@@ -33,6 +33,7 @@ public class CtrlUsuario implements ICtrlUsuario {
 
 public CtrlUsuario(){}
 
+    @Override
     public boolean ingresarDatos(String nickname, String nombre, String email, String direccion)
 {
     this.nickname=nickname;
@@ -65,28 +66,31 @@ public CtrlUsuario(){}
         return !(HU.find(nickname, email));
 }
 
-    public void registrarCliente(String apellido){
-    Cliente c = new Cliente(this.nickname, this.nombre, this.email, this.direccion, apellido);
+    @Override
+    public void registrarCliente(String apellido, String img){
+    Cliente c = new Cliente(this.nickname, this.nombre, this.email, this.direccion, apellido, img);
     HUsuario HU = HUsuario.getinstance();
     HU.addUsuario(c);
 }
 
-public void registrarRestaurante(){
+    @Override
+    public void registrarRestaurante(){
     Restaurante r = new Restaurante(this.nickname, this.nombre, this.email, this.direccion);
     HUsuario HU = HUsuario.getinstance();
     HU.addUsuario(r);
 }
-@Override
-public void datosAdicionales(String apellido){
+public void datosAdicionales(String apellido, String img){
 
 HUsuario mu = HUsuario.getinstance();
 
 Cliente c = mu.obtenerUsuario(this.nickname);
 c.setApellido(apellido);
+c.setImagen(img);
 
 }
 
-public String verClientes(){
+    @Override
+    public String verClientes(){
 
 HUsuario mu = HUsuario.getinstance();
 String c = mu.listarUsuarios();
@@ -94,12 +98,14 @@ return c;
 
 }
 
-public Cliente getUsuarioByNickname(String nickname){
+    @Override
+    public Cliente getUsuarioByNickname(String nickname){
     HUsuario mu = HUsuario.getinstance();
     return (mu.obtenerUsuario(nickname));
     }
 
-public Restaurante getRestauranteByNickname(String nickname){
+    @Override
+    public Restaurante getRestauranteByNickname(String nickname){
     HUsuario mu = HUsuario.getinstance();
     return (mu.obtenerRestaurante(nickname));
     }
@@ -142,5 +148,10 @@ public Map retColCat(){
     ret=hc.obtenerColeccion();
     return (Map)ret;
 }
+
+    @Override
+    public void datosAdicionales(String apellido) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
 }
