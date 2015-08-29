@@ -7,23 +7,21 @@ package lab01.Clases;
 
 /**
  *
- * @author gera
+ * @author joaco
  */
-//enum estados {PREPARACION, ENVIADO, RECIBIDO};
-
-public class Pedido {
-    private int id; // ver como hacer el autogenerado
-    private int fecha; // ver como hacer la fecha si con el jcalendar 
+public class DataPedido {
+    private int id;
+    private int fecha; //ver q historia con eso...
     private double precio_total;
     private estados estado;
-
-    public Pedido(int id, int fecha, double precio_total, estados estado) {
+    
+    public DataPedido(int id, int fecha, double precio_total, estados estado){
         this.id = id;
         this.fecha = fecha;
         this.precio_total = precio_total;
         this.estado = estado;
     }
-
+    
     public int getId() {
         return id;
     }
@@ -54,11 +52,6 @@ public class Pedido {
 
     public void setEstado(estados estado) {
         this.estado = estado;
-    }
-    
-    public DataPedido getDataPedido(){
-        DataPedido dp = new DataPedido(this.getId(), this.getFecha(), this.getPrecio_total(), this.getEstado());
-        return dp;
     }
     
 }
