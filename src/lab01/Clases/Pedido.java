@@ -13,7 +13,7 @@ package lab01.Clases;
 
 public class Pedido {
     private int id; // ver como hacer el autogenerado
-    private int fecha; // ver como hacer la fecha si con el jcalendar 
+    private int fecha; // ver como hacer la fecha si con el jcalendar esta fecha tiene que ser la del momento en q se crea el objeto(la del sistema)
     private double precio_total;
     private estados estado;
 

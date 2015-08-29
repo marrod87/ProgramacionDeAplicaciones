@@ -10,8 +10,8 @@ package lab01.Clases;
  * @author joaco
  */
 public class DataPedido {
-    private int id;
-    private int fecha; //ver q historia con eso...
+    private int id;  //ver q historia con esto...
+    private int fecha; //ver q historia con eso tmb...
     private double precio_total;
     private estados estado;
     

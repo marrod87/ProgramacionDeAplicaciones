@@ -11,11 +11,11 @@ package lab01.Clases;
  */
 public class Promocional {
     private boolean activa;
-    private double descuento; //ver como se hace
+    private double descuento; //ver como se hace JoacoP(me imagino yo que seria un entero % y lo q se hace despues es a precio_total calcularsele ese descuento)
 
     public Promocional(boolean activa, double descuento) {
         super();
-        //agregar los campos de los tb
+        //agregar los campos de los tb (q carajo son los tb? xD)
         this.activa = activa;
         this.descuento = descuento;
     }//ver como se hace
@@ -36,8 +36,9 @@ public class Promocional {
         this.descuento = descuento;
     }
 
-    
+    public DataPromocional getDataPromo(){
+        DataPromocional dPromo = new DataPromocional(this.isActiva(), this.getDescuento()/*lo mismo q en el DataPromo*/);
+        return dPromo;
+    }
 
-    
-    
 }
