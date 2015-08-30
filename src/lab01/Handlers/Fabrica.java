@@ -7,6 +7,7 @@
 package lab01.Handlers;
 
 import lab01.Interfaces.ICtrlUsuario;
+import lab01.Interfaces.ICtrlProducto;
 
 /**
  *
@@ -27,6 +28,11 @@ private Fabrica(){};
 public ICtrlUsuario getICtrlUsuario() {
     ICtrlUsuario IG = new CtrlUsuario();
     return IG;
+}
+
+public ICtrlProducto getICtrlProducto(){
+    ICtrlProducto CP = new CtrlProducto();
+    return CP;
 }
     
 }

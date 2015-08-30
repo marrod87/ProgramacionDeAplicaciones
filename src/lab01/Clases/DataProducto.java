@@ -16,6 +16,13 @@ public class DataProducto {
     private String imagen;
 
     public DataProducto() {
+        
+    }
+    public DataProducto(String nombre, String descripcion, double precio) {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.precio = precio;
+        
     }
 
     public DataProducto(String nombre, String descripcion, double precio, String imagen) {

@@ -16,10 +16,12 @@ import java.util.HashMap;
 public class Restaurante extends Usuario{
     private ArrayList<String> lstImagen;
     private Map ColCategoria;
+    private Map ColProducto;
 
     public Restaurante(String nickname, String nombre, String email, String direccion) {
         super(nickname,nombre,email,direccion);
         ColCategoria =new HashMap();
+        ColProducto = new HashMap();
         //this.lstImagen = new ArrayList<String>(); //Esto puede ser cualquera
     }
     
@@ -28,6 +30,11 @@ public class Restaurante extends Usuario{
     }
     public boolean member(String nombre){
         return ColCategoria.containsKey(nombre);
+    }
+    
+    public void addProducto(Producto p){
+        ColProducto.put(p.getNombre(), p);
+        
     }
 
 }

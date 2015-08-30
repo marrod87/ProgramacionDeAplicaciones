@@ -41,6 +41,7 @@ public class Console extends javax.swing.JFrame {
         mnuRegRestaurante = new javax.swing.JMenuItem();
         mnuRegPedido = new javax.swing.JMenuItem();
         smnuRegCat = new javax.swing.JMenuItem();
+        mnuRegProducto = new javax.swing.JMenuItem();
         ver = new javax.swing.JMenu();
         VerClientes = new javax.swing.JMenuItem();
         VerRestaurantes = new javax.swing.JMenuItem();
@@ -95,6 +96,14 @@ public class Console extends javax.swing.JFrame {
             }
         });
         jMenu2.add(smnuRegCat);
+
+        mnuRegProducto.setText("Registrar Producto");
+        mnuRegProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuRegProductoActionPerformed(evt);
+            }
+        });
+        jMenu2.add(mnuRegProducto);
 
         jMenuBar1.add(jMenu2);
 
@@ -199,6 +208,12 @@ public class Console extends javax.swing.JFrame {
     // TODO add your handling code here:
     }//GEN-LAST:event_menuGenerarPedidoActionPerformed
 
+    private void mnuRegProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuRegProductoActionPerformed
+        RegProducto regProd = new RegProducto();
+        EscritorioMenu.add(regProd);
+        regProd.show();
+    }//GEN-LAST:event_mnuRegProductoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -246,6 +261,7 @@ public class Console extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenu menuGenerarPedido;
     private javax.swing.JMenuItem mnuRegPedido;
+    private javax.swing.JMenuItem mnuRegProducto;
     private javax.swing.JMenuItem mnuRegRestaurante;
     private javax.swing.JMenuItem mnuRegUsuario;
     private javax.swing.JMenuItem mnuSalir;
