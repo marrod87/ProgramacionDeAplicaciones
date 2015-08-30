@@ -40,7 +40,6 @@ public class DataUser {
         
     }
     
-    
     public String getNickname(){
         return this.nickname;
     }
