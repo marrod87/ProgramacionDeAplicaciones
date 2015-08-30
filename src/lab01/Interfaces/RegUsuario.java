@@ -120,6 +120,8 @@ private ICtrlUsuario ICU;
             }
         });
 
+        tbDia.setValue(1);
+
         btngUsuarios.add(rbCliente);
         rbCliente.setText("Cliente");
         rbCliente.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -130,6 +132,11 @@ private ICtrlUsuario ICU;
 
         btngUsuarios.add(rbRestaurante);
         rbRestaurante.setText("Restaurante");
+        rbRestaurante.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                rbRestauranteMouseClicked(evt);
+            }
+        });
         rbRestaurante.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rbRestauranteActionPerformed(evt);
@@ -271,6 +278,7 @@ private ICtrlUsuario ICU;
         else
             if(ICU.ingresarDatos(nickname,nombre,mail,direccion)){
                 if(rbCliente.isSelected()){
+                    
                     ICU.registrarCliente(apellido, img);
                     JOptionPane.showMessageDialog(null, "El cliente ha sido registrado","Exito",JOptionPane.INFORMATION_MESSAGE);
                 }
@@ -312,6 +320,7 @@ private ICtrlUsuario ICU;
 
     private void rbClienteActionPerformed(java.awt.event.ActionEvent evt) {                                              
     // TODO add your handling code here:
+        this.jbSelCategoria.setVisible(false);
     }                                             
     
     private void tbMailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbMailActionPerformed
@@ -320,8 +329,13 @@ private ICtrlUsuario ICU;
 
     private void rbClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rbClienteMouseClicked
         // TODO add your handling code here:
+        this.jbSelCategoria.setVisible(false);
+        this.tbDia.setVisible(true);
+        this.tbMes.setVisible(true);
+        this.tbAnio.setVisible(true);
+        this.lblFechaNacimiento.setVisible(true);
     }//GEN-LAST:event_rbClienteMouseClicked
-
+ 
     private void jbSelCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSelCategoriaActionPerformed
     SeleccionarCat selCat = new SeleccionarCat();
     Console.EscritorioMenu.add(selCat);
@@ -330,6 +344,14 @@ private ICtrlUsuario ICU;
         
 // TODO add your handling code here:
     }//GEN-LAST:event_jbSelCategoriaActionPerformed
+
+    private void rbRestauranteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rbRestauranteMouseClicked
+        // TODO add your handling code here:
+        this.tbDia.setVisible(false);
+        this.tbMes.setVisible(false);
+        this.tbAnio.setVisible(false);
+        this.lblFechaNacimiento.setVisible(false);
+    }//GEN-LAST:event_rbRestauranteMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
