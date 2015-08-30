@@ -9,11 +9,16 @@ package lab01.Clases;
  *
  * @author gera
  */
-public class Individual {
+public class Individual extends Producto {
 
     public Individual() {
         super();
         // crear con los campos de los tb
+    }
+    
+    public DataIndividual getDataIndividual(){
+        DataIndividual dIndividual = new DataIndividual(this.getDescripcion(), this.getNombre(), this.getPrecio(), this.getImagen());
+        return dIndividual;
     }
     
 }
