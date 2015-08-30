@@ -9,7 +9,7 @@ package lab01.Clases;
  *
  * @author gera
  */
-public class Promocional {
+public class Promocional extends Producto {
     private boolean activa;
     private double descuento; //ver como se hace JoacoP(me imagino yo que seria un entero % y lo q se hace despues es a precio_total calcularsele ese descuento)
 
@@ -37,7 +37,7 @@ public class Promocional {
     }
 
     public DataPromocional getDataPromo(){
-        DataPromocional dPromo = new DataPromocional(this.isActiva(), this.getDescuento()/*lo mismo q en el DataPromo*/);
+        DataPromocional dPromo = new DataPromocional(this.isActiva(), this.getDescuento(), this.getDescripcion(), this.getNombre(), this.getPrecio(), this.getImagen()/*lo mismo q en el DataPromo*/);
         return dPromo;
     }
 
