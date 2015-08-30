@@ -10,6 +10,7 @@ import javax.swing.JRadioButton;
 import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import lab01.Clases.Categoria;
 //import lab01.Interfaces.ICtrlUsuario;
 import lab01.Handlers.Fabrica;
 
