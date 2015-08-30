@@ -36,7 +36,7 @@
               <EmptySpace max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="146" max="32767" attributes="0"/>
+              <EmptySpace pref="39" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="lblNicknameCliente" alignment="1" min="-2" max="-2" attributes="0"/>
                   <Component id="lblmailCliente" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -44,11 +44,14 @@
                   <Component id="lbldireccionCliente" alignment="1" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="tbmailCliente" alignment="1" pref="151" max="32767" attributes="0"/>
-                  <Component id="tbNickNameCliente" alignment="1" max="32767" attributes="0"/>
-                  <Component id="tbnombreCliente" alignment="1" max="32767" attributes="0"/>
-                  <Component id="tbdireccionCliente" alignment="1" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="tbmailCliente" alignment="1" pref="151" max="32767" attributes="0"/>
+                      <Component id="tbNickNameCliente" alignment="1" max="32767" attributes="0"/>
+                      <Component id="tbnombreCliente" alignment="1" max="32767" attributes="0"/>
+                      <Component id="tbdireccionCliente" alignment="1" max="32767" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
           </Group>
@@ -82,7 +85,9 @@
                   <Component id="tbdireccionCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lbldireccionCliente" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="272" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+              <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="116" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -138,5 +143,22 @@
         <Property name="text" type="java.lang.String" value="Direccion:"/>
       </Properties>
     </Component>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JList" name="jlCat">
+          <Properties>
+            <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
+              <StringArray count="0"/>
+            </Property>
+            <Property name="selectionMode" type="int" value="0"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
   </SubComponents>
 </Form>

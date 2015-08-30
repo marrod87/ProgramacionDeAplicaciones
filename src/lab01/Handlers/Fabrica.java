@@ -16,6 +16,8 @@ import lab01.Interfaces.ICtrlProducto;
 public class Fabrica {
 
 private static Fabrica instancia;
+private static ICtrlUsuario ICU;
+private static ICtrlProducto ICP;
 private Fabrica(){};
 
     public static Fabrica getInstance(){
@@ -26,13 +28,15 @@ private Fabrica(){};
 }
     
 public ICtrlUsuario getICtrlUsuario() {
-    ICtrlUsuario IG = new CtrlUsuario();
-    return IG;
+    if(ICU==null)
+        ICU = new CtrlUsuario();
+    return ICU;
 }
 
 public ICtrlProducto getICtrlProducto(){
-    ICtrlProducto CP = new CtrlProducto();
-    return CP;
+    if(ICP==null)
+    ICP = new CtrlProducto();
+    return ICP;
 }
     
 }

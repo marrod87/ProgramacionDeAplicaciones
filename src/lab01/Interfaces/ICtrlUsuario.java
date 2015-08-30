@@ -27,4 +27,5 @@ public interface ICtrlUsuario {
     public abstract Map armoListaU();
     public abstract void registrarCat(String nombre);
     public abstract Map retColCat();
+    public void setCat(Map cate);
 }

@@ -8,6 +8,8 @@ package lab01.Clases;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.Iterator;
+
 
 /**
  *
@@ -18,9 +20,9 @@ public class Restaurante extends Usuario{
     private Map ColCategoria;
     private Map ColProducto;
 
-    public Restaurante(String nickname, String nombre, String email, String direccion) {
+    public Restaurante(String nickname, String nombre, String email, String direccion, Map categorias) {
         super(nickname,nombre,email,direccion);
-        ColCategoria =new HashMap();
+        ColCategoria = categorias;
         ColProducto = new HashMap();
         //this.lstImagen = new ArrayList<String>(); //Esto puede ser cualquera
     }
@@ -36,5 +38,14 @@ public class Restaurante extends Usuario{
         ColProducto.put(p.getNombre(), p);
         
     }
-
+    public Map obtenerColeccion(){
+        Map ret = new HashMap();
+        Iterator it = ColCategoria.entrySet().iterator();
+        //Iterator itret = ret.entrySet().iterator();
+        while(it.hasNext()){
+            Map.Entry map = (Map.Entry) it.next();
+            ret.put(map.getKey(), map.getKey());        
+        }
+        return ret;
+    }
 }

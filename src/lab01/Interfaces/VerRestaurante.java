@@ -6,8 +6,12 @@
 
 package lab01.Interfaces;
 
+import javax.swing.DefaultListModel;
 import lab01.Clases.Restaurante;
 import lab01.Handlers.Fabrica;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.Iterator;
 
 /**
  *
@@ -35,9 +39,10 @@ public class VerRestaurante extends javax.swing.JInternalFrame {
      
        this.lblmailCliente.setVisible(false);
        this.lblnombreCliente.setVisible(false);
+       model = new DefaultListModel();
        
     }
-
+    DefaultListModel model;
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -57,6 +62,8 @@ public class VerRestaurante extends javax.swing.JInternalFrame {
         lblmailCliente = new javax.swing.JLabel();
         lblnombreCliente = new javax.swing.JLabel();
         lbldireccionCliente = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jlCat = new javax.swing.JList();
 
         setClosable(true);
         setIconifiable(true);
@@ -87,6 +94,9 @@ public class VerRestaurante extends javax.swing.JInternalFrame {
 
         lbldireccionCliente.setText("Direccion:");
 
+        jlCat.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jScrollPane1.setViewportView(jlCat);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -98,18 +108,20 @@ public class VerRestaurante extends javax.swing.JInternalFrame {
                 .addComponent(ver)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(146, Short.MAX_VALUE)
+                .addContainerGap(39, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblNicknameCliente, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblmailCliente, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblnombreCliente, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lbldireccionCliente, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(tbmailCliente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
-                    .addComponent(tbNickNameCliente, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(tbnombreCliente, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(tbdireccionCliente, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(tbmailCliente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
+                        .addComponent(tbNickNameCliente, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(tbnombreCliente, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(tbdireccionCliente, javax.swing.GroupLayout.Alignment.TRAILING)))
                 .addGap(38, 38, 38))
         );
         layout.setVerticalGroup(
@@ -135,7 +147,9 @@ public class VerRestaurante extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tbdireccionCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbldireccionCliente))
-                .addContainerGap(272, Short.MAX_VALUE))
+                .addGap(26, 26, 26)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(116, Short.MAX_VALUE))
         );
 
         pack();
@@ -167,6 +181,16 @@ public class VerRestaurante extends javax.swing.JInternalFrame {
        
        this.lblmailCliente.setVisible(true);
        this.lblnombreCliente.setVisible(true);
+       model.clear();
+       Map cats = c.obtenerColeccion();
+       Iterator it = cats.entrySet().iterator();
+        //Iterator itret = ret.entrySet().iterator();
+        while(it.hasNext()){
+            Map.Entry map = (Map.Entry) it.next();
+            model.addElement(map.getKey());
+        }
+        this.jlCat.setModel(model);
+       
       
     //this.Cliente.setText("lala");
     }//GEN-LAST:event_verActionPerformed
@@ -174,6 +198,8 @@ public class VerRestaurante extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField cliente;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JList jlCat;
     private javax.swing.JLabel lblNicknameCliente;
     private javax.swing.JLabel lbldireccionCliente;
     private javax.swing.JLabel lblmailCliente;

@@ -30,8 +30,14 @@ public class CtrlUsuario implements ICtrlUsuario {
     private String nombre;
     private String email;
     private String direccion;
-
+    private Map Cat;
 public CtrlUsuario(){}
+
+    public void setCat(Map cate){
+    this.Cat=cate;
+    JOptionPane.showMessageDialog(null, "Categoria recordada","EXITO",JOptionPane.INFORMATION_MESSAGE);
+}
+
 
     @Override
     public boolean ingresarDatos(String nickname, String nombre, String email, String direccion)
@@ -75,7 +81,7 @@ public CtrlUsuario(){}
 
     @Override
     public void registrarRestaurante(){
-    Restaurante r = new Restaurante(this.nickname, this.nombre, this.email, this.direccion);
+    Restaurante r = new Restaurante(this.nickname, this.nombre, this.email, this.direccion, this.Cat);
     HUsuario HU = HUsuario.getinstance();
     HU.addUsuario(r);
 }
@@ -107,7 +113,7 @@ return c;
     @Override
     public Restaurante getRestauranteByNickname(String nickname){
     HUsuario mu = HUsuario.getinstance();
-    return (mu.obtenerRestaurante(nickname));
+    return (Restaurante)(mu.obtenerRestaurante(nickname));
     }
 
 
@@ -142,7 +148,7 @@ public void registrarCat(String nombre){
 }
 
 public Map retColCat(){
-            JOptionPane.showMessageDialog(null, "Se ha creado la nueva categoria","EXITO",JOptionPane.INFORMATION_MESSAGE);
+           // JOptionPane.showMessageDialog(null, "Se ha creado la nueva categoria","EXITO",JOptionPane.INFORMATION_MESSAGE);
     Map ret  = new HashMap();        
     HCategoria hc = HCategoria.getinstance();
     ret=hc.obtenerColeccion();

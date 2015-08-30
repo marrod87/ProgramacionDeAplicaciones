@@ -277,7 +277,7 @@ private ICtrlUsuario ICU;
                 else
                     if(rbRestaurante.isSelected()){
                         ICU.registrarRestaurante();
-                        JOptionPane.showMessageDialog(null, "El restaurante ha sido registrado, seleccione las categorias","Exito",JOptionPane.INFORMATION_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "El restaurante ha sido registrado","Exito",JOptionPane.INFORMATION_MESSAGE);
                     }
                     else
                         JOptionPane.showMessageDialog(null, "Seleccione Cliente o Restaurante","ERROR",JOptionPane.ERROR_MESSAGE);
