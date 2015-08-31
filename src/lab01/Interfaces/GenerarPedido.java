@@ -12,6 +12,7 @@ import lab01.Handlers.Fabrica;
  * @author joaquin
  */
 public class GenerarPedido extends javax.swing.JInternalFrame {
+    private ICtrlUsuario ICU;
 
     /**
      * Creates new form GenerarPedido
@@ -19,6 +20,9 @@ public class GenerarPedido extends javax.swing.JInternalFrame {
     public GenerarPedido() {
         initComponents();
         Fabrica fabrica = Fabrica.getInstance();
+        ICU = fabrica.getICtrlUsuario();
+        this.jtxtCliente.setVisible(false);
+        
         //ListarUsuariosGP listar = new ListarUsuariosGP();
     }
 
@@ -33,8 +37,10 @@ public class GenerarPedido extends javax.swing.JInternalFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jbSeleccionarCliente = new javax.swing.JButton();
+        jtxtCliente = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
 
-        jLabel1.setText("Seleccione un Cliente");
+        jLabel1.setText("Seleccione un Cliente:");
 
         jbSeleccionarCliente.setText("Seleccionar");
         jbSeleccionarCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -43,16 +49,23 @@ public class GenerarPedido extends javax.swing.JInternalFrame {
             }
         });
 
+        jLabel2.setText("Seleccione Productos:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(32, 32, 32)
-                .addComponent(jLabel1)
-                .addGap(69, 69, 69)
-                .addComponent(jbSeleccionarCliente)
-                .addContainerGap(231, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(43, 43, 43)
+                        .addComponent(jbSeleccionarCliente)
+                        .addGap(18, 18, 18)
+                        .addComponent(jtxtCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -60,8 +73,11 @@ public class GenerarPedido extends javax.swing.JInternalFrame {
                 .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jbSeleccionarCliente))
-                .addContainerGap(394, Short.MAX_VALUE))
+                    .addComponent(jbSeleccionarCliente)
+                    .addComponent(jtxtCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addContainerGap(359, Short.MAX_VALUE))
         );
 
         pack();
@@ -72,14 +88,15 @@ public class GenerarPedido extends javax.swing.JInternalFrame {
         Console.EscritorioMenu.add(listar);
         listar.toFront();
         listar.show();
-        
-
-// TODO add your handling code here:
+        this.jtxtCliente.setText(ICU.getNickname());
+        this.jtxtCliente.setVisible(true);
     }//GEN-LAST:event_jbSeleccionarClienteActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JButton jbSeleccionarCliente;
+    private javax.swing.JTextField jtxtCliente;
     // End of variables declaration//GEN-END:variables
 }

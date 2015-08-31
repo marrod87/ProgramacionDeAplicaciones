@@ -12,6 +12,7 @@ import lab01.Clases.Restaurante;
 import lab01.Clases.Cliente;
 import lab01.Handlers.Fabrica;
 import java.util.Map;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import lab01.Clases.DataCliente;
 
@@ -57,6 +58,11 @@ public class ListarUsuariosGP extends javax.swing.JInternalFrame {
         jSeleccione.setText("Seleccione un cliente:");
 
         jbListo.setText("Listo");
+        jbListo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbListoActionPerformed(evt);
+            }
+        });
 
         jtabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -85,25 +91,34 @@ public class ListarUsuariosGP extends javax.swing.JInternalFrame {
                 .addComponent(jSeleccione)
                 .addGap(33, 33, 33)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addGap(18, 18, 18)
                 .addComponent(jbListo)
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(62, 62, 62)
+                .addComponent(jSeleccione, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(250, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jbListo)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jSeleccione, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(404, 404, 404)))
-                .addContainerGap(59, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jbListo))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jbListoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbListoActionPerformed
+        String nick=String.valueOf(modelo.getValueAt(jtabla.getSelectedRow(),1));
+        ICU.setNickname(nick);
+        this.dispose();
+    }//GEN-LAST:event_jbListoActionPerformed
 
     private void cargarTabla(){
     Map Datas; 
@@ -117,11 +132,9 @@ public class ListarUsuariosGP extends javax.swing.JInternalFrame {
             lista[0]=dc.getMail();
             lista[1]=dc.getNickname();
             modelo.insertRow((int)jtabla.getRowCount(), lista);
-            
         }
-    
-    
     }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;

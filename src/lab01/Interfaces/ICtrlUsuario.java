@@ -18,6 +18,8 @@ import lab01.Clases.DataCliente;
  * @author admin123
  */
 public interface ICtrlUsuario {
+    public abstract void setNickname(String nick);
+    public abstract String getNickname();
     public abstract boolean ingresarDatos(String nickname, String email, String nombre, String direccion);
     public abstract void registrarCliente(String apellido, String imagen);
     public abstract void registrarRestaurante();

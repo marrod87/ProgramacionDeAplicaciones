@@ -36,9 +36,16 @@ public class CtrlUsuario implements ICtrlUsuario {
     
     
     public CtrlUsuario(){}
-        public void setCat(Map cate){
+    
+    public void setCat(Map cate){
         this.Cat=cate;
         JOptionPane.showMessageDialog(null, "Categoria recordada","EXITO",JOptionPane.INFORMATION_MESSAGE);
+    }
+    public void setNickname(String nick){
+        this.nickname=nick;
+    }
+    public String getNickname(){
+        return this.nickname;
     }
 
     @Override
