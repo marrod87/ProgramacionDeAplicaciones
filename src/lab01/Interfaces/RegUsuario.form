@@ -240,6 +240,9 @@
       </Events>
     </Component>
     <Component class="com.toedter.components.JSpinField" name="tbDia">
+      <Properties>
+        <Property name="value" type="int" value="1"/>
+      </Properties>
     </Component>
     <Component class="com.toedter.calendar.JYearChooser" name="tbAnio">
     </Component>
@@ -266,6 +269,7 @@
         <Property name="text" type="java.lang.String" value="Restaurante"/>
       </Properties>
       <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="rbRestauranteMouseClicked"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rbRestauranteActionPerformed"/>
       </Events>
     </Component>

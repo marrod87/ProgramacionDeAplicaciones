@@ -38,7 +38,6 @@ public class Console extends javax.swing.JFrame {
         mnuSalir = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         mnuRegUsuario = new javax.swing.JMenuItem();
-        mnuRegRestaurante = new javax.swing.JMenuItem();
         mnuRegPedido = new javax.swing.JMenuItem();
         smnuRegCat = new javax.swing.JMenuItem();
         mnuRegProducto = new javax.swing.JMenuItem();
@@ -77,14 +76,6 @@ public class Console extends javax.swing.JFrame {
             }
         });
         jMenu2.add(mnuRegUsuario);
-
-        mnuRegRestaurante.setText("Registrar Restaurante");
-        mnuRegRestaurante.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnuRegRestauranteActionPerformed(evt);
-            }
-        });
-        jMenu2.add(mnuRegRestaurante);
 
         mnuRegPedido.setText("Registrar Pedido");
         jMenu2.add(mnuRegPedido);
@@ -186,10 +177,6 @@ public class Console extends javax.swing.JFrame {
 
     
     
-    private void mnuRegRestauranteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuRegRestauranteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_mnuRegRestauranteActionPerformed
-
     private void smnuRegCatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_smnuRegCatActionPerformed
         RegCategoria regCat = new RegCategoria();
         EscritorioMenu.add(regCat);
@@ -269,7 +256,6 @@ public class Console extends javax.swing.JFrame {
     private javax.swing.JMenu menuGenerarPedido;
     private javax.swing.JMenuItem mnuRegPedido;
     private javax.swing.JMenuItem mnuRegProducto;
-    private javax.swing.JMenuItem mnuRegRestaurante;
     private javax.swing.JMenuItem mnuRegUsuario;
     private javax.swing.JMenuItem mnuSalir;
     private javax.swing.JMenuItem smnuRegCat;
