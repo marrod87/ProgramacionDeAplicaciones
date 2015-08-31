@@ -21,14 +21,14 @@ import lab01.Clases.DataCliente;
  * @author admin123
  */
 public class ListarUsuariosGP extends javax.swing.JInternalFrame {
-    private ICtrlUsuario ICU; 
+    private ICtrlPedido ICPed; 
     /**
      * Creates new form VerCliente
      */
     public ListarUsuariosGP() {
         initComponents();
         Fabrica fabrica = Fabrica.getInstance();
-        ICU = fabrica.getICtrlUsuario();
+        ICPed = fabrica.getICtrlPedido();
         modelo = (DefaultTableModel)jtabla.getModel();
 
         this.cargarTabla();
@@ -116,13 +116,13 @@ public class ListarUsuariosGP extends javax.swing.JInternalFrame {
 
     private void jbListoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbListoActionPerformed
         String nick=String.valueOf(modelo.getValueAt(jtabla.getSelectedRow(),1));
-        ICU.setNickname(nick);
+        ICPed.setNickname(nick);
         this.dispose();
     }//GEN-LAST:event_jbListoActionPerformed
 
     private void cargarTabla(){
     Map Datas; 
-        Datas=ICU.devListaDC();
+        Datas=ICPed.devListaDC();
         Iterator it = Datas.entrySet().iterator();
         String lista[]=new String[2];
         while(it.hasNext()){

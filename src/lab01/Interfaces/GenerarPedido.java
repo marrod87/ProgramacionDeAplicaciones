@@ -40,6 +40,8 @@ public class GenerarPedido extends javax.swing.JInternalFrame {
         jtxtCliente = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
 
+        setClosable(true);
+
         jLabel1.setText("Seleccione un Cliente:");
 
         jbSeleccionarCliente.setText("Seleccionar");

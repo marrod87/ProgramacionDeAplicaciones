@@ -8,6 +8,7 @@ package lab01.Handlers;
 
 import lab01.Interfaces.ICtrlUsuario;
 import lab01.Interfaces.ICtrlProducto;
+import lab01.Interfaces.ICtrlPedido;
 
 /**
  *
@@ -18,6 +19,7 @@ public class Fabrica {
 private static Fabrica instancia;
 private static ICtrlUsuario ICU;
 private static ICtrlProducto ICP;
+private static ICtrlPedido ICPed;
 private Fabrica(){};
 
     public static Fabrica getInstance(){
@@ -35,8 +37,14 @@ public ICtrlUsuario getICtrlUsuario() {
 
 public ICtrlProducto getICtrlProducto(){
     if(ICP==null)
-    ICP = new CtrlProducto();
+        ICP = new CtrlProducto();
     return ICP;
+}
+
+public ICtrlPedido getICtrlPedido(){
+    if(ICPed==null)
+        ICPed = new CtrlPedido();
+    return ICPed;
 }
     
 }
