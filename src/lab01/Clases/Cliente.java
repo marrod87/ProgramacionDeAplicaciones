@@ -47,5 +47,9 @@ public class Cliente extends Usuario{
     public String getNickname() {
         return nickname;
     }
+    public DataCliente ClienteADC(){
+        DataCliente DC = new DataCliente(this.nickname, this.nombre, this.mail, this.direccion, this.apellido, this.imagen);
+        return DC;
+    }
     
 }

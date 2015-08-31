@@ -11,38 +11,50 @@ import java.util.Date;
  *
  * @author gonzalo
  */
-public class DataCliente {
+public class DataCliente{
     
+    private String nickname;
+    private String nombre;
+    private String email;
+    private String direccion;
     private String apellido;
-    private Date fNac;
+    private String imagen;
 
     
     public DataCliente(){}
     
-    public DataCliente(String apellido, Date fNac) {
+    public DataCliente(String nickname, String nombre, String mail, String direccion, String apellido, String img){
+        this.nickname=nickname;
+        this.nombre=nombre;
+        this.email=mail;
+        this.direccion=direccion;
         this.apellido = apellido;
-        this.fNac = fNac;
+        this.imagen=img;
     }
-
+    public String getNombre(){
+        return this.nombre;
+    }
     public String getApellido() {
-        return apellido;
+        return this.apellido;
+    }
+    
+    public String getImagen(){
+        return this.imagen;
+    }
+    
+    public String getMail(){
+        return this.email;
+    }
+    public String getNickname() {
+        return this.nickname;
+    }
+    public String getDireccion(){
+        return this.direccion;
     }
 
-    public Date getfNac() {
-        return fNac;
+    public Usuario dataCliACli(){
+        Usuario c = new Cliente(this.nickname, this.nombre, this.email, this.direccion,this.apellido, this.imagen);
+        return c;
     }
-
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
-
-    public void setfNac(Date fNac) {
-        this.fNac = fNac;
-    }
-    
-    
-    
-    
-    
     
 }

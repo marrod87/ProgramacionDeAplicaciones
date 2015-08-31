@@ -11,6 +11,7 @@ import lab01.Clases.Cliente;
 import lab01.Handlers.Fabrica;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import lab01.Clases.DataCliente;
 
 
 /**
@@ -216,7 +217,7 @@ public class VerCliente extends javax.swing.JInternalFrame {
         Fabrica fabrica = Fabrica.getInstance();
         ICU = fabrica.getICtrlUsuario();
        String cli = this.cliente.getText();
-       Cliente c = ICU.getUsuarioByNickname(cli);
+       DataCliente c = ICU.getUsuarioByNickname(cli);
        this.tbNickNameCliente.setVisible(true);
        this.tbNickNameCliente.setText(c.getNickname());
        this.tbapellidoClente.setVisible(true);

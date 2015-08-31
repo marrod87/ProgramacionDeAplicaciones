@@ -39,11 +39,8 @@ public class HUsuario {
         //JOptionPane.showMessageDialog(null, usu.getNickname());
     }
     
-    public Map obtenerColeccion(){
-        Map col = new HashMap();
-        //col=(Map)Colusuarios.
-        
-        return col;
+    public Map obtenerColeccion(){        
+        return Colusuarios;
     }
     
     public Cliente obtenerUsuario(String nickname){
@@ -51,14 +48,6 @@ public class HUsuario {
     }
     public Restaurante obtenerRestaurante(String nickname){
         return ((Restaurante) Colusuarios.get(nickname));
-    }
-    public String listarUsuarios(){
-    Iterator it = Colusuarios.entrySet().iterator();
-    String key;
-    Map.Entry w = (Map.Entry) it.next(); 
-
-    String str= (String)w.getValue();
-    return str;
     }
     public boolean find(String nickname, String email){
        

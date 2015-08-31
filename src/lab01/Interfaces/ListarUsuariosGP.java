@@ -5,12 +5,15 @@
  */
 
 package lab01.Interfaces;
-
+import java.util.Vector;
+import java.awt.event.ItemEvent;
 import java.util.Iterator;
 import lab01.Clases.Restaurante;
 import lab01.Clases.Cliente;
 import lab01.Handlers.Fabrica;
 import java.util.Map;
+import javax.swing.table.DefaultTableModel;
+import lab01.Clases.DataCliente;
 
 /**
  *
@@ -25,9 +28,12 @@ public class ListarUsuariosGP extends javax.swing.JInternalFrame {
         initComponents();
         Fabrica fabrica = Fabrica.getInstance();
         ICU = fabrica.getICtrlUsuario();
+        modelo = (DefaultTableModel)jtabla.getModel();
+
+        this.cargarTabla();
       
     }
-
+     DefaultTableModel modelo;
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -37,9 +43,10 @@ public class ListarUsuariosGP extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        cbClientes = new javax.swing.JComboBox();
         jSeleccione = new javax.swing.JLabel();
         jbListo = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jtabla = new javax.swing.JTable();
 
         setClosable(true);
         setIconifiable(true);
@@ -47,64 +54,80 @@ public class ListarUsuariosGP extends javax.swing.JInternalFrame {
         setResizable(true);
         setPreferredSize(new java.awt.Dimension(500, 500));
 
-        cbClientes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        cbClientes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbClientesActionPerformed(evt);
-            }
-        });
-
-        jSeleccione.setText("Seleccione un cliente");
+        jSeleccione.setText("Seleccione un cliente:");
 
         jbListo.setText("Listo");
+
+        jtabla.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Email", "Nickname"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(jtabla);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(45, 45, 45)
+                .addContainerGap()
                 .addComponent(jSeleccione)
-                .addGap(48, 48, 48)
-                .addComponent(cbClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(53, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(33, 33, 33)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
                 .addComponent(jbListo)
-                .addGap(91, 91, 91))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(63, 63, 63)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jSeleccione, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbClientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 190, Short.MAX_VALUE)
-                .addComponent(jbListo)
-                .addGap(162, 162, 162))
+                .addGap(62, 62, 62)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbListo)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jSeleccione, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(404, 404, 404)))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cbClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbClientesActionPerformed
-        Map listaU = ICU.armoListaU();
-        Iterator it = listaU.entrySet().iterator();
+    private void cargarTabla(){
+    Map Datas; 
+        Datas=ICU.devListaDC();
+        Iterator it = Datas.entrySet().iterator();
+        String lista[]=new String[2];
         while(it.hasNext()){
-            Map.Entry l = (Map.Entry) it.next(); 
-            cbClientes.addItem(l.getValue().toString());
+            Map.Entry map = (Map.Entry) it.next();
+            DataCliente dc = (DataCliente) map.getValue();
+            //lista[0]=model.getSize()-1;
+            lista[0]=dc.getMail();
+            lista[1]=dc.getNickname();
+            modelo.insertRow((int)jtabla.getRowCount(), lista);
+            
         }
-
-
-// TODO add your handling code here:
-    }//GEN-LAST:event_cbClientesActionPerformed
-
+    
+    
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox cbClientes;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel jSeleccione;
     private javax.swing.JButton jbListo;
+    private javax.swing.JTable jtabla;
     // End of variables declaration//GEN-END:variables
 
  

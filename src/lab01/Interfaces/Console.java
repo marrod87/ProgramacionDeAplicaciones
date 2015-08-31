@@ -135,6 +135,11 @@ public class Console extends javax.swing.JFrame {
         });
 
         genPedido.setText("Generar Pedido");
+        genPedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                genPedidoActionPerformed(evt);
+            }
+        });
         menuGenerarPedido.add(genPedido);
 
         jMenuBar1.add(menuGenerarPedido);
@@ -194,16 +199,11 @@ public class Console extends javax.swing.JFrame {
 
     private void VerRestaurantesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VerRestaurantesActionPerformed
         VerRestaurante verRes = new VerRestaurante();
-        EscritorioMenu.add(verRes);
-        
+        EscritorioMenu.add(verRes); 
         verRes.show();// TODO add your handling code here:
     }//GEN-LAST:event_VerRestaurantesActionPerformed
 
     private void menuGenerarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuGenerarPedidoActionPerformed
-        ListarUsuariosGP listar = new ListarUsuariosGP();
-        EscritorioMenu.add(listar);
-        listar.show();
-        
 
     // TODO add your handling code here:
     }//GEN-LAST:event_menuGenerarPedidoActionPerformed
@@ -213,6 +213,13 @@ public class Console extends javax.swing.JFrame {
         EscritorioMenu.add(regProd);
         regProd.show();
     }//GEN-LAST:event_mnuRegProductoActionPerformed
+
+    private void genPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_genPedidoActionPerformed
+        // TODO add your handling code here:
+        GenerarPedido generar = new GenerarPedido();
+        EscritorioMenu.add(generar);
+        generar.show();
+    }//GEN-LAST:event_genPedidoActionPerformed
 
     /**
      * @param args the command line arguments

@@ -74,5 +74,6 @@ public abstract class Usuario {
         return imagen;
     }
    
+      
     
 }
