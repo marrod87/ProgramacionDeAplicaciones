@@ -23,5 +23,8 @@ public class DataCategoria {
     public String getNombre(){
     return this.nombre;
     }
-    
+    public Categoria DCatAC(){
+        Categoria cat = new Categoria(this.nombre);
+        return cat;
+    }
 }

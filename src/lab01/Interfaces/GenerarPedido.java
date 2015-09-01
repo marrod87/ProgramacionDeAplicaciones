@@ -12,7 +12,7 @@ import lab01.Handlers.Fabrica;
  * @author joaquin
  */
 public class GenerarPedido extends javax.swing.JInternalFrame {
-    private ICtrlUsuario ICU;
+    private ICtrlPedido ICPed;
 
     /**
      * Creates new form GenerarPedido
@@ -20,8 +20,9 @@ public class GenerarPedido extends javax.swing.JInternalFrame {
     public GenerarPedido() {
         initComponents();
         Fabrica fabrica = Fabrica.getInstance();
-        ICU = fabrica.getICtrlUsuario();
+        ICPed = fabrica.getICtrlPedido();
         this.jtxtCliente.setVisible(false);
+        this.jtxtCategoria.setVisible(false);
         
         //ListarUsuariosGP listar = new ListarUsuariosGP();
     }
@@ -39,6 +40,8 @@ public class GenerarPedido extends javax.swing.JInternalFrame {
         jbSeleccionarCliente = new javax.swing.JButton();
         jtxtCliente = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
+        jbSeleccionarCat = new javax.swing.JButton();
+        jtxtCategoria = new javax.swing.JTextField();
 
         setClosable(true);
 
@@ -51,7 +54,23 @@ public class GenerarPedido extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel2.setText("Seleccione Productos:");
+        jtxtCliente.setEditable(false);
+
+        jLabel2.setText("Seleccione una Categoria:");
+
+        jbSeleccionarCat.setText("Seleccionar");
+        jbSeleccionarCat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbSeleccionarCatActionPerformed(evt);
+            }
+        });
+
+        jtxtCategoria.setEditable(false);
+        jtxtCategoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtxtCategoriaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -59,15 +78,20 @@ public class GenerarPedido extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, 18)
+                        .addComponent(jbSeleccionarCat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(43, 43, 43)
-                        .addComponent(jbSeleccionarCliente)
-                        .addGap(18, 18, 18)
-                        .addComponent(jtxtCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(45, Short.MAX_VALUE))
+                        .addComponent(jbSeleccionarCliente)))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jtxtCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
+                    .addComponent(jtxtCategoria))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -78,8 +102,11 @@ public class GenerarPedido extends javax.swing.JInternalFrame {
                     .addComponent(jbSeleccionarCliente)
                     .addComponent(jtxtCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addContainerGap(359, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jbSeleccionarCat)
+                    .addComponent(jtxtCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(350, Short.MAX_VALUE))
         );
 
         pack();
@@ -88,17 +115,32 @@ public class GenerarPedido extends javax.swing.JInternalFrame {
     private void jbSeleccionarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSeleccionarClienteActionPerformed
         ListarUsuariosGP listar = new ListarUsuariosGP();
         Console.EscritorioMenu.add(listar);
-        listar.toFront();
         listar.show();
-        this.jtxtCliente.setText(ICU.getNickname());
+        this.jtxtCliente.setText(ICPed.getNickname());
         this.jtxtCliente.setVisible(true);
     }//GEN-LAST:event_jbSeleccionarClienteActionPerformed
+
+    private void jbSeleccionarCatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSeleccionarCatActionPerformed
+        SeleccionarCatPedidos selP = new SeleccionarCatPedidos();
+        Console.EscritorioMenu.add(selP);
+        selP.show();
+        this.jtxtCategoria.setText(ICPed.getCat());
+        this.jtxtCategoria.setVisible(true);
+        
+    // TODO add your handling code here:
+    }//GEN-LAST:event_jbSeleccionarCatActionPerformed
+
+    private void jtxtCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtCategoriaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtxtCategoriaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton jbSeleccionarCat;
     private javax.swing.JButton jbSeleccionarCliente;
+    private javax.swing.JTextField jtxtCategoria;
     private javax.swing.JTextField jtxtCliente;
     // End of variables declaration//GEN-END:variables
 }

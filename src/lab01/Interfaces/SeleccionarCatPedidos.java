@@ -17,20 +17,20 @@ import javax.swing.JOptionPane;
  *
  * @author joaquin
  */
-public class SeleccionarCat extends javax.swing.JInternalFrame {
-    private ICtrlUsuario ICU;
+public class SeleccionarCatPedidos extends javax.swing.JInternalFrame {
+    private ICtrlPedido ICPed;
 
     /**
      * Creates new form SeleccionarCat
      */
-    public SeleccionarCat() {
+    public SeleccionarCatPedidos() {
         initComponents();
         Fabrica fabrica = Fabrica.getInstance();
-        ICU = fabrica.getICtrlUsuario();
+        ICPed = fabrica.getICtrlPedido();
         this.cargarCBbox();
-        model = new DefaultListModel();
+    
     }
-    DefaultListModel model;
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -41,10 +41,8 @@ public class SeleccionarCat extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jcbSelect = new javax.swing.JComboBox();
-        jbSelect = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jLista = new javax.swing.JList();
         jbListo = new javax.swing.JButton();
+        jtxtCategoria = new javax.swing.JTextField();
 
         jcbSelect.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select..." }));
         jcbSelect.addItemListener(new java.awt.event.ItemListener() {
@@ -58,15 +56,6 @@ public class SeleccionarCat extends javax.swing.JInternalFrame {
             }
         });
 
-        jbSelect.setText(">");
-        jbSelect.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbSelectActionPerformed(evt);
-            }
-        });
-
-        jScrollPane1.setViewportView(jLista);
-
         jbListo.setText("Listo");
         jbListo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -74,50 +63,42 @@ public class SeleccionarCat extends javax.swing.JInternalFrame {
             }
         });
 
+        jtxtCategoria.setEditable(false);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jcbSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jbSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(66, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jbListo)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jcbSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34)
+                        .addComponent(jtxtCategoria, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jbListo)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(67, 67, 67)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jcbSelect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jbSelect))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(68, 68, 68)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jcbSelect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtxtCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(287, 287, 287)
                 .addComponent(jbListo)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jbSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSelectActionPerformed
-        //jLista.setModel(model);
-
-// TODO add your handling code here:
-    }//GEN-LAST:event_jbSelectActionPerformed
-
     private void jcbSelectItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcbSelectItemStateChanged
         if(evt.getStateChange()==ItemEvent.SELECTED)
-            model.addElement(evt.getItem().toString());
-        jLista.setModel(model);
+            jtxtCategoria.setText(evt.getItem().toString());
         
 
 //String s = (String) jcbSelect.getSelectedItem();
@@ -133,19 +114,12 @@ public class SeleccionarCat extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jcbSelectMouseDragged
 
     private void jbListoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbListoActionPerformed
-          if (model.isEmpty()) {
+        if(this.jtxtCategoria.getText().equals(""))
             JOptionPane.showMessageDialog(null, "Debe ingresar al menos una categoria.", "ERROR", JOptionPane.ERROR_MESSAGE);
-        } else {
-            Map ret = new HashMap();
-            int i = 0;
-            while (i < model.size()) {
-                ret.put(model.getElementAt(i), model.getElementAt(i));
-                i++;
-            }
-            ICU.setCat(ret);
-            
-        }
-        this.dispose();
+        else{
+            ICPed.setCat(jtxtCategoria.getText());
+            this.dispose();
+        }    
         
 
 
@@ -153,7 +127,7 @@ public class SeleccionarCat extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbListoActionPerformed
     public void cargarCBbox(){
         Map cats; 
-        cats=ICU.retColCat();
+        cats=ICPed.retColDCat();
         Iterator it = cats.entrySet().iterator();
         while(it.hasNext()){
             Map.Entry map = (Map.Entry) it.next();
@@ -164,10 +138,8 @@ public class SeleccionarCat extends javax.swing.JInternalFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JList jLista;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jbListo;
-    private javax.swing.JButton jbSelect;
     private javax.swing.JComboBox jcbSelect;
+    private javax.swing.JTextField jtxtCategoria;
     // End of variables declaration//GEN-END:variables
 }
