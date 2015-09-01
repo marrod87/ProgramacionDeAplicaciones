@@ -118,6 +118,10 @@ public class ListarUsuariosGP extends javax.swing.JInternalFrame {
         String nick=String.valueOf(modelo.getValueAt(jtabla.getSelectedRow(),1));
         ICPed.setNickname(nick);
         this.dispose();
+        //nueva pantalla seleccionar Categoria
+        SeleccionarCatPedido selP = new SeleccionarCatPedido();
+        Console.EscritorioMenu.add(selP);
+        selP.show();
     }//GEN-LAST:event_jbListoActionPerformed
 
     private void cargarTabla(){

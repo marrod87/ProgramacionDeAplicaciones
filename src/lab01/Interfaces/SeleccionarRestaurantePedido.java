@@ -12,18 +12,20 @@ import java.util.HashMap;
 import java.util.Iterator;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import lab01.Clases.DataRestaurante;
 
 /**
  *
  * @author joaquin
  */
-public class SeleccionarCatPedidos extends javax.swing.JInternalFrame {
+public class SeleccionarRestaurantePedido extends javax.swing.JInternalFrame {
     private ICtrlPedido ICPed;
+
 
     /**
      * Creates new form SeleccionarCat
      */
-    public SeleccionarCatPedidos() {
+    public SeleccionarRestaurantePedido() {
         initComponents();
         Fabrica fabrica = Fabrica.getInstance();
         ICPed = fabrica.getICtrlPedido();
@@ -42,7 +44,7 @@ public class SeleccionarCatPedidos extends javax.swing.JInternalFrame {
 
         jcbSelect = new javax.swing.JComboBox();
         jbListo = new javax.swing.JButton();
-        jtxtCategoria = new javax.swing.JTextField();
+        jtxtRestaurante = new javax.swing.JTextField();
 
         jcbSelect.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select..." }));
         jcbSelect.addItemListener(new java.awt.event.ItemListener() {
@@ -63,7 +65,7 @@ public class SeleccionarCatPedidos extends javax.swing.JInternalFrame {
             }
         });
 
-        jtxtCategoria.setEditable(false);
+        jtxtRestaurante.setEditable(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -75,7 +77,7 @@ public class SeleccionarCatPedidos extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jcbSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(34, 34, 34)
-                        .addComponent(jtxtCategoria, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE))
+                        .addComponent(jtxtRestaurante, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jbListo)))
@@ -87,7 +89,7 @@ public class SeleccionarCatPedidos extends javax.swing.JInternalFrame {
                 .addGap(68, 68, 68)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jcbSelect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtxtCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtxtRestaurante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(287, 287, 287)
                 .addComponent(jbListo)
                 .addContainerGap(24, Short.MAX_VALUE))
@@ -98,7 +100,7 @@ public class SeleccionarCatPedidos extends javax.swing.JInternalFrame {
 
     private void jcbSelectItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcbSelectItemStateChanged
         if(evt.getStateChange()==ItemEvent.SELECTED)
-            jtxtCategoria.setText(evt.getItem().toString());
+            jtxtRestaurante.setText(evt.getItem().toString());
         
 
 //String s = (String) jcbSelect.getSelectedItem();
@@ -114,10 +116,10 @@ public class SeleccionarCatPedidos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jcbSelectMouseDragged
 
     private void jbListoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbListoActionPerformed
-        if(this.jtxtCategoria.getText().equals(""))
+        if(this.jtxtRestaurante.getText().equals(""))
             JOptionPane.showMessageDialog(null, "Debe ingresar al menos una categoria.", "ERROR", JOptionPane.ERROR_MESSAGE);
         else{
-            ICPed.setCat(jtxtCategoria.getText());
+            ICPed.setMemRestaurante(jtxtRestaurante.getText());
             this.dispose();
         }    
         
@@ -127,19 +129,18 @@ public class SeleccionarCatPedidos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbListoActionPerformed
     public void cargarCBbox(){
         Map cats; 
-        cats=ICPed.retColDCat();
+        cats=ICPed.devListaDR();
         Iterator it = cats.entrySet().iterator();
         while(it.hasNext()){
             Map.Entry map = (Map.Entry) it.next();
-            jcbSelect.addItem(map.getKey().toString());
+            DataRestaurante dr = (DataRestaurante)map.getValue();
+            jcbSelect.addItem(dr.getNickname());
         }
-    
-        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jbListo;
     private javax.swing.JComboBox jcbSelect;
-    private javax.swing.JTextField jtxtCategoria;
+    private javax.swing.JTextField jtxtRestaurante;
     // End of variables declaration//GEN-END:variables
 }

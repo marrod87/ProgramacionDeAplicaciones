@@ -23,6 +23,7 @@ public class GenerarPedido extends javax.swing.JInternalFrame {
         ICPed = fabrica.getICtrlPedido();
         this.jtxtCliente.setVisible(false);
         this.jtxtCategoria.setVisible(false);
+        this.jtxtRest.setVisible(false);
         
         //ListarUsuariosGP listar = new ListarUsuariosGP();
     }
@@ -42,6 +43,9 @@ public class GenerarPedido extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         jbSeleccionarCat = new javax.swing.JButton();
         jtxtCategoria = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jbSelectRest = new javax.swing.JButton();
+        jtxtRest = new javax.swing.JTextField();
 
         setClosable(true);
 
@@ -72,6 +76,21 @@ public class GenerarPedido extends javax.swing.JInternalFrame {
             }
         });
 
+        jLabel3.setText("Seleccione un Restaurante:");
+
+        jbSelectRest.setText("Seleccionar");
+        jbSelectRest.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbSelectRestActionPerformed(evt);
+            }
+        });
+
+        jtxtRest.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtxtRestActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -80,17 +99,25 @@ public class GenerarPedido extends javax.swing.JInternalFrame {
                 .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jbSelectRest)
                         .addGap(18, 18, 18)
-                        .addComponent(jbSeleccionarCat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jtxtRest, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(43, 43, 43)
-                        .addComponent(jbSeleccionarCliente)))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jtxtCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
-                    .addComponent(jtxtCategoria))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(18, 18, 18)
+                                .addComponent(jbSeleccionarCat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(43, 43, 43)
+                                .addComponent(jbSeleccionarCliente)))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jtxtCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
+                            .addComponent(jtxtCategoria))))
                 .addContainerGap(44, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -106,7 +133,12 @@ public class GenerarPedido extends javax.swing.JInternalFrame {
                     .addComponent(jLabel2)
                     .addComponent(jbSeleccionarCat)
                     .addComponent(jtxtCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(350, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jbSelectRest)
+                    .addComponent(jtxtRest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(303, Short.MAX_VALUE))
         );
 
         pack();
@@ -121,7 +153,7 @@ public class GenerarPedido extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbSeleccionarClienteActionPerformed
 
     private void jbSeleccionarCatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSeleccionarCatActionPerformed
-        SeleccionarCatPedidos selP = new SeleccionarCatPedidos();
+        SeleccionarCatPedido selP = new SeleccionarCatPedido();
         Console.EscritorioMenu.add(selP);
         selP.show();
         this.jtxtCategoria.setText(ICPed.getCat());
@@ -134,13 +166,30 @@ public class GenerarPedido extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jtxtCategoriaActionPerformed
 
+    private void jbSelectRestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSelectRestActionPerformed
+        SeleccionarRestaurantePedido selR = new SeleccionarRestaurantePedido();
+        Console.EscritorioMenu.add(selR);
+        selR.show();
+        //this.jtxtRest.setText(ICPed.getCat());
+        //this.jtxtRest.setVisible(true);
+        
+// TODO add your handling code here:
+    }//GEN-LAST:event_jbSelectRestActionPerformed
+
+    private void jtxtRestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtRestActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtxtRestActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JButton jbSeleccionarCat;
     private javax.swing.JButton jbSeleccionarCliente;
+    private javax.swing.JButton jbSelectRest;
     private javax.swing.JTextField jtxtCategoria;
     private javax.swing.JTextField jtxtCliente;
+    private javax.swing.JTextField jtxtRest;
     // End of variables declaration//GEN-END:variables
 }

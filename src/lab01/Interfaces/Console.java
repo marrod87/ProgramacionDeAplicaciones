@@ -162,6 +162,9 @@ public class Console extends javax.swing.JFrame {
     }//GEN-LAST:event_mnuSalirActionPerformed
 
     private void mnuRegUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuRegUsuarioActionPerformed
+       
+        //this.jtxtCliente.setText(ICPed.getNickname());
+        //this.jtxtCliente.setVisible(true);
         RegUsuario regCli = new RegUsuario();
         EscritorioMenu.add(regCli);
         regCli.show();
@@ -203,9 +206,12 @@ public class Console extends javax.swing.JFrame {
 
     private void genPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_genPedidoActionPerformed
         // TODO add your handling code here:
-        GenerarPedido generar = new GenerarPedido();
-        EscritorioMenu.add(generar);
-        generar.show();
+         ListarUsuariosGP listar = new ListarUsuariosGP();
+        Console.EscritorioMenu.add(listar);
+        listar.show();
+        //GenerarPedido generar = new GenerarPedido();
+        //EscritorioMenu.add(generar);
+        //generar.show();
     }//GEN-LAST:event_genPedidoActionPerformed
 
     /**
