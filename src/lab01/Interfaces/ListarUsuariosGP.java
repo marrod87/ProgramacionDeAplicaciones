@@ -49,10 +49,8 @@ public class ListarUsuariosGP extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jtabla = new javax.swing.JTable();
 
-        setClosable(true);
-        setIconifiable(true);
-        setMaximizable(true);
         setResizable(true);
+        setTitle("Seleccione el Cliente que realiza el Pedido");
         setPreferredSize(new java.awt.Dimension(500, 500));
 
         jSeleccione.setText("Seleccione un cliente:");

@@ -45,6 +45,9 @@ public class SeleccionarRestaurantePedido extends javax.swing.JInternalFrame {
         jcbSelect = new javax.swing.JComboBox();
         jbListo = new javax.swing.JButton();
         jtxtRestaurante = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+
+        setTitle("Seleccione un Restaurante");
 
         jcbSelect.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select..." }));
         jcbSelect.addItemListener(new java.awt.event.ItemListener() {
@@ -67,6 +70,8 @@ public class SeleccionarRestaurantePedido extends javax.swing.JInternalFrame {
 
         jtxtRestaurante.setEditable(false);
 
+        jLabel1.setText("Seleccione un Restaurante");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -80,19 +85,24 @@ public class SeleccionarRestaurantePedido extends javax.swing.JInternalFrame {
                         .addComponent(jtxtRestaurante, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jbListo)))
+                        .addComponent(jbListo))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(68, 68, 68)
+                .addGap(33, 33, 33)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jcbSelect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jtxtRestaurante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(287, 287, 287)
                 .addComponent(jbListo)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         pack();
@@ -139,6 +149,7 @@ public class SeleccionarRestaurantePedido extends javax.swing.JInternalFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JButton jbListo;
     private javax.swing.JComboBox jcbSelect;
     private javax.swing.JTextField jtxtRestaurante;
