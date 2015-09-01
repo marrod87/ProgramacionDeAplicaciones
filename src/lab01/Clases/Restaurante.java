@@ -52,4 +52,14 @@ public class Restaurante extends Usuario{
         DataRestaurante DR = new DataRestaurante(this.nickname, this.nombre, this.mail, this.direccion, this.lstImagen);
         return DR;
     }
+    
+    public Map obtenerColProductos(){
+        Map ret = new HashMap();
+        Iterator it = ColProducto.entrySet().iterator();
+        while(it.hasNext()){
+            Map.Entry map = (Map.Entry) it.next();
+            ret.put(map.getKey(), map.getKey());
+        }
+        return ret;
+    }
 }
