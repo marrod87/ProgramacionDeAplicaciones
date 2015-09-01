@@ -24,5 +24,9 @@ public class Categoria {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }  
+    public DataCategoria CatADC(){
+        DataCategoria dc = new DataCategoria(this.nombre);
+        return dc;
+    }
     
 }

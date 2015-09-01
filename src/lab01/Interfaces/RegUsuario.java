@@ -338,7 +338,7 @@ private ICtrlUsuario ICU;
     }//GEN-LAST:event_rbClienteMouseClicked
  
     private void jbSelCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSelCategoriaActionPerformed
-    SeleccionarCat selCat = new SeleccionarCat();
+    SeleccionarCatReg selCat = new SeleccionarCatReg();
     Console.EscritorioMenu.add(selCat);
     selCat.toFront();
     selCat.show();
