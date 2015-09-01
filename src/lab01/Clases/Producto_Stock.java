@@ -11,9 +11,11 @@ package lab01.Clases;
  */
 public class Producto_Stock {
     private int cantidad;
+    private double precio;
 
-    public Producto_Stock(int cantidad) {
+    public Producto_Stock(int cantidad, double precio) {
         this.cantidad = cantidad;
+        this.precio = precio;
     }
 
     public int getCantidad() {
@@ -24,6 +26,12 @@ public class Producto_Stock {
         this.cantidad = cantidad;
     }
     
+    public double getPrecio(){
+        return this.precio;
+    }
     
+    public void setPrecio(double precio){
+        this.precio = precio;
+    }
     
 }

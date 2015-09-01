@@ -36,4 +36,51 @@ public class DataRestaurante {
         return r;
     }
     
+    public void setNickname(String nickname){
+        this.nickname = nickname;
+    }
+    
+    public String getNickname(){
+        return this.nickname;
+    }
+    
+    public void setNombre(String nombre){
+        this.nombre = nombre;
+    }
+    
+    public String getNombre(){
+        return this.nombre;
+    }
+    
+    public void setEmail(String mail){
+        this.email = mail;
+    }
+    
+    public String getEmail(){
+        return this.email;
+    }
+    
+    public void setDireccion(String direccion){
+        this.direccion = direccion;
+    }
+    
+    public String getDireccion(){
+        return this.direccion;
+    }
+    
+    public void setLstImagen(ArrayList<String> lstImagen){
+        this.lstImagen = lstImagen;
+    }
+    
+    public ArrayList<String> getLstImagen(){
+        return this.lstImagen;
+    }
+    
+    public void setColCategoria(Map colCategoria){
+        this.ColCategoria = colCategoria;
+    }
+    
+    public Map getColCategoria(){
+        return this.ColCategoria;
+    }
 }

@@ -13,7 +13,12 @@ import java.util.Map;
  */
 public interface ICtrlPedido {
     
-    public void setNickname(String nick);
-    public Map devListaDC();
-    
+    public abstract void setNickname(String nick);
+    public abstract void setCat(String nombre);
+    public abstract String getCat();
+    public abstract String getNickname();
+    public abstract Map devListaDC();
+    public abstract Map devListaDR();
+    public abstract boolean setMemRestaurante(String nickname);
+    public abstract Map retColDCat();
 }

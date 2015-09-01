@@ -68,6 +68,16 @@ public class HUsuario {
             }
         return false;
     }
+    
+    public boolean exists(String nickname){
+        if(Colusuarios.isEmpty())
+            return false;
+        else
+            if(Colusuarios.containsKey(nickname))
+                return true;
+        
+        return false;
+    }
 }
     
     
