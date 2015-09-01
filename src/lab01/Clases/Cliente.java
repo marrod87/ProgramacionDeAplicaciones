@@ -12,14 +12,15 @@ import java.util.Date;
  */
 public class Cliente extends Usuario{
     private String apellido;
-    private Date fNac;
+    private String fNac;
    
     //public Cliente(){}
-    public Cliente(String nickname, String nombre, String email, String direccion,String apellido, String img) {
+    public Cliente(String nickname, String nombre, String email, String direccion,String apellido, String img, String fecha) {
         super(nickname,nombre,email,direccion);
        //setNickname(); poner los valores de los tb
         this.apellido = apellido;
         this.imagen = img;
+        this.fNac = fecha;
     }
 
     public Cliente(String nickname, String nombre, String email, String direccion, String apellido) {
@@ -38,7 +39,12 @@ public class Cliente extends Usuario{
     public void setImagen(String img){
         this.imagen = img;
     }
-    public void setFecha(Date fecha) {
+    
+    public String getFecha(){
+        return fNac;
+    }
+
+    public void setFecha(String fecha) {
         this.fNac = fecha;
     }
     public String getMail(){
@@ -48,7 +54,7 @@ public class Cliente extends Usuario{
         return nickname;
     }
     public DataCliente ClienteADC(){
-        DataCliente DC = new DataCliente(this.nickname, this.nombre, this.mail, this.direccion, this.apellido, this.imagen);
+        DataCliente DC = new DataCliente(this.nickname, this.nombre, this.mail, this.direccion, this.apellido, this.imagen, this.fNac);
         return DC;
     }
     

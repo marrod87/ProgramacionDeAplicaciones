@@ -59,8 +59,8 @@ public class CtrlUsuario implements ICtrlUsuario {
     }
 
     @Override
-    public void registrarCliente(String apellido, String img){
-        Cliente c = new Cliente(this.nickname, this.nombre, this.email, this.direccion, apellido, img);
+    public void registrarCliente(String apellido, String img, String fecha){
+        Cliente c = new Cliente(this.nickname, this.nombre, this.email, this.direccion, apellido, img, fecha);
         HUsuario HU = HUsuario.getinstance();
         HU.addUsuario(c);
     }

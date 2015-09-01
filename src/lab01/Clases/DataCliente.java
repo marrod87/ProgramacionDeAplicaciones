@@ -19,17 +19,19 @@ public class DataCliente{
     private String direccion;
     private String apellido;
     private String imagen;
+    private String fNac;
 
     
     public DataCliente(){}
     
-    public DataCliente(String nickname, String nombre, String mail, String direccion, String apellido, String img){
+    public DataCliente(String nickname, String nombre, String mail, String direccion, String apellido, String img, String fecha){
         this.nickname=nickname;
         this.nombre=nombre;
         this.email=mail;
         this.direccion=direccion;
         this.apellido = apellido;
         this.imagen=img;
+        this.fNac = fecha;
     }
     public String getNombre(){
         return this.nombre;
@@ -52,8 +54,12 @@ public class DataCliente{
         return this.direccion;
     }
 
+    public String getFNac(){
+        return this.fNac;
+    }
+    
     public Usuario dataCliACli(){
-        Usuario c = new Cliente(this.nickname, this.nombre, this.email, this.direccion,this.apellido, this.imagen);
+        Usuario c = new Cliente(this.nickname, this.nombre, this.email, this.direccion,this.apellido, this.imagen, this.fNac);
         return c;
     }
     

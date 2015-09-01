@@ -66,6 +66,7 @@ private ICtrlUsuario ICU;
         rbCliente = new javax.swing.JRadioButton();
         rbRestaurante = new javax.swing.JRadioButton();
         jbSelCategoria = new javax.swing.JButton();
+        prueba = new javax.swing.JSpinner();
 
         setClosable(true);
         setIconifiable(true);
@@ -152,6 +153,8 @@ private ICtrlUsuario ICU;
             }
         });
 
+        prueba.setModel(new javax.swing.SpinnerNumberModel(1, 1, 31, 1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -173,16 +176,20 @@ private ICtrlUsuario ICU;
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnRegistrar))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(lblApellido, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(lblDireccion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(78, 78, 78)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(jbSelCategoria, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(btnSelImagen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                                .addGap(11, 11, 11)
+                                            .addComponent(btnSelImagen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addGap(11, 11, 11))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(lblApellido, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(lblDireccion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(prueba, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(30, 30, 30)))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(tbDia, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -239,7 +246,8 @@ private ICtrlUsuario ICU;
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tbDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblDireccion))
+                    .addComponent(lblDireccion)
+                    .addComponent(prueba, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblFechaNacimiento)
@@ -274,13 +282,17 @@ private ICtrlUsuario ICU;
         String apellido = this.tbApellido.getText();
         String direccion = this.tbDireccion.getText();
         String img = this.tbSelImagen.getText();
+        int dia = this.tbDia.getValue();
+        int mes = this.tbMes.getMonth() + 1;
+        int anio = this.tbAnio.getValue();
+        String fecha = dia + "/" + mes + "/" + anio;
         if(nickname.isEmpty()||mail.isEmpty()||nombre.isEmpty()||apellido.isEmpty()||direccion.isEmpty())
             JOptionPane.showMessageDialog(null, "No debe haber campos vacios","ERROR",JOptionPane.ERROR_MESSAGE);
         else
             if(ICU.ingresarDatos(nickname,nombre,mail,direccion)){
                 if(rbCliente.isSelected()){
                     
-                    ICU.registrarCliente(apellido, img);
+                    ICU.registrarCliente(apellido, img, fecha);
                     JOptionPane.showMessageDialog(null, "El cliente ha sido registrado","Exito",JOptionPane.INFORMATION_MESSAGE);
                 }
                 else
@@ -368,6 +380,7 @@ private ICtrlUsuario ICU;
     private javax.swing.JLabel lblNickname;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblTitulo;
+    private javax.swing.JSpinner prueba;
     private javax.swing.JRadioButton rbCliente;
     private javax.swing.JRadioButton rbRestaurante;
     private com.toedter.calendar.JYearChooser tbAnio;
