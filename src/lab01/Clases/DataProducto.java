@@ -5,63 +5,42 @@
  */
 package lab01.Clases;
 
+
+import java.util.Map;
+
 /**
  *
  * @author gera
  */
 public class DataProducto {
-    private String nombre;
-    private String descripcion;
-    private double precio;
-    private String imagen;
-
-    public DataProducto() {
-        
-    }
-    public DataProducto(String nombre, String descripcion, double precio) {
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.precio = precio;
-        
+    private Map ColDatIndividual;
+    private Map ColDatPromocional;
+    
+    public DataProducto() {   
     }
 
-    public DataProducto(String nombre, String descripcion, double precio, String imagen) {
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.precio = precio;
-        this.imagen = imagen;
+    public Map getColDatIndividual() {
+        return this.ColDatIndividual;
     }
 
-    public String getNombre() {
-        return nombre;
+    public void setDatIndividual(DataIndividual di) {
+        this.ColDatIndividual.put(di.getDataNombre(), di);
+    }
+    
+    public void setColDatIndividual(Map ColDatIndividual){//comodidad...
+        this.ColDatIndividual = ColDatIndividual;
+    }
+    
+    public Map getColDatPromocional(){
+        return this.ColDatPromocional;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setDatPromocional(DataPromocional dp) {
+        this.ColDatPromocional.put(dp.getDataNombre(), dp);
     }
-
-    public String getDescripcion() {
-        return descripcion;
+    
+    public void setColDatPromocional(Map ColDatPromocional){//comodidad...
+        this.ColDatPromocional = ColDatPromocional;
     }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
-    public double getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(double precio) {
-        this.precio = precio;
-    }
-
-    public String getImagen() {
-        return imagen;
-    }
-
-    public void setImagen(String imagen) {
-        this.imagen = imagen;
-    }
-   
+    
 }
