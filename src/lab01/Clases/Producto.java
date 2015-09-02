@@ -14,8 +14,10 @@ public abstract class  Producto {
     private String descripcion;
     private double precio;
     private String imagen;
+    private Producto_Stock prodStock;
 
     public Producto() {
+        prodStock = new Producto_Stock(this.getCantidad(),this.getPrecio());
     }
 
     public String getNombre() {
@@ -34,14 +36,6 @@ public abstract class  Producto {
         this.descripcion = descripcion;
     }
 
-    public double getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(double precio) {
-        this.precio = precio;
-    }
-
     public String getImagen() {
         return imagen;
     }
@@ -49,5 +43,23 @@ public abstract class  Producto {
     public void setImagen(String imagen) {
         this.imagen = imagen;
     }
+   
+    public int getCantidad(){
+        return prodStock.getCantidad();
+    }
+    
+     public void setCantidad(int cant){
+       this.prodStock.setCantidad(cant);
+    }
+     
+     public double getPrecio(){
+         return this.prodStock.getPrecio();
+     }
+     
+     public void setPrecio(double precio){
+         this.prodStock.setPrecio(precio);
+     }
+     
+     
 
 }

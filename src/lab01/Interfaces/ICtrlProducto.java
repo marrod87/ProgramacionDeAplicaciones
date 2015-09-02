@@ -4,8 +4,10 @@
  * and open the template in the editor.
  */
 package lab01.Interfaces;
+import java.util.Map;
 
 import lab01.Clases.DataProducto;
+import lab01.Clases.DataIndividual;
 
 /**
  *
@@ -13,6 +15,7 @@ import lab01.Clases.DataProducto;
  */
 public interface ICtrlProducto {
     
-    public abstract void registrarProducto(DataProducto dp, String nomRest, boolean promocional);
+    public abstract void registrarProducto(DataIndividual di, String nomRest, boolean promocional);
     public abstract boolean existeRestaurante(String nomRest);
+    public abstract Map listarIndividuales(String nomRest);
 }

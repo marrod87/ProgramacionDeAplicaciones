@@ -27,7 +27,8 @@ public class VerCliente extends javax.swing.JInternalFrame {
         initComponents();
         Fabrica fabrica = Fabrica.getInstance();
         ICU = fabrica.getICtrlUsuario();
-       this.tbNickNameCliente.setVisible(false);
+        cargarDatos();
+       /*this.tbNickNameCliente.setVisible(false);
        this.tbapellidoClente.setVisible(false);
        this.tbdireccionCliente.setVisible(false);
        this.tbfechaDeNacCliente.setVisible(false);
@@ -38,7 +39,7 @@ public class VerCliente extends javax.swing.JInternalFrame {
        this.lbldireccionCliente.setVisible(false);
        this.lblfechaNacCliente.setVisible(false);
        this.lblmailCliente.setVisible(false);
-       this.lblnombreCliente.setVisible(false);
+       this.lblnombreCliente.setVisible(false);*/
     }
 
     /**
@@ -65,9 +66,6 @@ public class VerCliente extends javax.swing.JInternalFrame {
         tbnombreCliente = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         lblVerImagenUsr = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        ver = new javax.swing.JButton();
-        cliente = new javax.swing.JTextField();
 
         setClosable(true);
         setIconifiable(true);
@@ -110,14 +108,12 @@ public class VerCliente extends javax.swing.JInternalFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lbldireccionCliente)
                     .addComponent(lblfechaNacCliente)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(11, 11, 11)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(lblapellidoCliente, javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblapellidoCliente, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lblNicknameCliente, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(lblmailCliente, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(lblnombreCliente, javax.swing.GroupLayout.Alignment.TRAILING)))))
+                            .addComponent(lblNicknameCliente, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblmailCliente, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblnombreCliente, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(tbfechaDeNacCliente, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -174,36 +170,6 @@ public class VerCliente extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Ingrese el nombre del cliente"));
-
-        ver.setText("Ver cliente");
-        ver.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                verActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(84, Short.MAX_VALUE)
-                .addComponent(cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60)
-                .addComponent(ver)
-                .addGap(49, 49, 49))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ver)
-                    .addComponent(cliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -212,35 +178,23 @@ public class VerCliente extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(87, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(107, 107, 107)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(125, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void verActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verActionPerformed
-        //String cli = ICU.verClientes();
-    //String str = toString();
-        Fabrica fabrica = Fabrica.getInstance();
-        ICU = fabrica.getICtrlUsuario();
-       String cli = this.cliente.getText();
-       DataCliente c = ICU.getUsuarioByNickname(cli);
+    private void cargarDatos(){
+       DataCliente c = ICU.getUsuarioByNickname(ICU.getNickname());
        this.tbNickNameCliente.setVisible(true);
        this.tbNickNameCliente.setText(c.getNickname());
        this.tbapellidoClente.setVisible(true);
@@ -262,14 +216,12 @@ public class VerCliente extends javax.swing.JInternalFrame {
        ImageIcon icon = new ImageIcon(c.getImagen());
        lblVerImagenUsr.setIcon(icon);
        this.lblVerImagenUsr.setVisible(true);
-    }//GEN-LAST:event_verActionPerformed
-
+    }                                   
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField cliente;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel lblNicknameCliente;
     private javax.swing.JLabel lblVerImagenUsr;
     private javax.swing.JLabel lblapellidoCliente;
@@ -283,7 +235,6 @@ public class VerCliente extends javax.swing.JInternalFrame {
     private javax.swing.JTextField tbfechaDeNacCliente;
     private javax.swing.JTextField tbmailCliente;
     private javax.swing.JTextField tbnombreCliente;
-    private javax.swing.JButton ver;
     // End of variables declaration//GEN-END:variables
 
  

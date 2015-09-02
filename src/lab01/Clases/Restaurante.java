@@ -62,4 +62,7 @@ public class Restaurante extends Usuario{
         }
         return ret;
     }
+    public Map obtenerListaProductos(){
+        return this.ColProducto;
+    }
 }

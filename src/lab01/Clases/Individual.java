@@ -15,27 +15,28 @@ public class Individual extends Producto {
 //        super();
 //        // crear con los campos de los tb
 //    }
-    public Individual(String nombre, String descripcion, double precio) {
-       
+    public Individual(String nombre, String descripcion, double precio, int cantidad) {
+        super();
         this.setNombre(nombre);
         this.setDescripcion(descripcion);
         this.setPrecio(precio);
-        
-        
+        this.setCantidad(cantidad); // seteo la cantidad de ese producto en el stock
+
     }
-    
-    public Individual(String nombre, String descripcion, double precio, String img) {
-        
+
+    /*public Individual(String nombre, String descripcion, double precio, String img) {
+        super();
         this.setNombre(nombre);
         this.setDescripcion(descripcion);
         this.setPrecio(precio);
         this.setImagen(img);
-        
-    }
-    
-    public DataIndividual getDataIndividual(){
-        DataIndividual dIndividual = new DataIndividual(this.getDescripcion(), this.getNombre(), this.getPrecio(), this.getImagen());
+        //this.setCantidad(cantidad);
+
+    }*/
+
+    public DataIndividual getDataIndividual() {
+        DataIndividual dIndividual = new DataIndividual(this.getNombre(), this.getDescripcion(), this.getPrecio(), this.getImagen(), this.getCantidad());
         return dIndividual;
     }
-    
+
 }

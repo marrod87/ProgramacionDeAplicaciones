@@ -172,10 +172,13 @@ public class Console extends javax.swing.JFrame {
 
     private void VerClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VerClientesActionPerformed
         // TODO add your handling code here:
-        VerCliente vercli = new VerCliente();
-        EscritorioMenu.add(vercli);
-        vercli.toFront();
-        vercli.show();
+        ListarClientesVer lista = new ListarClientesVer();
+        EscritorioMenu.add(lista);
+        lista.show();
+        //VerCliente vercli = new VerCliente();
+        //EscritorioMenu.add(vercli);
+        //vercli.toFront();
+        //vercli.show();
     }//GEN-LAST:event_VerClientesActionPerformed
 
     

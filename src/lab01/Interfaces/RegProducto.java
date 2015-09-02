@@ -5,8 +5,16 @@
  */
 package lab01.Interfaces;
 
+import java.util.Map;
+import java.util.HashMap;
+import java.util.Iterator;
 import javax.swing.JOptionPane;
+import lab01.Clases.Cliente;
+import lab01.Clases.DataCant_Individual;
+import lab01.Clases.DataCliente;
+import lab01.Clases.DataIndividual;
 import lab01.Clases.DataProducto;
+//import lab01.Clases.DataProducto_Stock;
 import lab01.Handlers.Fabrica;
 
 /**
@@ -35,7 +43,7 @@ public class RegProducto extends javax.swing.JInternalFrame {
         btngProducto = new javax.swing.ButtonGroup();
         jp1 = new javax.swing.JPanel();
         lblNombre = new javax.swing.JLabel();
-        lblDesc = new javax.swing.JLabel();
+        lblCantidad = new javax.swing.JLabel();
         lblRest = new javax.swing.JLabel();
         tbNombre = new javax.swing.JTextField();
         tbDesc = new javax.swing.JTextField();
@@ -44,6 +52,8 @@ public class RegProducto extends javax.swing.JInternalFrame {
         rbPromocional = new javax.swing.JRadioButton();
         jp2 = new javax.swing.JPanel();
         lblExaminar = new javax.swing.JLabel();
+        tbCantidad = new javax.swing.JTextField();
+        lblDesc1 = new javax.swing.JLabel();
         btnNuevo = new javax.swing.JButton();
         btnRegistro = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
@@ -59,7 +69,7 @@ public class RegProducto extends javax.swing.JInternalFrame {
 
         lblNombre.setText("Nombre del producto: ");
 
-        lblDesc.setText("Descripción: ");
+        lblCantidad.setText("Cantidad: ");
 
         lblRest.setText("Restaurante: ");
 
@@ -72,10 +82,20 @@ public class RegProducto extends javax.swing.JInternalFrame {
         btngProducto.add(rbIndividual);
         rbIndividual.setText("Individual");
         rbIndividual.setEnabled(false);
+        rbIndividual.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbIndividualActionPerformed(evt);
+            }
+        });
 
         btngProducto.add(rbPromocional);
         rbPromocional.setText("Promocional");
         rbPromocional.setEnabled(false);
+        rbPromocional.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbPromocionalActionPerformed(evt);
+            }
+        });
 
         jp2.setBorder(javax.swing.BorderFactory.createTitledBorder("Cargar Imagen"));
 
@@ -95,32 +115,41 @@ public class RegProducto extends javax.swing.JInternalFrame {
             .addGroup(jp2Layout.createSequentialGroup()
                 .addGap(44, 44, 44)
                 .addComponent(lblExaminar)
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        tbCantidad.setEnabled(false);
+
+        lblDesc1.setText("Descripción: ");
 
         javax.swing.GroupLayout jp1Layout = new javax.swing.GroupLayout(jp1);
         jp1.setLayout(jp1Layout);
         jp1Layout.setHorizontalGroup(
             jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp1Layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblRest)
-                    .addComponent(lblDesc)
-                    .addComponent(lblNombre))
-                .addGap(18, 18, 18)
-                .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jp1Layout.createSequentialGroup()
-                        .addComponent(rbIndividual)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(rbPromocional))
-                    .addComponent(tbNombre)
-                    .addComponent(tbDesc)
-                    .addComponent(tbRest))
-                .addContainerGap(76, Short.MAX_VALUE))
-            .addGroup(jp1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jp2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap()
+                        .addComponent(jp2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jp1Layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblNombre)
+                            .addComponent(lblRest)
+                            .addComponent(lblDesc1)
+                            .addComponent(lblCantidad))
+                        .addGap(18, 18, 18)
+                        .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tbCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(jp1Layout.createSequentialGroup()
+                                    .addComponent(rbIndividual)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(rbPromocional))
+                                .addComponent(tbNombre)
+                                .addComponent(tbDesc)
+                                .addComponent(tbRest)))
+                        .addGap(0, 64, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jp1Layout.setVerticalGroup(
@@ -132,17 +161,21 @@ public class RegProducto extends javax.swing.JInternalFrame {
                     .addComponent(tbNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblDesc)
-                    .addComponent(tbDesc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tbDesc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblDesc1))
                 .addGap(18, 18, 18)
                 .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rbIndividual)
                     .addComponent(rbPromocional))
-                .addGap(33, 33, 33)
+                .addGap(18, 18, 18)
                 .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tbCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCantidad))
+                .addGap(28, 28, 28)
+                .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblRest)
                     .addComponent(tbRest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jp2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -207,25 +240,55 @@ public class RegProducto extends javax.swing.JInternalFrame {
         boolean Promocional = false;
         String p;
         double precio;
+        int cantidad;
+        
 
         if (evt.getSource() == btnRegistro) {
-            if (CP.existeRestaurante(tbRest.getText())) {
-                if (rbIndividual.isSelected()) {
+            if (CP.existeRestaurante(tbRest.getText())) { // si el restaurante se encuentra registrado
+                if (rbIndividual.isSelected()) { // si quiero registar producto individual
                     p = JOptionPane.showInputDialog(null, "Ingrese el precio", "Ingreso de precio", JOptionPane.INFORMATION_MESSAGE);
-                    precio = Double.parseDouble(p);
-                    DataProducto dp = new DataProducto(tbNombre.getText(), tbDesc.getText(), precio);                  
-                    CP.registrarProducto(dp, tbRest.getText(), Promocional);
+                    precio = Double.parseDouble(p);    // ingreso el precio                
+                    cantidad = Integer.parseInt(tbCantidad.getText()); // me guardo la cantidad de productos para ese producto particular
+                    DataIndividual di = new DataIndividual(tbNombre.getText(), tbDesc.getText(), precio, cantidad); // me guardo los datos en el dataproducto
+                    
+                   
+                    CP.registrarProducto(di, tbRest.getText(), Promocional); // registro producto
                     JOptionPane.showMessageDialog(null, "Producto registrado con exito", "Aviso", JOptionPane.INFORMATION_MESSAGE);
+
+                } else { // si es promocional
+                    if (rbPromocional.isSelected()) {
+                        Iterator it = CP.listarIndividuales(tbRest.getText()).entrySet().iterator();
+
+                        while (it.hasNext()) {
+                            Map.Entry map = (Map.Entry) it.next();
+                            
+                            DataIndividual di = (DataIndividual) map.getValue();
+                            JOptionPane.showMessageDialog(null, "Nombre: " + di.getDataNombre() + "cantidad:"+  di.getCantidad(), "aviso", JOptionPane.INFORMATION_MESSAGE);
+                            
+                        }
+                        
+                        
+                    }
+
                 }
 
             } else {
-                 JOptionPane.showMessageDialog(null, "El restaurante " + tbRest.getText() + "no se encuentra registrado", "Error", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "El restaurante " + tbRest.getText() + " no se encuentra registrado", "Error", JOptionPane.INFORMATION_MESSAGE);
             }
 
         }
 
 
     }//GEN-LAST:event_btnRegistroActionPerformed
+
+    private void rbIndividualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbIndividualActionPerformed
+        tbCantidad.setEnabled(true);
+    }//GEN-LAST:event_rbIndividualActionPerformed
+
+    private void rbPromocionalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbPromocionalActionPerformed
+        tbCantidad.setEnabled(false);
+        
+    }//GEN-LAST:event_rbPromocionalActionPerformed
 
     public void habilitarCampos() {
         tbNombre.setEnabled(true);
@@ -246,12 +309,14 @@ public class RegProducto extends javax.swing.JInternalFrame {
     private javax.swing.ButtonGroup btngProducto;
     private javax.swing.JPanel jp1;
     private javax.swing.JPanel jp2;
-    private javax.swing.JLabel lblDesc;
+    private javax.swing.JLabel lblCantidad;
+    private javax.swing.JLabel lblDesc1;
     private javax.swing.JLabel lblExaminar;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblRest;
     private javax.swing.JRadioButton rbIndividual;
     private javax.swing.JRadioButton rbPromocional;
+    private javax.swing.JTextField tbCantidad;
     private javax.swing.JTextField tbDesc;
     private javax.swing.JTextField tbNombre;
     private javax.swing.JTextField tbRest;

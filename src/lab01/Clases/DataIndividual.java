@@ -15,15 +15,24 @@ public class DataIndividual {
     private String DataDescripcion;
     private double DataPrecio;
     private String DataImagen;
+    private int cantidad;
 
     public DataIndividual() {
     }
-
-    public DataIndividual(String nombre, String descripcion, double precio, String imagen) {
+    
+    public DataIndividual(String nombre, String descripcion, double precio, int cantidad){
+         this.DataNombre = nombre;
+        this.DataDescripcion = descripcion;
+        this.DataPrecio = precio;
+       
+        this.cantidad = cantidad;
+    }
+    public DataIndividual(String nombre, String descripcion, double precio, String imagen, int cantidad) {
         this.DataNombre = nombre;
         this.DataDescripcion = descripcion;
         this.DataPrecio = precio;
         this.DataImagen = imagen;
+        this.cantidad = cantidad;
     }
 
     public String getDataNombre() {
@@ -57,4 +66,13 @@ public class DataIndividual {
     public void setDataImagen(String imagen) {
         this.DataImagen = imagen;
     }  
+    
+    public int getCantidad(){
+        return this.cantidad;
+    }
+    
+    public void setCantidad(int cantidad){
+        this.cantidad = cantidad;
+        
+    }
 }

@@ -28,10 +28,9 @@ public class Producto_Stock {
     
     public double getPrecio(){
         return this.precio;
-    }
+    } 
     
     public void setPrecio(double precio){
         this.precio = precio;
     }
-    
 }
