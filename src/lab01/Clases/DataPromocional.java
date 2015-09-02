@@ -5,6 +5,8 @@
  */
 package lab01.Clases;
 
+import java.util.Map;
+
 /**
  *
  * @author joaco
@@ -16,16 +18,17 @@ public class DataPromocional {
     private String DataDescripcion;
     private double DataPrecio;
     private String DataImagen;
-    //deveria tener una lista de DataIndividual los cuales componen la promo...
+    private Map ColDatIndividual;
     
-    public DataPromocional(boolean activa, double descuento, String nombre, String descripcion, double precio, String imagen/*aca podria ir una lista de dataindividual*/){
+    public DataPromocional(boolean activa, double descuento, String nombre, String descripcion, double precio, String imagen, Map ColDatIndividual){
         this.DataActiva = activa;
         this.DataDescuento = descuento;
         this.DataNombre = nombre;
         this.DataDescripcion = descripcion;
         this.DataPrecio = precio;
         this.DataImagen = imagen;
-        //y pasarsela obviamente
+        this.ColDatIndividual = ColDatIndividual;
+        
     }
     
     public void setActiva(boolean activa){
@@ -76,6 +79,15 @@ public class DataPromocional {
         return DataDescuento;
     }
     
-    /*aca podriamos agregar uno x uno o pasarle un contenedor con los datos ya cargados
-    y tambien devolverlos*/
+    public Map getColDatIndividual(){
+        return this.ColDatIndividual;
+    }
+    
+    public void setDatIndividual(DataIndividual di){
+        this.ColDatIndividual.put(di.getDataNombre(), di);
+    }
+    
+    public void setColDataIndividual(Map ColDatIndividual){
+        this.ColDatIndividual = ColDatIndividual;
+    }
 }

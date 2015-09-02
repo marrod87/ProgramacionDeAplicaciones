@@ -10,21 +10,22 @@ package lab01.Clases;
  * @author gera
  */
 public class Cantidad_Individual {
-    
     private int cantidad;
-
-    public Cantidad_Individual(int cantidad) {
-        this.cantidad = cantidad;
+    private Individual prodIndividual;
+    
+    public int getCantidad(){
+        return this.cantidad;
     }
-
-    public int getCantidad() {
-        return cantidad;
-    }
-
-    public void setCantidad(int cantidad) {
+    
+    public void setCantidad(int cantidad){
         this.cantidad = cantidad;
     }
     
+    public Individual getProdIndividual(){
+        return this.prodIndividual;
+    }
     
-    
+    public void setProdIndividual(Individual prodIndividual){
+        this.prodIndividual = prodIndividual;
+    } 
 }
