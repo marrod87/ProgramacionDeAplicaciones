@@ -15,6 +15,12 @@ import lab01.Clases.DataRestaurante;
 import lab01.Interfaces.ICtrlPedido;
 import lab01.Clases.DataCategoria;
 import lab01.Clases.Categoria;
+import lab01.Clases.DataIndividual;
+import lab01.Clases.DataProducto;
+import lab01.Clases.DataPromocional;
+import lab01.Clases.Individual;
+import lab01.Clases.Producto;
+import lab01.Clases.Promocional;
 
 /**
  *
@@ -99,5 +105,27 @@ public class CtrlPedido implements ICtrlPedido {
             return true;
         }
         return false;
+    }
+    
+    @Override
+    public DataProducto devListaProductos(){
+        DataProducto dp = new DataProducto();
+        Map prods = this.memRestaurante.obtenerListaProductos();
+        Iterator it = prods.entrySet().iterator();
+        while(it.hasNext()){
+            Map.Entry map = (Map.Entry) it.next();
+            if(map.getValue() instanceof Individual){
+                Individual ind = (Individual)map.getValue();
+                DataIndividual di = ind.getDataIndividual();
+                dp.setDatIndividual(di);
+                
+            }
+            if(map.getValue() instanceof Promocional){
+                Promocional prom = (Promocional)map.getValue();
+                DataPromocional dprom = prom.getDataPromo();
+                dp.setDatPromocional(dprom);
+            }
+        }
+        return dp;
     }
 }

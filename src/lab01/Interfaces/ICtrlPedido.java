@@ -6,6 +6,7 @@
 package lab01.Interfaces;
 
 import java.util.Map;
+import lab01.Clases.DataProducto;
 
 /**
  *
@@ -21,4 +22,5 @@ public interface ICtrlPedido {
     public abstract Map devListaDR();
     public abstract boolean setMemRestaurante(String nickname);
     public abstract Map retColDCat();
+    public abstract DataProducto devListaProductos();
 }

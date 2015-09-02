@@ -5,6 +5,8 @@
  */
 package lab01.Clases;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -14,9 +16,9 @@ import java.util.Map;
 public class Promocional extends Producto {
     private boolean activa;
     private double descuento; //ver como se hace JoacoP(me imagino yo que seria un entero % y lo q se hace despues es a precio_total calcularsele ese descuento)
-    private Map ColCantIndividual;
+    private ArrayList<Cantidad_Individual> ColCantIndividual;
     
-    public Promocional(String nombre, String descripcion, double precio, boolean activa, double descuento, Map ColCantIndividual) {
+    public Promocional(String nombre, String descripcion, double precio, boolean activa, double descuento, ArrayList<Cantidad_Individual> ColCantIndividual) {
         super(nombre, descripcion, precio,1);
         this.activa = activa;
         this.descuento = descuento;
@@ -39,9 +41,25 @@ public class Promocional extends Producto {
         this.descuento = descuento;
     }
 
-    public DataPromocional getDataPromo(Map ColDatIndividual){
+    public ArrayList<Cantidad_Individual> getColCantIndividual(){
+        return this.ColCantIndividual;
+    }
+    
+    public void setCantIndividual(Cantidad_Individual cantInd){
+        this.ColCantIndividual.add(cantInd);
+    }
+    
+    public void setColCantIndividual(ArrayList<Cantidad_Individual> ColCantIndividual){
+        this.ColCantIndividual = ColCantIndividual;
+    }
+    
+    public DataPromocional getDataPromo(){
+        Map ColDatIndividual = new HashMap();
+        for(Cantidad_Individual ci: ColCantIndividual){
+            DataIndividual di = ci.getProdIndividual().getDataIndividual();
+            ColDatIndividual.put(di.getDataNombre(), di);
+        }
         DataPromocional dPromo = new DataPromocional(this.isActiva(), this.getDescuento(), this.getDescripcion(), this.getNombre(), this.getPrecio(), this.getImagen(), ColDatIndividual);
         return dPromo;
     }
-
 }
