@@ -13,8 +13,8 @@ public class Promocional extends Producto {
     private boolean activa;
     private double descuento; //ver como se hace JoacoP(me imagino yo que seria un entero % y lo q se hace despues es a precio_total calcularsele ese descuento)
 
-    public Promocional(boolean activa, double descuento) {
-        super();
+    public Promocional(String nombre, String descripcion, double precio, boolean activa, double descuento) {
+        super(nombre, descripcion, precio,1);
         //agregar los campos de los tb (q carajo son los tb? xD)
         this.activa = activa;
         this.descuento = descuento;

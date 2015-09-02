@@ -35,7 +35,7 @@ public class CtrlProducto implements ICtrlProducto {
 
         } else {
             if (!promocional) { // si el producto es individual
-                Individual i = new Individual(di.getDataNombre(), di.getDataDescripcion(), di.getDataPrecio(), di.getCantidad());
+                Producto i = new Individual(di.getDataNombre(), di.getDataDescripcion(), di.getDataPrecio(), di.getCantidad());
                 restoran.addProducto(i); //agrego el producto a la coleccion de productos de ese restoran
 
             } else {

@@ -12,12 +12,14 @@ package lab01.Clases;
 public abstract class  Producto {
     private String nombre;
     private String descripcion;
-    private double precio;
+    //private double precio;
     private String imagen;
     private Producto_Stock prodStock;
 
-    public Producto() {
-        prodStock = new Producto_Stock(this.getCantidad(),this.getPrecio());
+    public Producto(String nombre, String descripcion, double precio, int cantidad){
+        this.nombre=nombre;
+        this.descripcion=descripcion;
+        this.prodStock = new Producto_Stock(cantidad,precio);
     }
 
     public String getNombre() {

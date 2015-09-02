@@ -16,12 +16,12 @@ public class Individual extends Producto {
 //        // crear con los campos de los tb
 //    }
     public Individual(String nombre, String descripcion, double precio, int cantidad) {
-        super();
-        this.setNombre(nombre);
+        super(nombre,descripcion,precio,cantidad);
+        /*this.setNombre(nombre);
         this.setDescripcion(descripcion);
         this.setPrecio(precio);
         this.setCantidad(cantidad); // seteo la cantidad de ese producto en el stock
-
+*/
     }
 
     /*public Individual(String nombre, String descripcion, double precio, String img) {
