@@ -135,5 +135,51 @@ public class RestauranteTest {
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
+
+    /**
+     * Test of getProducto method, of class Restaurante.
+     */
+    @Test
+    public void testGetProducto() {
+        System.out.println("getProducto");
+        String nombre = "";
+        Restaurante instance = new Restaurante("nick", "pasiva", "j@j.com", "Calle", null);
+        Producto expResult = null;
+        Producto result = instance.getProducto(nombre);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of agregarProducto method, of class Restaurante.
+     */
+    @Test
+    public void testAgregarProducto() throws Exception {
+        System.out.println("agregarProducto");
+        String nombre = "";
+        int cantidad = 0;
+        Restaurante instance = new Restaurante("nick", "pasiva", "j@j.com", "Calle", null);
+        DataCarrito expResult = null;
+        DataCarrito result = instance.agregarProducto(nombre, cantidad);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of getProdCarrito method, of class Restaurante.
+     */
+    @Test
+    public void testGetProdCarrito() {
+        System.out.println("getProdCarrito");
+        String nombre = "";
+        Restaurante instance = new Restaurante("nick", "pasiva", "j@j.com", "Calle", null);
+        Producto_Stock expResult = null;
+        Producto_Stock result = instance.getProdCarrito(nombre);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
     
 }

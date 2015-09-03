@@ -50,5 +50,20 @@ public class IndividualTest {
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
+
+    /**
+     * Test of getDataCarrito method, of class Individual.
+     */
+    @Test
+    public void testGetDataCarrito() {
+        System.out.println("getDataCarrito");
+        int cantidad = 0;
+        Individual instance = new Individual("pizza", "rica", 200.0, 8);
+        DataCarrito expResult = null;
+        DataCarrito result = instance.getDataCarrito(cantidad);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
     
 }

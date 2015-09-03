@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>CtrlUsuario.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;Lab01&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">lab01.Handlers</a> &gt; <span class="el_source">CtrlUsuario.java</span></div><h1>CtrlUsuario.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package lab01.Handlers;
+import lab01.Clases.Cliente;
+import lab01.Clases.Restaurante;
+//import static lab01.Handlers.tipoU.cliente;
+import java.util.Date;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import lab01.Interfaces.ICtrlUsuario;
+import lab01.Clases.DataCliente;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.HashMap;
+import lab01.Clases.Categoria;
+import lab01.Clases.DataCliente;
+import lab01.Clases.DataRestaurante;
+
+/**
+ *
+ * @author gera
+ */
+//enum tipoU{cliente,restaurante}
+
+public class CtrlUsuario implements ICtrlUsuario {
+
+    private String nickname;
+    private String nombre;
+    private String email;
+    private String direccion;
+    private Map Cat;
+    
+    
+<span class="fc" id="L38">    public CtrlUsuario(){}</span>
+    
+    public void setCat(Map cate){
+<span class="fc" id="L41">        this.Cat=cate;</span>
+<span class="fc" id="L42">        JOptionPane.showMessageDialog(null, &quot;Categoria recordada&quot;,&quot;EXITO&quot;,JOptionPane.INFORMATION_MESSAGE);</span>
+<span class="fc" id="L43">    }</span>
+    public void setNickname(String nick){
+<span class="fc" id="L45">        this.nickname=nick;</span>
+<span class="fc" id="L46">    }</span>
+    public String getNickname(){
+<span class="fc" id="L48">        return this.nickname;</span>
+    }
+
+    @Override
+    public boolean ingresarDatos(String nickname, String nombre, String email, String direccion){
+<span class="fc" id="L53">        this.nickname=nickname;</span>
+<span class="fc" id="L54">        this.direccion=direccion;</span>
+<span class="fc" id="L55">        this.nombre=nombre;</span>
+<span class="fc" id="L56">        this.email=email;</span>
+<span class="fc" id="L57">        HUsuario HU = HUsuario.getinstance();</span>
+<span class="pc bpc" id="L58" title="1 of 2 branches missed.">        return !(HU.find(nickname, email));</span>
+    }
+
+    @Override
+    public void registrarCliente(String apellido, String img, String fecha){
+<span class="fc" id="L63">        Cliente c = new Cliente(this.nickname, this.nombre, this.email, this.direccion, apellido, img, fecha);</span>
+<span class="fc" id="L64">        HUsuario HU = HUsuario.getinstance();</span>
+<span class="fc" id="L65">        HU.addUsuario(c);</span>
+<span class="fc" id="L66">    }</span>
+
+    @Override
+    public void registrarRestaurante(){
+<span class="fc" id="L70">        Restaurante r = new Restaurante(this.nickname, this.nombre, this.email, this.direccion, this.Cat);</span>
+<span class="fc" id="L71">        HUsuario HU = HUsuario.getinstance();</span>
+<span class="fc" id="L72">        HU.addUsuario(r);</span>
+<span class="fc" id="L73">    }</span>
+    
+    public void datosAdicionales(String apellido, String img){
+<span class="fc" id="L76">        HUsuario mu = HUsuario.getinstance();</span>
+<span class="nc" id="L77">        Cliente c = mu.obtenerUsuario(this.nickname);</span>
+<span class="nc" id="L78">        c.setApellido(apellido);</span>
+<span class="nc" id="L79">        c.setImagen(img);</span>
+<span class="nc" id="L80">    }</span>
+
+    @Override
+    public DataCliente getUsuarioByNickname(String nickname){
+<span class="fc" id="L84">        HUsuario mu = HUsuario.getinstance();</span>
+<span class="nc" id="L85">        return (mu.obtenerUsuario(nickname)).ClienteADC();</span>
+    }
+
+    @Override
+    public Restaurante getRestauranteByNickname(String nickname){
+<span class="fc" id="L90">        HUsuario mu = HUsuario.getinstance();</span>
+<span class="fc" id="L91">        return (Restaurante)(mu.obtenerRestaurante(nickname));</span>
+    }
+
+    public Map devListaDC(){
+<span class="fc" id="L95">        HUsuario mu = HUsuario.getinstance();</span>
+<span class="fc" id="L96">        Map ret = new HashMap();</span>
+<span class="fc" id="L97">        Map col = mu.obtenerColeccion();</span>
+<span class="fc" id="L98">        Iterator it = col.entrySet().iterator(); </span>
+<span class="fc bfc" id="L99" title="All 2 branches covered.">        while(it.hasNext()){</span>
+<span class="fc" id="L100">            Map.Entry map = (Map.Entry) it.next();</span>
+<span class="pc bpc" id="L101" title="1 of 2 branches missed.">            if(map.getValue() instanceof Cliente){</span>
+<span class="nc" id="L102">                Cliente cli = (Cliente)map.getValue();</span>
+<span class="nc" id="L103">                DataCliente dc = cli.ClienteADC();</span>
+<span class="nc" id="L104">                ret.put(dc.getNickname(), dc);</span>
+            }
+<span class="fc" id="L106">        }</span>
+<span class="fc" id="L107">    return ret;</span>
+    }
+
+    public void registrarCat(String nombre){
+<span class="fc" id="L111">        HCategoria hu = HCategoria.getinstance();</span>
+<span class="pc bpc" id="L112" title="1 of 2 branches missed.">        if(hu.member(nombre))</span>
+<span class="nc" id="L113">            JOptionPane.showMessageDialog(null, &quot;La categoria ya existe&quot;,&quot;ERROR&quot;,JOptionPane.ERROR_MESSAGE);</span>
+        else{
+<span class="fc" id="L115">            Categoria c = new Categoria(nombre);</span>
+<span class="fc" id="L116">            hu.addCategoria(c);</span>
+<span class="fc" id="L117">            JOptionPane.showMessageDialog(null, &quot;Se ha creado la nueva categoria&quot;,&quot;EXITO&quot;,JOptionPane.INFORMATION_MESSAGE);</span>
+        }
+<span class="fc" id="L119">    }</span>
+
+    public Map retColCat(){
+<span class="fc" id="L122">        Map ret  = new HashMap();        </span>
+<span class="fc" id="L123">        HCategoria hc = HCategoria.getinstance();</span>
+<span class="fc" id="L124">        ret=hc.obtenerColeccion();</span>
+<span class="fc" id="L125">        return (Map)ret;</span>
+    }
+
+    @Override
+    public void datosAdicionales(String apellido) {
+<span class="fc" id="L130">        throw new UnsupportedOperationException(&quot;Not supported yet.&quot;); //To change body of generated methods, choose Tools | Templates.</span>
+    } 
+    
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

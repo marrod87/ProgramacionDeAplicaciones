@@ -147,5 +147,100 @@ public class ProductoTest {
 
     public class ProductoImpl extends Producto {
     }
+
+    /**
+     * Test of getCantidad method, of class Producto.
+     */
+    @Test
+    public void testGetCantidad() {
+        System.out.println("getCantidad");
+        Producto instance = new ProductoImpl();
+        int expResult = 0;
+        int result = instance.getCantidad();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of setCantidad method, of class Producto.
+     */
+    @Test
+    public void testSetCantidad() {
+        System.out.println("setCantidad");
+        int cant = 0;
+        Producto instance = new ProductoImpl();
+        instance.setCantidad(cant);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of getProdStock method, of class Producto.
+     */
+    @Test
+    public void testGetProdStock() {
+        System.out.println("getProdStock");
+        Producto instance = new ProductoImpl();
+        Producto_Stock expResult = null;
+        Producto_Stock result = instance.getProdStock();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of setProdStock method, of class Producto.
+     */
+    @Test
+    public void testSetProdStock() {
+        System.out.println("setProdStock");
+        Producto_Stock prodStock = null;
+        Producto instance = new ProductoImpl();
+        instance.setProdStock(prodStock);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of prodDisponible method, of class Producto.
+     */
+    @Test
+    public void testProdDisponible() {
+        System.out.println("prodDisponible");
+        int cantidad = 0;
+        Producto instance = new ProductoImpl();
+        boolean expResult = false;
+        boolean result = instance.prodDisponible(cantidad);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of getDataCarrito method, of class Producto.
+     */
+    @Test
+    public void testGetDataCarrito() {
+        System.out.println("getDataCarrito");
+        int cantidad = 0;
+        Producto instance = new ProductoImpl();
+        DataCarrito expResult = null;
+        DataCarrito result = instance.getDataCarrito(cantidad);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+
+//    public class ProductoImpl extends Producto {
+//
+//        public ProductoImpl() {
+//            super("", "", 0.0, 0);
+//        }
+//
+//        public DataCarrito getDataCarrito(int cantidad) {
+//            return null;
+//        }
+//    }
     
 }

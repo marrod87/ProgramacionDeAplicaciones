@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>HUsuario.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;Lab01&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">lab01.Handlers</a> &gt; <span class="el_source">HUsuario.java</span></div><h1>HUsuario.java</h1><pre class="source lang-java linenums">/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package lab01.Handlers;
+
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
+import lab01.Clases.Usuario;
+import lab01.Clases.Cliente;
+import lab01.Clases.Restaurante;
+import java.util.Iterator;
+import javax.swing.JOptionPane;
+import lab01.Clases.DataUsuario;
+/**
+ *
+ * @author Pablo
+ */
+public class HUsuario {
+    //Clase que conserva la colección global de los Usuarios del Sistema
+    private Map Colusuarios;
+<span class="fc" id="L24">    private static HUsuario instancia=null;</span>
+    
+<span class="fc" id="L26">    private HUsuario(){</span>
+<span class="fc" id="L27">       Colusuarios =new HashMap();</span>
+<span class="fc" id="L28">    }</span>
+    
+    public static HUsuario getinstance(){
+<span class="fc bfc" id="L31" title="All 2 branches covered.">        if (instancia==null)</span>
+<span class="fc" id="L32">            instancia = new HUsuario();</span>
+<span class="fc" id="L33">        return instancia;</span>
+    }
+    
+    public void addUsuario(Usuario usu){
+<span class="fc" id="L37">        String nickname = usu.getNickname();</span>
+<span class="fc" id="L38">        Colusuarios.put(nickname,usu);</span>
+        //JOptionPane.showMessageDialog(null, usu.getNickname());
+<span class="fc" id="L40">    }</span>
+    
+    public Map obtenerColeccion(){        
+<span class="fc" id="L43">        return Colusuarios;</span>
+    }
+    
+    public Cliente obtenerUsuario(String nickname){
+<span class="fc" id="L47">        return ((Cliente) Colusuarios.get(nickname));</span>
+    }
+    public Restaurante obtenerRestaurante(String nickname){
+<span class="fc" id="L50">        return ((Restaurante) Colusuarios.get(nickname));</span>
+    }
+    public boolean find(String nickname, String email){
+       
+<span class="pc bpc" id="L54" title="1 of 2 branches missed.">        if(Colusuarios.isEmpty())</span>
+<span class="nc" id="L55">            return false;</span>
+        else
+<span class="pc bpc" id="L57" title="1 of 2 branches missed.">            if(Colusuarios.containsKey(nickname))</span>
+<span class="nc" id="L58">                return true;</span>
+            else{
+<span class="fc" id="L60">                Iterator it = Colusuarios.entrySet().iterator();</span>
+                
+<span class="fc bfc" id="L62" title="All 2 branches covered.">                while(it.hasNext()){</span>
+<span class="fc" id="L63">                    Map.Entry map = (Map.Entry) it.next();</span>
+<span class="fc" id="L64">                    Usuario usu= (Usuario)map.getValue();</span>
+<span class="pc bpc" id="L65" title="1 of 2 branches missed.">                    if(email.equals(usu.getMail()))</span>
+<span class="nc" id="L66">                        return true;   </span>
+<span class="fc" id="L67">                }</span>
+            }
+<span class="fc" id="L69">        return false;</span>
+    }
+    
+    public boolean exists(String nickname){
+<span class="pc bpc" id="L73" title="1 of 2 branches missed.">        if(Colusuarios.isEmpty())</span>
+<span class="fc" id="L74">            return false;</span>
+        else
+<span class="nc bnc" id="L76" title="All 2 branches missed.">            if(Colusuarios.containsKey(nickname))</span>
+<span class="nc" id="L77">                return true;</span>
+        
+<span class="nc" id="L79">        return false;</span>
+    }
+}
+    
+    
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>
