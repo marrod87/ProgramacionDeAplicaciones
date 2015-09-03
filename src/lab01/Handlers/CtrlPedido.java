@@ -217,4 +217,16 @@ public class CtrlPedido implements ICtrlPedido {
         this.getMemCliente().setPedido(nuevo);
         return newDP;
     }
+    
+    @Override
+    public void registrarDataPedido(DataPedido dp){//ese dp se lo da altaPedido...
+        HDPedido hdp = HDPedido.getInstance();
+        hdp.addDataPedido(dp);
+    }
+    
+    @Override
+    public Map listDataPedidos(){
+        HDPedido hdp = HDPedido.getInstance();
+        return hdp.obtenerColeccion();
+    }
 }

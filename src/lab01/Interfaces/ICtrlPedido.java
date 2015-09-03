@@ -6,7 +6,6 @@
 package lab01.Interfaces;
 
 import java.util.Map;
-import lab01.Clases.Cliente;
 import lab01.Clases.DataPedido;
 import lab01.Clases.DataProducto;
 
@@ -30,4 +29,6 @@ public interface ICtrlPedido {
     public abstract void selectProductos(String nombre, int cantidad) throws Exception;
     public abstract void setMonto();
     public abstract DataPedido altaPedido();
+    public abstract void registrarDataPedido(DataPedido dp);
+    public abstract Map listDataPedidos();
 }
