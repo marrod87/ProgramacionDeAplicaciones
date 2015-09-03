@@ -17,9 +17,11 @@ import lab01.Clases.DataRestaurante;
 import lab01.Interfaces.ICtrlPedido;
 import lab01.Clases.DataCategoria;
 import lab01.Clases.DataIndividual;
+import lab01.Clases.DataPedido;
 import lab01.Clases.DataProducto;
 import lab01.Clases.DataPromocional;
 import lab01.Clases.Individual;
+import lab01.Clases.Pedido;
 import lab01.Clases.Producto_Stock;
 import lab01.Clases.Promocional;
 
@@ -30,6 +32,8 @@ import lab01.Clases.Promocional;
 public class CtrlPedido implements ICtrlPedido {
     
     private String nickname;
+    private String mailCliente;
+    private Cliente client;
     private String categoria;
     private Restaurante memRestaurante;
     private double monto;
@@ -45,6 +49,25 @@ public class CtrlPedido implements ICtrlPedido {
     public String getNickname(){
         return this.nickname;
     }
+    
+    public String getMailCliente(){
+        return this.mailCliente;
+    }
+    
+    @Override
+    public void setMailCliente(String mail){
+        this.mailCliente = mail;
+    }
+    
+    public Cliente getCliente(){
+        return this.client;
+    }
+    
+    @Override
+    public void setCliente(Cliente client){
+        this.client = client;
+    }
+    
     public void setCat(String nombre){
         this.categoria=nombre;
     }
@@ -175,9 +198,21 @@ public class CtrlPedido implements ICtrlPedido {
     
     @Override
     public void selectProductos(String nombre, int cantidad) throws Exception{//esto va en un loop en la interfaz
+        this.carrito.clear();
         DataCarrito dc = this.memRestaurante.agregarProducto(nombre, cantidad);
         this.setDataCarrito(dc);
         Producto_Stock prodStock = this.memRestaurante.getProdCarrito(nombre);
         this.addCarrito(prodStock);
+    }
+    
+    @Override
+    public DataPedido altaPedido(){
+        Pedido nuevo = new Pedido(this.getMonto());
+        nuevo.setCarrito(this.getCarrito());
+        this.carrito.clear();
+        DataPedido newDP = new DataPedido(nuevo.getId(), this.getNickname(), this.getMailCliente(), nuevo.getFecha(), this.memRestaurante.getNickname(), this.getColDataCarrito(), this.getMonto(), nuevo.getEstado());
+        nuevo.setDataPedido(newDP);
+        this.getCliente().setPedido(nuevo);
+        return newDP;
     }
 }

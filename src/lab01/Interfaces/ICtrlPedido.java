@@ -6,6 +6,8 @@
 package lab01.Interfaces;
 
 import java.util.Map;
+import lab01.Clases.Cliente;
+import lab01.Clases.DataPedido;
 import lab01.Clases.DataProducto;
 
 /**
@@ -15,6 +17,8 @@ import lab01.Clases.DataProducto;
 public interface ICtrlPedido {
     
     public abstract void setNickname(String nick);
+    public abstract void setMailCliente(String mail);//falta agregarlo a la memoria del controlador!!!!
+    public abstract void setCliente(Cliente client);//y hay q setearlo tmb!!!!!
     public abstract void setCat(String nombre);
     public abstract String getCat();
     public abstract String getNickname();
@@ -25,4 +29,5 @@ public interface ICtrlPedido {
     public abstract DataProducto devListaProductos();
     public abstract void selectProductos(String nombre, int cantidad) throws Exception;
     public abstract void setMonto();
+    public abstract DataPedido altaPedido();
 }

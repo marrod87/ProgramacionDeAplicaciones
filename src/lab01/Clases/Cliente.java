@@ -5,6 +5,7 @@
  */
 package lab01.Clases;
 import java.util.Date;
+import java.util.Map;
 
 /**
  *
@@ -13,6 +14,7 @@ import java.util.Date;
 public class Cliente extends Usuario{
     private String apellido;
     private String fNac;
+    private Map pedidos;
    
     //public Cliente(){}
     public Cliente(String nickname, String nombre, String email, String direccion,String apellido, String img, String fecha) {
@@ -53,6 +55,19 @@ public class Cliente extends Usuario{
     public String getNickname() {
         return nickname;
     }
+    
+    public Map getPedidos(){
+        return this.pedidos;
+    }
+    
+    public void setPedido(Pedido p){
+        this.pedidos.put(p.getId(), p);
+    }
+    
+    public void setPedidos(Map pedidos){
+        this.pedidos = pedidos;
+    }
+    
     public DataCliente ClienteADC(){
         DataCliente DC = new DataCliente(this.nickname, this.nombre, this.mail, this.direccion, this.apellido, this.imagen, this.fNac);
         return DC;
