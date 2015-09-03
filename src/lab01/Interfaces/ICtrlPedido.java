@@ -24,4 +24,5 @@ public interface ICtrlPedido {
     public abstract Map retColDCat();
     public abstract DataProducto devListaProductos();
     public abstract void selectProductos(String nombre, int cantidad) throws Exception;
+    public abstract void setMonto();
 }
