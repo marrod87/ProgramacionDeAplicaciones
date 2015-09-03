@@ -32,7 +32,6 @@ public class CtrlPedido implements ICtrlPedido {
     private String nickname;
     private String categoria;
     private Restaurante memRestaurante;
-    private double monto;
     private Map ColDataCarrito;
     private ArrayList<Producto_Stock> carrito;
     
@@ -74,21 +73,6 @@ public class CtrlPedido implements ICtrlPedido {
     
     public void setCarrito(ArrayList<Producto_Stock> carrito){
         this.carrito = carrito;
-    }
-    
-    public double getMonto(){
-        return this.monto;
-    }
-    
-    public void setMonto(){
-        double suma = 0;
-        Iterator<DataCarrito> it = this.getColDataCarrito().entrySet().iterator();
-        while(it.hasNext()){
-            Map.Entry map = (Map.Entry) it.next();
-            DataCarrito dc = (DataCarrito)map.getValue();
-            suma = suma + dc.getPrecio();
-        }
-        this.monto = suma;
     }
     
     @Override
@@ -173,7 +157,7 @@ public class CtrlPedido implements ICtrlPedido {
     }
     
     @Override
-    public void selectProductos(String nombre, int cantidad) throws Exception{//esto tiene que ir en un while en la interfaz
+    public void selectProductos(String nombre, int cantidad) throws Exception{
         DataCarrito dc = this.memRestaurante.agregarProducto(nombre, cantidad);
         this.setDataCarrito(dc);
         Producto_Stock prodStock = this.memRestaurante.getProdCarrito(nombre);
