@@ -33,7 +33,7 @@ public class CtrlPedido implements ICtrlPedido {
     
     private String nickname;
     private String mailCliente;
-    private Cliente client;
+    private Cliente memCliente;
     private String categoria;
     private Restaurante memRestaurante;
     private double monto;
@@ -59,13 +59,16 @@ public class CtrlPedido implements ICtrlPedido {
         this.mailCliente = mail;
     }
     
-    public Cliente getCliente(){
-        return this.client;
+    public Cliente getMemCliente(){
+        return this.memCliente;
     }
     
     @Override
-    public void setCliente(Cliente client){
-        this.client = client;
+    public void setMemCliente(){
+        HUsuario mu = HUsuario.getinstance();
+        if(mu.exists(this.getNickname())){
+            this.memCliente = mu.obtenerUsuario(this.getNickname());
+        }
     }
     
     public void setCat(String nombre){
@@ -185,7 +188,6 @@ public class CtrlPedido implements ICtrlPedido {
                 Individual ind = (Individual)map.getValue();
                 DataIndividual di = ind.getDataIndividual();
                 dp.setDatIndividual(di);
-                
             }
             if(map.getValue() instanceof Promocional){
                 Promocional prom = (Promocional)map.getValue();
@@ -212,7 +214,7 @@ public class CtrlPedido implements ICtrlPedido {
         this.carrito.clear();
         DataPedido newDP = new DataPedido(nuevo.getId(), this.getNickname(), this.getMailCliente(), nuevo.getFecha(), this.memRestaurante.getNickname(), this.getColDataCarrito(), this.getMonto(), nuevo.getEstado());
         nuevo.setDataPedido(newDP);
-        this.getCliente().setPedido(nuevo);
+        this.getMemCliente().setPedido(nuevo);
         return newDP;
     }
 }

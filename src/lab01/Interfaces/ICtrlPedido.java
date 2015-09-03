@@ -17,8 +17,8 @@ import lab01.Clases.DataProducto;
 public interface ICtrlPedido {
     
     public abstract void setNickname(String nick);
-    public abstract void setMailCliente(String mail);//falta agregarlo a la memoria del controlador!!!!
-    public abstract void setCliente(Cliente client);//y hay q setearlo tmb!!!!!
+    public abstract void setMailCliente(String mail);
+    public abstract void setMemCliente();
     public abstract void setCat(String nombre);
     public abstract String getCat();
     public abstract String getNickname();
