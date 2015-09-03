@@ -115,6 +115,8 @@ public class ListarUsuariosGP extends javax.swing.JInternalFrame {
     private void jbListoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbListoActionPerformed
         String nick=String.valueOf(modelo.getValueAt(jtabla.getSelectedRow(),1));
         ICPed.setNickname(nick);
+        String mail=String.valueOf(modelo.getValueAt(jtabla.getSelectedRow(), 0));
+        ICPed.setMailCliente(mail);
         this.dispose();
         //nueva pantalla seleccionar Categoria
         SeleccionarCatPedido selP = new SeleccionarCatPedido();
