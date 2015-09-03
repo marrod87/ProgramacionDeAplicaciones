@@ -5,6 +5,7 @@
  */
 package lab01.Clases;
 
+import java.util.Map;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -31,7 +32,7 @@ public class DataPromocionalTest {
     
     @Before
     public void setUp() {
-        DataPromocional instance = new DataPromocional(true, 20.0, "promo", "pizza", 100.0, "hola");
+        DataPromocional instance = new DataPromocional(true, 20.0, "nombre", "descripcion", 125.0, "imagen", null);
     }
     
     @After
@@ -45,7 +46,7 @@ public class DataPromocionalTest {
     public void testSetActiva() {
         System.out.println("setActiva");
         boolean activa = false;
-        DataPromocional instance = new DataPromocional(true, 20.0, "promo", "pizza", 100.0, "hola");
+        DataPromocional instance = new DataPromocional(true, 20.0, "nombre", "descripcion", 125.0, "imagen", null);
         instance.setActiva(activa);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
@@ -57,7 +58,7 @@ public class DataPromocionalTest {
     @Test
     public void testGetActiva() {
         System.out.println("getActiva");
-        DataPromocional instance = new DataPromocional(true, 20.0, "promo", "pizza", 100.0, "hola");
+        DataPromocional instance = new DataPromocional(true, 20.0, "nombre", "descripcion", 125.0, "imagen", null);
         boolean expResult = true;
         boolean result = instance.getActiva();
         assertEquals(expResult, result);
@@ -71,8 +72,8 @@ public class DataPromocionalTest {
     @Test
     public void testGetDataNombre() {
         System.out.println("getDataNombre");
-        DataPromocional instance = new DataPromocional(true, 20.0, "promo", "pizza", 100.0, "hola");
-        String expResult = "promo";
+        DataPromocional instance = new DataPromocional(true, 20.0, "nombre", "descripcion", 125.0, "imagen", null);
+        String expResult = "nombre";
         String result = instance.getDataNombre();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
@@ -85,8 +86,8 @@ public class DataPromocionalTest {
     @Test
     public void testSetDataNombre() {
         System.out.println("setDataNombre");
-        String DataNombre = "promo";
-        DataPromocional instance = new DataPromocional(true, 20.0, "promo", "pizza", 100.0, "hola");
+        String DataNombre = "nombre";
+        DataPromocional instance = new DataPromocional(true, 20.0, "nombre", "descripcion", 125.0, "imagen", null);
         instance.setDataNombre(DataNombre);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
@@ -98,8 +99,8 @@ public class DataPromocionalTest {
     @Test
     public void testGetDataDescripcion() {
         System.out.println("getDataDescripcion");
-        DataPromocional instance = new DataPromocional(true, 20.0, "promo", "pizza", 100.0, "hola");
-        String expResult = "pizza";
+        DataPromocional instance = new DataPromocional(true, 20.0, "nombre", "descripcion", 125.0, "imagen", null);
+        String expResult = "descripcion";
         String result = instance.getDataDescripcion();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
@@ -112,8 +113,8 @@ public class DataPromocionalTest {
     @Test
     public void testSetDataDescripcion() {
         System.out.println("setDataDescripcion");
-        String DataDescripcion = "pizza";
-        DataPromocional instance = new DataPromocional(true, 20.0, "promo", "pizza", 100.0, "hola");
+        String DataDescripcion = "descripcion";
+        DataPromocional instance = new DataPromocional(true, 20.0, "nombre", "descripcion", 125.0, "imagen", null);
         instance.setDataDescripcion(DataDescripcion);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
@@ -125,10 +126,10 @@ public class DataPromocionalTest {
     @Test
     public void testGetDataPrecio() {
         System.out.println("getDataPrecio");
-        DataPromocional instance = new DataPromocional(true, 20.0, "promo", "pizza", 100.0, "hola");
-        double expResult = 100.0;
+        DataPromocional instance = new DataPromocional(true, 20.0, "nombre", "descripcion", 125.0, "imagen", null);
+        double expResult = 125.0;
         double result = instance.getDataPrecio();
-        assertEquals(expResult, result, 100.0);
+        assertEquals(expResult, result, 125.0);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
@@ -139,8 +140,8 @@ public class DataPromocionalTest {
     @Test
     public void testSetDataPrecio() {
         System.out.println("setDataPrecio");
-        double DataPrecio = 100.0;
-        DataPromocional instance = new DataPromocional(true, 20.0, "promo", "pizza", 100.0, "hola");
+        double DataPrecio = 125.0;
+        DataPromocional instance = new DataPromocional(true, 20.0, "nombre", "descripcion", 125.0, "imagen", null);
         instance.setDataPrecio(DataPrecio);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
@@ -152,8 +153,8 @@ public class DataPromocionalTest {
     @Test
     public void testGetDataImagen() {
         System.out.println("getDataImagen");
-        DataPromocional instance = new DataPromocional(true, 20.0, "promo", "pizza", 100.0, "hola");
-        String expResult = "hola";
+        DataPromocional instance = new DataPromocional(true, 20.0, "nombre", "descripcion", 125.0, "imagen", null);
+        String expResult = "imagen";
         String result = instance.getDataImagen();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
@@ -166,8 +167,8 @@ public class DataPromocionalTest {
     @Test
     public void testSetDataImagen() {
         System.out.println("setDataImagen");
-        String DataImagen = "hola";
-        DataPromocional instance = new DataPromocional(true, 20.0, "promo", "pizza", 100.0, "hola");
+        String DataImagen = "imagen";
+        DataPromocional instance = new DataPromocional(true, 20.0, "nombre", "descripcion", 125.0, "imagen", null);
         instance.setDataImagen(DataImagen);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
@@ -180,7 +181,7 @@ public class DataPromocionalTest {
     public void testSetDescuento() {
         System.out.println("setDescuento");
         double descuento = 20.0;
-        DataPromocional instance = new DataPromocional(true, 20.0, "promo", "pizza", 100.0, "hola");
+        DataPromocional instance = new DataPromocional(true, 20.0, "nombre", "descripcion", 125.0, "imagen", null);
         instance.setDescuento(descuento);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
@@ -192,10 +193,50 @@ public class DataPromocionalTest {
     @Test
     public void testGetDescuento() {
         System.out.println("getDescuento");
-        DataPromocional instance = new DataPromocional(true, 20.0, "promo", "pizza", 100.0, "hola");
+        DataPromocional instance = new DataPromocional(true, 20.0, "nombre", "descripcion", 125.0, "imagen", null);
         double expResult = 20.0;
         double result = instance.getDescuento();
         assertEquals(expResult, result, 20.0);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of getColDatIndividual method, of class DataPromocional.
+     */
+    @Test
+    public void testGetColDatIndividual() {
+        System.out.println("getColDatIndividual");
+        DataPromocional instance = new DataPromocional(true, 20.0, "nombre", "descripcion", 125.0, "imagen", null);
+        Map expResult = null;
+        Map result = instance.getColDatIndividual();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of setDatIndividual method, of class DataPromocional.
+     */
+    @Test
+    public void testSetDatIndividual() {
+        System.out.println("setDatIndividual");
+        DataIndividual di = null;
+        DataPromocional instance = new DataPromocional(true, 20.0, "nombre", "descripcion", 125.0, "imagen", null);
+        instance.setDatIndividual(di);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of setColDataIndividual method, of class DataPromocional.
+     */
+    @Test
+    public void testSetColDataIndividual() {
+        System.out.println("setColDataIndividual");
+        Map ColDatIndividual = null;
+        DataPromocional instance = new DataPromocional(true, 20.0, "nombre", "descripcion", 125.0, "imagen", null);
+        instance.setColDataIndividual(ColDatIndividual);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }

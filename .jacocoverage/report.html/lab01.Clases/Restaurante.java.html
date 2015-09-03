@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Restaurante.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;Lab01&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">lab01.Clases</a> &gt; <span class="el_source">Restaurante.java</span></div><h1>Restaurante.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package lab01.Clases;
+
+import java.util.ArrayList;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.Iterator;
+
+
+/**
+ *
+ * @author gera
+ */
+public class Restaurante extends Usuario{
+    private ArrayList&lt;String&gt; lstImagen;
+    private Map ColCategoria;
+    private Map ColProducto;
+
+    public Restaurante(String nickname, String nombre, String email, String direccion, Map categorias) {
+<span class="fc" id="L24">        super(nickname,nombre,email,direccion);</span>
+<span class="fc" id="L25">        ColCategoria = categorias;</span>
+<span class="fc" id="L26">        ColProducto = new HashMap();</span>
+        //this.lstImagen = new ArrayList&lt;String&gt;(); //Esto puede ser cualquera
+<span class="fc" id="L28">    }</span>
+    
+    public void addCategoria(Categoria c){
+<span class="nc" id="L31">        ColCategoria.put(c.getNombre(), c);</span>
+<span class="nc" id="L32">    }</span>
+    public boolean member(String nombre){
+<span class="nc" id="L34">        return ColCategoria.containsKey(nombre);</span>
+    }
+    
+    public void addProducto(Producto p){
+<span class="nc" id="L38">        ColProducto.put(p.getNombre(), p);</span>
+        
+<span class="nc" id="L40">    }</span>
+    
+    public Producto getProducto(String nombre){
+<span class="fc" id="L43">        return (Producto)this.ColProducto.get(nombre);</span>
+    }
+    
+    public Map obtenerColeccion(){
+<span class="fc" id="L47">        Map ret = new HashMap();</span>
+<span class="nc" id="L48">        Iterator it = ColCategoria.entrySet().iterator();</span>
+        //Iterator itret = ret.entrySet().iterator();
+<span class="nc bnc" id="L50" title="All 2 branches missed.">        while(it.hasNext()){</span>
+<span class="nc" id="L51">            Map.Entry map = (Map.Entry) it.next();</span>
+<span class="nc" id="L52">            ret.put(map.getKey(), map.getKey());        </span>
+<span class="nc" id="L53">        }</span>
+<span class="nc" id="L54">        return ret;</span>
+    }
+    public DataRestaurante RestauranteADR(){
+<span class="fc" id="L57">        DataRestaurante DR = new DataRestaurante(this.nickname, this.nombre, this.mail, this.direccion, this.lstImagen);</span>
+<span class="fc" id="L58">        return DR;</span>
+    }
+    
+    public Map obtenerColProductos(){
+<span class="fc" id="L62">        Map ret = new HashMap();</span>
+<span class="fc" id="L63">        Iterator it = ColProducto.entrySet().iterator();</span>
+<span class="pc bpc" id="L64" title="1 of 2 branches missed.">        while(it.hasNext()){</span>
+<span class="nc" id="L65">            Map.Entry map = (Map.Entry) it.next();</span>
+<span class="nc" id="L66">            ret.put(map.getKey(), map.getKey());</span>
+<span class="nc" id="L67">        }</span>
+<span class="fc" id="L68">        return ret;</span>
+    }
+    public Map obtenerListaProductos(){
+<span class="fc" id="L71">        return this.ColProducto;</span>
+    }
+    
+    public DataCarrito agregarProducto(String nombre, int cantidad) throws Exception{
+<span class="fc" id="L75">        Producto prod = this.getProducto(nombre);</span>
+<span class="nc bnc" id="L76" title="All 2 branches missed.">        if(prod.prodDisponible(cantidad)){</span>
+<span class="nc" id="L77">            DataCarrito dc = prod.getDataCarrito(cantidad);</span>
+<span class="nc" id="L78">            return dc;</span>
+        }
+<span class="nc" id="L80">        throw new Exception(&quot;No hay stock&quot;);</span>
+    }
+    
+    public Producto_Stock getProdCarrito(String nombre){
+<span class="fc" id="L84">        Producto prod = this.getProducto(nombre);</span>
+<span class="nc" id="L85">        return prod.getProdStock();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

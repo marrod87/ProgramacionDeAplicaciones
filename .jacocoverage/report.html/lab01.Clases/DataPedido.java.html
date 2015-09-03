@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>DataPedido.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;Lab01&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">lab01.Clases</a> &gt; <span class="el_source">DataPedido.java</span></div><h1>DataPedido.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package lab01.Clases;
+
+import java.util.Map;
+
+/**
+ *
+ * @author joaco
+ */
+public class DataPedido {
+    private int id;  //ver q historia con el autogenerado...
+    private String fecha; 
+    private double precio_total;
+    private estados estado;
+    private String nickUsr;
+    private String mailUsr;
+    private String nickRest; //o el nombre no c
+    private Map ColCarrito; //map de DataCarrito
+    
+<span class="fc" id="L24">    public DataPedido(int id, String nickUsr, String mailUsr, String fecha, String nickRest, Map ColCarrito, double precio_total, estados estado){</span>
+<span class="fc" id="L25">        this.id = id;</span>
+<span class="fc" id="L26">        this.nickUsr = nickUsr;</span>
+<span class="fc" id="L27">        this.mailUsr = mailUsr;</span>
+<span class="fc" id="L28">        this.fecha = fecha;</span>
+<span class="fc" id="L29">        this.nickRest = nickRest;</span>
+<span class="fc" id="L30">        this.ColCarrito = ColCarrito;</span>
+<span class="fc" id="L31">        this.precio_total = precio_total;</span>
+<span class="fc" id="L32">        this.estado = estado;</span>
+<span class="fc" id="L33">    }</span>
+    
+    public int getId() {
+<span class="fc" id="L36">        return id;</span>
+    }
+
+    public void setId(int id) {
+<span class="fc" id="L40">        this.id = id;</span>
+<span class="fc" id="L41">    }</span>
+
+    public String getFecha() {
+<span class="fc" id="L44">        return fecha;</span>
+    }
+
+    public void setFecha(String fecha) {
+<span class="fc" id="L48">        this.fecha = fecha;</span>
+<span class="fc" id="L49">    }</span>
+
+    public double getPrecio_total() {
+<span class="fc" id="L52">        return precio_total;</span>
+    }
+
+    public void setPrecio_total(double precio_total) {
+<span class="fc" id="L56">        this.precio_total = precio_total;</span>
+<span class="fc" id="L57">    }</span>
+
+    public estados getEstado() {
+<span class="fc" id="L60">        return estado;</span>
+    }
+
+    public void setEstado(estados estado) {
+<span class="fc" id="L64">        this.estado = estado;</span>
+<span class="fc" id="L65">    }</span>
+    
+    public String getNickUsr(){
+<span class="fc" id="L68">        return this.nickUsr;</span>
+    }
+    
+    public void setNickUsr(String nickUsr){
+<span class="fc" id="L72">        this.nickUsr = nickUsr;</span>
+<span class="fc" id="L73">    }</span>
+    
+    public String getMailUsr(){
+<span class="fc" id="L76">        return this.mailUsr;</span>
+    }
+    
+    public void setMailUsr(String mailUsr){
+<span class="fc" id="L80">        this.mailUsr = mailUsr;</span>
+<span class="fc" id="L81">    }</span>
+    
+    public String getNickRest(){
+<span class="fc" id="L84">        return this.nickRest;</span>
+    }
+    
+    public void setNickRest(String nickRest){
+<span class="fc" id="L88">        this.nickRest = nickRest;</span>
+<span class="fc" id="L89">    }</span>
+    
+    public Map getColCarrito(){
+<span class="fc" id="L92">        return this.ColCarrito;</span>
+    }
+    
+    public void setColCarrito(Map ColCarrito){//por si queda mas comodo...
+<span class="fc" id="L96">        this.ColCarrito = ColCarrito;</span>
+<span class="fc" id="L97">    }</span>
+    
+    public void setDatCarrito(DataCarrito dc){
+<span class="nc" id="L100">        this.ColCarrito.put(dc.getNomProd(), dc);</span>
+<span class="nc" id="L101">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

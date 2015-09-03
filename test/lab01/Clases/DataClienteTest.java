@@ -20,23 +20,23 @@ public class DataClienteTest {
     
     public DataClienteTest() {
     }
-    
-//    @BeforeClass
-//    public static void setUpClass() {
-//    }
-//    
-//    @AfterClass
-//    public static void tearDownClass() {
-//    }
+
+    @BeforeClass
+    public static void setUpClass() throws Exception {
+    }
+
+    @AfterClass
+    public static void tearDownClass() throws Exception {
+    }
     
     @Before
     public void setUp() {
         DataCliente instance = new DataCliente("nick", "Pedro", "j@j.com", "Calle", "Perez", "hola", "1/1/2000");
     }
-    
-//    @After
-//    public void tearDown() {
-//    }
+
+    @After
+    public void tearDown() throws Exception {
+    }
 
     /**
      * Test of getNombre method, of class DataCliente.

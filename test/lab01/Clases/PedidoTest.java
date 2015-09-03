@@ -43,7 +43,7 @@ public class PedidoTest {
     @Test
     public void testGetId() {
         System.out.println("getId");
-        Pedido instance = new Pedido(1, 12345, 125.00, estados.PREPARACION);
+        Pedido instance = new Pedido(1, "1/1/2000", 125.00, estados.PREPARACION);
         int expResult = 1;
         int result = instance.getId();
         assertEquals(expResult, result);
@@ -58,7 +58,7 @@ public class PedidoTest {
     public void testSetId() {
         System.out.println("setId");
         int id = 1;
-        Pedido instance = new Pedido(1, 12345, 125.00, estados.PREPARACION);
+        Pedido instance = new Pedido(1, "1/1/2000", 125.00, estados.PREPARACION);
         instance.setId(id);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
@@ -70,9 +70,9 @@ public class PedidoTest {
     @Test
     public void testGetFecha() {
         System.out.println("getFecha");
-        Pedido instance = new Pedido(1, 12345, 125.00, estados.PREPARACION);
-        int expResult = 12345;
-        int result = instance.getFecha();
+        Pedido instance = new Pedido(1, "1/1/2000", 125.00, estados.PREPARACION);
+        String expResult = "1/1/2000";
+        String result = instance.getFecha();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
@@ -84,8 +84,8 @@ public class PedidoTest {
     @Test
     public void testSetFecha() {
         System.out.println("setFecha");
-        int fecha = 12345;
-        Pedido instance = new Pedido(1, 12345, 125.00, estados.PREPARACION);
+        String fecha = "1/1/2000";
+        Pedido instance = new Pedido(1, "1/1/2000", 125.00, estados.PREPARACION);
         instance.setFecha(fecha);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
@@ -97,7 +97,7 @@ public class PedidoTest {
     @Test
     public void testGetPrecio_total() {
         System.out.println("getPrecio_total");
-        Pedido instance = new Pedido(1, 12345, 125.00, estados.PREPARACION);
+        Pedido instance = new Pedido(1, "1/1/2000", 125.00, estados.PREPARACION);
         double expResult = 125.0;
         double result = instance.getPrecio_total();
         assertEquals(expResult, result, 0.0);
@@ -112,7 +112,7 @@ public class PedidoTest {
     public void testSetPrecio_total() {
         System.out.println("setPrecio_total");
         double precio_total = 125.0;
-        Pedido instance = new Pedido(1, 12345, 125.00, estados.PREPARACION);
+        Pedido instance = new Pedido(1, "1/1/2000", 125.00, estados.PREPARACION);
         instance.setPrecio_total(precio_total);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
@@ -124,7 +124,7 @@ public class PedidoTest {
     @Test
     public void testGetEstado() {
         System.out.println("getEstado");
-        Pedido instance = new Pedido(1, 12345, 125.00, estados.PREPARACION);
+        Pedido instance = new Pedido(1, "1/1/2000", 125.00, estados.PREPARACION);
         estados expResult = estados.PREPARACION;
         estados result = instance.getEstado();
         assertEquals(expResult, result);
@@ -139,7 +139,7 @@ public class PedidoTest {
     public void testSetEstado() {
         System.out.println("setEstado");
         estados estado = estados.PREPARACION;
-        Pedido instance = new Pedido(1, 12345, 125.00, estados.PREPARACION);
+        Pedido instance = new Pedido(1, "1/1/2000", 125.00, estados.PREPARACION);
         instance.setEstado(estado);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
@@ -151,10 +151,23 @@ public class PedidoTest {
     @Test
     public void testGetDataPedido() {
         System.out.println("getDataPedido");
-        Pedido instance = new Pedido(1, 12345, 125.00, estados.PREPARACION);
+        Pedido instance = new Pedido(1, "1/1/2000", 125.00, estados.PREPARACION);
         DataPedido expResult = null;
         DataPedido result = instance.getDataPedido();
         assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of setDataPedido method, of class Pedido.
+     */
+    @Test
+    public void testSetDataPedido() {
+        System.out.println("setDataPedido");
+        DataPedido dp = null;
+        Pedido instance = new Pedido(1, "1/1/2000", 125.00, estados.PREPARACION);
+        instance.setDataPedido(dp);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }

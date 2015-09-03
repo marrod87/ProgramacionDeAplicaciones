@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>DataPromocional.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;Lab01&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">lab01.Clases</a> &gt; <span class="el_source">DataPromocional.java</span></div><h1>DataPromocional.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package lab01.Clases;
+
+import java.util.Map;
+
+/**
+ *
+ * @author joaco
+ */
+public class DataPromocional {
+    private boolean DataActiva;
+    private double DataDescuento;
+    private String DataNombre;
+    private String DataDescripcion;
+    private double DataPrecio;
+    private String DataImagen;
+    private Map ColDatIndividual;
+    
+<span class="fc" id="L23">    public DataPromocional(boolean activa, double descuento, String nombre, String descripcion, double precio, String imagen, Map ColDatIndividual){</span>
+<span class="fc" id="L24">        this.DataActiva = activa;</span>
+<span class="fc" id="L25">        this.DataDescuento = descuento;</span>
+<span class="fc" id="L26">        this.DataNombre = nombre;</span>
+<span class="fc" id="L27">        this.DataDescripcion = descripcion;</span>
+<span class="fc" id="L28">        this.DataPrecio = precio;</span>
+<span class="fc" id="L29">        this.DataImagen = imagen;</span>
+<span class="fc" id="L30">        this.ColDatIndividual = ColDatIndividual;</span>
+        
+<span class="fc" id="L32">    }</span>
+    
+    public void setActiva(boolean activa){
+<span class="fc" id="L35">        this.DataActiva = activa;</span>
+<span class="fc" id="L36">    }</span>
+    
+    public boolean getActiva(){
+<span class="fc" id="L39">        return DataActiva;</span>
+    }
+
+    public String getDataNombre() {
+<span class="fc" id="L43">        return DataNombre;</span>
+    }
+
+    public void setDataNombre(String DataNombre) {
+<span class="fc" id="L47">        this.DataNombre = DataNombre;</span>
+<span class="fc" id="L48">    }</span>
+
+    public String getDataDescripcion() {
+<span class="fc" id="L51">        return DataDescripcion;</span>
+    }
+
+    public void setDataDescripcion(String DataDescripcion) {
+<span class="fc" id="L55">        this.DataDescripcion = DataDescripcion;</span>
+<span class="fc" id="L56">    }</span>
+
+    public double getDataPrecio() {
+<span class="fc" id="L59">        return DataPrecio;</span>
+    }
+
+    public void setDataPrecio(double DataPrecio) {
+<span class="fc" id="L63">        this.DataPrecio = DataPrecio;</span>
+<span class="fc" id="L64">    }</span>
+
+    public String getDataImagen() {
+<span class="fc" id="L67">        return DataImagen;</span>
+    }
+
+    public void setDataImagen(String DataImagen) {
+<span class="fc" id="L71">        this.DataImagen = DataImagen;</span>
+<span class="fc" id="L72">    }</span>
+    
+    public void setDescuento(double descuento){
+<span class="fc" id="L75">        this.DataDescuento = descuento;</span>
+<span class="fc" id="L76">    }</span>
+    
+    public double getDescuento(){
+<span class="fc" id="L79">        return DataDescuento;</span>
+    }
+    
+    public Map getColDatIndividual(){
+<span class="fc" id="L83">        return this.ColDatIndividual;</span>
+    }
+    
+    public void setDatIndividual(DataIndividual di){
+<span class="nc" id="L87">        this.ColDatIndividual.put(di.getDataNombre(), di);</span>
+<span class="nc" id="L88">    }</span>
+    
+    public void setColDataIndividual(Map ColDatIndividual){
+<span class="fc" id="L91">        this.ColDatIndividual = ColDatIndividual;</span>
+<span class="fc" id="L92">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

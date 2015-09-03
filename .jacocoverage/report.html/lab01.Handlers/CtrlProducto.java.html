@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>CtrlProducto.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;Lab01&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">lab01.Handlers</a> &gt; <span class="el_source">CtrlProducto.java</span></div><h1>CtrlProducto.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package lab01.Handlers;
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import javax.swing.JOptionPane;
+import lab01.Clases.Cliente;
+import lab01.Clases.DataCliente;
+import lab01.Clases.DataIndividual;
+import lab01.Clases.DataProducto;
+//import lab01.Clases.DataProducto_Stock;
+import lab01.Clases.Individual;
+import lab01.Clases.Producto;
+import lab01.Clases.Restaurante;
+import lab01.Interfaces.ICtrlProducto;
+
+/**
+ *
+ * @author gera
+ */
+<span class="fc" id="L26">public class CtrlProducto implements ICtrlProducto {</span>
+
+    public void registrarProducto(DataIndividual di, String nomRest, boolean promocional) {
+
+        //primero obtengo el restaurante, si existe
+<span class="fc" id="L31">        HUsuario HU = HUsuario.getinstance();</span>
+<span class="fc" id="L32">        Restaurante restoran = HU.obtenerRestaurante(nomRest);</span>
+<span class="pc bpc" id="L33" title="1 of 2 branches missed.">        if (restoran == null) {</span>
+<span class="fc" id="L34">            JOptionPane.showMessageDialog(null, &quot;El restaurante no esta registrado en el sistema&quot;, &quot;Aviso&quot;, JOptionPane.INFORMATION_MESSAGE);</span>
+
+        } else {
+<span class="nc bnc" id="L37" title="All 2 branches missed.">            if (!promocional) { // si el producto es individual</span>
+<span class="nc" id="L38">                Producto i = new Individual(di.getDataNombre(), di.getDataDescripcion(), di.getDataPrecio(), di.getCantidad());</span>
+<span class="nc" id="L39">                restoran.addProducto(i); //agrego el producto a la coleccion de productos de ese restoran</span>
+
+            } else {
+                
+
+            }
+        }
+
+<span class="fc" id="L47">    }</span>
+
+    public boolean existeRestaurante(String nomRest) {
+<span class="fc" id="L50">        HUsuario HU = HUsuario.getinstance();</span>
+<span class="fc" id="L51">        Restaurante restoran = HU.obtenerRestaurante(nomRest);</span>
+<span class="pc bpc" id="L52" title="1 of 2 branches missed.">        if (restoran == null) {</span>
+<span class="fc" id="L53">            return false;</span>
+
+        } else {
+<span class="nc" id="L56">            return true;</span>
+        }
+
+    }
+
+    public Map listarIndividuales(String nomRest) {
+
+<span class="fc" id="L63">        Map ret = new HashMap();</span>
+<span class="fc" id="L64">        HUsuario HU = HUsuario.getinstance();</span>
+<span class="fc" id="L65">        Restaurante restoran = HU.obtenerRestaurante(nomRest);</span>
+<span class="nc" id="L66">        Iterator it = restoran.obtenerListaProductos().entrySet().iterator();</span>
+<span class="nc bnc" id="L67" title="All 2 branches missed.">        while (it.hasNext()) {</span>
+<span class="nc" id="L68">            Map.Entry map = (Map.Entry) it.next();</span>
+<span class="nc bnc" id="L69" title="All 2 branches missed.">            if ((Producto)map.getValue() instanceof Individual) {</span>
+<span class="nc" id="L70">                Individual ind = (Individual) map.getValue();</span>
+<span class="nc" id="L71">                DataIndividual di = ind.getDataIndividual();</span>
+<span class="nc" id="L72">                ret.put(di.getDataNombre(), di);</span>
+            }
+            
+
+<span class="nc" id="L76">        }</span>
+<span class="nc" id="L77">        return ret;</span>
+    }
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

@@ -43,7 +43,7 @@ public class Cantidad_IndividualTest {
     @Test
     public void testGetCantidad() {
         System.out.println("getCantidad");
-        Cantidad_Individual instance = new Cantidad_Individual(2);
+        Cantidad_Individual instance = new Cantidad_Individual();
         int expResult = 2;
         int result = instance.getCantidad();
         assertEquals(expResult, result);
@@ -58,11 +58,38 @@ public class Cantidad_IndividualTest {
     public void testSetCantidad() {
         System.out.println("setCantidad");
         int cantidad = 2;
-        Cantidad_Individual instance = new Cantidad_Individual(2);
+        Cantidad_Individual instance = new Cantidad_Individual();
         instance.setCantidad(cantidad);
         //assertEquals(cantidad, instance);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of getProdIndividual method, of class Cantidad_Individual.
+     */
+    @Test
+    public void testGetProdIndividual() {
+        System.out.println("getProdIndividual");
+        Cantidad_Individual instance = new Cantidad_Individual();
+        Individual expResult = null;
+        Individual result = instance.getProdIndividual();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of setProdIndividual method, of class Cantidad_Individual.
+     */
+    @Test
+    public void testSetProdIndividual() {
+        System.out.println("setProdIndividual");
+        Individual prodIndividual = null;
+        Cantidad_Individual instance = new Cantidad_Individual();
+        instance.setProdIndividual(prodIndividual);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
     }
     
 }

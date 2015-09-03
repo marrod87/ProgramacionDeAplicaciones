@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>DataClient.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;Lab01&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">lab01.Clases</a> &gt; <span class="el_source">DataClient.java</span></div><h1>DataClient.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package lab01.Clases;
+import java.util.Date;
+
+/**
+ *
+ * @author martin
+ */
+public class DataClient {
+    private String nickname;
+    private String nombre;
+    private String apellido;
+    private Date fNac;
+    private String direccion;
+    private String mail;
+    private String imagen;
+    
+<span class="nc" id="L22">    public DataClient(){</span>
+       //Constructor por defecto
+<span class="nc" id="L24">    }</span>
+<span class="fc" id="L25">    public DataClient(String nickname, String nombre, String apellido,Date f, String direccion, String mail, String imagen){</span>
+     //Constructor por parámetros
+<span class="fc" id="L27">     this.nickname = nickname;</span>
+<span class="fc" id="L28">     this.nombre = nombre;</span>
+<span class="fc" id="L29">     this.apellido =  apellido;</span>
+<span class="fc" id="L30">     this.fNac = f;</span>
+<span class="fc" id="L31">     this.direccion = direccion;</span>
+<span class="fc" id="L32">     this.mail = mail;</span>
+<span class="fc" id="L33">     this.imagen = imagen;</span>
+        
+<span class="fc" id="L35">    }</span>
+   
+    public String getNickname(){
+<span class="fc" id="L38">        return this.nickname;</span>
+    }
+    
+    public String getNombre(){
+<span class="fc" id="L42">        return this.nombre;</span>
+    }
+    
+    public Date getfNac() {
+<span class="fc" id="L46">        return fNac;</span>
+    }
+    public String getApellido(){
+<span class="fc" id="L49">        return this.apellido;</span>
+    }
+    public String getDireccion(){
+<span class="fc" id="L52">        return this.direccion;</span>
+    }
+    public String getMail(){
+<span class="fc" id="L55">        return this.mail;</span>
+    }
+    public String getImagen(){
+<span class="fc" id="L58">        return this.imagen;</span>
+    }
+    public void setNickname(String nickname){
+<span class="fc" id="L61">        this.nickname =  nickname;</span>
+<span class="fc" id="L62">    }</span>
+    public void setNombre(String nombre){
+<span class="fc" id="L64">        this.nombre = nombre;</span>
+<span class="fc" id="L65">    }</span>
+    public void setApellido(String apellido){
+<span class="fc" id="L67">        this.apellido = apellido;</span>
+<span class="fc" id="L68">    }</span>
+    public void setfNac(Date fNac) {
+<span class="fc" id="L70">        this.fNac = fNac;</span>
+<span class="fc" id="L71">    }</span>
+    public void setDireccion(String direccion){
+<span class="fc" id="L73">        this.direccion = direccion;</span>
+<span class="fc" id="L74">    }</span>
+    public void setMail(String mail){
+<span class="fc" id="L76">        this.mail = mail;</span>
+<span class="fc" id="L77">    }</span>
+    public void setImagen(String imagen){
+<span class="fc" id="L79">        this.imagen = imagen;</span>
+<span class="fc" id="L80">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

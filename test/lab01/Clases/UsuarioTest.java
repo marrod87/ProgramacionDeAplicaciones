@@ -187,5 +187,8 @@ public class UsuarioTest {
 
     public class UsuarioImpl extends Usuario {
     }
+
+//    public class UsuarioImpl extends Usuario {
+//    }
     
 }
