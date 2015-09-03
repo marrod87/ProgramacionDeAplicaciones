@@ -50,18 +50,29 @@ public abstract class  Producto {
         return prodStock.getCantidad();
     }
     
-     public void setCantidad(int cant){
+    public void setCantidad(int cant){
        this.prodStock.setCantidad(cant);
     }
      
-     public double getPrecio(){
+    public double getPrecio(){
          return this.prodStock.getPrecio();
-     }
+    }
      
-     public void setPrecio(double precio){
+    public void setPrecio(double precio){
          this.prodStock.setPrecio(precio);
-     }
+    }
      
-     
-
+    public Producto_Stock getProdStock(){
+         return this.prodStock;
+    }
+    
+    public void setProdStock(Producto_Stock prodStock){
+        this.prodStock = prodStock;
+    }
+    
+    public boolean prodDisponible(int cantidad){
+        return this.getCantidad() > cantidad;
+    }
+    
+    public abstract DataCarrito getDataCarrito(int cantidad);
 }

@@ -62,4 +62,10 @@ public class Promocional extends Producto {
         DataPromocional dPromo = new DataPromocional(this.isActiva(), this.getDescuento(), this.getDescripcion(), this.getNombre(), this.getPrecio(), this.getImagen(), ColDatIndividual);
         return dPromo;
     }
+    
+    @Override
+    public DataCarrito getDataCarrito(int cantidad){
+        DataCarrito dc = new DataCarrito(this.getNombre(), true, cantidad, this.getPrecio());
+        return dc;
+    }
 }

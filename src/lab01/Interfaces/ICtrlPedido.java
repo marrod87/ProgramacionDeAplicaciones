@@ -23,4 +23,5 @@ public interface ICtrlPedido {
     public abstract boolean setMemRestaurante(String nickname);
     public abstract Map retColDCat();
     public abstract DataProducto devListaProductos();
+    public abstract void selectProductos(String nombre, int cantidad) throws Exception;
 }

@@ -38,6 +38,11 @@ public class Restaurante extends Usuario{
         ColProducto.put(p.getNombre(), p);
         
     }
+    
+    public Producto getProducto(String nombre){
+        return (Producto)this.ColProducto.get(nombre);
+    }
+    
     public Map obtenerColeccion(){
         Map ret = new HashMap();
         Iterator it = ColCategoria.entrySet().iterator();
@@ -64,5 +69,19 @@ public class Restaurante extends Usuario{
     }
     public Map obtenerListaProductos(){
         return this.ColProducto;
+    }
+    
+    public DataCarrito agregarProducto(String nombre, int cantidad) throws Exception{
+        Producto prod = this.getProducto(nombre);
+        if(prod.prodDisponible(cantidad)){
+            DataCarrito dc = prod.getDataCarrito(cantidad);
+            return dc;
+        }
+        throw new Exception("No hay stock");
+    }
+    
+    public Producto_Stock getProdCarrito(String nombre){
+        Producto prod = this.getProducto(nombre);
+        return prod.getProdStock();
     }
 }

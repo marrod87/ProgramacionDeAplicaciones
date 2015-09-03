@@ -5,21 +5,22 @@
  */
 package lab01.Handlers;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import lab01.Clases.Cliente;
+import lab01.Clases.DataCarrito;
 import lab01.Clases.DataCliente;
 import lab01.Clases.Restaurante;
 import lab01.Clases.DataRestaurante;
 import lab01.Interfaces.ICtrlPedido;
 import lab01.Clases.DataCategoria;
-import lab01.Clases.Categoria;
 import lab01.Clases.DataIndividual;
 import lab01.Clases.DataProducto;
 import lab01.Clases.DataPromocional;
 import lab01.Clases.Individual;
-import lab01.Clases.Producto;
+import lab01.Clases.Producto_Stock;
 import lab01.Clases.Promocional;
 
 /**
@@ -31,6 +32,8 @@ public class CtrlPedido implements ICtrlPedido {
     private String nickname;
     private String categoria;
     private Restaurante memRestaurante;
+    private Map ColDataCarrito;
+    private ArrayList<Producto_Stock> carrito;
     
     public CtrlPedido(){}
     
@@ -46,6 +49,30 @@ public class CtrlPedido implements ICtrlPedido {
     }
     public String getCat(){
         return this.categoria;
+    }
+    
+    public Map getColDataCarrito(){
+        return this.ColDataCarrito;
+    }
+    
+    public void setDataCarrito(DataCarrito dc){
+        this.ColDataCarrito.put(dc.getNomProd(), dc);
+    }
+    
+    public void setColDataCarrito(Map ColDataCarrito){
+        this.ColDataCarrito = ColDataCarrito;
+    }
+    
+    public ArrayList<Producto_Stock> getCarrito(){
+        return this.carrito;
+    }
+    
+    public void addCarrito(Producto_Stock pd){
+        this.carrito.add(pd);
+    }
+    
+    public void setCarrito(ArrayList<Producto_Stock> carrito){
+        this.carrito = carrito;
     }
     
     @Override
@@ -127,5 +154,13 @@ public class CtrlPedido implements ICtrlPedido {
             }
         }
         return dp;
+    }
+    
+    @Override
+    public void selectProductos(String nombre, int cantidad) throws Exception{
+        DataCarrito dc = this.memRestaurante.agregarProducto(nombre, cantidad);
+        this.setDataCarrito(dc);
+        Producto_Stock prodStock = this.memRestaurante.getProdCarrito(nombre);
+        this.addCarrito(prodStock);
     }
 }

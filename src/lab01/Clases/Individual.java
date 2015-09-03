@@ -38,5 +38,11 @@ public class Individual extends Producto {
         DataIndividual dIndividual = new DataIndividual(this.getNombre(), this.getDescripcion(), this.getPrecio(), this.getImagen(), this.getCantidad());
         return dIndividual;
     }
+    
+    @Override
+    public DataCarrito getDataCarrito(int cantidad){
+        DataCarrito dc = new DataCarrito(this.getNombre(), false, cantidad, this.getPrecio());
+        return dc;
+    }
 
 }

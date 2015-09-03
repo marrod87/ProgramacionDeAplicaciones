@@ -15,6 +15,13 @@ public class DataCarrito {
     private int cantidad;
     private double precio;
     
+    DataCarrito(String nomProd, boolean promo, int cantidad, double precio){
+        this.nomProd = nomProd;
+        this.promo = promo;
+        this.cantidad = cantidad;
+        this.precio = precio;
+    }
+    
     public String getNomProd(){
         return this.nomProd;
     }

@@ -5,6 +5,8 @@
  */
 package lab01.Clases;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author gera
@@ -16,6 +18,7 @@ public class Pedido {
     private String fecha; // ver como hacer la fecha si con el jcalendar esta fecha tiene que ser la del momento en q se crea el objeto(la del sistema)
     private double precio_total;
     private estados estado;
+    private ArrayList<Producto_Stock> carrito;
     private DataPedido dp;
 
     public Pedido(int id, String fecha, double precio_total, estados estado) {
@@ -63,6 +66,5 @@ public class Pedido {
     
     public void setDataPedido(DataPedido dp){
         this.dp = dp;
-    }
-    
+    } 
 }
