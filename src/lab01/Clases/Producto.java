@@ -74,5 +74,10 @@ public abstract class  Producto {
         return this.getCantidad() > cantidad;
     }
     
+    public void restarStock(int cantidad){
+        int aux = cantidad - this.getProdStock().getCantidad();
+        this.getProdStock().setCantidad(aux);
+    }
+
     public abstract DataCarrito getDataCarrito(int cantidad);
 }

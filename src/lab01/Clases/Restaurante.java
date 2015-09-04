@@ -75,6 +75,7 @@ public class Restaurante extends Usuario{
         Producto prod = this.getProducto(nombre);
         if(prod.prodDisponible(cantidad)){
             DataCarrito dc = prod.getDataCarrito(cantidad);
+            prod.restarStock(cantidad);
             return dc;
         }
         throw new Exception("No hay stock");

@@ -200,7 +200,6 @@ public class CtrlPedido implements ICtrlPedido {
     
     @Override
     public void selectProductos(String nombre, int cantidad) throws Exception{//esto va en un loop en la interfaz
-        this.carrito.clear();
         DataCarrito dc = this.memRestaurante.agregarProducto(nombre, cantidad);
         this.setDataCarrito(dc);
         Producto_Stock prodStock = this.memRestaurante.getProdCarrito(nombre);
@@ -215,6 +214,7 @@ public class CtrlPedido implements ICtrlPedido {
         DataPedido newDP = new DataPedido(nuevo.getId(), this.getNickname(), this.getMailCliente(), nuevo.getFecha(), this.memRestaurante.getNickname(), this.getColDataCarrito(), this.getMonto(), nuevo.getEstado());
         nuevo.setDataPedido(newDP);
         this.getMemCliente().setPedido(nuevo);
+        this.ColDataCarrito.clear();
         return newDP;
     }
     
