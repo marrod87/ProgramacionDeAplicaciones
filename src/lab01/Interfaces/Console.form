@@ -47,11 +47,6 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnuRegUsuarioActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="mnuRegPedido">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Registrar Pedido"/>
-              </Properties>
-            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="smnuRegCat">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Registrar Categoria"/>

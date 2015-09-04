@@ -9,7 +9,10 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
+import static lab01.Clases.estados.ENVIADO;
 import static lab01.Clases.estados.PREPARACION;
+import static lab01.Clases.estados.RECIBIDO;
+
 
 /**
  *
@@ -61,8 +64,24 @@ public class Pedido {
         return estado;
     }
 
-    public void setEstado(estados estado) {
-        this.estado = estado;
+    public void setEstado(estados estado) throws Exception {
+        if(this.getEstado() == PREPARACION){
+            if(estado == ENVIADO || estado == RECIBIDO){
+                this.estado = estado;
+                this.getDataPedido().setEstado(estado);
+            }
+            throw new Exception("Estado Incorrecto...");
+        }
+        if(this.getEstado() == ENVIADO){
+            if(estado == RECIBIDO){
+                this.estado = estado;
+                this.getDataPedido().setEstado(estado);
+            }
+            throw new Exception("Estado Incorrecto...");
+        }
+        if(this.getEstado() == RECIBIDO){
+            throw new Exception("Pedido Entregado...");
+        }
     }
     
     public ArrayList<Producto_Stock> getCarrito(){
@@ -79,5 +98,5 @@ public class Pedido {
     
     public void setDataPedido(DataPedido dp){
         this.dp = dp;
-    } 
+    }
 }

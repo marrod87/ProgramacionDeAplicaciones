@@ -24,6 +24,7 @@ import lab01.Clases.Individual;
 import lab01.Clases.Pedido;
 import lab01.Clases.Producto_Stock;
 import lab01.Clases.Promocional;
+import lab01.Clases.estados;
 
 /**
  *
@@ -219,14 +220,29 @@ public class CtrlPedido implements ICtrlPedido {
     }
     
     @Override
-    public void registrarDataPedido(DataPedido dp){//ese dp se lo da altaPedido...
-        HDPedido hdp = HDPedido.getInstance();
-        hdp.addDataPedido(dp);
+    public Map listDataPedidos(){
+        Map aux = new HashMap();
+        HUsuario hu = HUsuario.getinstance();
+        Iterator user = hu.obtenerColeccion().entrySet().iterator();
+        while(user.hasNext()){
+            Map.Entry users = (Map.Entry) user.next();
+            if(users.getValue() instanceof Cliente){
+                Cliente client = (Cliente)users.getValue();
+                Iterator pedidos = client.getPedidos().entrySet().iterator();
+                while(pedidos.hasNext()){
+                    Map.Entry p = (Map.Entry) pedidos.next();
+                    Pedido ped = (Pedido)p.getValue();
+                    aux.put(ped.getDataPedido().getId(), ped.getDataPedido());
+                }
+            }
+        }
+        return aux;
     }
     
     @Override
-    public Map listDataPedidos(){
-        HDPedido hdp = HDPedido.getInstance();
-        return hdp.obtenerColeccion();
+    public void actualizarEPedido(String nickname, double id, estados estado) throws Exception{//usar listarDataPedido antes q esto xD
+        HUsuario hu = HUsuario.getinstance();
+        Cliente user = hu.obtenerUsuario(nickname);
+        user.actualizarEstadoPedido(id, estado);
     }
 }

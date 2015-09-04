@@ -38,7 +38,6 @@ public class Console extends javax.swing.JFrame {
         mnuSalir = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         mnuRegUsuario = new javax.swing.JMenuItem();
-        mnuRegPedido = new javax.swing.JMenuItem();
         smnuRegCat = new javax.swing.JMenuItem();
         mnuRegProducto = new javax.swing.JMenuItem();
         ver = new javax.swing.JMenu();
@@ -76,9 +75,6 @@ public class Console extends javax.swing.JFrame {
             }
         });
         jMenu2.add(mnuRegUsuario);
-
-        mnuRegPedido.setText("Registrar Pedido");
-        jMenu2.add(mnuRegPedido);
 
         smnuRegCat.setText("Registrar Categoria");
         smnuRegCat.addActionListener(new java.awt.event.ActionListener() {
@@ -263,7 +259,6 @@ public class Console extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenu menuGenerarPedido;
-    private javax.swing.JMenuItem mnuRegPedido;
     private javax.swing.JMenuItem mnuRegProducto;
     private javax.swing.JMenuItem mnuRegUsuario;
     private javax.swing.JMenuItem mnuSalir;

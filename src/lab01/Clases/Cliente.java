@@ -5,6 +5,7 @@
  */
 package lab01.Clases;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.Map;
 
 /**
@@ -60,6 +61,18 @@ public class Cliente extends Usuario{
         return this.pedidos;
     }
     
+    public Pedido getPedido(double id) throws Exception{
+        Iterator it = this.getPedidos().entrySet().iterator();
+        while(it.hasNext()){
+            Map.Entry peds = (Map.Entry) it.next();
+            Pedido p = (Pedido)peds.getValue();
+            if(p.getId() == id){
+                return p;
+            }
+        }
+        throw new Exception("No existe el pedido...");
+    }
+    
     public void setPedido(Pedido p){
         this.pedidos.put(p.getId(), p);
     }
@@ -73,4 +86,7 @@ public class Cliente extends Usuario{
         return DC;
     }
     
+    public void actualizarEstadoPedido(double id, estados estado) throws Exception{
+        this.getPedido(id).setEstado(estado);
+    }
 }
