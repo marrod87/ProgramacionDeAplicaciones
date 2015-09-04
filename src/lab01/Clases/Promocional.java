@@ -8,6 +8,8 @@ package lab01.Clases;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -67,5 +69,30 @@ public class Promocional extends Producto {
     public DataCarrito getDataCarrito(int cantidad){
         DataCarrito dc = new DataCarrito(this.getNombre(), true, cantidad, this.getPrecio());
         return dc;
+    }
+    
+    @Override
+    public boolean prodDisponible(int cantidad){
+        for(Cantidad_Individual ci: ColCantIndividual){
+            int aux = ci.getProdIndividual().getProdStock().getCantidad() * cantidad;
+            if(ci.getProdIndividual().prodDisponible(aux)){
+                continue;
+            }
+            try {
+                throw new Exception("Stock Insuficiente...");
+            } catch (Exception ex) {
+                Logger.getLogger(Promocional.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return true;
+    }
+    
+    @Override
+    public void restarStock(int cantidad){
+        for(Cantidad_Individual ci: ColCantIndividual){
+            int aux = ci.getProdIndividual().getProdStock().getCantidad() * cantidad;
+            int aux2 = ci.getProdIndividual().getProdStock().getCantidad() - aux;
+            ci.getProdIndividual().getProdStock().setCantidad(aux2);
+        }
     }
 }

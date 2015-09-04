@@ -70,14 +70,9 @@ public abstract class  Producto {
         this.prodStock = prodStock;
     }
     
-    public boolean prodDisponible(int cantidad){
-        return this.getCantidad() > cantidad;
-    }
+    public abstract boolean prodDisponible(int cantidad);
     
-    public void restarStock(int cantidad){
-        int aux = cantidad - this.getProdStock().getCantidad();
-        this.getProdStock().setCantidad(aux);
-    }
+    public abstract void restarStock(int cantidad);
 
     public abstract DataCarrito getDataCarrito(int cantidad);
 }

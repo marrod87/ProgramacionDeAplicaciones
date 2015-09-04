@@ -44,5 +44,16 @@ public class Individual extends Producto {
         DataCarrito dc = new DataCarrito(this.getNombre(), false, cantidad, this.getPrecio());
         return dc;
     }
+    
+    @Override
+    public boolean prodDisponible(int cantidad){
+        return this.getProdStock().getCantidad() > cantidad;
+    }
+    
+    @Override
+    public void restarStock(int cantidad){
+        int aux = cantidad - this.getProdStock().getCantidad();
+        this.getProdStock().setCantidad(aux);
+    }
 
 }
