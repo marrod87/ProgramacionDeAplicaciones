@@ -50,14 +50,19 @@ public class SeleccionarCatReg extends javax.swing.JInternalFrame {
         setTitle("Seleccione las Categorias del Restaurante");
 
         jcbSelect.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select..." }));
+        jcbSelect.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jcbSelectMouseDragged(evt);
+            }
+        });
         jcbSelect.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 jcbSelectItemStateChanged(evt);
             }
         });
-        jcbSelect.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                jcbSelectMouseDragged(evt);
+        jcbSelect.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbSelectActionPerformed(evt);
             }
         });
 
@@ -164,6 +169,10 @@ public class SeleccionarCatReg extends javax.swing.JInternalFrame {
 
 // TODO add your handling code here:
     }//GEN-LAST:event_jbListoActionPerformed
+
+    private void jcbSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbSelectActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcbSelectActionPerformed
     public void cargarCBbox(){
         Map cats; 
         cats=ICU.retColCat();

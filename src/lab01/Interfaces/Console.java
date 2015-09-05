@@ -43,6 +43,7 @@ public class Console extends javax.swing.JFrame {
         ver = new javax.swing.JMenu();
         VerClientes = new javax.swing.JMenuItem();
         VerRestaurantes = new javax.swing.JMenuItem();
+        mnuVerRestPrueba = new javax.swing.JMenuItem();
         menuGenerarPedido = new javax.swing.JMenu();
         genPedido = new javax.swing.JMenuItem();
 
@@ -111,6 +112,14 @@ public class Console extends javax.swing.JFrame {
             }
         });
         ver.add(VerRestaurantes);
+
+        mnuVerRestPrueba.setText("Ver Restaurantes Prueba");
+        mnuVerRestPrueba.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuVerRestPruebaActionPerformed(evt);
+            }
+        });
+        ver.add(mnuVerRestPrueba);
 
         jMenuBar1.add(ver);
 
@@ -213,6 +222,12 @@ public class Console extends javax.swing.JFrame {
         //generar.show();
     }//GEN-LAST:event_genPedidoActionPerformed
 
+    private void mnuVerRestPruebaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuVerRestPruebaActionPerformed
+        SeleccionarRestaurante selecCat = new SeleccionarRestaurante();
+        EscritorioMenu.add(selecCat);
+        selecCat.show();
+    }//GEN-LAST:event_mnuVerRestPruebaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -262,6 +277,7 @@ public class Console extends javax.swing.JFrame {
     private javax.swing.JMenuItem mnuRegProducto;
     private javax.swing.JMenuItem mnuRegUsuario;
     private javax.swing.JMenuItem mnuSalir;
+    private javax.swing.JMenuItem mnuVerRestPrueba;
     private javax.swing.JMenuItem smnuRegCat;
     private javax.swing.JMenu smnuSalir;
     private javax.swing.JMenu ver;

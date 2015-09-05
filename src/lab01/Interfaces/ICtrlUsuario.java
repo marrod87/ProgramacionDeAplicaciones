@@ -27,6 +27,7 @@ public interface ICtrlUsuario {
     public abstract DataCliente getUsuarioByNickname(String nickname);
     public abstract Restaurante getRestauranteByNickname(String nickname);
     public abstract Map devListaDC();
+    public abstract Map listaDataRestaurantes();
     public abstract void registrarCat(String nombre);
     public abstract Map retColCat();
     public void setCat(Map cate);

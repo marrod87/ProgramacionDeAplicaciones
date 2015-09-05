@@ -107,6 +107,24 @@ public class CtrlUsuario implements ICtrlUsuario {
     return ret;
     }
 
+    public Map listaDataRestaurantes(){
+        HUsuario mu = HUsuario.getinstance();
+        Map ret = new HashMap();
+        Map col = mu.obtenerColeccion();
+        Iterator it = col.entrySet().iterator(); 
+        while(it.hasNext()){
+            Map.Entry map = (Map.Entry) it.next();
+            if(map.getValue() instanceof Restaurante){
+                Restaurante res = (Restaurante)map.getValue();
+                DataRestaurante dc = res.RestauranteADR();
+                ret.put(dc.getNickname(), dc);
+            }
+        }
+    return ret;
+    }
+
+    
+    
     public void registrarCat(String nombre){
         HCategoria hu = HCategoria.getinstance();
         if(hu.member(nombre))
