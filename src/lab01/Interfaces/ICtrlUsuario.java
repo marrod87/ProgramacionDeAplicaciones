@@ -12,6 +12,7 @@ import lab01.Clases.Restaurante;
 import java.util.Map;
 import java.util.HashMap;
 import lab01.Clases.DataCliente;
+import lab01.Clases.DataRestaurante;
 
 /**
  *
@@ -22,7 +23,7 @@ public interface ICtrlUsuario {
     public abstract String getNickname();
     public abstract boolean ingresarDatos(String nickname, String email, String nombre, String direccion);
     public abstract void registrarCliente(String apellido, String imagen, String fecha);
-    public abstract void registrarRestaurante();
+    public abstract void registrarRestaurante(DataRestaurante dt);
     public abstract void datosAdicionales(String apellido);
     public abstract DataCliente getUsuarioByNickname(String nickname);
     public abstract Restaurante getRestauranteByNickname(String nickname);

@@ -11,6 +11,7 @@ import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import lab01.Clases.Categoria;
+import lab01.Clases.DataRestaurante;
 //import lab01.Interfaces.ICtrlUsuario;
 import lab01.Handlers.Fabrica;
 
@@ -310,6 +311,8 @@ private ICtrlUsuario ICU;
         int mes = this.tbMes.getMonth() + 1;
         int anio = this.tbAnio.getValue();
         String fecha = dia + "/" + mes + "/" + anio;
+        
+        DataRestaurante dt = new DataRestaurante(nickname, nombre, mail, direccion, null, null);
         if(nickname.isEmpty()||mail.isEmpty()||nombre.isEmpty()||apellido.isEmpty()||direccion.isEmpty())
             JOptionPane.showMessageDialog(null, "No debe haber campos vacios","ERROR",JOptionPane.ERROR_MESSAGE);
         else
@@ -321,7 +324,7 @@ private ICtrlUsuario ICU;
                 }
                 else
                     if(rbRestaurante.isSelected()){
-                        ICU.registrarRestaurante();
+                        ICU.registrarRestaurante(dt);
                         JOptionPane.showMessageDialog(null, "El restaurante ha sido registrado","Exito",JOptionPane.INFORMATION_MESSAGE);
                     }
                     else

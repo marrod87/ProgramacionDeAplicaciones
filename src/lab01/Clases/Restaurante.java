@@ -20,7 +20,7 @@ public class Restaurante extends Usuario{
     private Map ColCategoria;
     private Map ColProducto;
 
-    public Restaurante(String nickname, String nombre, String email, String direccion, Map categorias) {
+    public Restaurante(String nickname, String nombre, String email, String direccion, Map categorias, Map colProd) {
         super(nickname,nombre,email,direccion);
         ColCategoria = categorias;
         ColProducto = new HashMap();
@@ -54,7 +54,7 @@ public class Restaurante extends Usuario{
         return ret;
     }
     public DataRestaurante RestauranteADR(){
-        DataRestaurante DR = new DataRestaurante(this.nickname, this.nombre, this.mail, this.direccion, this.lstImagen);
+        DataRestaurante DR = new DataRestaurante(this.nickname, this.nombre, this.mail, this.direccion, this.lstImagen, this.ColProducto);
         return DR;
     }
     

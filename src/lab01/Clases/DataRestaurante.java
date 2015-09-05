@@ -19,20 +19,22 @@ public class DataRestaurante {
     private String direccion;
     private ArrayList<String> lstImagen;
     private Map ColCategoria;
+    private Map ColProducto;
 
     
     public DataRestaurante(){}
     
-    public DataRestaurante(String nickname, String nombre, String mail, String direccion, ArrayList<String>lstImagen){
+    public DataRestaurante(String nickname, String nombre, String mail, String direccion, ArrayList<String>lstImagen, Map colProd){
         this.nickname=nickname;
         this.nombre=nombre;
         this.email=mail;
         this.direccion=direccion;
         this.lstImagen=lstImagen;
+        this.ColProducto=colProd;
     }
 
     public Usuario dataResAres(){
-        Usuario r = new Restaurante(this.nickname, this.nombre, this.email, this.direccion,this.ColCategoria);
+        Usuario r = new Restaurante(this.nickname, this.nombre, this.email, this.direccion,this.ColCategoria, this.ColProducto);
         return r;
     }
     
@@ -82,5 +84,14 @@ public class DataRestaurante {
     
     public Map getColCategoria(){
         return this.ColCategoria;
+    }
+    
+    public Map getColProducto(){
+        return this.ColProducto;
+    }
+    
+    public void setColProducto(Map colProd){
+        this.ColProducto = colProd;
+        
     }
 }

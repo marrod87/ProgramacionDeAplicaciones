@@ -65,9 +65,9 @@ public class CtrlUsuario implements ICtrlUsuario {
         HU.addUsuario(c);
     }
 
-    @Override
-    public void registrarRestaurante(){
-        Restaurante r = new Restaurante(this.nickname, this.nombre, this.email, this.direccion, this.Cat);
+   
+    public void registrarRestaurante(DataRestaurante dt){
+        Restaurante r = new Restaurante(dt.getNickname(),dt.getNombre(),dt.getEmail(),dt.getDireccion(),dt.getColCategoria(),dt.getColProducto());
         HUsuario HU = HUsuario.getinstance();
         HU.addUsuario(r);
     }
@@ -147,6 +147,11 @@ public class CtrlUsuario implements ICtrlUsuario {
     public void datosAdicionales(String apellido) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     } 
+
+//    @Override
+//    public void registrarRestaurante(DataRestaurante dt) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
     
 
 }

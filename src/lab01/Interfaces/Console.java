@@ -43,6 +43,7 @@ public class Console extends javax.swing.JFrame {
         ver = new javax.swing.JMenu();
         VerClientes = new javax.swing.JMenuItem();
         VerRestaurantes = new javax.swing.JMenuItem();
+        jMVerinfoProd = new javax.swing.JMenuItem();
         mnuVerRestPrueba = new javax.swing.JMenuItem();
         menuGenerarPedido = new javax.swing.JMenu();
         genPedido = new javax.swing.JMenuItem();
@@ -112,6 +113,14 @@ public class Console extends javax.swing.JFrame {
             }
         });
         ver.add(VerRestaurantes);
+
+        jMVerinfoProd.setText("Ver informacion producto");
+        jMVerinfoProd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMVerinfoProdActionPerformed(evt);
+            }
+        });
+        ver.add(jMVerinfoProd);
 
         mnuVerRestPrueba.setText("Ver Restaurantes Prueba");
         mnuVerRestPrueba.addActionListener(new java.awt.event.ActionListener() {
@@ -228,6 +237,13 @@ public class Console extends javax.swing.JFrame {
         selecCat.show();
     }//GEN-LAST:event_mnuVerRestPruebaActionPerformed
 
+    private void jMVerinfoProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMVerinfoProdActionPerformed
+        // TODO add your handling code here:
+        VerProducto verprod = new VerProducto();
+        EscritorioMenu.add(verprod);
+        verprod.show();
+    }//GEN-LAST:event_jMVerinfoProdActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -268,6 +284,7 @@ public class Console extends javax.swing.JFrame {
     private javax.swing.JMenuItem VerClientes;
     private javax.swing.JMenuItem VerRestaurantes;
     private javax.swing.JMenuItem genPedido;
+    private javax.swing.JMenuItem jMVerinfoProd;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;

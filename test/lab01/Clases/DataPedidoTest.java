@@ -47,7 +47,7 @@ public class DataPedidoTest {
         System.out.println("getId");
         DataPedido instance = new DataPedido(1, "nickUsr", "j@j.com", "1/1/2000", "nickRest", null, 250.0, estados.ENVIADO);
         int expResult = 1;
-        int result = instance.getId();
+        long result = instance.getId();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
