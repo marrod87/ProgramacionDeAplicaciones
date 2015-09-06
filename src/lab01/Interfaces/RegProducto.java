@@ -5,6 +5,7 @@
  */
 package lab01.Interfaces;
 
+import java.awt.event.ItemEvent;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -24,11 +25,13 @@ import lab01.Handlers.Fabrica;
 public class RegProducto extends javax.swing.JInternalFrame {
 
     private ICtrlProducto CP;
+    private ICtrlUsuario ICU;
 
     public RegProducto() {
         initComponents();
         Fabrica f = Fabrica.getInstance();
         CP = f.getICtrlProducto();
+        ICU=f.getICtrlUsuario();
     }
 
     /**
@@ -91,6 +94,11 @@ public class RegProducto extends javax.swing.JInternalFrame {
         btngProducto.add(rbPromocional);
         rbPromocional.setText("Promocional");
         rbPromocional.setEnabled(false);
+        rbPromocional.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                rbPromocionalItemStateChanged(evt);
+            }
+        });
         rbPromocional.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rbPromocionalActionPerformed(evt);
@@ -135,22 +143,24 @@ public class RegProducto extends javax.swing.JInternalFrame {
                         .addGap(38, 38, 38)
                         .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(lblNombre)
-                            .addComponent(lblRest)
                             .addComponent(lblDesc1)
-                            .addComponent(lblCantidad))
+                            .addComponent(lblCantidad)
+                            .addComponent(lblRest))
                         .addGap(18, 18, 18)
                         .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(tbCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(jp1Layout.createSequentialGroup()
-                                    .addComponent(rbIndividual)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(rbPromocional))
-                                .addComponent(tbNombre)
-                                .addComponent(tbDesc)
-                                .addComponent(tbRest)))
+                                .addComponent(tbNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)
+                                .addComponent(tbDesc))
+                            .addComponent(tbRest, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 64, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(rbIndividual)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(rbPromocional)
+                .addGap(126, 126, 126))
         );
         jp1Layout.setVerticalGroup(
             jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -165,17 +175,17 @@ public class RegProducto extends javax.swing.JInternalFrame {
                     .addComponent(lblDesc1))
                 .addGap(18, 18, 18)
                 .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rbIndividual)
-                    .addComponent(rbPromocional))
-                .addGap(18, 18, 18)
+                    .addComponent(tbRest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblRest))
+                .addGap(15, 15, 15)
                 .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tbCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblCantidad))
-                .addGap(28, 28, 28)
-                .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblRest)
-                    .addComponent(tbRest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
+                .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rbIndividual)
+                    .addComponent(rbPromocional))
+                .addGap(31, 31, 31)
                 .addComponent(jp2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -257,15 +267,15 @@ public class RegProducto extends javax.swing.JInternalFrame {
 
                 } else { // si es promocional
                     if (rbPromocional.isSelected()) {
-                        Iterator it = CP.listarIndividuales(tbRest.getText()).entrySet().iterator();
+                        /*Iterator it = CP.listarIndividuales(tbRest.getText()).entrySet().iterator();
 
                         while (it.hasNext()) {
                             Map.Entry map = (Map.Entry) it.next();
                             
                             DataIndividual di = (DataIndividual) map.getValue();
-                            JOptionPane.showMessageDialog(null, "Nombre: " + di.getDataNombre() + "cantidad:"+  di.getCantidad(), "aviso", JOptionPane.INFORMATION_MESSAGE);
-                            
-                        }
+                            JOptionPane.showMessageDialog(null, "Nombre: " + di.getDataNombre() + "cantidad:"+  di.getCantidad(), "aviso", JOptionPane.INFORMATION_MESSAGE);    
+                        }*/
+                        CP.armarPromo(tbRest.getText(),tbNombre.getText(),tbDesc.getText(), 1);
                         
                         
                     }
@@ -289,6 +299,18 @@ public class RegProducto extends javax.swing.JInternalFrame {
         tbCantidad.setEnabled(false);
         
     }//GEN-LAST:event_rbPromocionalActionPerformed
+
+    private void rbPromocionalItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_rbPromocionalItemStateChanged
+// TODO add your handling code here:
+        if(evt.getStateChange()==ItemEvent.SELECTED){
+            //ICU.setNickname(tbRest.getText());
+            ElegirProductos ep = new ElegirProductos(tbRest.getText());
+             Console.EscritorioMenu.add(ep);
+             ep.show();
+        }
+           
+        
+    }//GEN-LAST:event_rbPromocionalItemStateChanged
 
     public void habilitarCampos() {
         tbNombre.setEnabled(true);

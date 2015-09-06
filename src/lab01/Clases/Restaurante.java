@@ -75,6 +75,21 @@ public class Restaurante extends Usuario{
         return this.ColProducto;
     }
     
+    public Map obtenerListaIndividualesStock(){
+    Map ret = new HashMap();
+        Iterator it = ColProducto.entrySet().iterator();
+        while(it.hasNext()){
+            Map.Entry map = (Map.Entry) it.next();
+            if(map.getValue() instanceof Individual){
+                Individual i = (Individual) map.getValue();
+                int cant=i.getCantidad();
+                ret.put(map.getKey(),cant);
+            }
+        }
+        return ret;
+    
+    }
+    
     public DataCarrito agregarProducto(String nombre, int cantidad) throws Exception{
         Producto prod = this.getProducto(nombre);
         if(prod.prodDisponible(cantidad)){

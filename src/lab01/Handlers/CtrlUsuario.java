@@ -166,6 +166,13 @@ public class CtrlUsuario implements ICtrlUsuario {
     public void datosAdicionales(String apellido) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     } 
+    
+    public Map listaProductosStock(String r){
+        Restaurante rest = getRestauranteByNickname(r);
+        Map lProd = rest.obtenerListaIndividualesStock();
+        
+        return lProd;
+    }
 
 //    @Override
 //    public void registrarRestaurante(DataRestaurante dt) {

@@ -18,4 +18,6 @@ public interface ICtrlProducto {
     public abstract void registrarProducto(DataIndividual di, String nomRest, boolean promocional);
     public abstract boolean existeRestaurante(String nomRest);
     public abstract Map listarIndividuales(String nomRest);
+    public abstract void setPromo(Map promo);
+    public abstract void armarPromo(String rest, String nombre, String desc, double descuento);
 }

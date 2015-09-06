@@ -34,6 +34,7 @@ public class Individual extends Producto {
         //this.setCantidad(cantidad);
 
     }*/
+   
     
     public DataIndividual getDataIndividual() {
         DataIndividual dIndividual = new DataIndividual(this.getNombre(), this.getDescripcion(), this.getPrecio(), this.getImagen(), this.getCantidad());

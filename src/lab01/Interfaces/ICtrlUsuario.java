@@ -34,4 +34,5 @@ public interface ICtrlUsuario {
     public abstract Map listaUsuPorCategoria(String cate);
     public void setCat(Map cate);
     public abstract Map getLstCat();
+    public abstract Map listaProductosStock(String r);
 }

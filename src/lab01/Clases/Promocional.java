@@ -76,6 +76,7 @@ public class Promocional extends Producto {
         Map ColDatIndividual = new HashMap();
         for(Cantidad_Individual ci: ColCantIndividual){
             DataIndividual di = ci.getProdIndividual().getDataIndividual();
+            di.setCantidad(ci.getCantidad());
             ColDatIndividual.put(di.getDataNombre(), di);
         }
         DataPromocional dPromo = new DataPromocional(this.isActiva(), this.getDescuento(), this.getDescripcion(), this.getNombre(), this.getPrecio(), this.getImagen(), ColDatIndividual);
