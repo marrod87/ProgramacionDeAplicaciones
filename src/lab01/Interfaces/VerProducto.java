@@ -52,7 +52,7 @@ public class VerProducto extends javax.swing.JInternalFrame {
 
         jTabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"martin", "castro"},
+                {"", ""},
                 {null, null},
                 {null, null},
                 {null, null},
