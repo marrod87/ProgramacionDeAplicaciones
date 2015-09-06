@@ -12,7 +12,7 @@ import java.util.Map;
  * @author joaco
  */
 public class DataPedido {
-    private int id;  //ver q historia con el autogenerado...
+    private long id;  //ver q historia con el autogenerado...
     private String fecha; 
     private double precio_total;
     private estados estado;
@@ -21,7 +21,7 @@ public class DataPedido {
     private String nickRest; //o el nombre no c
     private Map ColCarrito; //map de DataCarrito
     
-<span class="fc" id="L24">    public DataPedido(int id, String nickUsr, String mailUsr, String fecha, String nickRest, Map ColCarrito, double precio_total, estados estado){</span>
+<span class="fc" id="L24">    public DataPedido(long id, String nickUsr, String mailUsr, String fecha, String nickRest, Map ColCarrito, double precio_total, estados estado){</span>
 <span class="fc" id="L25">        this.id = id;</span>
 <span class="fc" id="L26">        this.nickUsr = nickUsr;</span>
 <span class="fc" id="L27">        this.mailUsr = mailUsr;</span>
@@ -32,11 +32,11 @@ public class DataPedido {
 <span class="fc" id="L32">        this.estado = estado;</span>
 <span class="fc" id="L33">    }</span>
     
-    public int getId() {
+    public long getId() {
 <span class="fc" id="L36">        return id;</span>
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
 <span class="fc" id="L40">        this.id = id;</span>
 <span class="fc" id="L41">    }</span>
 

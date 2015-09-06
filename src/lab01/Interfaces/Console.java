@@ -35,6 +35,7 @@ public class Console extends javax.swing.JFrame {
         EscritorioMenu = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         smnuSalir = new javax.swing.JMenu();
+        jMenuItem5 = new javax.swing.JMenuItem();
         mnuSalir = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         mnuRegUsuario = new javax.swing.JMenuItem();
@@ -57,6 +58,14 @@ public class Console extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         smnuSalir.setText("Inicio");
+
+        jMenuItem5.setText("Cargar datos");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
+        smnuSalir.add(jMenuItem5);
 
         mnuSalir.setText("Salir");
         mnuSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -244,6 +253,11 @@ public class Console extends javax.swing.JFrame {
         verprod.show();
     }//GEN-LAST:event_jMVerinfoProdActionPerformed
 
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        CargarDatos cargar = new CargarDatos();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -290,6 +304,7 @@ public class Console extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenu menuGenerarPedido;
     private javax.swing.JMenuItem mnuRegProducto;
     private javax.swing.JMenuItem mnuRegUsuario;

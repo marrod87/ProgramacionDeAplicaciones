@@ -7,6 +7,7 @@ package lab01.Interfaces;
 
 import java.util.Map;
 import lab01.Clases.DataCliente;
+import lab01.Clases.DataRestaurante;
 import lab01.Clases.Restaurante;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -107,7 +108,7 @@ public class ICtrlUsuarioTest {
     public void testRegistrarRestaurante() {
         System.out.println("registrarRestaurante");
         ICtrlUsuario instance = new ICtrlUsuarioImpl();
-        instance.registrarRestaurante();
+        instance.registrarRestaurante(null);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
@@ -211,46 +212,71 @@ public class ICtrlUsuarioTest {
 
     public class ICtrlUsuarioImpl implements ICtrlUsuario {
 
+        @Override
         public void setNickname(String nick) {
         }
 
+        @Override
         public String getNickname() {
             return "";
         }
 
+        @Override
         public boolean ingresarDatos(String nickname, String email, String nombre, String direccion) {
             return false;
         }
 
+        @Override
         public void registrarCliente(String apellido, String imagen, String fecha) {
         }
 
         public void registrarRestaurante() {
         }
 
+        @Override
         public void datosAdicionales(String apellido) {
         }
 
+        @Override
         public DataCliente getUsuarioByNickname(String nickname) {
             return null;
         }
 
+        @Override
         public Restaurante getRestauranteByNickname(String nickname) {
             return null;
         }
 
+        @Override
         public Map devListaDC() {
             return null;
         }
 
+        @Override
         public void registrarCat(String nombre) {
         }
 
+        @Override
         public Map retColCat() {
             return null;
         }
 
+        @Override
         public void setCat(Map cate) {
+        }
+
+        /**
+         *
+         * @return
+         */
+        @Override
+        public Map listaDataRestaurantes() {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public void registrarRestaurante(DataRestaurante dt) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         }
     }
     

@@ -32,6 +32,7 @@ public class DataClienteTest {
     @Before
     public void setUp() {
         DataCliente instance = new DataCliente("nick", "Pedro", "j@j.com", "Calle", "Perez", "hola", "1/1/2000");
+        DataCliente inst = new DataCliente();
     }
 
     @After

@@ -115,27 +115,29 @@ public class ListarUsuariosGP extends javax.swing.JInternalFrame {
     private void jbListoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbListoActionPerformed
 <span class="nc" id="L116">        String nick=String.valueOf(modelo.getValueAt(jtabla.getSelectedRow(),1));</span>
 <span class="nc" id="L117">        ICPed.setNickname(nick);</span>
-<span class="nc" id="L118">        this.dispose();</span>
+<span class="nc" id="L118">        String mail=String.valueOf(modelo.getValueAt(jtabla.getSelectedRow(), 0));</span>
+<span class="nc" id="L119">        ICPed.setMailCliente(mail);</span>
+<span class="nc" id="L120">        this.dispose();</span>
         //nueva pantalla seleccionar Categoria
-<span class="nc" id="L120">        SeleccionarCatPedido selP = new SeleccionarCatPedido();</span>
-<span class="nc" id="L121">        Console.EscritorioMenu.add(selP);</span>
-<span class="nc" id="L122">        selP.show();</span>
-<span class="nc" id="L123">    }//GEN-LAST:event_jbListoActionPerformed</span>
+<span class="nc" id="L122">        SeleccionarCatPedido selP = new SeleccionarCatPedido();</span>
+<span class="nc" id="L123">        Console.EscritorioMenu.add(selP);</span>
+<span class="nc" id="L124">        selP.show();</span>
+<span class="nc" id="L125">    }//GEN-LAST:event_jbListoActionPerformed</span>
 
     private void cargarTabla(){
     Map Datas; 
-<span class="nc" id="L127">        Datas=ICPed.devListaDC();</span>
-<span class="nc" id="L128">        Iterator it = Datas.entrySet().iterator();</span>
-<span class="nc" id="L129">        String lista[]=new String[2];</span>
-<span class="nc bnc" id="L130" title="All 2 branches missed.">        while(it.hasNext()){</span>
-<span class="nc" id="L131">            Map.Entry map = (Map.Entry) it.next();</span>
-<span class="nc" id="L132">            DataCliente dc = (DataCliente) map.getValue();</span>
+<span class="nc" id="L129">        Datas=ICPed.devListaDC();</span>
+<span class="nc" id="L130">        Iterator it = Datas.entrySet().iterator();</span>
+<span class="nc" id="L131">        String lista[]=new String[2];</span>
+<span class="nc bnc" id="L132" title="All 2 branches missed.">        while(it.hasNext()){</span>
+<span class="nc" id="L133">            Map.Entry map = (Map.Entry) it.next();</span>
+<span class="nc" id="L134">            DataCliente dc = (DataCliente) map.getValue();</span>
             //lista[0]=model.getSize()-1;
-<span class="nc" id="L134">            lista[0]=dc.getMail();</span>
-<span class="nc" id="L135">            lista[1]=dc.getNickname();</span>
-<span class="nc" id="L136">            modelo.insertRow((int)jtabla.getRowCount(), lista);</span>
-<span class="nc" id="L137">        }</span>
-<span class="nc" id="L138">    }</span>
+<span class="nc" id="L136">            lista[0]=dc.getMail();</span>
+<span class="nc" id="L137">            lista[1]=dc.getNickname();</span>
+<span class="nc" id="L138">            modelo.insertRow((int)jtabla.getRowCount(), lista);</span>
+<span class="nc" id="L139">        }</span>
+<span class="nc" id="L140">    }</span>
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

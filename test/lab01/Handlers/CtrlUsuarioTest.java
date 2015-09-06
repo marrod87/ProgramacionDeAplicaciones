@@ -120,7 +120,7 @@ public class CtrlUsuarioTest {
     public void testRegistrarRestaurante() {
         System.out.println("registrarRestaurante");
         CtrlUsuario instance = new CtrlUsuario();
-        instance.registrarRestaurante();
+        instance.registrarRestaurante(null);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }

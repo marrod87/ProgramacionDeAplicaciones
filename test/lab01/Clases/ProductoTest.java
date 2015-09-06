@@ -43,7 +43,7 @@ public class ProductoTest {
     @Test
     public void testGetNombre() {
         System.out.println("getNombre");
-        Producto instance = new ProductoImpl();
+        Producto instance = new ProductoImpl("nombre", "descripcion", 125.0, 8);
         String expResult = "";
         String result = instance.getNombre();
         assertEquals(expResult, result);
@@ -58,7 +58,7 @@ public class ProductoTest {
     public void testSetNombre() {
         System.out.println("setNombre");
         String nombre = "";
-        Producto instance = new ProductoImpl();
+        Producto instance = new ProductoImpl("nombre", "descripcion", 125.0, 8);
         instance.setNombre(nombre);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
@@ -70,7 +70,7 @@ public class ProductoTest {
     @Test
     public void testGetDescripcion() {
         System.out.println("getDescripcion");
-        Producto instance = new ProductoImpl();
+        Producto instance = new ProductoImpl("nombre", "descripcion", 125.0, 8);
         String expResult = "";
         String result = instance.getDescripcion();
         assertEquals(expResult, result);
@@ -85,7 +85,7 @@ public class ProductoTest {
     public void testSetDescripcion() {
         System.out.println("setDescripcion");
         String descripcion = "";
-        Producto instance = new ProductoImpl();
+        Producto instance = new ProductoImpl("nombre", "descripcion", 125.0, 8);
         instance.setDescripcion(descripcion);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
@@ -97,7 +97,7 @@ public class ProductoTest {
     @Test
     public void testGetPrecio() {
         System.out.println("getPrecio");
-        Producto instance = new ProductoImpl();
+        Producto instance = new ProductoImpl("nombre", "descripcion", 125.0, 8);
         double expResult = 0.0;
         double result = instance.getPrecio();
         assertEquals(expResult, result, 0.0);
@@ -112,7 +112,7 @@ public class ProductoTest {
     public void testSetPrecio() {
         System.out.println("setPrecio");
         double precio = 0.0;
-        Producto instance = new ProductoImpl();
+        Producto instance = new ProductoImpl("nombre", "descripcion", 125.0, 8);
         instance.setPrecio(precio);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
@@ -124,7 +124,7 @@ public class ProductoTest {
     @Test
     public void testGetImagen() {
         System.out.println("getImagen");
-        Producto instance = new ProductoImpl();
+        Producto instance = new ProductoImpl("nombre", "descripcion", 125.0, 8);
         String expResult = "";
         String result = instance.getImagen();
         assertEquals(expResult, result);
@@ -139,13 +139,35 @@ public class ProductoTest {
     public void testSetImagen() {
         System.out.println("setImagen");
         String imagen = "";
-        Producto instance = new ProductoImpl();
+        Producto instance = new ProductoImpl("nombre", "descripcion", 125.0, 8);
         instance.setImagen(imagen);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
 
+    /**
+     *
+     */
     public class ProductoImpl extends Producto {
+
+        public ProductoImpl(String nombre, String descripcion, double precio, int cantidad) {
+            super(nombre, descripcion, precio, cantidad);
+        }
+
+        @Override
+        public boolean prodDisponible(int cantidad) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public void restarStock(int cantidad) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public DataCarrito getDataCarrito(int cantidad) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
     }
 
     /**
@@ -154,7 +176,7 @@ public class ProductoTest {
     @Test
     public void testGetCantidad() {
         System.out.println("getCantidad");
-        Producto instance = new ProductoImpl();
+        Producto instance = new ProductoImpl("nombre", "descripcion", 125.0, 8);
         int expResult = 0;
         int result = instance.getCantidad();
         assertEquals(expResult, result);
@@ -169,7 +191,7 @@ public class ProductoTest {
     public void testSetCantidad() {
         System.out.println("setCantidad");
         int cant = 0;
-        Producto instance = new ProductoImpl();
+        Producto instance = new ProductoImpl("nombre", "descripcion", 125.0, 8);
         instance.setCantidad(cant);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
@@ -181,7 +203,7 @@ public class ProductoTest {
     @Test
     public void testGetProdStock() {
         System.out.println("getProdStock");
-        Producto instance = new ProductoImpl();
+        Producto instance = new ProductoImpl("nombre", "descripcion", 125.0, 8);
         Producto_Stock expResult = null;
         Producto_Stock result = instance.getProdStock();
         assertEquals(expResult, result);
@@ -196,7 +218,7 @@ public class ProductoTest {
     public void testSetProdStock() {
         System.out.println("setProdStock");
         Producto_Stock prodStock = null;
-        Producto instance = new ProductoImpl();
+        Producto instance = new ProductoImpl("nombre", "descripcion", 125.0, 8);
         instance.setProdStock(prodStock);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
@@ -209,7 +231,7 @@ public class ProductoTest {
     public void testProdDisponible() {
         System.out.println("prodDisponible");
         int cantidad = 0;
-        Producto instance = new ProductoImpl();
+        Producto instance = new ProductoImpl("nombre", "descripcion", 125.0, 8);
         boolean expResult = false;
         boolean result = instance.prodDisponible(cantidad);
         assertEquals(expResult, result);
@@ -224,23 +246,11 @@ public class ProductoTest {
     public void testGetDataCarrito() {
         System.out.println("getDataCarrito");
         int cantidad = 0;
-        Producto instance = new ProductoImpl();
+        Producto instance = new ProductoImpl("nombre", "descripcion", 125.0, 8);
         DataCarrito expResult = null;
         DataCarrito result = instance.getDataCarrito(cantidad);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
-
-//    public class ProductoImpl extends Producto {
-//
-//        public ProductoImpl() {
-//            super("", "", 0.0, 0);
-//        }
-//
-//        public DataCarrito getDataCarrito(int cantidad) {
-//            return null;
-//        }
-//    }
-    
 }

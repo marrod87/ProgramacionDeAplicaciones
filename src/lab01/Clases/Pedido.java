@@ -84,7 +84,7 @@ public class Pedido {
         }
     }
     
-    public ArrayList<Producto_Stock> getCarrito(){
+    public ArrayList<Producto_Stock> getDataCarrito(){
         return this.carrito;
     }
     

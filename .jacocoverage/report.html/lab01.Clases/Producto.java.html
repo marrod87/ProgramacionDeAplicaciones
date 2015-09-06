@@ -9,7 +9,7 @@ package lab01.Clases;
  *
  * @author gera
  */
-public abstract class  Producto {
+public abstract class Producto {
     private String nombre;
     private String descripcion;
     //private double precio;
@@ -27,53 +27,53 @@ public abstract class  Producto {
     }
 
     public void setNombre(String nombre) {
-<span class="nc" id="L30">        this.nombre = nombre;</span>
-<span class="nc" id="L31">    }</span>
+<span class="fc" id="L30">        this.nombre = nombre;</span>
+<span class="fc" id="L31">    }</span>
 
     public String getDescripcion() {
 <span class="fc" id="L34">        return descripcion;</span>
     }
 
     public void setDescripcion(String descripcion) {
-<span class="nc" id="L38">        this.descripcion = descripcion;</span>
-<span class="nc" id="L39">    }</span>
+<span class="fc" id="L38">        this.descripcion = descripcion;</span>
+<span class="fc" id="L39">    }</span>
 
     public String getImagen() {
 <span class="fc" id="L42">        return imagen;</span>
     }
 
     public void setImagen(String imagen) {
-<span class="nc" id="L46">        this.imagen = imagen;</span>
-<span class="nc" id="L47">    }</span>
+<span class="fc" id="L46">        this.imagen = imagen;</span>
+<span class="fc" id="L47">    }</span>
    
     public int getCantidad(){
 <span class="fc" id="L50">        return prodStock.getCantidad();</span>
     }
     
     public void setCantidad(int cant){
-<span class="nc" id="L54">       this.prodStock.setCantidad(cant);</span>
-<span class="nc" id="L55">    }</span>
+<span class="fc" id="L54">       this.prodStock.setCantidad(cant);</span>
+<span class="fc" id="L55">    }</span>
      
     public double getPrecio(){
 <span class="fc" id="L58">         return this.prodStock.getPrecio();</span>
     }
      
     public void setPrecio(double precio){
-<span class="nc" id="L62">         this.prodStock.setPrecio(precio);</span>
-<span class="nc" id="L63">    }</span>
+<span class="fc" id="L62">         this.prodStock.setPrecio(precio);</span>
+<span class="fc" id="L63">    }</span>
      
     public Producto_Stock getProdStock(){
-<span class="nc" id="L66">         return this.prodStock;</span>
+<span class="fc" id="L66">         return this.prodStock;</span>
     }
     
     public void setProdStock(Producto_Stock prodStock){
-<span class="nc" id="L70">        this.prodStock = prodStock;</span>
-<span class="nc" id="L71">    }</span>
+<span class="fc" id="L70">        this.prodStock = prodStock;</span>
+<span class="fc" id="L71">    }</span>
     
-    public boolean prodDisponible(int cantidad){
-<span class="nc bnc" id="L74" title="All 2 branches missed.">        return this.getCantidad() &gt; cantidad;</span>
-    }
+    public abstract boolean prodDisponible(int cantidad);
     
+    public abstract void restarStock(int cantidad);
+
     public abstract DataCarrito getDataCarrito(int cantidad);
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>
