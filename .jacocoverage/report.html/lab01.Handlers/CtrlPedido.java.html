@@ -17,11 +17,14 @@ import lab01.Clases.DataRestaurante;
 import lab01.Interfaces.ICtrlPedido;
 import lab01.Clases.DataCategoria;
 import lab01.Clases.DataIndividual;
+import lab01.Clases.DataPedido;
 import lab01.Clases.DataProducto;
 import lab01.Clases.DataPromocional;
 import lab01.Clases.Individual;
+import lab01.Clases.Pedido;
 import lab01.Clases.Producto_Stock;
 import lab01.Clases.Promocional;
+import lab01.Clases.estados;
 
 /**
  *
@@ -30,138 +33,217 @@ import lab01.Clases.Promocional;
 public class CtrlPedido implements ICtrlPedido {
     
     private String nickname;
+    private String mailCliente;
+    private Cliente memCliente;
     private String categoria;
     private Restaurante memRestaurante;
+    private double monto;
     private Map ColDataCarrito;
     private ArrayList&lt;Producto_Stock&gt; carrito;
     
-<span class="fc" id="L38">    public CtrlPedido(){}</span>
+<span class="fc" id="L44">    public CtrlPedido(){}</span>
     
     @Override
     public void setNickname(String nick){
-<span class="fc" id="L42">        this.nickname=nick;</span>
-<span class="fc" id="L43">    }</span>
-    public String getNickname(){
-<span class="fc" id="L45">        return this.nickname;</span>
-    }
-    public void setCat(String nombre){
-<span class="fc" id="L48">        this.categoria=nombre;</span>
+<span class="fc" id="L48">        this.nickname=nick;</span>
 <span class="fc" id="L49">    }</span>
+    public String getNickname(){
+<span class="fc" id="L51">        return this.nickname;</span>
+    }
+    
+    public String getMailCliente(){
+<span class="nc" id="L55">        return this.mailCliente;</span>
+    }
+    
+    @Override
+    public void setMailCliente(String mail){
+<span class="nc" id="L60">        this.mailCliente = mail;</span>
+<span class="nc" id="L61">    }</span>
+    
+    public Cliente getMemCliente(){
+<span class="nc" id="L64">        return this.memCliente;</span>
+    }
+    
+    @Override
+    public void setMemCliente(){
+<span class="nc" id="L69">        HUsuario mu = HUsuario.getinstance();</span>
+<span class="nc bnc" id="L70" title="All 2 branches missed.">        if(mu.exists(this.getNickname())){</span>
+<span class="nc" id="L71">            this.memCliente = mu.obtenerUsuario(this.getNickname());</span>
+        }
+<span class="nc" id="L73">    }</span>
+    
+    public void setCat(String nombre){
+<span class="fc" id="L76">        this.categoria=nombre;</span>
+<span class="fc" id="L77">    }</span>
     public String getCat(){
-<span class="fc" id="L51">        return this.categoria;</span>
+<span class="fc" id="L79">        return this.categoria;</span>
     }
     
     public Map getColDataCarrito(){
-<span class="fc" id="L55">        return this.ColDataCarrito;</span>
+<span class="fc" id="L83">        return this.ColDataCarrito;</span>
     }
     
     public void setDataCarrito(DataCarrito dc){
-<span class="nc" id="L59">        this.ColDataCarrito.put(dc.getNomProd(), dc);</span>
-<span class="nc" id="L60">    }</span>
+<span class="nc" id="L87">        this.ColDataCarrito.put(dc.getNomProd(), dc);</span>
+<span class="nc" id="L88">    }</span>
     
     public void setColDataCarrito(Map ColDataCarrito){
-<span class="fc" id="L63">        this.ColDataCarrito = ColDataCarrito;</span>
-<span class="fc" id="L64">    }</span>
+<span class="fc" id="L91">        this.ColDataCarrito = ColDataCarrito;</span>
+<span class="fc" id="L92">    }</span>
     
     public ArrayList&lt;Producto_Stock&gt; getCarrito(){
-<span class="fc" id="L67">        return this.carrito;</span>
+<span class="fc" id="L95">        return this.carrito;</span>
     }
     
     public void addCarrito(Producto_Stock pd){
-<span class="nc" id="L71">        this.carrito.add(pd);</span>
-<span class="nc" id="L72">    }</span>
+<span class="nc" id="L99">        this.carrito.add(pd);</span>
+<span class="nc" id="L100">    }</span>
     
     public void setCarrito(ArrayList&lt;Producto_Stock&gt; carrito){
-<span class="fc" id="L75">        this.carrito = carrito;</span>
-<span class="fc" id="L76">    }</span>
+<span class="fc" id="L103">        this.carrito = carrito;</span>
+<span class="fc" id="L104">    }</span>
+    
+    public double getMonto(){
+<span class="nc" id="L107">        return this.monto;</span>
+    }
+    
+    @Override
+    public void setMonto(){
+<span class="nc" id="L112">        double suma = 0;</span>
+<span class="nc" id="L113">        Iterator&lt;DataCarrito&gt; it = this.getColDataCarrito().entrySet().iterator();</span>
+<span class="nc bnc" id="L114" title="All 2 branches missed.">        while(it.hasNext()){</span>
+<span class="nc" id="L115">            Map.Entry map = (Map.Entry) it.next();</span>
+<span class="nc" id="L116">            DataCarrito dc = (DataCarrito)map.getValue();</span>
+<span class="nc" id="L117">            suma = suma + dc.getPrecio();</span>
+<span class="nc" id="L118">        }</span>
+<span class="nc" id="L119">        this.monto = suma;</span>
+<span class="nc" id="L120">    }</span>
     
     @Override
     public Map devListaDC(){
-<span class="fc" id="L80">        HUsuario mu = HUsuario.getinstance();</span>
-<span class="fc" id="L81">        Map ret = new HashMap();</span>
-<span class="fc" id="L82">        Map col = mu.obtenerColeccion();</span>
-<span class="fc" id="L83">        Iterator it = col.entrySet().iterator(); </span>
-<span class="pc bpc" id="L84" title="1 of 2 branches missed.">        while(it.hasNext()){</span>
-<span class="nc" id="L85">            Map.Entry map = (Map.Entry) it.next();</span>
-<span class="nc bnc" id="L86" title="All 2 branches missed.">            if(map.getValue() instanceof Cliente){</span>
-<span class="nc" id="L87">                Cliente cli = (Cliente)map.getValue();</span>
-<span class="nc" id="L88">                DataCliente dc = cli.ClienteADC();</span>
-<span class="nc" id="L89">                ret.put(dc.getNickname(), dc);</span>
+<span class="fc" id="L124">        HUsuario mu = HUsuario.getinstance();</span>
+<span class="fc" id="L125">        Map ret = new HashMap();</span>
+<span class="fc" id="L126">        Map col = mu.obtenerColeccion();</span>
+<span class="fc" id="L127">        Iterator it = col.entrySet().iterator(); </span>
+<span class="pc bpc" id="L128" title="1 of 2 branches missed.">        while(it.hasNext()){</span>
+<span class="nc" id="L129">            Map.Entry map = (Map.Entry) it.next();</span>
+<span class="nc bnc" id="L130" title="All 2 branches missed.">            if(map.getValue() instanceof Cliente){</span>
+<span class="nc" id="L131">                Cliente cli = (Cliente)map.getValue();</span>
+<span class="nc" id="L132">                DataCliente dc = cli.ClienteADC();</span>
+<span class="nc" id="L133">                ret.put(dc.getNickname(), dc);</span>
             }
-<span class="nc" id="L91">        }</span>
-<span class="fc" id="L92">    return ret;</span>
+<span class="nc" id="L135">        }</span>
+<span class="fc" id="L136">    return ret;</span>
     }
     public Map retColDCat(){
         Map col;       
-<span class="fc" id="L96">        Map ret = new HashMap();</span>
-<span class="fc" id="L97">        HCategoria hc = HCategoria.getinstance();</span>
-<span class="fc" id="L98">        col=hc.obtenerColeccion();</span>
-<span class="fc" id="L99">        Iterator it = col.entrySet().iterator(); </span>
-<span class="pc bpc" id="L100" title="1 of 2 branches missed.">        while(it.hasNext()){</span>
-<span class="nc" id="L101">            Map.Entry map = (Map.Entry) it.next();</span>
-<span class="nc" id="L102">                DataCategoria dc = (DataCategoria)map.getValue();</span>
-<span class="nc" id="L103">                ret.put(dc.getNombre(), dc);</span>
-<span class="nc" id="L104">        }</span>
-<span class="fc" id="L105">    return (Map)ret;    </span>
+<span class="fc" id="L140">        Map ret = new HashMap();</span>
+<span class="fc" id="L141">        HCategoria hc = HCategoria.getinstance();</span>
+<span class="fc" id="L142">        col=hc.obtenerColeccion();</span>
+<span class="fc" id="L143">        Iterator it = col.entrySet().iterator(); </span>
+<span class="pc bpc" id="L144" title="1 of 2 branches missed.">        while(it.hasNext()){</span>
+<span class="nc" id="L145">            Map.Entry map = (Map.Entry) it.next();</span>
+<span class="nc" id="L146">                DataCategoria dc = (DataCategoria)map.getValue();</span>
+<span class="nc" id="L147">                ret.put(dc.getNombre(), dc);</span>
+<span class="nc" id="L148">        }</span>
+<span class="fc" id="L149">    return (Map)ret;    </span>
     }
     
     @Override
     public Map devListaDR(){
-<span class="fc" id="L110">        HUsuario mu = HUsuario.getinstance();</span>
-<span class="fc" id="L111">        Map ret = new HashMap();</span>
-<span class="fc" id="L112">        Map col = mu.obtenerColeccion();</span>
-<span class="fc" id="L113">        Iterator it = col.entrySet().iterator();</span>
-<span class="pc bpc" id="L114" title="1 of 2 branches missed.">        while(it.hasNext()){</span>
-<span class="nc" id="L115">            Map.Entry map = (Map.Entry) it.next();</span>
-<span class="nc bnc" id="L116" title="All 2 branches missed.">            if(map.getValue() instanceof Restaurante){</span>
-<span class="nc" id="L117">                Restaurante rest = (Restaurante)map.getValue();</span>
-<span class="nc bnc" id="L118" title="All 2 branches missed.">                if(rest.member(this.categoria)){</span>
-<span class="nc" id="L119">                    DataRestaurante dr = rest.RestauranteADR();</span>
-<span class="nc" id="L120">                    ret.put(dr.getNickname(), dr);</span>
+<span class="fc" id="L154">        HUsuario mu = HUsuario.getinstance();</span>
+<span class="fc" id="L155">        Map ret = new HashMap();</span>
+<span class="fc" id="L156">        Map col = mu.obtenerColeccion();</span>
+<span class="fc" id="L157">        Iterator it = col.entrySet().iterator();</span>
+<span class="pc bpc" id="L158" title="1 of 2 branches missed.">        while(it.hasNext()){</span>
+<span class="nc" id="L159">            Map.Entry map = (Map.Entry) it.next();</span>
+<span class="nc bnc" id="L160" title="All 2 branches missed.">            if(map.getValue() instanceof Restaurante){</span>
+<span class="nc" id="L161">                Restaurante rest = (Restaurante)map.getValue();</span>
+<span class="nc bnc" id="L162" title="All 2 branches missed.">                if(rest.member(this.categoria)){</span>
+<span class="nc" id="L163">                    DataRestaurante dr = rest.RestauranteADR();</span>
+<span class="nc" id="L164">                    ret.put(dr.getNickname(), dr);</span>
                 }
             }
-<span class="nc" id="L123">        }</span>
-<span class="fc" id="L124">        return ret;</span>
+<span class="nc" id="L167">        }</span>
+<span class="fc" id="L168">        return ret;</span>
     }
 
     @Override
     public boolean setMemRestaurante(String nickname){
-<span class="fc" id="L129">        HUsuario mu = HUsuario.getinstance();</span>
-<span class="pc bpc" id="L130" title="1 of 2 branches missed.">        if(mu.exists(nickname)){</span>
-<span class="nc" id="L131">            this.memRestaurante = mu.obtenerRestaurante(nickname);</span>
-<span class="nc" id="L132">            return true;</span>
+<span class="fc" id="L173">        HUsuario mu = HUsuario.getinstance();</span>
+<span class="pc bpc" id="L174" title="1 of 2 branches missed.">        if(mu.exists(nickname)){</span>
+<span class="nc" id="L175">            this.memRestaurante = mu.obtenerRestaurante(nickname);</span>
+<span class="nc" id="L176">            return true;</span>
         }
-<span class="fc" id="L134">        return false;</span>
+<span class="fc" id="L178">        return false;</span>
     }
     
     @Override
     public DataProducto devListaProductos(){
-<span class="fc" id="L139">        DataProducto dp = new DataProducto();</span>
-<span class="nc" id="L140">        Map prods = this.memRestaurante.obtenerListaProductos();</span>
-<span class="nc" id="L141">        Iterator it = prods.entrySet().iterator();</span>
-<span class="nc bnc" id="L142" title="All 2 branches missed.">        while(it.hasNext()){</span>
-<span class="nc" id="L143">            Map.Entry map = (Map.Entry) it.next();</span>
-<span class="nc bnc" id="L144" title="All 2 branches missed.">            if(map.getValue() instanceof Individual){</span>
-<span class="nc" id="L145">                Individual ind = (Individual)map.getValue();</span>
-<span class="nc" id="L146">                DataIndividual di = ind.getDataIndividual();</span>
-<span class="nc" id="L147">                dp.setDatIndividual(di);</span>
-                
+<span class="fc" id="L183">        DataProducto dp = new DataProducto();</span>
+<span class="nc" id="L184">        Map prods = this.memRestaurante.obtenerListaProductos();</span>
+<span class="nc" id="L185">        Iterator it = prods.entrySet().iterator();</span>
+<span class="nc bnc" id="L186" title="All 2 branches missed.">        while(it.hasNext()){</span>
+<span class="nc" id="L187">            Map.Entry map = (Map.Entry) it.next();</span>
+<span class="nc bnc" id="L188" title="All 2 branches missed.">            if(map.getValue() instanceof Individual){</span>
+<span class="nc" id="L189">                Individual ind = (Individual)map.getValue();</span>
+<span class="nc" id="L190">                DataIndividual di = ind.getDataIndividual();</span>
+<span class="nc" id="L191">                dp.setDatIndividual(di);</span>
             }
-<span class="nc bnc" id="L150" title="All 2 branches missed.">            if(map.getValue() instanceof Promocional){</span>
-<span class="nc" id="L151">                Promocional prom = (Promocional)map.getValue();</span>
-<span class="nc" id="L152">                DataPromocional dprom = prom.getDataPromo();</span>
-<span class="nc" id="L153">                dp.setDatPromocional(dprom);</span>
+<span class="nc bnc" id="L193" title="All 2 branches missed.">            if(map.getValue() instanceof Promocional){</span>
+<span class="nc" id="L194">                Promocional prom = (Promocional)map.getValue();</span>
+<span class="nc" id="L195">                DataPromocional dprom = prom.getDataPromo();</span>
+<span class="nc" id="L196">                dp.setDatPromocional(dprom);</span>
             }
-<span class="nc" id="L155">        }</span>
-<span class="nc" id="L156">        return dp;</span>
+<span class="nc" id="L198">        }</span>
+<span class="nc" id="L199">        return dp;</span>
     }
     
     @Override
-    public void selectProductos(String nombre, int cantidad) throws Exception{
-<span class="nc" id="L161">        DataCarrito dc = this.memRestaurante.agregarProducto(nombre, cantidad);</span>
-<span class="nc" id="L162">        this.setDataCarrito(dc);</span>
-<span class="nc" id="L163">        Producto_Stock prodStock = this.memRestaurante.getProdCarrito(nombre);</span>
-<span class="nc" id="L164">        this.addCarrito(prodStock);</span>
-<span class="nc" id="L165">    }</span>
+    public void selectProductos(String nombre, int cantidad) throws Exception{//esto va en un loop en la interfaz
+<span class="nc" id="L204">        DataCarrito dc = this.memRestaurante.agregarProducto(nombre, cantidad);</span>
+<span class="nc" id="L205">        this.setDataCarrito(dc);</span>
+<span class="nc" id="L206">        Producto_Stock prodStock = this.memRestaurante.getProdCarrito(nombre);</span>
+<span class="nc" id="L207">        this.addCarrito(prodStock);</span>
+<span class="nc" id="L208">    }</span>
+    
+    @Override
+    public DataPedido altaPedido(){
+<span class="nc" id="L212">        Pedido nuevo = new Pedido(this.getMonto());</span>
+<span class="nc" id="L213">        nuevo.setCarrito(this.getCarrito());</span>
+<span class="nc" id="L214">        this.carrito.clear();</span>
+<span class="nc" id="L215">        DataPedido newDP = new DataPedido(nuevo.getId(), this.getNickname(), this.getMailCliente(), nuevo.getFecha(), this.memRestaurante.getNickname(), this.getColDataCarrito(), this.getMonto(), nuevo.getEstado());</span>
+<span class="nc" id="L216">        nuevo.setDataPedido(newDP);</span>
+<span class="nc" id="L217">        this.getMemCliente().setPedido(nuevo);</span>
+<span class="nc" id="L218">        this.ColDataCarrito.clear();</span>
+<span class="nc" id="L219">        return newDP;</span>
+    }
+    
+    @Override
+    public Map listDataPedidos(){
+<span class="nc" id="L224">        Map aux = new HashMap();</span>
+<span class="nc" id="L225">        HUsuario hu = HUsuario.getinstance();</span>
+<span class="nc" id="L226">        Iterator user = hu.obtenerColeccion().entrySet().iterator();</span>
+<span class="nc bnc" id="L227" title="All 2 branches missed.">        while(user.hasNext()){</span>
+<span class="nc" id="L228">            Map.Entry users = (Map.Entry) user.next();</span>
+<span class="nc bnc" id="L229" title="All 2 branches missed.">            if(users.getValue() instanceof Cliente){</span>
+<span class="nc" id="L230">                Cliente client = (Cliente)users.getValue();</span>
+<span class="nc" id="L231">                Iterator pedidos = client.getPedidos().entrySet().iterator();</span>
+<span class="nc bnc" id="L232" title="All 2 branches missed.">                while(pedidos.hasNext()){</span>
+<span class="nc" id="L233">                    Map.Entry p = (Map.Entry) pedidos.next();</span>
+<span class="nc" id="L234">                    Pedido ped = (Pedido)p.getValue();</span>
+<span class="nc" id="L235">                    aux.put(ped.getDataPedido().getId(), ped.getDataPedido());</span>
+<span class="nc" id="L236">                }</span>
+            }
+<span class="nc" id="L238">        }</span>
+<span class="nc" id="L239">        return aux;</span>
+    }
+    
+    @Override
+    public void actualizarEPedido(String nickname, double id, estados estado) throws Exception{//usar listarDataPedido antes q esto xD
+<span class="nc" id="L244">        HUsuario hu = HUsuario.getinstance();</span>
+<span class="nc" id="L245">        Cliente user = hu.obtenerUsuario(nickname);</span>
+<span class="nc" id="L246">        user.actualizarEstadoPedido(id, estado);</span>
+<span class="nc" id="L247">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

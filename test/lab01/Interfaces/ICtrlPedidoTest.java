@@ -6,7 +6,9 @@
 package lab01.Interfaces;
 
 import java.util.Map;
+import lab01.Clases.DataPedido;
 import lab01.Clases.DataProducto;
+import lab01.Clases.estados;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -166,6 +168,7 @@ public class ICtrlPedidoTest {
 
     /**
      * Test of selectProductos method, of class ICtrlPedido.
+     * @throws java.lang.Exception
      */
     @Test
     public void testSelectProductos() throws Exception {
@@ -178,43 +181,84 @@ public class ICtrlPedidoTest {
         //fail("The test case is a prototype.");
     }
 
+    
     public class ICtrlPedidoImpl implements ICtrlPedido {
 
+        @Override
         public void setNickname(String nick) {
         }
 
+        @Override
         public void setCat(String nombre) {
         }
 
+        @Override
         public String getCat() {
             return "";
         }
 
+        @Override
         public String getNickname() {
             return "";
         }
 
+        @Override
         public Map devListaDC() {
             return null;
         }
 
+        @Override
         public Map devListaDR() {
             return null;
         }
 
+        @Override
         public boolean setMemRestaurante(String nickname) {
             return false;
         }
 
+        @Override
         public Map retColDCat() {
             return null;
         }
 
+        @Override
         public DataProducto devListaProductos() {
             return null;
         }
 
+        @Override
         public void selectProductos(String nombre, int cantidad) throws Exception {
+        }
+
+        @Override
+        public void setMailCliente(String mail) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public void setMemCliente() {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public void setMonto() {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public DataPedido altaPedido() {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public Map listDataPedidos() {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public void actualizarEPedido(String nickname, double id, estados estado) throws Exception {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         }
     }
     

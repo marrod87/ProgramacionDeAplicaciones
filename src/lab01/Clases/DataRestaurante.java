@@ -35,7 +35,7 @@ public class DataRestaurante {
     }
 
     public Usuario dataResAres(){
-        Usuario r = new Restaurante(this.nickname, this.nombre, this.email, this.direccion,this.ColCategoria, this.ColProducto);
+        Usuario r = new Restaurante(this.nickname, this.nombre, this.email, this.direccion, this.lstImagen, this.ColProducto, this.ColCategoria);
         return r;
     }
     public boolean member(String nombre){

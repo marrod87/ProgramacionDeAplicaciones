@@ -12,6 +12,11 @@ package lab01.Clases;
 public class Producto_Stock {
     private int cantidad;
     private double precio;
+    private Producto prod;
+
+    public Producto getProd() {
+        return prod;
+    }
 
     public Producto_Stock(int cantidad/*, double precio*/) {
         this.cantidad = cantidad;

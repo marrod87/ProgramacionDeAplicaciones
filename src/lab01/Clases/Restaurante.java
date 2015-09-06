@@ -20,7 +20,7 @@ public class Restaurante extends Usuario{
     private Map ColCategoria;
     private Map ColProducto;
 
-    public Restaurante(String nickname, String nombre, String email, String direccion, Map categorias, Map colProd) {
+    public Restaurante(String nickname, String nombre, String email, String direccion, ArrayList<String> lstImagenes, Map colProd, Map categorias) {
         super(nickname,nombre,email,direccion);
         ColCategoria = categorias;
         ColProducto = new HashMap();
@@ -31,7 +31,10 @@ public class Restaurante extends Usuario{
         ColCategoria.put(c.getNombre(), c);
     }
     public boolean member(String nombre){
-        return ColCategoria.containsKey(nombre);
+        if(ColCategoria.isEmpty())
+            return false;
+        else
+            return ColCategoria.containsKey(nombre);
     }
     
     public void addProducto(Producto p){

@@ -20,7 +20,7 @@ public class Restaurante extends Usuario{
     private Map ColCategoria;
     private Map ColProducto;
 
-    public Restaurante(String nickname, String nombre, String email, String direccion, Map categorias) {
+    public Restaurante(String nickname, String nombre, String email, String direccion, Map categorias, Map colProd) {
 <span class="fc" id="L24">        super(nickname,nombre,email,direccion);</span>
 <span class="fc" id="L25">        ColCategoria = categorias;</span>
 <span class="fc" id="L26">        ColProducto = new HashMap();</span>
@@ -54,7 +54,7 @@ public class Restaurante extends Usuario{
 <span class="nc" id="L54">        return ret;</span>
     }
     public DataRestaurante RestauranteADR(){
-<span class="fc" id="L57">        DataRestaurante DR = new DataRestaurante(this.nickname, this.nombre, this.mail, this.direccion, this.lstImagen);</span>
+<span class="fc" id="L57">        DataRestaurante DR = new DataRestaurante(this.nickname, this.nombre, this.mail, this.direccion, this.lstImagen, this.ColProducto);</span>
 <span class="fc" id="L58">        return DR;</span>
     }
     
@@ -67,22 +67,24 @@ public class Restaurante extends Usuario{
 <span class="nc" id="L67">        }</span>
 <span class="fc" id="L68">        return ret;</span>
     }
+    
     public Map obtenerListaProductos(){
-<span class="fc" id="L71">        return this.ColProducto;</span>
+<span class="fc" id="L72">        return this.ColProducto;</span>
     }
     
     public DataCarrito agregarProducto(String nombre, int cantidad) throws Exception{
-<span class="fc" id="L75">        Producto prod = this.getProducto(nombre);</span>
-<span class="nc bnc" id="L76" title="All 2 branches missed.">        if(prod.prodDisponible(cantidad)){</span>
-<span class="nc" id="L77">            DataCarrito dc = prod.getDataCarrito(cantidad);</span>
-<span class="nc" id="L78">            return dc;</span>
+<span class="fc" id="L76">        Producto prod = this.getProducto(nombre);</span>
+<span class="nc bnc" id="L77" title="All 2 branches missed.">        if(prod.prodDisponible(cantidad)){</span>
+<span class="nc" id="L78">            DataCarrito dc = prod.getDataCarrito(cantidad);</span>
+<span class="nc" id="L79">            prod.restarStock(cantidad);</span>
+<span class="nc" id="L80">            return dc;</span>
         }
-<span class="nc" id="L80">        throw new Exception(&quot;No hay stock&quot;);</span>
+<span class="nc" id="L82">        throw new Exception(&quot;No hay stock&quot;);</span>
     }
     
     public Producto_Stock getProdCarrito(String nombre){
-<span class="fc" id="L84">        Producto prod = this.getProducto(nombre);</span>
-<span class="nc" id="L85">        return prod.getProdStock();</span>
+<span class="fc" id="L86">        Producto prod = this.getProducto(nombre);</span>
+<span class="nc" id="L87">        return prod.getProdStock();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

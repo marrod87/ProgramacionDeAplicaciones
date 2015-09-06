@@ -5,7 +5,14 @@
  */
 package lab01.Clases;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Random;
+import static lab01.Clases.estados.ENVIADO;
+import static lab01.Clases.estados.PREPARACION;
+import static lab01.Clases.estados.RECIBIDO;
+
 
 /**
  *
@@ -14,58 +21,83 @@ import java.util.ArrayList;
 //enum estados {PREPARACION, ENVIADO, RECIBIDO};
 
 public class Pedido {
-    private int id; // ver como hacer el autogenerado
+    private long id; // ver como hacer el autogenerado
     private String fecha; // ver como hacer la fecha si con el jcalendar esta fecha tiene que ser la del momento en q se crea el objeto(la del sistema)
     private double precio_total;
     private estados estado;
     private ArrayList&lt;Producto_Stock&gt; carrito;
     private DataPedido dp;
 
-<span class="fc" id="L24">    public Pedido(int id, String fecha, double precio_total, estados estado) {</span>
-<span class="fc" id="L25">        this.id = id;</span>
-<span class="fc" id="L26">        this.fecha = fecha;</span>
-<span class="fc" id="L27">        this.precio_total = precio_total;</span>
-<span class="fc" id="L28">        this.estado = estado;</span>
-<span class="fc" id="L29">    }</span>
+<span class="fc" id="L31">    public Pedido(double precio_total) {</span>
+<span class="fc" id="L32">        this.setId();</span>
+<span class="fc" id="L33">        this.setFecha();</span>
+<span class="fc" id="L34">        this.precio_total = precio_total;</span>
+<span class="fc" id="L35">        this.estado = PREPARACION;</span>
+<span class="fc" id="L36">    }</span>
 
-    public int getId() {
-<span class="fc" id="L32">        return id;</span>
+    public long getId() {
+<span class="fc" id="L39">        return id;</span>
     }
 
-    public void setId(int id) {
-<span class="fc" id="L36">        this.id = id;</span>
-<span class="fc" id="L37">    }</span>
-
-    public String getFecha() {
-<span class="fc" id="L40">        return fecha;</span>
-    }
-
-    public void setFecha(String fecha) {
-<span class="fc" id="L44">        this.fecha = fecha;</span>
+    public void setId() {
+<span class="fc" id="L43">        Random randomid = new Random();</span>
+<span class="fc" id="L44">        this.id = randomid.nextLong();</span>
 <span class="fc" id="L45">    }</span>
 
+    public String getFecha() {
+<span class="nc" id="L48">        return fecha;</span>
+    }
+
+    public void setFecha() {
+<span class="fc" id="L52">        this.fecha = new SimpleDateFormat(&quot;dd-MM-yyyy&quot;).format(new Date());</span>
+<span class="fc" id="L53">    }</span>
+
     public double getPrecio_total() {
-<span class="fc" id="L48">        return precio_total;</span>
+<span class="fc" id="L56">        return precio_total;</span>
     }
 
     public void setPrecio_total(double precio_total) {
-<span class="fc" id="L52">        this.precio_total = precio_total;</span>
-<span class="fc" id="L53">    }</span>
+<span class="fc" id="L60">        this.precio_total = precio_total;</span>
+<span class="fc" id="L61">    }</span>
 
     public estados getEstado() {
-<span class="fc" id="L56">        return estado;</span>
+<span class="fc" id="L64">        return estado;</span>
     }
 
-    public void setEstado(estados estado) {
-<span class="fc" id="L60">        this.estado = estado;</span>
-<span class="fc" id="L61">    }</span>
+    public void setEstado(estados estado) throws Exception {
+<span class="pc bpc" id="L68" title="1 of 2 branches missed.">        if(this.getEstado() == PREPARACION){</span>
+<span class="pc bpc" id="L69" title="3 of 4 branches missed.">            if(estado == ENVIADO || estado == RECIBIDO){</span>
+<span class="fc" id="L70">                this.estado = estado;</span>
+<span class="nc" id="L71">                this.getDataPedido().setEstado(estado);</span>
+            }
+<span class="nc" id="L73">            throw new Exception(&quot;Estado Incorrecto...&quot;);</span>
+        }
+<span class="nc bnc" id="L75" title="All 2 branches missed.">        if(this.getEstado() == ENVIADO){</span>
+<span class="nc bnc" id="L76" title="All 2 branches missed.">            if(estado == RECIBIDO){</span>
+<span class="nc" id="L77">                this.estado = estado;</span>
+<span class="nc" id="L78">                this.getDataPedido().setEstado(estado);</span>
+            }
+<span class="nc" id="L80">            throw new Exception(&quot;Estado Incorrecto...&quot;);</span>
+        }
+<span class="nc bnc" id="L82" title="All 2 branches missed.">        if(this.getEstado() == RECIBIDO){</span>
+<span class="nc" id="L83">            throw new Exception(&quot;Pedido Entregado...&quot;);</span>
+        }
+<span class="nc" id="L85">    }</span>
+    
+    public ArrayList&lt;Producto_Stock&gt; getDataCarrito(){
+<span class="fc" id="L88">        return this.carrito;</span>
+    }
+    
+    public void setCarrito(ArrayList&lt;Producto_Stock&gt; carrito){
+<span class="fc" id="L92">        this.carrito = carrito;</span>
+<span class="fc" id="L93">    }</span>
     
     public DataPedido getDataPedido(){
-<span class="fc" id="L64">        return this.dp;</span>
+<span class="fc" id="L96">        return this.dp;</span>
     }
     
     public void setDataPedido(DataPedido dp){
-<span class="fc" id="L68">        this.dp = dp;</span>
-<span class="fc" id="L69">    } </span>
+<span class="fc" id="L100">        this.dp = dp;</span>
+<span class="fc" id="L101">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

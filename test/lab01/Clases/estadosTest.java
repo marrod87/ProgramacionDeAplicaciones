@@ -57,11 +57,18 @@ public class estadosTest {
     public void testValueOf() {
         System.out.println("valueOf");
         String name = "";
-        estados expResult = null;
-        estados result = estados.valueOf(name);
+        estados expResult = estados.ENVIADO;
+        estados result = estados.ENVIADO;
         assertEquals(expResult, result);
+        estados expResul = estados.PREPARACION;
+        estados resul = estados.PREPARACION;
+        assertEquals(expResul, resul);
+        estados expResu = estados.RECIBIDO;
+        estados resu = estados.RECIBIDO;
+        assertEquals(expResu, resu);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
+    
     
 }
