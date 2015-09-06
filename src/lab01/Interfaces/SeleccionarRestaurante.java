@@ -88,6 +88,11 @@ public class SeleccionarRestaurante extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         treeCat = new javax.swing.JTree();
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
+
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Categorias");
         treeCat.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
         treeCat.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {

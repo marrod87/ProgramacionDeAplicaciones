@@ -10,6 +10,8 @@ import lab01.Handlers.Fabrica;
 import lab01.Clases.DataCliente;
 import lab01.Clases.Cliente;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import lab01.Clases.DataRestaurante;
 
 /**
@@ -81,23 +83,82 @@ public class CargarDatos extends javax.swing.JFrame {
   
       //CATEGORÍAS
       
+      ICU.registrarCat("Chivitos");
+      ICU.registrarCat("Minutas");
+      ICU.registrarCat("Parrilla");
+      ICU.registrarCat("Pizzas");
+      ICU.registrarCat("Empanadas");
+      ICU.registrarCat("Milanesas");
+      ICU.registrarCat("Ensaladas");
+      ICU.registrarCat("Pastas");
+      ICU.registrarCat("Comida China");
+      ICU.registrarCat("Picadas");
+      ICU.registrarCat("Woks");
+      ICU.registrarCat("Comida Mexicana");
+      ICU.registrarCat("Entradas");
+      ICU.registrarCat("Bebidas");
+      ICU.registrarCat("Sushi");
+      
       //RESTAURANTES
       
       ICU.ingresarDatos("mera", "mera@hotmail.com", "Pizzería Mera", "Av 8 de octubre 2704");
-      DataRestaurante res1 = new DataRestaurante("mera", "Pizzeria Mera", "mera@hotmail.com", "Av 8 de octubre 2704", null, null);
+
+      
+      Map Categorias1 = new HashMap();
+      Categorias1.put("Chivitos", ICU.retColCat().get("Chivitos"));
+      Categorias1.put("Minutas", ICU.retColCat().get("Minutas"));
+      Categorias1.put("Parrilla", ICU.retColCat().get("Parrilla"));
+      Categorias1.put("Pizzas", ICU.retColCat().get("Pizzas"));
+      DataRestaurante res1 = new DataRestaurante();
+      res1.setColCategoria(Categorias1);
+      res1.setColProducto(null);
+      res1.setDireccion("Av 8 de octubre 2704");
+      res1.setEmail("mera@hotmail.com");
+      res1.setLstImagen(null);
+      res1.setNickname("mera");
+      res1.setNombre("Pizzería Mera");
       ICU.registrarRestaurante(res1);
       
-      ICU.ingresarDatos("rossell", "bar.rossel@gmail.com", "Bar Rossell", "Bvar. Artigas 1601");
-      DataRestaurante res2 = new DataRestaurante("rossell", "Bar Rossell", "bar.rossel@gmail.com", "Bvar. Artigas 1601", null, null);
+      Map Categorias2 = new HashMap();
+      Categorias2.put("Chivitos", ICU.retColCat().get("Chivitos"));
+      Categorias2.put("Minutas", ICU.retColCat().get("Minutas"));
+      Categorias2.put("Pastas", ICU.retColCat().get("Pastas"));
+      Categorias2.put("Pizzas", ICU.retColCat().get("Pizzas"));
+      DataRestaurante res2 = new DataRestaurante();
+      res2.setColCategoria(Categorias2);
+      res2.setColProducto(null);
+      res2.setDireccion("Bvar. Artigas 1601");
+      res2.setEmail("bar.rossel@gmail.com");
+      res2.setLstImagen(null);
+      res2.setNickname("rossell");
+      res2.setNombre("Bar Rossell");
       ICU.registrarRestaurante(res2);
- 
-      ICU.ingresarDatos("bocatti", "bocatti@gmail.com", "Empanadas Bocatti", "18 de julio 2138");
-      DataRestaurante res3 = new DataRestaurante("bocatti", "Empanadas Bocatti", "bocatti@gmail.com", "18 de julio 2138", null, null);
-      ICU.registrarRestaurante(res3);  
       
-      ICU.ingresarDatos("winb", "wok.in.box@hotmail.com", "Wok in Box", "Libertad 2535");
-      DataRestaurante res4 = new DataRestaurante("winb", "Wok in Box", "wok.in.box@hotmail.com", "Libertad 2535", null, null);
-      ICU.registrarRestaurante(res4); 
+      Map Categorias3 = new HashMap();
+      Categorias3.put("Empanadas", ICU.retColCat().get("Empanadas"));
+      DataRestaurante res3 = new DataRestaurante();
+      res3.setColCategoria(Categorias3);
+      res3.setColProducto(null);
+      res3.setDireccion("18 de julio 2138");
+      res3.setEmail("bocatti@gmail.com");
+      res3.setLstImagen(null);
+      res3.setNickname("bocatti");
+      res3.setNombre("Empanadas Bocatti");
+      ICU.registrarRestaurante(res3);
+      
+      Map Categorias4 = new HashMap();
+      Categorias4.put("Woks", ICU.retColCat().get("Woks"));
+      Categorias4.put("Pastas", ICU.retColCat().get("Pastas"));
+      Categorias4.put("Comida China", ICU.retColCat().get("Comida China"));
+      DataRestaurante res4 = new DataRestaurante();
+      res4.setColCategoria(Categorias4);
+      res4.setColProducto(null);
+      res4.setDireccion("Libertad 2535");
+      res4.setEmail("wok.in.box@hotmail.com");
+      res4.setLstImagen(null);
+      res4.setNickname("winb");
+      res4.setNombre("Wok in Box");
+      ICU.registrarRestaurante(res4);
     }
     
     public static void main(String args[]) {

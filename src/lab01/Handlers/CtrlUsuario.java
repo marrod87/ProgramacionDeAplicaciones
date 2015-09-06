@@ -41,6 +41,10 @@ public class CtrlUsuario implements ICtrlUsuario {
         this.Cat=cate;
         JOptionPane.showMessageDialog(null, "Categoria recordada","EXITO",JOptionPane.INFORMATION_MESSAGE);
     }
+    
+    public Map getLstCat(){
+        return this.Cat;
+    }
     public void setNickname(String nick){
         this.nickname=nick;
     }
@@ -49,7 +53,7 @@ public class CtrlUsuario implements ICtrlUsuario {
     }
 
     @Override
-    public boolean ingresarDatos(String nickname, String nombre, String email, String direccion){
+    public boolean ingresarDatos(String nickname, String email, String nombre, String direccion){
         this.nickname=nickname;
         this.direccion=direccion;
         this.nombre=nombre;
@@ -67,7 +71,7 @@ public class CtrlUsuario implements ICtrlUsuario {
 
    
     public void registrarRestaurante(DataRestaurante dt){
-        Restaurante r = new Restaurante(dt.getNickname(),dt.getNombre(),dt.getEmail(),dt.getDireccion(),this.Cat,dt.getColProducto());
+        Restaurante r = new Restaurante(dt.getNickname(),dt.getNombre(),dt.getEmail(),dt.getDireccion(), dt.getLstImagen(), dt.getColProducto(), dt.getColCategoria());
         HUsuario HU = HUsuario.getinstance();
         HU.addUsuario(r);
     }
