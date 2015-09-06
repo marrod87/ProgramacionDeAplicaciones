@@ -20,11 +20,12 @@ public class Promocional extends Producto {
     private double descuento; //ver como se hace JoacoP(me imagino yo que seria un entero % y lo q se hace despues es a precio_total calcularsele ese descuento)
     private ArrayList<Cantidad_Individual> ColCantIndividual;
     
-    public Promocional(String nombre, String descripcion, double precio, boolean activa, double descuento, ArrayList<Cantidad_Individual> ColCantIndividual) {
-        super(nombre, descripcion, precio,1);
+    public Promocional(String nombre, String descripcion, /*double precio,*/ boolean activa, double descuento, ArrayList<Cantidad_Individual> ColCantIndividual) {
+        super(nombre, descripcion, /*precio,*/1);
         this.activa = activa;
         this.descuento = descuento;
         this.ColCantIndividual = ColCantIndividual;
+        //this.setPrecioPromo(descuento); hay que llamar a esta operacion una vez creado el promocional...
     }//ver como se hace
 
     public boolean isActiva() {
@@ -53,6 +54,22 @@ public class Promocional extends Producto {
     
     public void setColCantIndividual(ArrayList<Cantidad_Individual> ColCantIndividual){
         this.ColCantIndividual = ColCantIndividual;
+    }
+    
+    public void setPrecioPromo(double descuento){
+        double aux = 0;
+        double aux2;
+        for(Cantidad_Individual ci: ColCantIndividual){
+            if(ci.getCantidad() > 1){
+                aux = aux + (ci.getProdIndividual().getPrecio() * ci.getCantidad());
+            }
+            else{
+                aux = aux + ci.getProdIndividual().getPrecio();
+            }
+        }
+        aux2 = (aux * descuento) / 100;
+        aux = aux - aux2;
+        this.setPrecio(aux);
     }
     
     public DataPromocional getDataPromo(){

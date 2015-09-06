@@ -16,10 +16,10 @@ public abstract class  Producto {
     private String imagen;
     private Producto_Stock prodStock;
 
-    public Producto(String nombre, String descripcion, double precio, int cantidad){
+    public Producto(String nombre, String descripcion, /*double precio,*/ int cantidad){
         this.nombre=nombre;
         this.descripcion=descripcion;
-        this.prodStock = new Producto_Stock(cantidad,precio);
+        this.prodStock = new Producto_Stock(cantidad/*,precio*/);
     }
 
     public String getNombre() {
@@ -57,9 +57,9 @@ public abstract class  Producto {
     public double getPrecio(){
          return this.prodStock.getPrecio();
     }
-     
+    
     public void setPrecio(double precio){
-         this.prodStock.setPrecio(precio);
+        this.getProdStock().setPrecio(precio);
     }
      
     public Producto_Stock getProdStock(){

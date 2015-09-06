@@ -67,7 +67,7 @@ public class CtrlUsuario implements ICtrlUsuario {
 
    
     public void registrarRestaurante(DataRestaurante dt){
-        Restaurante r = new Restaurante(dt.getNickname(),dt.getNombre(),dt.getEmail(),dt.getDireccion(),dt.getColCategoria(),dt.getColProducto());
+        Restaurante r = new Restaurante(dt.getNickname(),dt.getNombre(),dt.getEmail(),dt.getDireccion(),this.Cat,dt.getColProducto());
         HUsuario HU = HUsuario.getinstance();
         HU.addUsuario(r);
     }
@@ -122,7 +122,22 @@ public class CtrlUsuario implements ICtrlUsuario {
         }
     return ret;
     }
-
+    
+    public Map listaUsuPorCategoria(String cate){
+        HUsuario mu = HUsuario.getinstance();
+        Map Ldr = listaDataRestaurantes();
+        Map ret = new HashMap();
+        Iterator it = Ldr.entrySet().iterator();
+        while(it.hasNext()){
+            Map.Entry map = (Map.Entry) it.next();
+            DataRestaurante r = (DataRestaurante)map.getValue();
+            if(r.member(cate))
+                ret.put(r.getNickname(),r);
+            }
+        return ret;
+    
+    }
+            
     
     
     public void registrarCat(String nombre){

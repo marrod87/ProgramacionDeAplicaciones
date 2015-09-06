@@ -13,9 +13,9 @@ public class Producto_Stock {
     private int cantidad;
     private double precio;
 
-    public Producto_Stock(int cantidad, double precio) {
+    public Producto_Stock(int cantidad/*, double precio*/) {
         this.cantidad = cantidad;
-        this.precio = precio;
+        //this.precio = precio;
     }
 
     public int getCantidad() {
