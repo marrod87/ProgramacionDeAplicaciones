@@ -119,9 +119,9 @@ public class ListarUsuariosGP extends javax.swing.JInternalFrame {
         ICPed.setMailCliente(mail);
         this.dispose();
         //nueva pantalla seleccionar Categoria
-        SeleccionarCatPedido selP = new SeleccionarCatPedido();
-        Console.EscritorioMenu.add(selP);
-        selP.show();
+        SelRestauranteListarUsuario selR = new SelRestauranteListarUsuario();
+        Console.EscritorioMenu.add(selR);
+        selR.show();
     }//GEN-LAST:event_jbListoActionPerformed
 
     private void cargarTabla(){
