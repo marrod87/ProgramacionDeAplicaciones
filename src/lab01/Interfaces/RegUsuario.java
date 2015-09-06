@@ -8,6 +8,7 @@ import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
 import javax.swing.JRadioButton;
 import java.io.File;
+import java.util.ArrayList;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import lab01.Clases.Categoria;
@@ -311,8 +312,10 @@ private ICtrlUsuario ICU;
         int mes = this.tbMes.getMonth() + 1;
         int anio = this.tbAnio.getValue();
         String fecha = dia + "/" + mes + "/" + anio;
+        ArrayList<String> lstImagen = null;
         
-        DataRestaurante dt = new DataRestaurante(nickname, nombre, mail, direccion, null, null);
+        
+        DataRestaurante dt = new DataRestaurante(nickname, nombre, mail, direccion, lstImagen, null,ICU.getLstCat());
         if(nickname.isEmpty()||mail.isEmpty()||nombre.isEmpty()||apellido.isEmpty()||direccion.isEmpty())
             JOptionPane.showMessageDialog(null, "No debe haber campos vacios","ERROR",JOptionPane.ERROR_MESSAGE);
         else
@@ -324,6 +327,7 @@ private ICtrlUsuario ICU;
                 }
                 else
                     if(rbRestaurante.isSelected()){
+                        //dt.setColCategoria(ICU.getLstCat());
                         ICU.registrarRestaurante(dt);
                         JOptionPane.showMessageDialog(null, "El restaurante ha sido registrado","Exito",JOptionPane.INFORMATION_MESSAGE);
                     }

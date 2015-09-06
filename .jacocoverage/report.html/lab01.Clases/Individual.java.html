@@ -44,6 +44,17 @@ public class Individual extends Producto {
 <span class="fc" id="L44">        DataCarrito dc = new DataCarrito(this.getNombre(), false, cantidad, this.getPrecio());</span>
 <span class="fc" id="L45">        return dc;</span>
     }
+    
+    @Override
+    public boolean prodDisponible(int cantidad){
+<span class="nc bnc" id="L50" title="All 2 branches missed.">        return this.getProdStock().getCantidad() &gt; cantidad;</span>
+    }
+    
+    @Override
+    public void restarStock(int cantidad){
+<span class="nc" id="L55">        int aux = cantidad - this.getProdStock().getCantidad();</span>
+<span class="nc" id="L56">        this.getProdStock().setCantidad(aux);</span>
+<span class="nc" id="L57">    }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

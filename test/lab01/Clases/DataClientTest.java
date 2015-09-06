@@ -25,6 +25,7 @@ public class DataClientTest {
     @BeforeClass
     public static void setUpClass() {
         DataClient instance = new DataClient("nickname", "nombre", "apellido", null, "direccion", "j@j.com", "imagen");
+        DataClient inst = new DataClient();
     }
     
     @AfterClass

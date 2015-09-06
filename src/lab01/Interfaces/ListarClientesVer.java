@@ -49,6 +49,9 @@ public class ListarClientesVer extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jtabla = new javax.swing.JTable();
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
         setResizable(true);
         setTitle("Seleccione el Cliente que desea ver");
         setPreferredSize(new java.awt.Dimension(500, 500));

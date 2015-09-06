@@ -5,6 +5,8 @@
  */
 package lab01.Clases;
 import java.util.Date;
+import java.util.Iterator;
+import java.util.Map;
 
 /**
  *
@@ -13,50 +15,79 @@ import java.util.Date;
 public class Cliente extends Usuario{
     private String apellido;
     private String fNac;
+    private Map pedidos;
    
     //public Cliente(){}
     public Cliente(String nickname, String nombre, String email, String direccion,String apellido, String img, String fecha) {
-<span class="fc" id="L19">        super(nickname,nombre,email,direccion);</span>
+<span class="fc" id="L22">        super(nickname,nombre,email,direccion);</span>
        //setNickname(); poner los valores de los tb
-<span class="fc" id="L21">        this.apellido = apellido;</span>
-<span class="fc" id="L22">        this.imagen = img;</span>
-<span class="fc" id="L23">        this.fNac = fecha;</span>
-<span class="fc" id="L24">    }</span>
+<span class="fc" id="L24">        this.apellido = apellido;</span>
+<span class="fc" id="L25">        this.imagen = img;</span>
+<span class="fc" id="L26">        this.fNac = fecha;</span>
+<span class="fc" id="L27">    }</span>
 
-<span class="nc" id="L26">    public Cliente(String nickname, String nombre, String email, String direccion, String apellido) {</span>
-<span class="nc" id="L27">        throw new UnsupportedOperationException(&quot;Not supported yet.&quot;); //To change body of generated methods, choose Tools | Templates.</span>
+<span class="nc" id="L29">    public Cliente(String nickname, String nombre, String email, String direccion, String apellido) {</span>
+<span class="nc" id="L30">        throw new UnsupportedOperationException(&quot;Not supported yet.&quot;); //To change body of generated methods, choose Tools | Templates.</span>
     }
 
     public String getApellido() {
-<span class="fc" id="L31">        return apellido;</span>
+<span class="fc" id="L34">        return apellido;</span>
     }
     public String getImagen(){
-<span class="fc" id="L34">        return imagen;</span>
+<span class="fc" id="L37">        return imagen;</span>
     }
     public void setApellido(String apellido) {
-<span class="fc" id="L37">        this.apellido = apellido;</span>
-<span class="fc" id="L38">    }</span>
-    public void setImagen(String img){
-<span class="fc" id="L40">        this.imagen = img;</span>
+<span class="fc" id="L40">        this.apellido = apellido;</span>
 <span class="fc" id="L41">    }</span>
+    public void setImagen(String img){
+<span class="fc" id="L43">        this.imagen = img;</span>
+<span class="fc" id="L44">    }</span>
     
     public String getFecha(){
-<span class="fc" id="L44">        return fNac;</span>
+<span class="fc" id="L47">        return fNac;</span>
     }
 
     public void setFecha(String fecha) {
-<span class="fc" id="L48">        this.fNac = fecha;</span>
-<span class="fc" id="L49">    }</span>
+<span class="fc" id="L51">        this.fNac = fecha;</span>
+<span class="fc" id="L52">    }</span>
     public String getMail(){
-<span class="fc" id="L51">        return mail;</span>
+<span class="fc" id="L54">        return mail;</span>
     }
     public String getNickname() {
-<span class="fc" id="L54">        return nickname;</span>
-    }
-    public DataCliente ClienteADC(){
-<span class="nc" id="L57">        DataCliente DC = new DataCliente(this.nickname, this.nombre, this.mail, this.direccion, this.apellido, this.imagen, this.fNac);</span>
-<span class="nc" id="L58">        return DC;</span>
+<span class="fc" id="L57">        return nickname;</span>
     }
     
+    public Map getPedidos(){
+<span class="nc" id="L61">        return this.pedidos;</span>
+    }
+    
+    public Pedido getPedido(double id) throws Exception{
+<span class="nc" id="L65">        Iterator it = this.getPedidos().entrySet().iterator();</span>
+<span class="nc bnc" id="L66" title="All 2 branches missed.">        while(it.hasNext()){</span>
+<span class="nc" id="L67">            Map.Entry peds = (Map.Entry) it.next();</span>
+<span class="nc" id="L68">            Pedido p = (Pedido)peds.getValue();</span>
+<span class="nc bnc" id="L69" title="All 2 branches missed.">            if(p.getId() == id){</span>
+<span class="nc" id="L70">                return p;</span>
+            }
+<span class="nc" id="L72">        }</span>
+<span class="nc" id="L73">        throw new Exception(&quot;No existe el pedido...&quot;);</span>
+    }
+    
+    public void setPedido(Pedido p){
+<span class="nc" id="L77">        this.pedidos.put(p.getId(), p);</span>
+<span class="nc" id="L78">    }</span>
+    
+    public void setPedidos(Map pedidos){
+<span class="nc" id="L81">        this.pedidos = pedidos;</span>
+<span class="nc" id="L82">    }</span>
+    
+    public DataCliente ClienteADC(){
+<span class="nc" id="L85">        DataCliente DC = new DataCliente(this.nickname, this.nombre, this.mail, this.direccion, this.apellido, this.imagen, this.fNac);</span>
+<span class="nc" id="L86">        return DC;</span>
+    }
+    
+    public void actualizarEstadoPedido(double id, estados estado) throws Exception{
+<span class="nc" id="L90">        this.getPedido(id).setEstado(estado);</span>
+<span class="nc" id="L91">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>
