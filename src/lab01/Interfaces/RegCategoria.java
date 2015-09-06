@@ -106,6 +106,7 @@ public class RegCategoria extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Ingrese el nombre de la categoria","ERROR",JOptionPane.ERROR_MESSAGE);
         else
             ICU.registrarCat(tbNuevaCat.getText()); 
+        this.tbNuevaCat.setText("");
     }//GEN-LAST:event_btnRegistrarCatActionPerformed
 
 
