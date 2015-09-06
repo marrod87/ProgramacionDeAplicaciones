@@ -14,8 +14,12 @@ import javax.swing.JScrollPane;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.JTree;
+import lab01.Clases.DataRestaurante;
 import lab01.Clases.Restaurante;
+import lab01.Clases.Usuario;
 import lab01.Handlers.Fabrica;
+import lab01.Clases.Categoria;
+import lab01.Clases.DataCategoria;
 
 /**
  *
@@ -32,73 +36,47 @@ public class SeleccionarRestaurante extends javax.swing.JInternalFrame {
         ICU = fabrica.getICtrlUsuario();
         //modelo = (DefaultTreeModel) treeCat.getModel();
         modelRest = new DefaultListModel();
+        Raiz = new DefaultMutableTreeNode("Restaurantes");
+        modelo = new DefaultTreeModel(Raiz);
+        JTree tree = new JTree(modelo);
         this.cargarTree();
-        this.cargarRestaurantesTree();
+        //this.cargarRestaurantesTree();
     }
     DefaultListModel modelRest;
+    DefaultMutableTreeNode Raiz;// = new DefaultMutableTreeNode("Restaurantes");
+    DefaultTreeModel modelo; //= new DefaultTreeModel(Raiz);
+
 
     
     public void cargarTree(){
-        Map cats; 
-        cats=ICU.retColCat();
-        DefaultMutableTreeNode raiz = new DefaultMutableTreeNode("Categorias");
-        //raiz = (DefaultMutableTreeNode)treeCat.getLastSelectedPathComponent();
-        if (raiz != null){
-            Iterator it = cats.entrySet().iterator();
-            while(it.hasNext()){
-                Map.Entry map = (Map.Entry) it.next();
-                //raiz.insert(new DefaultMutableTreeNode(map.getKey().toString()), 0);
-                DefaultMutableTreeNode nodo = new DefaultMutableTreeNode(map.getKey().toString());
-                raiz.add(nodo);
-            }  
-            DefaultTreeModel model = new DefaultTreeModel(raiz);
-            this.treeCat.setModel(model);
-//            modelo.reload(raiz);
-        }
-//        DefaultMutableTreeNode raiz = new DefaultMutableTreeNode("Categorias");
-//        DefaultTreeModel modelo = new DefaultTreeModel(raiz);
-//        
-//        Iterator it = cats.entrySet().iterator();
-//        while(it.hasNext()){
-//            Map.Entry map = (Map.Entry) it.next();
-//        }
-    }
-    
-    public void cargarRestaurantesTree(){
-        Fabrica fabrica = Fabrica.getInstance();
-        ICU = fabrica.getICtrlUsuario();
-        Map lstRest = ICU.listaDataRestaurantes();   
-                
-//String cli = this.cliente.getText();
-        Iterator rest = lstRest.entrySet().iterator();
-        while(rest.hasNext()){
-            Map.Entry mapRest = (Map.Entry) rest.next();
-            Restaurante r = ICU.getRestauranteByNickname(mapRest.getKey().toString());
-            Map catsRest = r.obtenerColeccion();
-            Iterator itCatRest = catsRest.entrySet().iterator();
-        //Iterator itret = ret.entrySet().iterator();
-            Map cats;
-            cats=ICU.retColCat();
-            while(itCatRest.hasNext()){
-                Iterator it = cats.entrySet().iterator();
-                while(it.hasNext()){
-                    Map.Entry mapCats = (Map.Entry) it.next();
-                    if (itCatRest.hasNext()){
-                        Map.Entry mapCatRest = (Map.Entry) itCatRest.next();
-                    if (mapCatRest.getKey() == mapCats.getKey()){
-                        DefaultMutableTreeNode raiz = new DefaultMutableTreeNode(mapCats.getKey().toString());
-                        DefaultMutableTreeNode nodoRes = new DefaultMutableTreeNode(mapCatRest.getKey().toString());
-                        raiz.add(nodoRes);
-                        DefaultTreeModel model = new DefaultTreeModel(raiz);
-                        this.treeCat.setModel(model);
+        Map Ccat=ICU.retColCat();    
+        if (Raiz != null){
+            Iterator itC = Ccat.entrySet().iterator();
+            while(itC.hasNext()){
+                Map.Entry mapC = (Map.Entry) itC.next();
+                DataCategoria cat= (DataCategoria)mapC.getValue();
+                DefaultMutableTreeNode nodo = new DefaultMutableTreeNode(cat.getNombre());
+                modelo.insertNodeInto(nodo, Raiz, 0);
+                Map Crest = ICU.listaUsuPorCategoria(cat.getNombre());
+                if(Crest.isEmpty()){
+                    DefaultMutableTreeNode vacio = new DefaultMutableTreeNode("Sin restaurantes");
+                    modelo.insertNodeInto(vacio, nodo, 0);
                     }
-
+                else{
+                    Iterator itR = Crest.entrySet().iterator();
+                    while(itR.hasNext()){
+                        Map.Entry mapR = (Map.Entry) itR.next();
+                        String c= (String)mapR.getKey();
+                        DefaultMutableTreeNode Res = new DefaultMutableTreeNode(c);
+                        modelo.insertNodeInto(Res, nodo, 0);
                     }
                 }
-           
-            }
+            }  
+            this.treeCat.setModel(modelo);
         }
     }
+    
+    
     
     
     
@@ -112,6 +90,11 @@ public class SeleccionarRestaurante extends javax.swing.JInternalFrame {
 
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Categorias");
         treeCat.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        treeCat.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
+            public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
+                treeCatValueChanged(evt);
+            }
+        });
         jScrollPane1.setViewportView(treeCat);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -121,13 +104,13 @@ public class SeleccionarRestaurante extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(75, 75, 75)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(147, Short.MAX_VALUE))
+                .addContainerGap(152, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 47, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -143,6 +126,15 @@ public class SeleccionarRestaurante extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void treeCatValueChanged(javax.swing.event.TreeSelectionEvent evt) {//GEN-FIRST:event_treeCatValueChanged
+        // TODO add your handling code here:
+        DefaultMutableTreeNode sel = (DefaultMutableTreeNode)treeCat.getLastSelectedPathComponent();
+        String rest = (String)sel.getUserObject(); 
+        VerRestaurante verR = new VerRestaurante(rest);
+            Console.EscritorioMenu.add(verR);
+            verR.show();
+    }//GEN-LAST:event_treeCatValueChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

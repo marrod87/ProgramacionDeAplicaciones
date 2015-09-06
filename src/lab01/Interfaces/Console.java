@@ -205,9 +205,9 @@ public class Console extends javax.swing.JFrame {
     }//GEN-LAST:event_smnuRegCatActionPerformed
 
     private void VerRestaurantesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VerRestaurantesActionPerformed
-        VerRestaurante verRes = new VerRestaurante();
-        EscritorioMenu.add(verRes); 
-        verRes.show();// TODO add your handling code here:
+        //VerRestaurante verRes = new VerRestaurante();
+        //EscritorioMenu.add(verRes); 
+        //verRes.show();// TODO add your handling code here:
     }//GEN-LAST:event_VerRestaurantesActionPerformed
 
     private void menuGenerarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuGenerarPedidoActionPerformed

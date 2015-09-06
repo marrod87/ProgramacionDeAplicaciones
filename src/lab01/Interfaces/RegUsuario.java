@@ -312,7 +312,7 @@ private ICtrlUsuario ICU;
         int anio = this.tbAnio.getValue();
         String fecha = dia + "/" + mes + "/" + anio;
         
-        DataRestaurante dt = new DataRestaurante(nickname, nombre, mail, direccion, null, null);
+        DataRestaurante dt = new DataRestaurante(nickname, nombre, mail, direccion, null, null,null);
         if(nickname.isEmpty()||mail.isEmpty()||nombre.isEmpty()||apellido.isEmpty()||direccion.isEmpty())
             JOptionPane.showMessageDialog(null, "No debe haber campos vacios","ERROR",JOptionPane.ERROR_MESSAGE);
         else
