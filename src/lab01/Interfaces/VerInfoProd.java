@@ -36,12 +36,13 @@ public class VerInfoProd extends javax.swing.JFrame {
         String precio = Double.toString(prod.getPrecio());
         this.txtPrecioProd.setText(precio);
         p = prod;
+        if(p instanceof Promocional){
         Promocional prom = (Promocional)p;
         if(prom.isActiva())
             this.txtEstadoPromo.setText("ACTIVA");
         else
             this.txtEstadoPromo.setText("INACTIVA");
-        cargartabla();
+        cargartabla();}
     }
     DefaultTableModel modelo;
     private Producto p;
