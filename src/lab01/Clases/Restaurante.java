@@ -90,14 +90,16 @@ public class Restaurante extends Usuario{
     
     }
     
-    public DataCarrito agregarProducto(String nombre, int cantidad) throws Exception{
+    public DataCarrito agregarProducto(String nombre, int cantidad){
         Producto prod = this.getProducto(nombre);
-        if(prod.prodDisponible(cantidad)){
+        //if(prod.prodDisponible(cantidad)){
             DataCarrito dc = prod.getDataCarrito(cantidad);
-            prod.restarStock(cantidad);
+          //  prod.restarStock(cantidad);
             return dc;
-        }
-        throw new Exception("No hay stock");
+        //}
+        //else
+            //return null;
+        //throw new Exception("No hay stock");
     }
     
     public Producto_Stock getProdCarrito(String nombre){

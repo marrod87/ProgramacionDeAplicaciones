@@ -40,6 +40,17 @@ public class CtrlPedido implements ICtrlPedido {
     private double monto;
     private Map ColDataCarrito;
     private ArrayList<Producto_Stock> carrito;
+    private DataPedido dp;
+
+    @Override
+    public DataPedido getDp() {
+        return dp;
+    }
+    
+    @Override
+    public void setDp(DataPedido dp) {
+        this.dp = dp;
+    }
     
     public CtrlPedido(){}
     
@@ -200,7 +211,7 @@ public class CtrlPedido implements ICtrlPedido {
     }
     
     @Override
-    public void selectProductos(String nombre, int cantidad) throws Exception{//esto va en un loop en la interfaz
+    public void selectProductos(String nombre, int cantidad){//esto va en un loop en la interfaz
         DataCarrito dc = this.memRestaurante.agregarProducto(nombre, cantidad);
         this.setDataCarrito(dc);
         Producto_Stock prodStock = this.memRestaurante.getProdCarrito(nombre);
@@ -209,6 +220,7 @@ public class CtrlPedido implements ICtrlPedido {
     
     @Override
     public DataPedido altaPedido(){
+        this.setMonto();
         Pedido nuevo = new Pedido(this.getMonto());
         nuevo.setCarrito(this.getCarrito());
         this.carrito.clear();

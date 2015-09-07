@@ -169,7 +169,7 @@ public class CargarDatos extends javax.swing.JFrame {
       DataIndividual di3 = new DataIndividual("Chivito canadiense", "Lomito, jamón, muzza, tomate, aceitunas, panceta, huevo, morrón y fritas", 305.0, "/home/martin/NetBeansProjects/ProgAplicaciones/images/productos/chivito-canadiense.jpg", 4);
       ICProd.registrarProducto(di3, "mera", false);
      
-      DataIndividual di4 = new DataIndividual("Pizza 2 gustos", "Pizza con dos gustos a elección", 130.0, "/home/martin/NetBeansProjects/ProgAplicaciones/images/productos/generico.jpg", 0);
+      DataIndividual di4 = new DataIndividual("Pizza 2 gustos", "Pizza con dos gustos a elección", 130.0, "/home/martin/NetBeansProjects/ProgAplicaciones/images/productos/generico.jpg", 100);
       ICProd.registrarProducto(di4, "mera", false);
 
       DataIndividual di5 = new DataIndividual("Chivito al plato", "Ensalada rusa, mixta, huevo, jamón, muzza, panceta, aceitunas y fritas", 324.0, "/home/martin/NetBeansProjects/ProgAplicaciones/images/productos/generico.jpg", 0);
