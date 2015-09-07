@@ -12,6 +12,8 @@ import lab01.Handlers.Fabrica;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.Iterator;
+import javafx.scene.input.MouseEvent;
+import lab01.Clases.Producto;
 
 /**
  *
@@ -19,6 +21,7 @@ import java.util.Iterator;
  */
 public class VerRestaurante extends javax.swing.JInternalFrame {
     private ICtrlUsuario ICU; 
+    private ICtrlProducto CP;
     /**
      * Creates new form VerCliente
      */
@@ -26,6 +29,7 @@ public class VerRestaurante extends javax.swing.JInternalFrame {
         initComponents();
         Fabrica fabrica = Fabrica.getInstance();
         ICU = fabrica.getICtrlUsuario();
+        CP = fabrica.getICtrlProducto();
        this.tbNickNameCliente.setVisible(false);
        
        this.tbdireccionCliente.setVisible(false);
@@ -40,12 +44,17 @@ public class VerRestaurante extends javax.swing.JInternalFrame {
        this.lblmailCliente.setVisible(false);
        this.lblnombreCliente.setVisible(false);
        model = new DefaultListModel();
+       modelProd = new DefaultListModel();
        this.client=restau;
+       Restaurante c = ICU.getRestauranteByNickname(client);
        verRest();
+       CargarLista(c);
        
     }
     DefaultListModel model;
+    DefaultListModel modelProd;
     String client;
+    //Restaurante c = ICU.getRestauranteByNickname(client);
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -71,7 +80,7 @@ public class VerRestaurante extends javax.swing.JInternalFrame {
 
        this.lblNicknameCliente.setVisible(true);
        
-       this.lbldireccionCliente.setVisible(true);
+       //this.lbldireccjListProd.ionCliente.setVisible(true);
        
        this.lblmailCliente.setVisible(true);
        this.lblnombreCliente.setVisible(true);
@@ -84,6 +93,20 @@ public class VerRestaurante extends javax.swing.JInternalFrame {
             model.addElement(map.getKey());
         }
         this.jlCat.setModel(model);
+    }
+    
+    public void CargarLista(Restaurante c){
+       //Restaurante c = ICU.getRestauranteByNickname(client);
+        Map ColProd=c.obtenerListaProductos();
+        Iterator it = ColProd.entrySet().iterator();
+        //Iterator itret = ret.entrySet().iterator();
+        while(it.hasNext()){
+            Map.Entry map = (Map.Entry) it.next();
+            modelProd.addElement(map.getKey());
+        }
+        this.jListProd.setModel(modelProd);
+        
+        
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -100,11 +123,12 @@ public class VerRestaurante extends javax.swing.JInternalFrame {
         lbldireccionCliente = new javax.swing.JLabel();
         lblnombreCliente = new javax.swing.JLabel();
         lblCatRestaurante = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jListProd = new javax.swing.JList();
 
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
-        setResizable(true);
         setPreferredSize(new java.awt.Dimension(500, 500));
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Informacion del restaurante"));
@@ -190,6 +214,14 @@ public class VerRestaurante extends javax.swing.JInternalFrame {
                 .addContainerGap(46, Short.MAX_VALUE))
         );
 
+        jListProd.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jListProd.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jListProdMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(jListProd);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -197,23 +229,41 @@ public class VerRestaurante extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addGap(43, 43, 43)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(93, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2))
+                .addContainerGap(101, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jListProdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListProdMouseClicked
+        // TODO add your handling code here:
+        Restaurante c = ICU.getRestauranteByNickname(client);
+        String prod = jListProd.getSelectedValue().toString();
+        Producto p =CP.getProdNombre(prod,c);
+        VerInfoProd verProd = new VerInfoProd(p);
+        verProd.setVisible(true);
+        //String prod = evt.getClickCount();
+        
+        
+    }//GEN-LAST:event_jListProdMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JList jListProd;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JList jlCat;
     private javax.swing.JLabel lblCatRestaurante;
     private javax.swing.JLabel lblNicknameCliente;

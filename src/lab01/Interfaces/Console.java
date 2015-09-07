@@ -46,6 +46,7 @@ public class Console extends javax.swing.JFrame {
         VerRestaurantes = new javax.swing.JMenuItem();
         jMVerinfoProd = new javax.swing.JMenuItem();
         mnuVerRestPrueba = new javax.swing.JMenuItem();
+        jMenuVerPedidos = new javax.swing.JMenuItem();
         menuGenerarPedido = new javax.swing.JMenu();
         genPedido = new javax.swing.JMenuItem();
 
@@ -138,6 +139,9 @@ public class Console extends javax.swing.JFrame {
             }
         });
         ver.add(mnuVerRestPrueba);
+
+        jMenuVerPedidos.setText("Ver Pedidos");
+        ver.add(jMenuVerPedidos);
 
         jMenuBar1.add(ver);
 
@@ -305,6 +309,7 @@ public class Console extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuVerPedidos;
     private javax.swing.JMenu menuGenerarPedido;
     private javax.swing.JMenuItem mnuRegProducto;
     private javax.swing.JMenuItem mnuRegUsuario;
