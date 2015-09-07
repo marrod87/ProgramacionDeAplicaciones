@@ -22,6 +22,7 @@ import lab01.Clases.DataProducto;
 import lab01.Clases.DataPromocional;
 import lab01.Clases.Individual;
 import lab01.Clases.Pedido;
+import lab01.Clases.Producto;
 import lab01.Clases.Producto_Stock;
 import lab01.Clases.Promocional;
 import lab01.Clases.estados;
@@ -219,8 +220,10 @@ public class CtrlPedido implements ICtrlPedido {
     @Override
     public void selectProductos(String nombre, int cantidad){//esto va en un loop en la interfaz
         DataCarrito dc = this.memRestaurante.agregarProducto(nombre, cantidad);
+        Producto pro = this.memRestaurante.getProducto(dc.getNomProd());
         this.setDataCarrito(dc);
         Producto_Stock prodStock = this.memRestaurante.getProdCarrito(nombre);
+        prodStock.setProducto(pro);
         this.addCarrito(prodStock);
     }
     
