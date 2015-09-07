@@ -127,6 +127,7 @@ public class ListarProductosRestaurante extends javax.swing.JInternalFrame {
         this.dispose();
         ICP.setDp(ICP.altaPedido());
         AltaPedido ap = new AltaPedido();
+        Console.EscritorioMenu.add(ap);
         ap.show();
         
     }//GEN-LAST:event_btnAgregarActionPerformed

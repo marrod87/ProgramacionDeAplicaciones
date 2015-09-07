@@ -22,6 +22,7 @@ import lab01.Clases.DataCliente;
  */
 public class ListarUsuariosGP extends javax.swing.JInternalFrame {
     private ICtrlPedido ICPed; 
+    private ICtrlUsuario ICU;
     /**
      * Creates new form VerCliente
      */
@@ -29,6 +30,7 @@ public class ListarUsuariosGP extends javax.swing.JInternalFrame {
         initComponents();
         Fabrica fabrica = Fabrica.getInstance();
         ICPed = fabrica.getICtrlPedido();
+        ICU= fabrica.getICtrlUsuario();
         modelo = (DefaultTableModel)jtabla.getModel();
 
         this.cargarTabla();
@@ -115,6 +117,8 @@ public class ListarUsuariosGP extends javax.swing.JInternalFrame {
     private void jbListoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbListoActionPerformed
         String nick=String.valueOf(modelo.getValueAt(jtabla.getSelectedRow(),1));
         ICPed.setNickname(nick);
+        Cliente clie = ICU.getUsuNick(nick);
+        ICPed.setMemoriaCliente(clie);
         String mail=String.valueOf(modelo.getValueAt(jtabla.getSelectedRow(), 0));
         ICPed.setMailCliente(mail);
         this.dispose();

@@ -5,6 +5,7 @@
  */
 package lab01.Clases;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
@@ -24,6 +25,7 @@ public class Cliente extends Usuario{
         this.apellido = apellido;
         this.imagen = img;
         this.fNac = fecha;
+        this.pedidos = new HashMap();
     }
 
     public Cliente(String nickname, String nombre, String email, String direccion, String apellido) {

@@ -36,4 +36,5 @@ public interface ICtrlUsuario {
     public abstract Map getLstCat();
     public abstract Map listaProductosStock(String r);
     public abstract Map listarPedidos();
+    public abstract Cliente getUsuNick(String nickname);
 }

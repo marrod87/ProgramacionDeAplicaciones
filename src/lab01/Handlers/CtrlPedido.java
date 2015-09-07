@@ -52,7 +52,10 @@ public class CtrlPedido implements ICtrlPedido {
         this.dp = dp;
     }
     
-    public CtrlPedido(){}
+    public CtrlPedido(){
+    this.ColDataCarrito = new HashMap();
+    this.carrito = new ArrayList<>();
+    }
     
     @Override
     public void setNickname(String nick){
@@ -82,7 +85,10 @@ public class CtrlPedido implements ICtrlPedido {
             this.memCliente = mu.obtenerUsuario(this.getNickname());
         }
     }
-    
+    public void setMemoriaCliente(Cliente c){
+            this.memCliente = c;
+        
+    }
     public void setCat(String nombre){
         this.categoria=nombre;
     }
@@ -223,11 +229,11 @@ public class CtrlPedido implements ICtrlPedido {
         this.setMonto();
         Pedido nuevo = new Pedido(this.getMonto());
         nuevo.setCarrito(this.getCarrito());
-        this.carrito.clear();
+        //this.carrito.clear();
         DataPedido newDP = new DataPedido(nuevo.getId(), this.getNickname(), this.getMailCliente(), nuevo.getFecha(), this.memRestaurante.getNickname(), this.getColDataCarrito(), this.getMonto(), nuevo.getEstado());
         nuevo.setDataPedido(newDP);
-        this.getMemCliente().setPedido(nuevo);
-        this.ColDataCarrito.clear();
+        this.memCliente.setPedido(nuevo);
+        //this.ColDataCarrito.clear();
         return newDP;
     }
     

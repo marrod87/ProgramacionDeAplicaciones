@@ -6,6 +6,7 @@
 package lab01.Interfaces;
 
 import java.util.Map;
+import lab01.Clases.Cliente;
 import lab01.Clases.DataPedido;
 import lab01.Clases.DataProducto;
 import lab01.Clases.estados;
@@ -34,4 +35,5 @@ public interface ICtrlPedido {
     public abstract void actualizarEPedido(String nickname, double id, estados estado) throws Exception;
     public abstract void setDp(DataPedido dp);
     public abstract DataPedido getDp();
+    public abstract void setMemoriaCliente(Cliente c);
 }

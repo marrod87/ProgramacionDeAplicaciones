@@ -42,7 +42,7 @@ public class CtrlUsuario implements ICtrlUsuario {
     
     public void setCat(Map cate){
         this.Cat=cate;
-        JOptionPane.showMessageDialog(null, "Categoria recordada","EXITO",JOptionPane.INFORMATION_MESSAGE);
+        //JOptionPane.showMessageDialog(null, "Categoria recordada","EXITO",JOptionPane.INFORMATION_MESSAGE);
     }
     
     public Map getLstCat(){
@@ -90,6 +90,10 @@ public class CtrlUsuario implements ICtrlUsuario {
     public DataCliente getUsuarioByNickname(String nickname){
         HUsuario mu = HUsuario.getinstance();
         return (mu.obtenerUsuario(nickname)).ClienteADC();
+    }
+    public Cliente getUsuNick(String nickname){
+        HUsuario mu = HUsuario.getinstance();
+        return mu.obtenerUsuario(nickname);
     }
 
     @Override
@@ -154,7 +158,7 @@ public class CtrlUsuario implements ICtrlUsuario {
         else{
             Categoria c = new Categoria(nombre);
             hu.addCategoria(c);
-            JOptionPane.showMessageDialog(null, "Se ha creado la nueva categoria","EXITO",JOptionPane.INFORMATION_MESSAGE);
+            //JOptionPane.showMessageDialog(null, "Se ha creado la nueva categoria","EXITO",JOptionPane.INFORMATION_MESSAGE);
         }
     }
 
