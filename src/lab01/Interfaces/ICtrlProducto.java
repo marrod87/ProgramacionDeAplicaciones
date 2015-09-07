@@ -8,6 +8,8 @@ import java.util.Map;
 
 import lab01.Clases.DataProducto;
 import lab01.Clases.DataIndividual;
+import lab01.Clases.Producto;
+import lab01.Clases.Restaurante;
 
 /**
  *
@@ -20,4 +22,5 @@ public interface ICtrlProducto {
     public abstract Map listarIndividuales(String nomRest);
     public abstract void setPromo(Map promo);
     public abstract void armarPromo(String rest, String nombre, String desc, double descuento);
+    public abstract Producto getProdNombre(String Nprod, Restaurante res);
 }

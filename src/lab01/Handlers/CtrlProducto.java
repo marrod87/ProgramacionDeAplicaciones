@@ -102,4 +102,8 @@ public class CtrlProducto implements ICtrlProducto {
         pro.setPrecioPromo(descuento);
         r.addProducto(pro);
     }
+    public Producto getProdNombre(String Nprod, Restaurante res){
+        return res.getProducto(Nprod);
+    
+    }
 }

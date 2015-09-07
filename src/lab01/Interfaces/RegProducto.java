@@ -276,7 +276,7 @@ public class RegProducto extends javax.swing.JInternalFrame {
                             JOptionPane.showMessageDialog(null, "Nombre: " + di.getDataNombre() + "cantidad:"+  di.getCantidad(), "aviso", JOptionPane.INFORMATION_MESSAGE);    
                         }*/
                         CP.armarPromo(tbRest.getText(),tbNombre.getText(),tbDesc.getText(), 1);
-                        
+                        JOptionPane.showMessageDialog(null, "Promocion registrada con exito", "Aviso", JOptionPane.INFORMATION_MESSAGE);
                         
                     }
 
