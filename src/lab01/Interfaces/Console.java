@@ -141,6 +141,11 @@ public class Console extends javax.swing.JFrame {
         ver.add(mnuVerRestPrueba);
 
         jMenuVerPedidos.setText("Ver Pedidos");
+        jMenuVerPedidos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuVerPedidosActionPerformed(evt);
+            }
+        });
         ver.add(jMenuVerPedidos);
 
         jMenuBar1.add(ver);
@@ -261,6 +266,13 @@ public class Console extends javax.swing.JFrame {
         CargarDatos cargar = new CargarDatos();
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuVerPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuVerPedidosActionPerformed
+        // TODO add your handling code here:
+        ListarPedidos list = new ListarPedidos();
+        EscritorioMenu.add(list);
+        list.show();
+    }//GEN-LAST:event_jMenuVerPedidosActionPerformed
 
     /**
      * @param args the command line arguments

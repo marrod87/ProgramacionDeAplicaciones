@@ -18,7 +18,10 @@ import java.util.Map;
 import java.util.HashMap;
 import lab01.Clases.Categoria;
 import lab01.Clases.DataCliente;
+import lab01.Clases.DataPedido;
 import lab01.Clases.DataRestaurante;
+import lab01.Clases.Pedido;
+import lab01.Clases.Usuario;
 
 /**
  *
@@ -174,6 +177,28 @@ public class CtrlUsuario implements ICtrlUsuario {
         return lProd;
     }
 
+    public Map listarPedidos(){
+        HUsuario HU = HUsuario.getinstance();
+        Map lu = HU.obtenerColeccion();
+        Map ret = new HashMap();
+        Iterator it = lu.entrySet().iterator();
+        while(it.hasNext()){
+            Map.Entry map = (Map.Entry) it.next();
+            if(map instanceof Cliente){
+                Cliente c = (Cliente)map.getValue();
+                Map lp = c.listaPedidos();
+                Iterator itp = lp.entrySet().iterator();
+                while(itp.hasNext()){
+                    Map.Entry mapP = (Map.Entry) itp.next();
+                    Pedido p = (Pedido)mapP.getValue();
+                    DataPedido dp = p.getDataPedido();
+                    
+                    ret.put(dp.getId(), dp);
+                }
+            }
+        }
+    return ret;
+    }
 //    @Override
 //    public void registrarRestaurante(DataRestaurante dt) {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

@@ -89,4 +89,7 @@ public class Cliente extends Usuario{
     public void actualizarEstadoPedido(double id, estados estado) throws Exception{
         this.getPedido(id).setEstado(estado);
     }
+    public Map listaPedidos(){
+    return this.pedidos;
+    }
 }

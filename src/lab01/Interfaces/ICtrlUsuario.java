@@ -32,7 +32,8 @@ public interface ICtrlUsuario {
     public abstract void registrarCat(String nombre);
     public abstract Map retColCat();
     public abstract Map listaUsuPorCategoria(String cate);
-    public void setCat(Map cate);
+    public abstract void setCat(Map cate);
     public abstract Map getLstCat();
     public abstract Map listaProductosStock(String r);
+    public abstract Map listarPedidos();
 }
