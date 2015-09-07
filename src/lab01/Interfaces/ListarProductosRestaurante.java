@@ -5,8 +5,11 @@
  */
 package lab01.Interfaces;
 
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import lab01.Clases.Restaurante;
 import lab01.Handlers.Fabrica;
@@ -21,13 +24,14 @@ public class ListarProductosRestaurante extends javax.swing.JInternalFrame {
      * Creates new form ListarProductosRestaurante
      */
     ICtrlUsuario ICU;
+    ICtrlPedido ICP;
     int fila = 0;
     public ListarProductosRestaurante(String res) {
         initComponents();
         Fabrica fabrica = Fabrica.getInstance();
         ICU = fabrica.getICtrlUsuario();
         modelo = (DefaultTableModel)tblProductosRes.getModel();
-        
+        ICP = fabrica.getICtrlPedido();
         LoadTableProductRest(res);
     }
     DefaultTableModel modelo;
@@ -76,6 +80,11 @@ public class ListarProductosRestaurante extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(tblProductosRes);
 
         btnAgregar.setText("Agregar");
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -100,17 +109,40 @@ public class ListarProductosRestaurante extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+        int j = tblProductosRes.getRowCount();
+        for(int i=0; i<tblProductosRes.getRowCount(); i++){
+            if(!modelo.getValueAt(i,1).toString().equals("0")){
+                String nom = modelo.getValueAt(i,0).toString();
+                int cant = (int)modelo.getValueAt(i,1);
+               // try{
+                    ICP.selectProductos(nom, cant);
+                //}catch (Exception ex){
+                    
+                //}
+                
+            }
+        }
+        this.dispose();
+        ICP.setDp(ICP.altaPedido());
+        AltaPedido ap = new AltaPedido();
+        ap.show();
+        
+    }//GEN-LAST:event_btnAgregarActionPerformed
     
     private void LoadTableProductRest(String res){
         Restaurante r = null;
         String lista[]=new String[2];
         r = ICU.getRestauranteByNickname(res);
+        ICP.setMemRestaurante(res);
         Map lstProd = r.obtenerListaProductos();
         Iterator it = lstProd.entrySet().iterator();
         while(it.hasNext()){
             Map.Entry mapcol = (Map.Entry) it.next();
             String nomProd = mapcol.getKey().toString();
             lista[0]=nomProd;
+            lista[1]= "0";
             modelo.insertRow((int)fila, lista);
             fila++;
         }
