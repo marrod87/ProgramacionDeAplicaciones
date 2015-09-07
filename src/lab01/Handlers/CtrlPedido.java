@@ -131,7 +131,7 @@ public class CtrlPedido implements ICtrlPedido {
         while(it.hasNext()){
             Map.Entry map = (Map.Entry) it.next();
             DataCarrito dc = (DataCarrito)map.getValue();
-            suma = suma + dc.getPrecio();
+            suma = suma + (dc.getPrecio()*dc.getCantidad());
         }
         this.monto = suma;
     }
