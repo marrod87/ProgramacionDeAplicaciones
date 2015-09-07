@@ -38,4 +38,7 @@ public class Producto_Stock {
     public void setPrecio(double precio){
         this.precio = precio;
     }
+    public void setProducto(Producto p){
+        this.prod=p;
+    }
 }
