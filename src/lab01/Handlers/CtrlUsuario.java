@@ -188,7 +188,7 @@ public class CtrlUsuario implements ICtrlUsuario {
         Iterator it = lu.entrySet().iterator();
         while(it.hasNext()){
             Map.Entry map = (Map.Entry) it.next();
-            if(map instanceof Cliente){
+            if(map.getValue() instanceof Cliente){
                 Cliente c = (Cliente)map.getValue();
                 Map lp = c.listaPedidos();
                 Iterator itp = lp.entrySet().iterator();

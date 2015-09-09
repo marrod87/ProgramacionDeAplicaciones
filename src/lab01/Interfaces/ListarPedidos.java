@@ -43,6 +43,11 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTabla = new javax.swing.JTable();
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
+
         jTabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -66,6 +71,12 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTabla.setName("Pedidos"); // NOI18N
+        jTabla.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTablaMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTabla);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -73,9 +84,9 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(32, 32, 32)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(51, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -86,6 +97,11 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTablaMouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jTablaMouseClicked
     public void CargarTabla(){
         Map lp =ICU.listarPedidos();
         Iterator it = lp.entrySet().iterator();

@@ -28,18 +28,7 @@ public class VerCliente extends javax.swing.JInternalFrame {
         Fabrica fabrica = Fabrica.getInstance();
         ICU = fabrica.getICtrlUsuario();
         cargarDatos();
-       /*this.tbNickNameCliente.setVisible(false);
-       this.tbapellidoClente.setVisible(false);
-       this.tbdireccionCliente.setVisible(false);
-       this.tbfechaDeNacCliente.setVisible(false);
-       this.tbmailCliente.setVisible(false);
-       this.tbnombreCliente.setVisible(false);
-       this.lblNicknameCliente.setVisible(false);
-       this.lblapellidoCliente.setVisible(false);
-       this.lbldireccionCliente.setVisible(false);
-       this.lblfechaNacCliente.setVisible(false);
-       this.lblmailCliente.setVisible(false);
-       this.lblnombreCliente.setVisible(false);*/
+      
     }
 
     /**
@@ -71,6 +60,7 @@ public class VerCliente extends javax.swing.JInternalFrame {
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
+        setTitle("Ver informacion del cliente");
         setPreferredSize(new java.awt.Dimension(500, 500));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos del cliente"));
@@ -178,8 +168,8 @@ public class VerCliente extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(83, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(116, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

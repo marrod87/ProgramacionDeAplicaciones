@@ -12,7 +12,6 @@ import lab01.Handlers.Fabrica;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.Iterator;
-import javafx.scene.input.MouseEvent;
 import lab01.Clases.Producto;
 
 /**

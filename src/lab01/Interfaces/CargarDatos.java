@@ -12,6 +12,7 @@ import lab01.Clases.Cliente;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import javax.swing.JOptionPane;
 import lab01.Clases.DataIndividual;
 import lab01.Clases.DataRestaurante;
 
@@ -67,20 +68,20 @@ public class CargarDatos extends javax.swing.JFrame {
 
       //CLIENTES
       
-             ICU.ingresarDatos("costas", "gcostas@gmail.com","Gerardo",  "Av. Italia 2078");
-      ICU.registrarCliente("Costas", "/home/martin/NetBeansProjects/ProgAplicaciones/images/clientes/costas.jpeg", "15/11/1983");
+      ICU.ingresarDatos("costas", "gcostas@gmail.com","Gerardo",  "Av. Italia 2078");
+      ICU.registrarCliente("Costas", "C:\\Users\\mcastro\\Documents\\NetBeansProjects\\ProgramacionDeAplicaciones\\images\\costas.jpeg", "15/11/1983");
      
       ICU.ingresarDatos("roro", "rcotelo@yahoo.com","Rodrigo", "Pdte. Berro 1548");
-      ICU.registrarCliente("Cotelo", "/home/martin/NetBeansProjects/ProgAplicaciones/images/clientes/roro.jpeg", "02/08/1975");
+      ICU.registrarCliente("Cotelo", "C:\\Users\\mcastro\\Documents\\NetBeansProjects\\ProgramacionDeAplicaciones\\images\\roro.jpeg", "02/08/1975");
 
       ICU.ingresarDatos("chechi", "cgarrido@hotmail.com","Cecilia", "Gral. Urquiza 1548");
-      ICU.registrarCliente("Garrido", "/home/martin/NetBeansProjects/ProgAplicaciones/images/clientes/chechi.jpeg", "12/09/1987");
+      ICU.registrarCliente("Garrido", "C:\\Users\\mcastro\\Documents\\NetBeansProjects\\ProgramacionDeAplicaciones\\images\\chechi.jpeg", "12/09/1987");
      
       ICU.ingresarDatos("andy", "agarcia@gmail.com","Andrea", "Dr. Manuel Albo 4512");
-      ICU.registrarCliente("García", "/home/martin/NetBeansProjects/ProgAplicaciones/images/clientes/andy.jpeg", "28/07/1951");
+      ICU.registrarCliente("García", "C:\\Users\\mcastro\\Documents\\NetBeansProjects\\ProgramacionDeAplicaciones\\imagesandy.jpeg", "28/07/1951");
 
       ICU.ingresarDatos("weiss", "aweiss@gmail.com","Adrián", "Monte Caseros 5615");
-      ICU.registrarCliente("Weiss", "/home/martin/NetBeansProjects/ProgAplicaciones/images/clientes/generico.jpeg", "23/12/1978");
+      ICU.registrarCliente("Weiss", "C:\\Users\\mcastro\\Documents\\NetBeansProjects\\ProgramacionDeAplicaciones\\images\\generico.jpeg", "23/12/1978");
  
       //CATEGORÍAS
      
@@ -208,6 +209,8 @@ public class CargarDatos extends javax.swing.JFrame {
      
       DataIndividual di16 = new DataIndividual("Classic wok de cerdo", "Cerdo, vegetales mixtos, jengibre, salsa de ostras y ralladura de lima, acompañado de tallarines o arroz.", 230.0, "/home/martin/NetBeansProjects/ProgAplicaciones/images/productos/generico.jpg", 0);
       ICProd.registrarProducto(di16, "winb", false);
+      
+        JOptionPane.showMessageDialog(null, "Los datos de prueba se cargaron con exito","EXITO",JOptionPane.INFORMATION_MESSAGE);
     }
     
     public static void main(String args[]) {
