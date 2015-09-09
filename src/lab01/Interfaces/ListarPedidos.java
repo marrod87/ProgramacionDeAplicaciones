@@ -5,11 +5,19 @@
  */
 package lab01.Interfaces;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;
 import lab01.Handlers.Fabrica;
 import javax.swing.table.DefaultTableModel;
+import lab01.Clases.DataPedido;
+import lab01.Clases.DataProducto;
 import lab01.Clases.DataRestaurante;
+import lab01.Clases.Pedido;
+import lab01.Clases.Producto;
+import lab01.Clases.Producto_Stock;
+import lab01.Clases.estados;
+import lab01.Handlers.HUsuario;
 
 
 /**
@@ -23,6 +31,10 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
      */
     DefaultTableModel model;
     ICtrlUsuario ICU;
+    ICtrlPedido ICP;
+    DataPedido ped;
+    private Map listaProductos;
+    
     public ListarPedidos() {
         initComponents();
         Fabrica fabrica = Fabrica.getInstance();
@@ -99,8 +111,30 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTablaMouseClicked
-        // TODO add your handling code here:
-        
+//        // TODO add your handling code here:
+////        int idPedido = 0;
+////        idPedido = Integer.parseInt(evt.toString());
+//        
+//        listaProductos = ped.getColCarrito();
+//        Iterator it = listaProductos.entrySet().iterator();
+//        Producto_Stock p;
+//        Producto prod;
+//       
+//        int i =0;
+//        int max = listaProductos.size();
+//        while(it.hasNext()){
+//            Map.Entry map = (Map.Entry) it.next();
+//            p = map.getValue();
+//            //dp = ge
+//            prod = p.getProd();
+//            VerInfoProd verinfo = new VerInfoProd(prod);
+//            verinfo.setVisible(true);
+//        }
+//    }                                   
+//            prod = p.getProd();
+//            VerInfoProd verinfo = new VerInfoProd(prod);
+//            verinfo.setVisible(true);
+//        }
     }//GEN-LAST:event_jTablaMouseClicked
     public void CargarTabla(){
         Map lp =ICU.listarPedidos();
@@ -109,6 +143,7 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
             while(it.hasNext()){
                 Map.Entry map = (Map.Entry) it.next();
                 String id = map.getKey().toString();
+                ped = (DataPedido)lp.get(map.getKey());
                 lista[0]=id;
                 model.insertRow((int)jTabla.getRowCount(), lista);
                 
