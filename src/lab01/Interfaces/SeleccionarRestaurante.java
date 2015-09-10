@@ -139,6 +139,7 @@ public class SeleccionarRestaurante extends javax.swing.JInternalFrame {
         VerRestaurante verR = new VerRestaurante(rest);
             Console.EscritorioMenu.add(verR);
             verR.show();
+            this.dispose();
     }//GEN-LAST:event_treeCatValueChanged
 
 

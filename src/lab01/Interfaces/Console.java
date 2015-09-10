@@ -45,7 +45,6 @@ public class Console extends javax.swing.JFrame {
         VerClientes = new javax.swing.JMenuItem();
         VerRestaurantes = new javax.swing.JMenuItem();
         jMVerinfoProd = new javax.swing.JMenuItem();
-        mnuVerRestPrueba = new javax.swing.JMenuItem();
         jMenuVerPedidos = new javax.swing.JMenuItem();
         menuGenerarPedido = new javax.swing.JMenu();
         genPedido = new javax.swing.JMenuItem();
@@ -132,14 +131,6 @@ public class Console extends javax.swing.JFrame {
         });
         ver.add(jMVerinfoProd);
 
-        mnuVerRestPrueba.setText("Ver Restaurantes Prueba");
-        mnuVerRestPrueba.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnuVerRestPruebaActionPerformed(evt);
-            }
-        });
-        ver.add(mnuVerRestPrueba);
-
         jMenuVerPedidos.setText("Ver Pedidos");
         jMenuVerPedidos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -223,9 +214,9 @@ public class Console extends javax.swing.JFrame {
     }//GEN-LAST:event_smnuRegCatActionPerformed
 
     private void VerRestaurantesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VerRestaurantesActionPerformed
-        //VerRestaurante verRes = new VerRestaurante();
-        //EscritorioMenu.add(verRes); 
-        //verRes.show();// TODO add your handling code here:
+        SeleccionarRestaurante selecCat = new SeleccionarRestaurante();
+        EscritorioMenu.add(selecCat);
+        selecCat.show();
     }//GEN-LAST:event_VerRestaurantesActionPerformed
 
     private void menuGenerarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuGenerarPedidoActionPerformed
@@ -248,12 +239,6 @@ public class Console extends javax.swing.JFrame {
         //EscritorioMenu.add(generar);
         //generar.show();
     }//GEN-LAST:event_genPedidoActionPerformed
-
-    private void mnuVerRestPruebaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuVerRestPruebaActionPerformed
-        SeleccionarRestaurante selecCat = new SeleccionarRestaurante();
-        EscritorioMenu.add(selecCat);
-        selecCat.show();
-    }//GEN-LAST:event_mnuVerRestPruebaActionPerformed
 
     private void jMVerinfoProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMVerinfoProdActionPerformed
         // TODO add your handling code here:
@@ -326,7 +311,6 @@ public class Console extends javax.swing.JFrame {
     private javax.swing.JMenuItem mnuRegProducto;
     private javax.swing.JMenuItem mnuRegUsuario;
     private javax.swing.JMenuItem mnuSalir;
-    private javax.swing.JMenuItem mnuVerRestPrueba;
     private javax.swing.JMenuItem smnuRegCat;
     private javax.swing.JMenu smnuSalir;
     private javax.swing.JMenu ver;

@@ -92,14 +92,12 @@ public class Promocional extends Producto {
     @Override
     public boolean prodDisponible(int cantidad){
         for(Cantidad_Individual ci: ColCantIndividual){
-            int aux = ci.getProdIndividual().getProdStock().getCantidad() * cantidad;
+            int aux = ci.getCantidad() * cantidad;
             if(ci.getProdIndividual().prodDisponible(aux)){
                 continue;
             }
-            try {
-                throw new Exception("Stock Insuficiente...");
-            } catch (Exception ex) {
-                Logger.getLogger(Promocional.class.getName()).log(Level.SEVERE, null, ex);
+            else{
+                return false;
             }
         }
         return true;
@@ -108,7 +106,7 @@ public class Promocional extends Producto {
     @Override
     public void restarStock(int cantidad){
         for(Cantidad_Individual ci: ColCantIndividual){
-            int aux = ci.getProdIndividual().getProdStock().getCantidad() * cantidad;
+            int aux = ci.getCantidad() * cantidad;
             int aux2 = ci.getProdIndividual().getProdStock().getCantidad() - aux;
             ci.getProdIndividual().getProdStock().setCantidad(aux2);
         }

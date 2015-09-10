@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.Iterator;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -92,14 +93,15 @@ public class Restaurante extends Usuario{
     
     public DataCarrito agregarProducto(String nombre, int cantidad){
         Producto prod = this.getProducto(nombre);
-        //if(prod.prodDisponible(cantidad)){
+        String nomerror = prod.getNombre(); 
+        if(prod.prodDisponible(cantidad)){
             DataCarrito dc = prod.getDataCarrito(cantidad);
-          //  prod.restarStock(cantidad);
+            prod.restarStock(cantidad);
             return dc;
-        //}
-        //else
-            //return null;
-        //throw new Exception("No hay stock");
+        }
+        else
+            JOptionPane.showMessageDialog(null, nomerror, "Sin Stock", JOptionPane.INFORMATION_MESSAGE);
+            return null;
     }
     
     public Producto_Stock getProdCarrito(String nombre){

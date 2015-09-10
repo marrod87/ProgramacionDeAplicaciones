@@ -139,6 +139,7 @@ public class SelRestauranteListarUsuario extends javax.swing.JInternalFrame {
         ListarProductosRestaurante verP = new ListarProductosRestaurante(rest);
             Console.EscritorioMenu.add(verP);
             verP.show();
+            this.dispose();
     }//GEN-LAST:event_treeCatValueChanged
 
 

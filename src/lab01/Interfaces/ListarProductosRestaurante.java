@@ -25,6 +25,7 @@ public class ListarProductosRestaurante extends javax.swing.JInternalFrame {
      */
     ICtrlUsuario ICU;
     ICtrlPedido ICP;
+    boolean stock;
     int fila = 0;
     public ListarProductosRestaurante(String res) {
         initComponents();
@@ -116,20 +117,20 @@ public class ListarProductosRestaurante extends javax.swing.JInternalFrame {
             if(!modelo.getValueAt(i,1).toString().equals("0")){
                 String nom = modelo.getValueAt(i,0).toString();
                 int cant = (int)modelo.getValueAt(i,1);
-               // try{
-                    ICP.selectProductos(nom, cant);
-                //}catch (Exception ex){
-                    
-                //}
+                stock = ICP.selectProductos(nom, cant);
                 
             }
         }
-        this.dispose();
-        ICP.setDp(ICP.altaPedido());
-        AltaPedido ap = new AltaPedido();
-        Console.EscritorioMenu.add(ap);
-        ap.show();
-        
+        if(stock){
+            this.dispose();
+            ICP.setDp(ICP.altaPedido());
+            AltaPedido ap = new AltaPedido();
+            Console.EscritorioMenu.add(ap);
+            ap.show();
+        }
+        else{
+            ICP.limpiarCtrl();
+        }
     }//GEN-LAST:event_btnAgregarActionPerformed
     
     private void LoadTableProductRest(String res){

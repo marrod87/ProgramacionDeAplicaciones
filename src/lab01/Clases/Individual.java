@@ -54,7 +54,7 @@ public class Individual extends Producto {
     
     @Override
     public void restarStock(int cantidad){
-        int aux = cantidad - this.getProdStock().getCantidad();
+        int aux = this.getProdStock().getCantidad() - cantidad;
         this.getProdStock().setCantidad(aux);
     }
 

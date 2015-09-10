@@ -218,25 +218,29 @@ public class CtrlPedido implements ICtrlPedido {
     }
     
     @Override
-    public void selectProductos(String nombre, int cantidad){//esto va en un loop en la interfaz
+    public boolean selectProductos(String nombre, int cantidad){//esto va en un loop en la interfaz
         DataCarrito dc = this.memRestaurante.agregarProducto(nombre, cantidad);
-        Producto pro = this.memRestaurante.getProducto(dc.getNomProd());
-        this.setDataCarrito(dc);
-        Producto_Stock prodStock = this.memRestaurante.getProdCarrito(nombre);
-        prodStock.setProducto(pro);
-        this.addCarrito(prodStock);
+        if(dc != null){
+            Producto pro = this.memRestaurante.getProducto(dc.getNomProd());
+            this.setDataCarrito(dc);
+            Producto_Stock prodStock = this.memRestaurante.getProdCarrito(nombre);
+            prodStock.setProducto(pro);
+            this.addCarrito(prodStock);
+            return true;
+        }
+        else{
+            return false;
+        }
     }
     
     @Override
     public DataPedido altaPedido(){
         this.setMonto();
         Pedido nuevo = new Pedido(this.getMonto());
-        nuevo.setCarrito(this.getCarrito());
-        //this.carrito.clear();
+        nuevo.setCarrito(this.getCarrito());        
         DataPedido newDP = new DataPedido(nuevo.getId(), this.getNickname(), this.getMailCliente(), nuevo.getFecha(), this.memRestaurante.getNickname(), this.getColDataCarrito(), this.getMonto(), nuevo.getEstado());
         nuevo.setDataPedido(newDP);
         this.memCliente.setPedido(nuevo);
-        //this.ColDataCarrito.clear();
         return newDP;
     }
     
@@ -258,6 +262,12 @@ public class CtrlPedido implements ICtrlPedido {
             }
         }
         return aux;
+    }
+    
+    @Override
+    public void limpiarCtrl(){
+        this.getCarrito().clear();
+        this.getColDataCarrito().clear();
     }
     
     @Override
