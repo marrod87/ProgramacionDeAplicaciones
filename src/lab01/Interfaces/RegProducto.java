@@ -207,6 +207,11 @@ public class RegProducto extends javax.swing.JInternalFrame {
 
         btnCancel.setText("Cancelar");
         btnCancel.setEnabled(false);
+        btnCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -250,6 +255,7 @@ public class RegProducto extends javax.swing.JInternalFrame {
         boolean Promocional = false;
         String p;
         double precio;
+        double descuento;
         int cantidad;
         
 
@@ -275,7 +281,9 @@ public class RegProducto extends javax.swing.JInternalFrame {
                             DataIndividual di = (DataIndividual) map.getValue();
                             JOptionPane.showMessageDialog(null, "Nombre: " + di.getDataNombre() + "cantidad:"+  di.getCantidad(), "aviso", JOptionPane.INFORMATION_MESSAGE);    
                         }*/
-                        CP.armarPromo(tbRest.getText(),tbNombre.getText(),tbDesc.getText(), 1);
+                        p = JOptionPane.showInputDialog(null, "Ingrese descuento:", "Ingreso de descuento", JOptionPane.INFORMATION_MESSAGE);
+                        descuento = Double.parseDouble(p);
+                        CP.armarPromo(tbRest.getText(),tbNombre.getText(),tbDesc.getText(), descuento);
                         JOptionPane.showMessageDialog(null, "Promocion registrada con exito", "Aviso", JOptionPane.INFORMATION_MESSAGE);
                         
                     }
@@ -311,6 +319,11 @@ public class RegProducto extends javax.swing.JInternalFrame {
            
         
     }//GEN-LAST:event_rbPromocionalItemStateChanged
+
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_btnCancelActionPerformed
 
     public void habilitarCampos() {
         tbNombre.setEnabled(true);

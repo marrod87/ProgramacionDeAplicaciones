@@ -9,6 +9,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
+import javax.swing.JOptionPane;
 import static lab01.Clases.estados.ENVIADO;
 import static lab01.Clases.estados.PREPARACION;
 import static lab01.Clases.estados.RECIBIDO;
@@ -64,23 +65,23 @@ public class Pedido {
         return estado;
     }
 
-    public void setEstado(estados estado) throws Exception {
+    public void setEstado(estados estado){
         if(this.getEstado() == PREPARACION){
             if(estado == ENVIADO || estado == RECIBIDO){
                 this.estado = estado;
                 this.getDataPedido().setEstado(estado);
             }
-            throw new Exception("Estado Incorrecto...");
+            JOptionPane.showMessageDialog(null, "El pedido esta en Preparacion", "Conflicto de Estado", JOptionPane.INFORMATION_MESSAGE);
         }
         if(this.getEstado() == ENVIADO){
             if(estado == RECIBIDO){
                 this.estado = estado;
                 this.getDataPedido().setEstado(estado);
             }
-            throw new Exception("Estado Incorrecto...");
+            JOptionPane.showMessageDialog(null, "El pedido esta siendo Enviado", "Conflicto de Estado", JOptionPane.INFORMATION_MESSAGE);
         }
         if(this.getEstado() == RECIBIDO){
-            throw new Exception("Pedido Entregado...");
+            JOptionPane.showMessageDialog(null, "El pedido fue Recibido", "Conflicto de Estado", JOptionPane.INFORMATION_MESSAGE);
         }
     }
     
@@ -90,6 +91,15 @@ public class Pedido {
     
     public void setCarrito(ArrayList<Producto_Stock> carrito){
         this.carrito = carrito;
+    }
+    
+    public void vaciarPedido(){
+        this.getDataCarrito().clear();
+        this.setDataPedido(null);
+    }
+    
+    public boolean sePuedeBorrar(){
+        return this.getEstado() == PREPARACION;
     }
     
     public DataPedido getDataPedido(){

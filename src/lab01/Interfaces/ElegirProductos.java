@@ -49,6 +49,11 @@ public class ElegirProductos extends javax.swing.JInternalFrame {
         jTabla = new javax.swing.JTable();
         jblisto = new javax.swing.JButton();
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
+
         jTabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 

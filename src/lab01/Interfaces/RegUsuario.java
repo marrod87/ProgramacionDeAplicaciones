@@ -77,6 +77,11 @@ private ICtrlUsuario ICU;
         setTitle("Registrar Usuario");
 
         btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
 
         btnRegistrar.setText("Registrar");
         btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
@@ -406,6 +411,11 @@ private ICtrlUsuario ICU;
     private void tbSelImagenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbSelImagenActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tbSelImagenActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

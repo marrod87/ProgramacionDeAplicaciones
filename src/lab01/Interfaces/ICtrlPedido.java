@@ -32,9 +32,10 @@ public interface ICtrlPedido {
     public abstract void setMonto();
     public abstract DataPedido altaPedido();
     public abstract Map listDataPedidos();
-    public abstract void actualizarEPedido(String nickname, double id, estados estado) throws Exception;
+    public abstract void actualizarEPedido(String nickname, long id, estados estado);
     public abstract void setDp(DataPedido dp);
     public abstract DataPedido getDp();
     public abstract void setMemoriaCliente(Cliente c);
     public abstract void limpiarCtrl();
+    public abstract void cancelarPedido(long id);
 }

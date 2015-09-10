@@ -42,6 +42,7 @@ public class AltaPedido extends javax.swing.JInternalFrame {
         Double tot = ICP.getDp().getPrecio_total();
         String sTotal = Double.toString(tot);
         lblTotalPedido.setText(sTotal);
+        //ICP.limpiarCtrl();
         
         //LoadTablePedido();
 

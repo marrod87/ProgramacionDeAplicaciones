@@ -14,9 +14,7 @@ import java.util.Iterator;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import lab01.Clases.DataCliente;
 import lab01.Clases.Producto;
-import lab01.Interfaces.VerInfoProducto_old;
 import lab01.Clases.Restaurante;
 
 

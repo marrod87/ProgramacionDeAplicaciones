@@ -265,13 +265,32 @@ public class CtrlPedido implements ICtrlPedido {
     }
     
     @Override
+    public void cancelarPedido(long id){
+        HUsuario hu = HUsuario.getinstance();
+        Pedido p;
+        Iterator user = hu.obtenerColeccion().entrySet().iterator();
+        while(user.hasNext()){
+            Map.Entry users = (Map.Entry) user.next();
+            if(users.getValue() instanceof Cliente){
+                Cliente client = (Cliente)users.getValue();
+                if(client.existePedido(id)){
+                    p = client.getPedido(id);
+                    client.quitarPedido(id);
+                    p.vaciarPedido();
+                    p = null;
+                }
+            }
+        }
+    }
+    
+    @Override
     public void limpiarCtrl(){
         this.getCarrito().clear();
         this.getColDataCarrito().clear();
     }
     
     @Override
-    public void actualizarEPedido(String nickname, double id, estados estado) throws Exception{//usar listarDataPedido antes q esto xD
+    public void actualizarEPedido(String nickname, long id, estados estado){//usar listarDataPedido antes q esto xD
         HUsuario hu = HUsuario.getinstance();
         Cliente user = hu.obtenerUsuario(nickname);
         user.actualizarEstadoPedido(id, estado);

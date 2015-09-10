@@ -8,6 +8,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -63,7 +64,8 @@ public class Cliente extends Usuario{
         return this.pedidos;
     }
     
-    public Pedido getPedido(double id) throws Exception{
+    public Pedido getPedido(long id){
+        double iderror = 0;
         Iterator it = this.getPedidos().entrySet().iterator();
         while(it.hasNext()){
             Map.Entry peds = (Map.Entry) it.next();
@@ -72,7 +74,16 @@ public class Cliente extends Usuario{
                 return p;
             }
         }
-        throw new Exception("No existe el pedido...");
+        JOptionPane.showMessageDialog(null, "Id:" + iderror, "No Existe Pedido", JOptionPane.INFORMATION_MESSAGE);
+        return null;
+    }
+    
+    public boolean existePedido(long id){
+        return this.getPedidos().containsKey(id);
+    }
+    
+    public void quitarPedido(long id){
+        this.getPedidos().remove(id);
     }
     
     public void setPedido(Pedido p){
@@ -88,7 +99,7 @@ public class Cliente extends Usuario{
         return DC;
     }
     
-    public void actualizarEstadoPedido(double id, estados estado) throws Exception{
+    public void actualizarEstadoPedido(long id, estados estado){
         this.getPedido(id).setEstado(estado);
     }
     public Map listaPedidos(){

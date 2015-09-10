@@ -5,9 +5,12 @@
  */
 package lab01.Interfaces;
 
+import java.awt.Point;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import lab01.Handlers.Fabrica;
 import javax.swing.table.DefaultTableModel;
 import lab01.Clases.DataPedido;
@@ -30,15 +33,14 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
      * Creates new form ListarPedidos
      */
     DefaultTableModel model;
-    ICtrlUsuario ICU;
     ICtrlPedido ICP;
     DataPedido ped;
-    private Map listaProductos;
+    private Map listaPedidos;
     
     public ListarPedidos() {
         initComponents();
         Fabrica fabrica = Fabrica.getInstance();
-        ICU = fabrica.getICtrlUsuario();
+        ICP = fabrica.getICtrlPedido();
         model = (DefaultTableModel)jTabla.getModel();
         CargarTabla();
     }
@@ -111,39 +113,35 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTablaMouseClicked
-//        // TODO add your handling code here:
-////        int idPedido = 0;
-////        idPedido = Integer.parseInt(evt.toString());
-//        
-//        listaProductos = ped.getColCarrito();
-//        Iterator it = listaProductos.entrySet().iterator();
-//        Producto_Stock p;
-//        Producto prod;
-//       
-//        int i =0;
-//        int max = listaProductos.size();
-//        while(it.hasNext()){
-//            Map.Entry map = (Map.Entry) it.next();
-//            p = map.getValue();
-//            //dp = ge
-//            prod = p.getProd();
-//            VerInfoProd verinfo = new VerInfoProd(prod);
-//            verinfo.setVisible(true);
-//        }
-//    }                                   
-//            prod = p.getProd();
-//            VerInfoProd verinfo = new VerInfoProd(prod);
-//            verinfo.setVisible(true);
-//        }
+        // TODO add your handling code here:
+        String idPedido = null;
+        long id = 0;
+        listaPedidos = ICP.listDataPedidos();
+        JTable tab = (JTable)evt.getSource();
+        Point point = evt.getPoint();
+        int fila = tab.rowAtPoint(point);
+        if(evt.getClickCount() == 1){
+            idPedido = jTabla.getValueAt(fila,0).toString();
+            id = Long.parseLong(idPedido);
+        }
+        try{
+            ped = (DataPedido)listaPedidos.get(id);
+             
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "El pedido no esta en el sistema","Error",JOptionPane.ERROR_MESSAGE);
+        }
+        InfoPedidoYBaja infoPed = new InfoPedidoYBaja(ped);
+        infoPed.setVisible(true);
     }//GEN-LAST:event_jTablaMouseClicked
+    
     public void CargarTabla(){
-        Map lp =ICU.listarPedidos();
+        Map lp =ICP.listDataPedidos();
         Iterator it = lp.entrySet().iterator();
         String lista[]=new String[1];
             while(it.hasNext()){
                 Map.Entry map = (Map.Entry) it.next();
-                String id = map.getKey().toString();
-                ped = (DataPedido)lp.get(map.getKey());
+                ped = (DataPedido)map.getValue();
+                String id = String.valueOf(ped.getId());
                 lista[0]=id;
                 model.insertRow((int)jTabla.getRowCount(), lista);
                 
