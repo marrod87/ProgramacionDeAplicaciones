@@ -83,11 +83,11 @@ public class Promocional extends Producto {
         return dPromo;
     }
     
-    @Override
-    public DataCarrito getDataCarrito(int cantidad){
-        DataCarrito dc = new DataCarrito(this.getNombre(), true, cantidad, this.getPrecio());
-        return dc;
-    }
+//    @Override
+//    public DataCarrito getDataCarrito(int cantidad){
+//        DataCarrito dc = new DataCarrito(this.getNombre(), true, cantidad, this.getPrecio());
+//        return dc;
+//    }
     
     @Override
     public boolean prodDisponible(int cantidad){

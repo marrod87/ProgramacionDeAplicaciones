@@ -42,6 +42,10 @@ public class CtrlProducto implements ICtrlProducto {
             if (!promocional) { // si el producto es individual
                 Producto i = new Individual(di.getDataNombre(), di.getDataDescripcion(), di.getDataPrecio(), di.getCantidad());
                 restoran.addProducto(i); //agrego el producto a la coleccion de productos de ese restoran
+                if(restoran.tengoProd(i)){
+                    JOptionPane.showMessageDialog(null, "tengo el producto", "Aviso", JOptionPane.INFORMATION_MESSAGE);
+
+                }
 
             } else {
 

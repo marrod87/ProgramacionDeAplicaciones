@@ -34,7 +34,7 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
      */
     DefaultTableModel model;
     ICtrlPedido ICP;
-    DataPedido ped;
+    Pedido ped;
     private Map listaPedidos;
     
     public ListarPedidos() {
@@ -124,12 +124,13 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
             idPedido = jTabla.getValueAt(fila,0).toString();
             id = Long.parseLong(idPedido);
         }
-        try{
-            ped = (DataPedido)listaPedidos.get(id);
+//        try{
+            Pedido ped = (Pedido)listaPedidos.get(id);
              
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null, "El pedido no esta en el sistema","Error",JOptionPane.ERROR_MESSAGE);
-        }
+//        }catch(Exception e){
+//            JOptionPane.showMessageDialog(null, "El pedido no esta en el sistema","Error",JOptionPane.ERROR_MESSAGE);
+//        }
+         
         InfoPedidoYBaja infoPed = new InfoPedidoYBaja(ped);
         infoPed.setVisible(true);
     }//GEN-LAST:event_jTablaMouseClicked
@@ -140,7 +141,7 @@ public class ListarPedidos extends javax.swing.JInternalFrame {
         String lista[]=new String[1];
             while(it.hasNext()){
                 Map.Entry map = (Map.Entry) it.next();
-                ped = (DataPedido)map.getValue();
+                Pedido ped = (Pedido)map.getValue();
                 String id = String.valueOf(ped.getId());
                 lista[0]=id;
                 model.insertRow((int)jTabla.getRowCount(), lista);

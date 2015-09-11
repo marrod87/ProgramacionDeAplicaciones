@@ -27,6 +27,9 @@ public class Restaurante extends Usuario{
         ColProducto = new HashMap();
         //this.lstImagen = new ArrayList<String>(); //Esto puede ser cualquera
     }
+    public boolean tengoProd(Producto p){
+        return this.ColProducto.containsValue(p);
+    }
     
     public void addCategoria(Categoria c){
         ColCategoria.put(c.getNombre(), c);
@@ -91,18 +94,18 @@ public class Restaurante extends Usuario{
     
     }
     
-    public DataCarrito agregarProducto(String nombre, int cantidad){
-        Producto prod = this.getProducto(nombre);
-        String nomerror = prod.getNombre(); 
-        if(prod.prodDisponible(cantidad)){
-            DataCarrito dc = prod.getDataCarrito(cantidad);
-            prod.restarStock(cantidad);
-            return dc;
-        }
-        else
-            JOptionPane.showMessageDialog(null, nomerror, "Sin Stock", JOptionPane.INFORMATION_MESSAGE);
-            return null;
-    }
+//    public DataCarrito agregarProducto(String nombre, int cantidad){
+//        Producto prod = this.getProducto(nombre);
+//        String nomerror = prod.getNombre(); 
+//        if(prod.prodDisponible(cantidad)){
+//            DataCarrito dc = prod.getDataCarrito(cantidad);
+//            prod.restarStock(cantidad);
+//            return dc;
+//        }
+//        else
+//            JOptionPane.showMessageDialog(null, nomerror, "Sin Stock", JOptionPane.INFORMATION_MESSAGE);
+//            return null;
+//    }
     
     public Producto_Stock getProdCarrito(String nombre){
         Producto prod = this.getProducto(nombre);

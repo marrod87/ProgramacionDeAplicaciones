@@ -33,6 +33,9 @@ public class DataRestaurante {
         this.ColProducto=colProd;
         this.ColCategoria=colCategoria;
     }
+     public boolean tengoProd(Producto p){
+        return this.ColProducto.containsValue(p);
+    }
 
     public Usuario dataResAres(){
         Usuario r = new Restaurante(this.nickname, this.nombre, this.email, this.direccion, this.lstImagen, this.ColProducto, this.ColCategoria);

@@ -139,7 +139,7 @@ public class SeleccionarRestaurantePedido extends javax.swing.JInternalFrame {
         if(this.jtxtRestaurante.getText().equals(""))
             JOptionPane.showMessageDialog(null, "Debe ingresar al menos una categoria.", "ERROR", JOptionPane.ERROR_MESSAGE);
         else{
-            ICPed.setMemRestaurante(jtxtRestaurante.getText());
+            //ICPed.setMemRestaurante(jtxtRestaurante.getText());
             this.dispose();
         }    
         

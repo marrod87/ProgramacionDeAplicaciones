@@ -74,6 +74,6 @@ public abstract class  Producto {
     
     public abstract void restarStock(int cantidad);
 
-    public abstract DataCarrito getDataCarrito(int cantidad);
+    //public abstract DataCarrito getDataCarrito(int cantidad);
     
 }

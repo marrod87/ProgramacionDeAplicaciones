@@ -41,11 +41,11 @@ public class Individual extends Producto {
         return dIndividual;
     }
     
-    @Override
-    public DataCarrito getDataCarrito(int cantidad){
-        DataCarrito dc = new DataCarrito(this.getNombre(), false, cantidad, this.getPrecio());
-        return dc;
-    }
+   // @Override
+//    public DataCarrito getDataCarrito(int cantidad){
+//        DataCarrito dc = new DataCarrito(this.getNombre(), false, cantidad, this.getPrecio());
+//        return dc;
+//    }
     
     @Override
     public boolean prodDisponible(int cantidad){

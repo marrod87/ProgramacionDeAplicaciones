@@ -20,6 +20,7 @@ import lab01.Clases.Usuario;
 import lab01.Handlers.Fabrica;
 import lab01.Clases.Categoria;
 import lab01.Clases.DataCategoria;
+import lab01.Clases.Cliente;
 
 /**
  *
@@ -30,18 +31,21 @@ public class SelRestauranteListarUsuario extends javax.swing.JInternalFrame {
         
     
     //DefaultTreeModel modelo;
-    public SelRestauranteListarUsuario() {
+    public SelRestauranteListarUsuario(Cliente c) {
         initComponents();
         Fabrica fabrica = Fabrica.getInstance();
         ICU = fabrica.getICtrlUsuario();
+        cli=c; 
         //modelo = (DefaultTreeModel) treeCat.getModel();
         modelRest = new DefaultListModel();
         Raiz = new DefaultMutableTreeNode("Categorias");
         modelo = new DefaultTreeModel(Raiz);
         JTree tree = new JTree(modelo);
         this.cargarTree();
+        
         //this.cargarRestaurantesTree();
     }
+    Cliente cli;
     DefaultListModel modelRest;
     DefaultMutableTreeNode Raiz;// = new DefaultMutableTreeNode("Restaurantes");
     DefaultTreeModel modelo; //= new DefaultTreeModel(Raiz);
@@ -136,7 +140,7 @@ public class SelRestauranteListarUsuario extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         DefaultMutableTreeNode sel = (DefaultMutableTreeNode)treeCat.getLastSelectedPathComponent();
         String rest = (String)sel.getUserObject(); 
-        ListarProductosRestaurante verP = new ListarProductosRestaurante(rest);
+        ListarProductosRestaurante verP = new ListarProductosRestaurante(rest, cli);
             Console.EscritorioMenu.add(verP);
             verP.show();
             this.dispose();

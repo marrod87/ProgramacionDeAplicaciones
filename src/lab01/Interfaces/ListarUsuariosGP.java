@@ -118,12 +118,12 @@ public class ListarUsuariosGP extends javax.swing.JInternalFrame {
         String nick=String.valueOf(modelo.getValueAt(jtabla.getSelectedRow(),1));
         ICPed.setNickname(nick);
         Cliente clie = ICU.getUsuNick(nick);
-        ICPed.setMemoriaCliente(clie);
+        //ICPed.setMemoriaCliente(clie);
         String mail=String.valueOf(modelo.getValueAt(jtabla.getSelectedRow(), 0));
         ICPed.setMailCliente(mail);
         this.dispose();
         //nueva pantalla seleccionar Categoria
-        SelRestauranteListarUsuario selR = new SelRestauranteListarUsuario();
+        SelRestauranteListarUsuario selR = new SelRestauranteListarUsuario(clie);
         Console.EscritorioMenu.add(selR);
         selR.show();
     }//GEN-LAST:event_jbListoActionPerformed

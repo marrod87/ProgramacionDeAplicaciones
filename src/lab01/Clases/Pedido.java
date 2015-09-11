@@ -13,6 +13,8 @@ import javax.swing.JOptionPane;
 import static lab01.Clases.estados.ENVIADO;
 import static lab01.Clases.estados.PREPARACION;
 import static lab01.Clases.estados.RECIBIDO;
+import java.util.Map;
+import java.util.HashMap;
 
 
 /**
@@ -28,12 +30,16 @@ public class Pedido {
     private estados estado;
     private ArrayList<Producto_Stock> carrito;
     private DataPedido dp;
+    private Map ColPedidoProducto;
+    private Cliente cliente; 
 
-    public Pedido(double precio_total) {
+    public Pedido(Cliente c, Map colPP) {
         this.setId();
         this.setFecha();
-        this.precio_total = precio_total;
+        //this.precio_total = precio_total;
         this.estado = PREPARACION;
+        this.ColPedidoProducto = colPP;
+        this.cliente=c;
     }
 
     public long getId() {
@@ -108,5 +114,11 @@ public class Pedido {
     
     public void setDataPedido(DataPedido dp){
         this.dp = dp;
+    }
+    public Map getColPP(){
+        return this.ColPedidoProducto;
+    }
+    public Cliente getCliente(){
+        return this.cliente;
     }
 }

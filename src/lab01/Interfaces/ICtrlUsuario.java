@@ -13,6 +13,7 @@ import java.util.Map;
 import java.util.HashMap;
 import lab01.Clases.DataCliente;
 import lab01.Clases.DataRestaurante;
+import lab01.Clases.Producto;
 
 /**
  *
@@ -37,4 +38,5 @@ public interface ICtrlUsuario {
     public abstract Map listaProductosStock(String r);
     public abstract Map listarPedidos();
     public abstract Cliente getUsuNick(String nickname);
+    public abstract DataRestaurante deQuienEs(Producto p);
 }

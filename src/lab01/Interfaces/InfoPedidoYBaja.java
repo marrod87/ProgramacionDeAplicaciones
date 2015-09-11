@@ -9,8 +9,12 @@ import java.util.Iterator;
 import java.util.Map;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import lab01.Clases.DataCarrito;
+//import lab01.Clases.DataCarrito;
 import lab01.Clases.DataPedido;
+import lab01.Clases.DataRestaurante;
+import lab01.Clases.Pedido;
+import lab01.Clases.PedidoProducto;
+import lab01.Clases.Promocional;
 import lab01.Clases.estados;
 import lab01.Handlers.Fabrica;
 
@@ -24,21 +28,25 @@ public class InfoPedidoYBaja extends javax.swing.JFrame {
      * Creates new form InfoPedidoYBaja
      */
     private ICtrlPedido ICP;
+    private ICtrlUsuario ICU;
     int fila = 0;
-    private DataPedido datped;
-    public InfoPedidoYBaja(DataPedido dp){
+    private Pedido datped;
+    public InfoPedidoYBaja(Pedido dp){
         initComponents();
         datped = dp;
         Fabrica fabrica = Fabrica.getInstance();
         ICP = fabrica.getICtrlPedido();
+        ICU = fabrica.getICtrlUsuario();
         String id = Long.toString(dp.getId());
         lblIDpedido.setText(id);
-        lblNickCliente.setText(dp.getNickUsr());
-        lblNIckRestaurant.setText(dp.getNickRest());
+        lblNickCliente.setText(datped.getCliente().getNickname());
+        PedidoProducto pp = (PedidoProducto)datped.getColPP().get(0);
+        DataRestaurante dr = ICU.deQuienEs(pp.getProducto());
+        lblNIckRestaurant.setText(dr.getNickname());
         modelo = (DefaultTableModel)jTable.getModel();
         cargarTabla(this.datped);
-        String PTotal = Double.toString(dp.getPrecio_total());
-        lblPrecioTotal.setText(PTotal);
+        //String PTotal = Double.toString(dp.getPrecio_total());
+        //lblPrecioTotal.setText(PTotal);
     }
     DefaultTableModel modelo;
 
@@ -46,22 +54,22 @@ public class InfoPedidoYBaja extends javax.swing.JFrame {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    private void cargarTabla(DataPedido dp){
-        Iterator it = dp.getColCarrito().entrySet().iterator();
+    private void cargarTabla(Pedido dp){
+        Iterator it = dp.getColPP().entrySet().iterator();
         String lista[] = new String[4];
         while(it.hasNext()){
             Map.Entry map = (Map.Entry) it.next();
-            DataCarrito dc = (DataCarrito)map.getValue();
-            lista[0] = dc.getNomProd();
+            PedidoProducto dc = (PedidoProducto)map.getValue();
+            lista[0] = dc.getNombre();
             String cant = Integer.toString(dc.getCantidad());
             lista[1] = cant;
-            boolean promo = dc.getPromo();
+            boolean promo = dc.getProducto()instanceof Promocional;
             if(promo){
                 lista[2] = "SI";
             }else{
                 lista[2] = "NO";
             }
-            double subT = dc.getCantidad() * dc.getPrecio();
+            double subT = dc.getCantidad() * dc.getProducto().getPrecio();
             String SsubT = Double.toString(subT);
             lista[3] = SsubT;
             modelo.insertRow((int)fila, lista);
@@ -273,13 +281,13 @@ public class InfoPedidoYBaja extends javax.swing.JFrame {
         String p;
         p = JOptionPane.showInputDialog(null, "Ingrese estado:", "Ingreso de estado", JOptionPane.INFORMATION_MESSAGE);
         if(p.toLowerCase() == "preparacion"){
-            ICP.actualizarEPedido(this.datped.getNickUsr(), this.datped.getId(), estados.PREPARACION);
+            ICP.actualizarEPedido(this.datped.getCliente().getNickname(), this.datped.getId(), estados.PREPARACION);
         }
         if(p.toLowerCase() == "enviado"){
-            ICP.actualizarEPedido(this.datped.getNickUsr(), this.datped.getId(), estados.ENVIADO);
+            ICP.actualizarEPedido(this.datped.getCliente().getNickname(), this.datped.getId(), estados.ENVIADO);
         }
         if(p.toLowerCase() == "recibido"){
-            ICP.actualizarEPedido(this.datped.getNickUsr(), this.datped.getId(), estados.RECIBIDO);
+            ICP.actualizarEPedido(this.datped.getCliente().getNickname(), this.datped.getId(), estados.RECIBIDO);
         }
     }//GEN-LAST:event_btnActEstadoActionPerformed
 

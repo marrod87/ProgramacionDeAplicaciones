@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import lab01.Clases.Cliente;
-import lab01.Clases.DataCarrito;
+//import lab01.Clases.DataCarrito;
 import lab01.Clases.DataCliente;
 import lab01.Clases.Restaurante;
 import lab01.Clases.DataRestaurante;
@@ -22,6 +22,7 @@ import lab01.Clases.DataProducto;
 import lab01.Clases.DataPromocional;
 import lab01.Clases.Individual;
 import lab01.Clases.Pedido;
+import lab01.Clases.PedidoProducto;
 import lab01.Clases.Producto;
 import lab01.Clases.Producto_Stock;
 import lab01.Clases.Promocional;
@@ -43,15 +44,15 @@ public class CtrlPedido implements ICtrlPedido {
     private ArrayList<Producto_Stock> carrito;
     private DataPedido dp;
 
-    @Override
-    public DataPedido getDp() {
-        return dp;
-    }
+//    @Override
+//    public DataPedido getDp() {
+//        return dp;
+//    }
     
-    @Override
-    public void setDp(DataPedido dp) {
-        this.dp = dp;
-    }
+//    @Override
+//    public void setDp(DataPedido dp) {
+//        this.dp = dp;
+//    }
     
     public CtrlPedido(){
     this.ColDataCarrito = new HashMap();
@@ -75,21 +76,21 @@ public class CtrlPedido implements ICtrlPedido {
         this.mailCliente = mail;
     }
     
-    public Cliente getMemCliente(){
-        return this.memCliente;
-    }
+//    public Cliente getMemCliente(){
+//        return this.memCliente;
+//    }
     
-    @Override
-    public void setMemCliente(){
-        HUsuario mu = HUsuario.getinstance();
-        if(mu.exists(this.getNickname())){
-            this.memCliente = mu.obtenerUsuario(this.getNickname());
-        }
-    }
-    public void setMemoriaCliente(Cliente c){
-            this.memCliente = c;
-        
-    }
+//    @Override
+//    public void setMemCliente(){
+//        HUsuario mu = HUsuario.getinstance();
+//        if(mu.exists(this.getNickname())){
+//            this.memCliente = mu.obtenerUsuario(this.getNickname());
+//        }
+//    }
+//    public void setMemoriaCliente(Cliente c){
+//            this.memCliente = c;
+//        
+//    }
     public void setCat(String nombre){
         this.categoria=nombre;
     }
@@ -97,45 +98,45 @@ public class CtrlPedido implements ICtrlPedido {
         return this.categoria;
     }
     
-    public Map getColDataCarrito(){
-        return this.ColDataCarrito;
-    }
+//    public Map getColDataCarrito(){
+//        return this.ColDataCarrito;
+//    }
+//    
+//    public void setDataCarrito(DataCarrito dc){
+//        this.ColDataCarrito.put(dc.getNomProd(), dc);
+//    }
     
-    public void setDataCarrito(DataCarrito dc){
-        this.ColDataCarrito.put(dc.getNomProd(), dc);
-    }
+//    public void setColDataCarrito(Map ColDataCarrito){
+//        this.ColDataCarrito = ColDataCarrito;
+//    }
     
-    public void setColDataCarrito(Map ColDataCarrito){
-        this.ColDataCarrito = ColDataCarrito;
-    }
+//    public ArrayList<Producto_Stock> getCarrito(){
+//        return this.carrito;
+//    }
     
-    public ArrayList<Producto_Stock> getCarrito(){
-        return this.carrito;
-    }
+//    public void addCarrito(Producto_Stock pd){
+//        this.carrito.add(pd);
+//    }
+//    
+//    public void setCarrito(ArrayList<Producto_Stock> carrito){
+//        this.carrito = carrito;
+//    }
+//    
+//    public double getMonto(){
+//        return this.monto;
+//    }
     
-    public void addCarrito(Producto_Stock pd){
-        this.carrito.add(pd);
-    }
-    
-    public void setCarrito(ArrayList<Producto_Stock> carrito){
-        this.carrito = carrito;
-    }
-    
-    public double getMonto(){
-        return this.monto;
-    }
-    
-    @Override
-    public void setMonto(){
-        double suma = 0;
-        Iterator<DataCarrito> it = this.getColDataCarrito().entrySet().iterator();
-        while(it.hasNext()){
-            Map.Entry map = (Map.Entry) it.next();
-            DataCarrito dc = (DataCarrito)map.getValue();
-            suma = suma + (dc.getPrecio()*dc.getCantidad());
-        }
-        this.monto = suma;
-    }
+//    @Override
+//    public void setMonto(){
+//        double suma = 0;
+//        Iterator<DataCarrito> it = this.getColDataCarrito().entrySet().iterator();
+//        while(it.hasNext()){
+//            Map.Entry map = (Map.Entry) it.next();
+//            DataCarrito dc = (DataCarrito)map.getValue();
+//            suma = suma + (dc.getPrecio()*dc.getCantidad());
+//        }
+//        this.monto = suma;
+//    }
     
     @Override
     public Map devListaDC(){
@@ -186,15 +187,15 @@ public class CtrlPedido implements ICtrlPedido {
         return ret;
     }
 
-    @Override
-    public boolean setMemRestaurante(String nickname){
-        HUsuario mu = HUsuario.getinstance();
-        if(mu.exists(nickname)){
-            this.memRestaurante = mu.obtenerRestaurante(nickname);
-            return true;
-        }
-        return false;
-    }
+//    @Override
+//    public boolean setMemRestaurante(String nickname){
+//        HUsuario mu = HUsuario.getinstance();
+//        if(mu.exists(nickname)){
+//            this.memRestaurante = mu.obtenerRestaurante(nickname);
+//            return true;
+//        }
+//        return false;
+//    }
     
     @Override
     public DataProducto devListaProductos(){
@@ -217,31 +218,31 @@ public class CtrlPedido implements ICtrlPedido {
         return dp;
     }
     
-    @Override
-    public boolean selectProductos(String nombre, int cantidad){//esto va en un loop en la interfaz
-        DataCarrito dc = this.memRestaurante.agregarProducto(nombre, cantidad);
-        if(dc != null){
-            Producto pro = this.memRestaurante.getProducto(dc.getNomProd());
-            this.setDataCarrito(dc);
-            Producto_Stock prodStock = this.memRestaurante.getProdCarrito(nombre);
-            prodStock.setProducto(pro);
-            this.addCarrito(prodStock);
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
+//    @Override
+//    public boolean selectProductos(String nombre, int cantidad){//esto va en un loop en la interfaz
+//        DataCarrito dc = this.memRestaurante.agregarProducto(nombre, cantidad);
+//        if(dc != null){
+//            Producto pro = this.memRestaurante.getProducto(dc.getNomProd());
+//            this.setDataCarrito(dc);
+//            Producto_Stock prodStock = this.memRestaurante.getProdCarrito(nombre);
+//            prodStock.setProducto(pro);
+//            this.addCarrito(prodStock);
+//            return true;
+//        }
+//        else{
+//            return false;
+//        }
+//    }
     
     @Override
-    public DataPedido altaPedido(){
-        this.setMonto();
-        Pedido nuevo = new Pedido(this.getMonto());
-        nuevo.setCarrito(this.getCarrito());
-        DataPedido newDP = new DataPedido(nuevo.getId(), this.getNickname(), this.getMailCliente(), nuevo.getFecha(), this.memRestaurante.getNickname(), this.getColDataCarrito(), this.getMonto(), nuevo.getEstado());
-        nuevo.setDataPedido(newDP);
-        this.memCliente.setPedido(nuevo);
-        return newDP;
+    public Pedido altaPedido(Cliente c, Map ColPP){
+        //this.setMonto();
+        Pedido nuevo = new Pedido(c, ColPP);
+        //nuevo.setCarrito(this.getCarrito());
+       // DataPedido newDP = new DataPedido(nuevo.getId(), this.getNickname(), this.getMailCliente(), nuevo.getFecha(), this.memRestaurante.getNickname(), this.getColDataCarrito(), this.getMonto(), nuevo.getEstado());
+        //nuevo.setDataPedido(newDP);
+        //this.memCliente.setPedido(nuevo);
+        return nuevo;
     }
     
     @Override
@@ -257,7 +258,7 @@ public class CtrlPedido implements ICtrlPedido {
                 while(pedidos.hasNext()){
                     Map.Entry p = (Map.Entry) pedidos.next();
                     Pedido ped = (Pedido)p.getValue();
-                    aux.put(ped.getDataPedido().getId(), ped.getDataPedido());
+                    aux.put(ped.getId(), ped);
                 }
             }
         }
@@ -283,11 +284,11 @@ public class CtrlPedido implements ICtrlPedido {
         }
     }
     
-    @Override
-    public void limpiarCtrl(){
-        this.getCarrito().clear();
-        this.getColDataCarrito().clear();
-    }
+//    @Override
+//    public void limpiarCtrl(){
+//        this.getCarrito().clear();
+//        this.getColDataCarrito().clear();
+//    }
     
     @Override
     public void actualizarEPedido(String nickname, long id, estados estado){//usar listarDataPedido antes q esto xD

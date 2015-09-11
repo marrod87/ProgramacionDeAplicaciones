@@ -21,6 +21,7 @@ import lab01.Clases.DataCliente;
 import lab01.Clases.DataPedido;
 import lab01.Clases.DataRestaurante;
 import lab01.Clases.Pedido;
+import lab01.Clases.Producto;
 import lab01.Clases.Usuario;
 
 /**
@@ -202,6 +203,17 @@ public class CtrlUsuario implements ICtrlUsuario {
             }
         }
     return ret;
+    }
+    public DataRestaurante deQuienEs(Producto p){
+        Map rests = listaDataRestaurantes();
+        Iterator it = rests.entrySet().iterator();
+        while(it.hasNext()){
+            Map.Entry map = (Map.Entry) it.next();
+            DataRestaurante dr = (DataRestaurante)map.getValue();
+            if(dr.tengoProd(p))
+                return dr;
+        }
+    return null;
     }
 //    @Override
 //    public void registrarRestaurante(DataRestaurante dt) {

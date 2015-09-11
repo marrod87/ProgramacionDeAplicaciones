@@ -8,8 +8,13 @@ package lab01.Interfaces;
 import java.util.Iterator;
 import java.util.Map;
 import javax.swing.table.DefaultTableModel;
-import lab01.Clases.DataCarrito;
+//import lab01.Clases.DataCarrito;
 import lab01.Clases.DataPedido;
+import lab01.Clases.DataRestaurante;
+import lab01.Clases.Pedido;
+import lab01.Clases.PedidoProducto;
+import lab01.Clases.Producto;
+import lab01.Clases.Promocional;
 import lab01.Clases.Restaurante;
 import lab01.Handlers.Fabrica;
 
@@ -23,52 +28,68 @@ public class AltaPedido extends javax.swing.JInternalFrame {
      * Creates new form AltaPedido
      */
     ICtrlPedido ICP;
+    ICtrlUsuario ICU;
     int fila = 0;
  
-    public AltaPedido() {
+    public AltaPedido(Pedido p) {
         initComponents();
         Fabrica fabrica = Fabrica.getInstance();
         ICP = fabrica.getICtrlPedido();
-        lblnomUsuario.setText(ICP.getDp().getNickUsr());
-        lblMailCliente.setText(ICP.getDp().getMailUsr());
-        long l =ICP.getDp().getId();
+        ICU = fabrica.getICtrlUsuario();
+        pedido=p;
+        lblnomUsuario.setText(p.getCliente().getNombre());
+        lblMailCliente.setText(p.getCliente().getMail());
+        long l =p.getId();
         String id = Long.toString(l);
         lblIdPedido.setText(id);
         lblEstadoPedido.setText("Preparacion");
-        lblFecha.setText(ICP.getDp().getFecha());
-        lblRestaurante.setText(ICP.getDp().getNickRest());
+        lblFecha.setText(p.getFecha());
+//        lblRestaurante.setText(ICP.getDp().getNickRest());
         modelo = (DefaultTableModel)tblPedido.getModel();
-        LoadTablePedido(ICP.getDp().getNickRest());
-        Double tot = ICP.getDp().getPrecio_total();
-        String sTotal = Double.toString(tot);
-        lblTotalPedido.setText(sTotal);
-        ICP.limpiarCtrl();
+        PedidoProducto pp = (PedidoProducto)p.getColPP().get(0);
+        DataRestaurante dr = ICU.deQuienEs(pp.getProducto());
+        
+        LoadTablePedido(dr.getNickname());
+        //Double sTotal = Double.toString(p.getPrecio_total())
+        //Double tot = ICP.getDp().getPrecio_total();
+        //String sTotal = Double.toString(tot);
+        //lblTotalPedido.setText(sTotal);
+        //ICP.limpiarCtrl();
         
         //LoadTablePedido();
 
         
     }
     DefaultTableModel modelo;
-    
+    Pedido pedido;
         private void LoadTablePedido(String res){
         //Restaurante r = null;
         String lista[]=new String[5];
-        Map prod = ICP.getDp().getColCarrito();
+        Map prod = pedido.getColPP();//ICP.getDp().getColCarrito();
         Iterator it = prod.entrySet().iterator();
         while(it.hasNext()){
             Map.Entry mapcol = (Map.Entry) it.next();
-            DataCarrito carro = (DataCarrito)mapcol.getValue();
-            lista[0]= carro.getNomProd();
-            int cant = carro.getCantidad();
-            String sCant = Integer.toString(cant);
-            lista[1]= sCant;
-            double precio = carro.getPrecio();
-            String sPrecio = Double.toString(precio);
-            lista[2] = sPrecio;
-            double totalU = cant * precio;
-            String sTotalU = Double.toString(totalU);
-            lista[3] = sTotalU;
-            boolean promo = carro.getPromo();
+            //DataCarrito carro = (DataCarrito)mapcol.getValue();
+            PedidoProducto Pproduc = (PedidoProducto)mapcol.getValue();
+            lista[0]=Pproduc.getProducto().getNombre();
+            String sCant = Integer.toString(Pproduc.getCantidad());
+            lista[1]=sCant;
+            String sPrecio = Double.toString(Pproduc.getProducto().getPrecio());
+            lista[2]=sPrecio;
+            double total = Pproduc.getCantidad()*Pproduc.getProducto().getPrecio();
+            lista[3]=Double.toString(total);
+//            lista[0]= carro.getNomProd();
+//            int cant = carro.getCantidad();
+//            String sCant = Integer.toString(cant);
+//            lista[1]= sCant;
+//            double precio = carro.getPrecio();
+//            String sPrecio = Double.toString(precio);
+//            lista[2] = sPrecio;
+//            double totalU = cant * precio;
+//            String sTotalU = Double.toString(totalU);
+//            lista[3] = sTotalU;
+            boolean promo = (Pproduc.getProducto()instanceof Promocional);
+//            boolean promo = carro.getPromo();
             //String sPromo = Boolean.toString(promo);
             if (promo){
               lista[4] = "SI";

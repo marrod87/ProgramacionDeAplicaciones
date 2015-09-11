@@ -20,20 +20,22 @@ public class DataPedido {
     private String nickUsr;
     private String mailUsr;
     private String nickRest; //o el nombre no c
-    private Map ColCarrito; //map de DataCarrito
+    private Map ColPedidoProducto; 
+    private Cliente cliente;
     
-    public DataPedido(long id, String nickUsr, String mailUsr, String fecha, String nickRest, Map ColCarrito, double precio_total, estados estado){
+    public DataPedido(long id, String nickUsr, String mailUsr, String fecha, String nickRest, Map ColPedidoProducto, double precio_total, estados estado, Cliente cli){
         this.id = id;
         this.nickUsr = nickUsr;
         this.mailUsr = mailUsr;
         this.fecha = fecha;
         this.nickRest = nickRest;
-        this.ColCarrito = new HashMap();
-        this.ColCarrito.putAll(ColCarrito);
+        this.ColPedidoProducto = new HashMap();
+        this.ColPedidoProducto.putAll(ColPedidoProducto);
         //if(this.ColCarrito.isEmpty()){
         //    this.ColCarrito = new HashMap();}
         this.precio_total = precio_total;
         this.estado = estado;
+        this.cliente = cli;
     }
     
     public long getId() {
@@ -93,14 +95,14 @@ public class DataPedido {
     }
     
     public Map getColCarrito(){
-        return this.ColCarrito;
+        return this.ColPedidoProducto;
     }
     
     public void setColCarrito(Map ColCarrito){//por si queda mas comodo...
-        this.ColCarrito = ColCarrito;
+        this.ColPedidoProducto = ColCarrito;
     }
     
-    public void setDatCarrito(DataCarrito dc){
-        this.ColCarrito.put(dc.getNomProd(), dc);
-    }
+//    public void setDatCarrito(DataCarrito dc){
+//        this.ColCarrito.put(dc.getNomProd(), dc);
+//    }
 }

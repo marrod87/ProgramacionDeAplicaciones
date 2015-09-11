@@ -13,7 +13,10 @@ import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import lab01.Clases.Restaurante;
 import lab01.Handlers.Fabrica;
-
+import lab01.Clases.Cliente;
+import lab01.Clases.Pedido;
+import lab01.Clases.Producto;
+import lab01.Clases.PedidoProducto;
 /**
  *
  * @author gera
@@ -27,16 +30,19 @@ public class ListarProductosRestaurante extends javax.swing.JInternalFrame {
     ICtrlPedido ICP;
     boolean stock;
     int fila = 0;
-    public ListarProductosRestaurante(String res) {
+    public ListarProductosRestaurante(String res, Cliente c) {
         initComponents();
         Fabrica fabrica = Fabrica.getInstance();
         ICU = fabrica.getICtrlUsuario();
+        cli=c;
+        r=res;
         modelo = (DefaultTableModel)tblProductosRes.getModel();
         ICP = fabrica.getICtrlPedido();
         LoadTableProductRest(res);
     }
     DefaultTableModel modelo;
-
+    Cliente cli;
+    String r;
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -113,33 +119,40 @@ public class ListarProductosRestaurante extends javax.swing.JInternalFrame {
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         int j = tblProductosRes.getRowCount();
+        Map colPP = new HashMap();
+        int k = 0;
+        stock = true;
         for(int i=0; i<tblProductosRes.getRowCount(); i++){
             if(!modelo.getValueAt(i,1).toString().equals("0")){
                 String nom = modelo.getValueAt(i,0).toString();
                 int cant = (int)modelo.getValueAt(i,1);
-                stock = ICP.selectProductos(nom, cant);
-                
+                //stock = ICP.selectProductos(nom, cant);
+                Restaurante resta=ICU.getRestauranteByNickname(this.r);
+                Producto p=resta.getProducto(nom);
+                PedidoProducto pp = new PedidoProducto(p,cant);
+                colPP.put(k, pp);
+                k++;
             }
         }
         if(stock){
             this.dispose();
-            ICP.setDp(ICP.altaPedido());
-            AltaPedido ap = new AltaPedido();
+            //ICP.setDp(ICP.altaPedido(cli, colPP));
+            Pedido p=ICP.altaPedido(cli, colPP);
+            cli.setPedido(p);
+            AltaPedido ap = new AltaPedido(p);
             Console.EscritorioMenu.add(ap);
             ap.show();
-        }
-        else{
-            ICP.limpiarCtrl();
-        }
+        
+        }    
     }//GEN-LAST:event_btnAgregarActionPerformed
     
     private void LoadTableProductRest(String res){
         Restaurante r = null;
         String lista[]=new String[2];
         r = ICU.getRestauranteByNickname(res);
-        ICP.setMemRestaurante(res);
-        Map lstProd = r.obtenerListaProductos();
-        Iterator it = lstProd.entrySet().iterator();
+        //ICP.setMemRestaurante(res);
+        Map lstPProd = r.obtenerListaProductos();
+        Iterator it = lstPProd.entrySet().iterator();
         while(it.hasNext()){
             Map.Entry mapcol = (Map.Entry) it.next();
             String nomProd = mapcol.getKey().toString();
