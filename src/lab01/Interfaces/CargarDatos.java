@@ -164,50 +164,50 @@ public class CargarDatos extends javax.swing.JFrame {
       DataIndividual di1 = new DataIndividual("Asado", "Asado a la parrilla", 225.0, null, 3);
       ICProd.registrarProducto(di1, "mera", false);
      
-      DataIndividual di2 = new DataIndividual("Milanesa de Carne", "Con lechuga, tomate, mayonesa y fritas", 180.0, "/home/martin/NetBeansProjects/ProgAplicaciones/images/productos/milanesa-de-carne.jpg", 0);
+      DataIndividual di2 = new DataIndividual("Milanesa de Carne", "Con lechuga, tomate, mayonesa y fritas", 180.0, "/home/martin/NetBeansProjects/ProgAplicaciones/images/productos/milanesa-de-carne.jpg", 150);
       ICProd.registrarProducto(di2, "mera", false);
      
-      DataIndividual di3 = new DataIndividual("Chivito canadiense", "Lomito, jamón, muzza, tomate, aceitunas, panceta, huevo, morrón y fritas", 305.0, "/home/martin/NetBeansProjects/ProgAplicaciones/images/productos/chivito-canadiense.jpg", 4);
+      DataIndividual di3 = new DataIndividual("Chivito canadiense", "Lomito, jamón, muzza, tomate, aceitunas, panceta, huevo, morrón y fritas", 305.0, "/home/martin/NetBeansProjects/ProgAplicaciones/images/productos/chivito-canadiense.jpg", 49);
       ICProd.registrarProducto(di3, "mera", false);
      
       DataIndividual di4 = new DataIndividual("Pizza 2 gustos", "Pizza con dos gustos a elección", 130.0, "/home/martin/NetBeansProjects/ProgAplicaciones/images/productos/generico.jpg", 100);
       ICProd.registrarProducto(di4, "mera", false);
 
-      DataIndividual di5 = new DataIndividual("Chivito al plato", "Ensalada rusa, mixta, huevo, jamón, muzza, panceta, aceitunas y fritas", 324.0, "/home/martin/NetBeansProjects/ProgAplicaciones/images/productos/generico.jpg", 0);
+      DataIndividual di5 = new DataIndividual("Chivito al plato", "Ensalada rusa, mixta, huevo, jamón, muzza, panceta, aceitunas y fritas", 324.0, "/home/martin/NetBeansProjects/ProgAplicaciones/images/productos/generico.jpg", 115);
       ICProd.registrarProducto(di5, "rossell", false);
      
-      DataIndividual di6 = new DataIndividual("Milanesa a caballo", "Milanesa con dos huevos fritos acompañado de fritas", 270.0, "/home/martin/NetBeansProjects/ProgAplicaciones/images/productos/milanesa-a-caballo.jpg", 0);
+      DataIndividual di6 = new DataIndividual("Milanesa a caballo", "Milanesa con dos huevos fritos acompañado de fritas", 270.0, "/home/martin/NetBeansProjects/ProgAplicaciones/images/productos/milanesa-a-caballo.jpg", 35);
       ICProd.registrarProducto(di6, "rossell", false);
      
-      DataIndividual di7 = new DataIndividual("Pizza 2 gustos", "Pizza con dos gustos a elección", 103.0, "/home/martin/NetBeansProjects/ProgAplicaciones/images/productos/generico.jpg", 0);
+      DataIndividual di7 = new DataIndividual("Pizza 2 gustos", "Pizza con dos gustos a elección", 103.0, "/home/martin/NetBeansProjects/ProgAplicaciones/images/productos/generico.jpg", 45);
       ICProd.registrarProducto(di7, "rossell", false);
      
-      DataIndividual di8 = new DataIndividual("Agnolotis", "Agnolotis de jamón y queso", 225.0, "/home/martin/NetBeansProjects/ProgAplicaciones/images/productos/agnolotis.jpg", 1);
+      DataIndividual di8 = new DataIndividual("Agnolotis", "Agnolotis de jamón y queso", 225.0, "/home/martin/NetBeansProjects/ProgAplicaciones/images/productos/agnolotis.jpg", 50);
       ICProd.registrarProducto(di8, "rossell", false);
      
-      DataIndividual di9 = new DataIndividual("Empanada de carne", "Carne, aceitunas, huevo duro, condimentos", 44.0, "/home/martin/NetBeansProjects/ProgAplicaciones/images/productos/empanada-de-carne.jpg", 1);
+      DataIndividual di9 = new DataIndividual("Empanada de carne", "Carne, aceitunas, huevo duro, condimentos", 44.0, "/home/martin/NetBeansProjects/ProgAplicaciones/images/productos/empanada-de-carne.jpg", 65);
       ICProd.registrarProducto(di9, "bocatti", false);     
 
-      DataIndividual di10 = new DataIndividual("Empanada Americana", "Carne, panceta y huevo duro", 44.0, "/home/martin/NetBeansProjects/ProgAplicaciones/images/productos/generico.jpg", 2);
+      DataIndividual di10 = new DataIndividual("Empanada Americana", "Carne, panceta y huevo duro", 44.0, "/home/martin/NetBeansProjects/ProgAplicaciones/images/productos/generico.jpg", 70);
       ICProd.registrarProducto(di10, "bocatti", false);
      
-      DataIndividual di11 = new DataIndividual("Empanada QyC", "Empanada de Queso y Cebolla", 44.0, "/home/martin/NetBeansProjects/ProgAplicaciones/images/productos/empanada-qyc.jpg", 2);
+      DataIndividual di11 = new DataIndividual("Empanada QyC", "Empanada de Queso y Cebolla", 44.0, "/home/martin/NetBeansProjects/ProgAplicaciones/images/productos/empanada-qyc.jpg", 333);
       ICProd.registrarProducto(di11, "bocatti", false);
      
       
-      DataIndividual di12 = new DataIndividual("Empanada Capresse", "Queso, tomate y albahaca", 44.0, "/home/martin/NetBeansProjects/ProgAplicaciones/images/productos/empanada-capresse.jpg", 0);
+      DataIndividual di12 = new DataIndividual("Empanada Capresse", "Queso, tomate y albahaca", 44.0, "/home/martin/NetBeansProjects/ProgAplicaciones/images/productos/empanada-capresse.jpg", 230);
       ICProd.registrarProducto(di12, "bocatti", false);     
      
-      DataIndividual di13 = new DataIndividual("Thai wok", "Cerdo, calamares, sweet chili, salsa de ostras, maní y jugo de lima, acompañado de tallarines o arroz.", 240.0, "/home/martin/NetBeansProjects/ProgAplicaciones/images/productos/tahi-wok.jpg", 2);
+      DataIndividual di13 = new DataIndividual("Thai wok", "Cerdo, calamares, sweet chili, salsa de ostras, maní y jugo de lima, acompañado de tallarines o arroz.", 240.0, "/home/martin/NetBeansProjects/ProgAplicaciones/images/productos/tahi-wok.jpg", 222);
       ICProd.registrarProducto(di13, "winb", false);
      
-      DataIndividual di14 = new DataIndividual("China wok", "Tempura de cerdo, vegetales mixtos, almendras, salsa de soja y naranja, acompañado de tallarines o arroz.", 240.0, "/home/martin/NetBeansProjects/ProgAplicaciones/images/productos/generico.jpg", 3);
+      DataIndividual di14 = new DataIndividual("China wok", "Tempura de cerdo, vegetales mixtos, almendras, salsa de soja y naranja, acompañado de tallarines o arroz.", 240.0, "/home/martin/NetBeansProjects/ProgAplicaciones/images/productos/generico.jpg", 38);
       ICProd.registrarProducto(di14, "winb", false); 
      
-      DataIndividual di15 = new DataIndividual("Classic wok de pollo", "Pollo, vegetales mixtos, salsa agridulce, salsa de soja y cebollita de verdeo, acompañado de tallarines o arroz.", 230.0, "/home/martin/NetBeansProjects/ProgAplicaciones/images/productos/classic-wok-de-pollo.jpg", 0);
+      DataIndividual di15 = new DataIndividual("Classic wok de pollo", "Pollo, vegetales mixtos, salsa agridulce, salsa de soja y cebollita de verdeo, acompañado de tallarines o arroz.", 230.0, "/home/martin/NetBeansProjects/ProgAplicaciones/images/productos/classic-wok-de-pollo.jpg", 44);
       ICProd.registrarProducto(di15, "winb", false);
      
-      DataIndividual di16 = new DataIndividual("Classic wok de cerdo", "Cerdo, vegetales mixtos, jengibre, salsa de ostras y ralladura de lima, acompañado de tallarines o arroz.", 230.0, "/home/martin/NetBeansProjects/ProgAplicaciones/images/productos/generico.jpg", 0);
+      DataIndividual di16 = new DataIndividual("Classic wok de cerdo", "Cerdo, vegetales mixtos, jengibre, salsa de ostras y ralladura de lima, acompañado de tallarines o arroz.", 230.0, "/home/martin/NetBeansProjects/ProgAplicaciones/images/productos/generico.jpg", 65);
       ICProd.registrarProducto(di16, "winb", false);
       
         JOptionPane.showMessageDialog(null, "Los datos de prueba se cargaron con exito","EXITO",JOptionPane.INFORMATION_MESSAGE);

@@ -28,9 +28,10 @@ public class DataPedido {
         this.mailUsr = mailUsr;
         this.fecha = fecha;
         this.nickRest = nickRest;
-        this.ColCarrito = ColCarrito;
-        if(this.ColCarrito.isEmpty()){
-            this.ColCarrito = new HashMap();}
+        this.ColCarrito = new HashMap();
+        this.ColCarrito.putAll(ColCarrito);
+        //if(this.ColCarrito.isEmpty()){
+        //    this.ColCarrito = new HashMap();}
         this.precio_total = precio_total;
         this.estado = estado;
     }

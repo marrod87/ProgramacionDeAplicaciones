@@ -237,7 +237,7 @@ public class CtrlPedido implements ICtrlPedido {
     public DataPedido altaPedido(){
         this.setMonto();
         Pedido nuevo = new Pedido(this.getMonto());
-        nuevo.setCarrito(this.getCarrito());        
+        nuevo.setCarrito(this.getCarrito());
         DataPedido newDP = new DataPedido(nuevo.getId(), this.getNickname(), this.getMailCliente(), nuevo.getFecha(), this.memRestaurante.getNickname(), this.getColDataCarrito(), this.getMonto(), nuevo.getEstado());
         nuevo.setDataPedido(newDP);
         this.memCliente.setPedido(nuevo);
