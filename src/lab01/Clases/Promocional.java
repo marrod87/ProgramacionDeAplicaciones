@@ -111,4 +111,13 @@ public class Promocional extends Producto {
             ci.getProdIndividual().getProdStock().setCantidad(aux2);
         }
     }
+    
+    @Override
+    public void sumarStock(int cantidad){
+        for(Cantidad_Individual ci: ColCantIndividual){
+            int aux = ci.getCantidad() * cantidad;
+            int aux2 = ci.getProdIndividual().getProdStock().getCantidad() + aux;
+            ci.getProdIndividual().getProdStock().setCantidad(aux2);
+        }
+    }
 }

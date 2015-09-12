@@ -42,7 +42,12 @@ public class CtrlPedido implements ICtrlPedido {
     private Map ColDataCarrito;
     private ArrayList<Producto_Stock> carrito;
     private DataPedido dp;
-
+    
+    public CtrlPedido(){
+    this.ColDataCarrito = new HashMap();
+    this.carrito = new ArrayList<>();
+    }
+    
     @Override
     public DataPedido getDp() {
         return dp;
@@ -51,11 +56,6 @@ public class CtrlPedido implements ICtrlPedido {
     @Override
     public void setDp(DataPedido dp) {
         this.dp = dp;
-    }
-    
-    public CtrlPedido(){
-    this.ColDataCarrito = new HashMap();
-    this.carrito = new ArrayList<>();
     }
     
     @Override
@@ -106,7 +106,7 @@ public class CtrlPedido implements ICtrlPedido {
     }
     
     public void setColDataCarrito(Map ColDataCarrito){
-        this.ColDataCarrito = ColDataCarrito;
+        this.ColDataCarrito.putAll(ColDataCarrito);
     }
     
     public ArrayList<Producto_Stock> getCarrito(){
@@ -267,17 +267,26 @@ public class CtrlPedido implements ICtrlPedido {
     @Override
     public void cancelarPedido(long id){
         HUsuario hu = HUsuario.getinstance();
-        Pedido p;
+        Pedido ped;
         Iterator user = hu.obtenerColeccion().entrySet().iterator();
         while(user.hasNext()){
             Map.Entry users = (Map.Entry) user.next();
             if(users.getValue() instanceof Cliente){
                 Cliente client = (Cliente)users.getValue();
                 if(client.existePedido(id)){
-                    p = client.getPedido(id);
+                    ped = client.getPedido(id);
+                    DataPedido dp = ped.getDataPedido();
+                    Restaurante r = hu.obtenerRestaurante(dp.getNickRest());
+                    Iterator it = dp.getColCarrito().entrySet().iterator();
+                    while(it.hasNext()){
+                        Map.Entry map = (Map.Entry)it.next();
+                        DataCarrito dc = (DataCarrito)map.getValue();
+                        Producto prod = r.getProducto(dc.getNomProd());
+                        prod.sumarStock(dc.getCantidad());
+                    }
                     client.quitarPedido(id);
-                    p.vaciarPedido();
-                    p = null;
+                    ped.vaciarPedido();
+                    ped = null;
                 }
             }
         }

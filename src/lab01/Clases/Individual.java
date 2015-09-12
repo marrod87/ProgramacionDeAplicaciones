@@ -49,7 +49,7 @@ public class Individual extends Producto {
     
     @Override
     public boolean prodDisponible(int cantidad){
-        return this.getProdStock().getCantidad() > cantidad;
+        return this.getProdStock().getCantidad() >= cantidad;
     }
     
     @Override
@@ -57,5 +57,10 @@ public class Individual extends Producto {
         int aux = this.getProdStock().getCantidad() - cantidad;
         this.getProdStock().setCantidad(aux);
     }
-
+    
+    @Override
+    public void sumarStock(int cantidad){
+        int aux = this.getProdStock().getCantidad() + cantidad;
+        this.getProdStock().setCantidad(aux);
+    }
 }
