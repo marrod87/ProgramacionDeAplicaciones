@@ -25,7 +25,20 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanel1" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jPanel1" max="32767" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="btnEditar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jButton1" min="-2" pref="83" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="lblEstadoPromo" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                      <Component id="txtEstadoPromo" min="-2" pref="247" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="198" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
@@ -37,10 +50,22 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jPanel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txtEstadoPromo" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblEstadoPromo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="38" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnEditar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
                   <Component id="jScrollPane1" alignment="0" min="-2" pref="206" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="13" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -52,36 +77,30 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                  <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblDescripcion" alignment="1" min="-2" max="-2" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                          <Component id="lblNomProd" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                          <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblEstadoPromo" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblPrecioProd" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblDescripcion" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                                  <Component id="lblNomProd" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="lblPrecioProd" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="txtDescProd" alignment="0" pref="179" max="32767" attributes="0"/>
-                      <Component id="txtNomProd" alignment="0" max="32767" attributes="0"/>
-                      <Component id="txtPrecioProd" alignment="0" max="32767" attributes="0"/>
-                      <Component id="txtEstadoPromo" alignment="0" max="32767" attributes="0"/>
+                      <Component id="txtPrecioProd" alignment="1" max="32767" attributes="0"/>
+                      <Component id="txtNomProd" pref="249" max="32767" attributes="0"/>
+                      <Component id="jScrollPane2" max="32767" attributes="0"/>
                   </Group>
-              </Group>
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                  <Component id="btnEditar" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Component id="jButton1" min="-2" pref="83" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -90,34 +109,25 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
+                      <Component id="jPanel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="lblNomProd" alignment="3" min="-2" pref="15" max="-2" attributes="0"/>
                               <Component id="txtNomProd" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="txtDescProd" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblDescripcion" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="lblPrecioProd" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtPrecioProd" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lblDescripcion" min="-2" max="-2" attributes="0"/>
+                              <Component id="jScrollPane2" min="-2" pref="101" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <Component id="jPanel2" alignment="1" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblEstadoPromo" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtEstadoPromo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtPrecioProd" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblPrecioProd" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="10" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnEditar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -137,22 +147,6 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Descripci&#xf3;n: "/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtDescProd">
-        </Component>
-        <Component class="javax.swing.JLabel" name="lblPrecioProd">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Precio: "/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtPrecioProd">
-        </Component>
-        <Component class="javax.swing.JLabel" name="lblEstadoPromo">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Estado: "/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtEstadoPromo">
         </Component>
         <Container class="javax.swing.JPanel" name="jPanel2">
 
@@ -176,18 +170,29 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="jButton1">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Cerrar"/>
-          </Properties>
+        <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+          <AuxValues>
+            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+          </AuxValues>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JTextArea" name="txtDescProd">
+              <Properties>
+                <Property name="columns" type="int" value="20"/>
+                <Property name="lineWrap" type="boolean" value="true"/>
+                <Property name="rows" type="int" value="5"/>
+                <Property name="name" type="java.lang.String" value="txaDesc" noResource="true"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Component class="javax.swing.JTextField" name="txtPrecioProd">
         </Component>
-        <Component class="javax.swing.JButton" name="btnEditar">
+        <Component class="javax.swing.JLabel" name="lblPrecioProd">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Editar"/>
+            <Property name="text" type="java.lang.String" value="Precio: "/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEditarActionPerformed"/>
-          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -227,5 +232,25 @@
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JButton" name="btnEditar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Editar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEditarActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cerrar"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtEstadoPromo">
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblEstadoPromo">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Estado: "/>
+      </Properties>
+    </Component>
   </SubComponents>
 </Form>
