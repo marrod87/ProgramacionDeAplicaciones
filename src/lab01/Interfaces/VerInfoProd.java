@@ -72,6 +72,7 @@ public class VerInfoProd extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         lblImagenProd = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        btnEditar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTabla = new javax.swing.JTable();
 
@@ -106,6 +107,13 @@ public class VerInfoProd extends javax.swing.JFrame {
 
         jButton1.setText("Cerrar");
 
+        btnEditar.setText("Editar");
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -130,7 +138,9 @@ public class VerInfoProd extends javax.swing.JFrame {
                     .addComponent(txtPrecioProd)
                     .addComponent(txtEstadoPromo)))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(21, 21, 21)
+                .addComponent(btnEditar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -157,7 +167,9 @@ public class VerInfoProd extends javax.swing.JFrame {
                     .addComponent(lblEstadoPromo)
                     .addComponent(txtEstadoPromo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
-                .addComponent(jButton1))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(btnEditar)))
         );
 
         jTabla.setModel(new javax.swing.table.DefaultTableModel(
@@ -233,6 +245,10 @@ public class VerInfoProd extends javax.swing.JFrame {
 
     }//GEN-LAST:event_txtNomProdActionPerformed
 
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEditarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -270,6 +286,7 @@ public class VerInfoProd extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnEditar;
     private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
