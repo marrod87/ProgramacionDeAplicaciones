@@ -24,7 +24,7 @@ public class DataCliente{
     
     public DataCliente(){}
     
-    public DataCliente(String nickname, String nombre, String mail, String direccion, String apellido, String img, String fecha){
+    public DataCliente(String nickname, String mail, String nombre, String direccion, String apellido, String img, String fecha){
         this.nickname=nickname;
         this.nombre=nombre;
         this.email=mail;

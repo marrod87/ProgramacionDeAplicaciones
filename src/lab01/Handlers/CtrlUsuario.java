@@ -56,7 +56,7 @@ public class CtrlUsuario implements ICtrlUsuario {
     }
 
     @Override
-    public boolean ingresarDatos(String nickname, String email, String nombre, String direccion){
+    public boolean ingresarDatos(String nickname, String nombre, String email, String direccion){
         this.nickname=nickname;
         this.direccion=direccion;
         this.nombre=nombre;

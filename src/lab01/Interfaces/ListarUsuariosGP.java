@@ -57,7 +57,7 @@ public class ListarUsuariosGP extends javax.swing.JInternalFrame {
 
         jSeleccione.setText("Seleccione un cliente:");
 
-        jbListo.setText("Listo");
+        jbListo.setText("Ver Información");
         jbListo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbListoActionPerformed(evt);

@@ -15,6 +15,8 @@ import lab01.Clases.Categoria;
 import lab01.Clases.DataRestaurante;
 //import lab01.Interfaces.ICtrlUsuario;
 import lab01.Handlers.Fabrica;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -61,7 +63,6 @@ private ICtrlUsuario ICU;
         lblApellido = new javax.swing.JLabel();
         lblDireccion = new javax.swing.JLabel();
         lblNickname = new javax.swing.JLabel();
-        tbSelImagen = new javax.swing.JTextField();
         lblNombre = new javax.swing.JLabel();
         tbApellido = new javax.swing.JTextField();
         tbNombre = new javax.swing.JTextField();
@@ -69,6 +70,7 @@ private ICtrlUsuario ICU;
         tbNickname = new javax.swing.JTextField();
         lblMail = new javax.swing.JLabel();
         tbDireccion = new javax.swing.JTextField();
+        lblSelImg = new javax.swing.JLabel();
 
         setClosable(true);
         setIconifiable(true);
@@ -136,6 +138,8 @@ private ICtrlUsuario ICU;
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Ingrese los siguientes datos"));
 
+        tbMes.setRequestFocusEnabled(false);
+
         tbDia.setValue(1);
 
         jbSelCategoria.setText("Seleccionar Categoria");
@@ -145,6 +149,8 @@ private ICtrlUsuario ICU;
                 jbSelCategoriaActionPerformed(evt);
             }
         });
+
+        tbAnio.setValue(1997);
 
         lblFechaNacimiento.setText("Fecha de Nacimiento:");
 
@@ -160,12 +166,6 @@ private ICtrlUsuario ICU;
         lblDireccion.setText("Direccion:");
 
         lblNickname.setText("Nickname:");
-
-        tbSelImagen.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tbSelImagenActionPerformed(evt);
-            }
-        });
 
         lblNombre.setText("Nombre:");
 
@@ -196,36 +196,41 @@ private ICtrlUsuario ICU;
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblFechaNacimiento)
+                    .addComponent(jbSelCategoria)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnSelImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(lblApellido, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblDireccion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(btnSelImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(lblDireccion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(tbDia, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(27, 27, 27)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                 .addComponent(tbMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(29, 29, 29)
-                                .addComponent(tbAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(tbDireccion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 299, Short.MAX_VALUE)
-                            .addComponent(tbApellido, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(tbSelImagen)))
+                                .addGap(18, 18, 18)
+                                .addComponent(tbAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(2, 2, 2))
+                            .addComponent(lblSelImg, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(lblNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lblMail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblNickname, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(24, 24, 24)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(tbNickname, javax.swing.GroupLayout.DEFAULT_SIZE, 299, Short.MAX_VALUE)
-                            .addComponent(tbMail)
-                            .addComponent(tbNombre)))
-                    .addComponent(jbSelCategoria))
-                .addContainerGap(17, Short.MAX_VALUE))
+                            .addComponent(lblNickname, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(13, 13, 13)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(tbApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(tbNickname, javax.swing.GroupLayout.DEFAULT_SIZE, 299, Short.MAX_VALUE)
+                                        .addComponent(tbMail)
+                                        .addComponent(tbNombre))
+                                    .addComponent(tbDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(tbDia, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -250,24 +255,19 @@ private ICtrlUsuario ICU;
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tbDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblDireccion))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(21, 21, 21)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addComponent(tbAnio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(31, 31, 31))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                            .addComponent(tbMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(53, 53, 53)))
+                    .addComponent(lblFechaNacimiento)
+                    .addComponent(tbDia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tbAnio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tbMes, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnSelImagen)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblFechaNacimiento)
-                            .addComponent(tbDia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnSelImagen)
-                            .addComponent(tbSelImagen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(12, 12, 12)))
+                        .addComponent(lblSelImg)
+                        .addGap(3, 3, 3)))
+                .addGap(12, 12, 12)
                 .addComponent(jbSelCategoria)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -288,7 +288,7 @@ private ICtrlUsuario ICU;
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 27, Short.MAX_VALUE))))
+                        .addGap(0, 30, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -315,10 +315,11 @@ private ICtrlUsuario ICU;
         // TODO add your handling code here:
         String nickname = this.tbNickname.getText();
         String mail = this.tbMail.getText();
+        boolean mailok = validateEmail(mail);
         String nombre = this.tbNombre.getText();
-        String apellido = this.tbApellido.getText();
+        String apellido = (this.tbApellido.getText());
         String direccion = this.tbDireccion.getText();
-        String img = this.tbSelImagen.getText();
+        String img = this.lblSelImg.getText();
         int dia = this.tbDia.getValue();
         int mes = this.tbMes.getMonth() + 1;
         int anio = this.tbAnio.getValue();
@@ -329,18 +330,33 @@ private ICtrlUsuario ICU;
         DataRestaurante dt = new DataRestaurante(nickname, nombre, mail, direccion, lstImagen, null,ICU.getLstCat());
         if(nickname.isEmpty()||mail.isEmpty()||nombre.isEmpty()||apellido.isEmpty()||direccion.isEmpty())
             JOptionPane.showMessageDialog(null, "No debe haber campos vacios","ERROR",JOptionPane.ERROR_MESSAGE);
+        if (!mailok){
+            JOptionPane.showMessageDialog(null, "Mail no válido","ERROR",JOptionPane.ERROR_MESSAGE);
+        }
         else
-            if(ICU.ingresarDatos(nickname,nombre,mail,direccion)){
+            if(ICU.ingresarDatos(nickname,mail,nombre,direccion)){
                 if(rbCliente.isSelected()){
                     
                     ICU.registrarCliente(apellido, img, fecha);
                     JOptionPane.showMessageDialog(null, "El cliente ha sido registrado","Exito",JOptionPane.INFORMATION_MESSAGE);
+                    this.tbNickname.setText("");
+                    this.tbMail.setText("");
+                    this.tbNombre.setText("");
+                    this.tbApellido.setText("");
+                    this.tbDireccion.setText("");
+                    this.lblSelImg.setText("");
                 }
                 else
                     if(rbRestaurante.isSelected()){
                         //dt.setColCategoria(ICU.getLstCat());
                         ICU.registrarRestaurante(dt);
                         JOptionPane.showMessageDialog(null, "El restaurante ha sido registrado","Exito",JOptionPane.INFORMATION_MESSAGE);
+                        this.tbNickname.setText("");
+                        this.tbMail.setText("");
+                        this.tbNombre.setText("");
+                        this.tbApellido.setText("");
+                        this.tbDireccion.setText("");
+                        this.lblSelImg.setText("");
                     }
                     else
                         JOptionPane.showMessageDialog(null, "Seleccione Cliente o Restaurante","ERROR",JOptionPane.ERROR_MESSAGE);
@@ -348,12 +364,6 @@ private ICtrlUsuario ICU;
             else
                 JOptionPane.showMessageDialog(null, "El Nickname y/o el E-Mail ya existen.","ERROR",JOptionPane.ERROR_MESSAGE);
 
-        this.tbNickname.setText("");
-        this.tbMail.setText("");
-        this.tbNombre.setText("");
-        this.tbApellido.setText("");
-        this.tbDireccion.setText("");
-        this.tbSelImagen.setText("");
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void btnSelImagenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelImagenActionPerformed
@@ -361,7 +371,7 @@ private ICtrlUsuario ICU;
         selector.showOpenDialog(null);
         File archivo = selector.getSelectedFile();
         String filename = archivo.getAbsolutePath();
-        tbSelImagen.setText(filename);
+        lblSelImg.setText(filename);
     }//GEN-LAST:event_btnSelImagenActionPerformed
 
     private void tbNicknameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbNicknameActionPerformed
@@ -385,9 +395,12 @@ private ICtrlUsuario ICU;
     private void rbClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rbClienteMouseClicked
         // TODO add your handling code here:
         this.jbSelCategoria.setVisible(false);
+        
         this.tbDia.setVisible(true);
         this.tbMes.setVisible(true);
         this.tbAnio.setVisible(true);
+        this.tbApellido.setVisible(true);
+        this.lblApellido.setVisible(true);
         this.lblFechaNacimiento.setVisible(true);
     }//GEN-LAST:event_rbClienteMouseClicked
  
@@ -405,18 +418,42 @@ private ICtrlUsuario ICU;
         this.tbDia.setVisible(false);
         this.tbMes.setVisible(false);
         this.tbAnio.setVisible(false);
+        this.tbApellido.setVisible(false);
+        this.lblApellido.setVisible(false);
         this.lblFechaNacimiento.setVisible(false);
     }//GEN-LAST:event_rbRestauranteMouseClicked
-
-    private void tbSelImagenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbSelImagenActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tbSelImagenActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
+//public class ValidatorUtil {
+    
+    public static boolean validateEmail(String email){
+ 
+    String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+            + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+ 
+    /**
+     * Validate given email with regular expression.
+     * 
+     * @param email
+     *            email for validation
+     * @return true valid email, otherwise false
+     */
+
+        // Compiles the given regular expression into a pattern.
+        Pattern pattern = Pattern.compile(PATTERN_EMAIL);
+ 
+        // Match the given input against this pattern
+        Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
+ 
+    }
+    
+ 
+//}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
@@ -432,6 +469,7 @@ private ICtrlUsuario ICU;
     private javax.swing.JLabel lblMail;
     private javax.swing.JLabel lblNickname;
     private javax.swing.JLabel lblNombre;
+    private javax.swing.JLabel lblSelImg;
     private javax.swing.JRadioButton rbCliente;
     private javax.swing.JRadioButton rbRestaurante;
     private com.toedter.calendar.JYearChooser tbAnio;
@@ -442,7 +480,6 @@ private ICtrlUsuario ICU;
     private com.toedter.calendar.JMonthChooser tbMes;
     private javax.swing.JTextField tbNickname;
     private javax.swing.JTextField tbNombre;
-    private javax.swing.JTextField tbSelImagen;
     // End of variables declaration//GEN-END:variables
 
 
